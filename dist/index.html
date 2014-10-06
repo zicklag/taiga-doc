@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="generator" content="AsciiDoc 8.6.9">
+<title>Taiga documentation</title>
+<link rel="stylesheet" href="static/niwi.css" type="text/css">
+<link rel="stylesheet" href="static/pygments.css" type="text/css">
+
+
+<script type="text/javascript" src="static/asciidoc.js"></script>
+<script type="text/javascript" src="static/niwi.js"></script>
+<script type="text/javascript">
+/*<![CDATA[*/
+asciidoc.install(2);
+/*]]>*/
+</script>
+</head>
+<body class="article" style="max-width:800px">
+<div id="header">
+<h1>Taiga documentation</h1>
+<span id="author">2014-09-28</span><br>
+<div id="toc">
+  <div id="toctitle">Table of Contents</div>
+  <noscript><p><b>JavaScript must be enabled in your browser to display the table of contents.</b></p></noscript>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_introduction">1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Your Agile, Free and Open Source Project Management Tool</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_project_maturity">2. Project Maturity</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Since <em>taiga</em> is a young project it is currently in alpha state.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_it_works">3. How it works</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>Taiga is composed mainly by two components: <a href="https://github.com/taigaio/taiga-front">taiga-front</a>
+and <a href="https://github.com/taigaio/taiga-back">taiga-back</a></p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+<strong>taiga-front</strong> has the front related code and it is done using <strong>angularjs</strong> and <strong>coffescript</strong>.
+  It can runs on any static file server like nginx.
+</p>
+</li>
+<li>
+<p>
+<strong>taiga-back</strong> has the backend related code and it consists in an api, done using <strong>django</strong>
+  and <strong>python3</strong>.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Obviously, taiga has other modules, but they are optional and documented in other sections.</p></div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_install">4. Install</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>This section tries to explan everything related to get taiga
+working on both development and production environment.</p></div>
+<div class="sect2">
+<h3 id="_requirements">4.1. Requirements</h3>
+<div class="paragraph"><p>This is a list of major taiga dependencies:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Python 3.4
+</p>
+</li>
+<li>
+<p>
+PostgreSQL &gt; 9.2
+</p>
+</li>
+<li>
+<p>
+Ruby 2.1 (only for sass)
+</p>
+</li>
+<li>
+<p>
+NodeJS 0.10 (with npm, gulp and bower)
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_setup_development_environment">4.2. Setup development environment</h3>
+<div class="paragraph"><p>You can see <a href="setup-development.html">here</a> the complete documentation on how to setup
+a good development environment.</p></div>
+</div>
+<div class="sect2">
+<h3 id="_setup_production_environment">4.3. Setup production environment</h3>
+<div class="paragraph"><p>You can see <a href="setup-production.html">here</a> the complete documentation on how to setup
+a good development environment.</p></div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_how_to_contribute">5. How to contribute</h2>
+<div class="sectionbody">
+<div class="paragraph"><p>As an open source project, <strong>taiga</strong> welcomes contributions of many forms.</p></div>
+<div class="paragraph"><p>Examples of contributions include:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Code patches.
+</p>
+</li>
+<li>
+<p>
+Documentation improvements.
+</p>
+</li>
+<li>
+<p>
+Bug reports.
+</p>
+</li>
+<li>
+<p>
+Patch reviews.
+</p>
+</li>
+</ul></div>
+<div class="paragraph"><p>Before start developing one big feature (with intentions of including it on taiga code base), it is
+strongly recommended chat about it using our <a href="http://groups.google.com/d/forum/taigaio">mailing list</a>.</p></div>
+<div class="sect2">
+<h3 id="_reporting_bugs">5.1. Reporting bugs</h3>
+<div class="paragraph"><p>Otherwise, before reporting a bug or requesting a new feature, please consider these general points:</p></div>
+<div class="ulist"><ul>
+<li>
+<p>
+Check that someone hasn&#8217;t already filed the bug or feature request by searching or running custom queries in the ticket tracker.
+</p>
+</li>
+<li>
+<p>
+Check the right repository to use for report a issue: bugs related to UI should be go to <strong>taiga-front</strong>, if something happens on backend, the issue should be opened on <strong>taiga-back</strong> repository.
+</p>
+</li>
+<li>
+<p>
+Do ask on <a href="http://groups.google.com/d/forum/taigaio">mailing list</a> first if you&#8217;re not sure if what you&#8217;re seeing is a bug.
+</p>
+</li>
+<li>
+<p>
+Don&#8217;t use the github issues system to ask support questions. Use the <a href="http://groups.google.com/d/forum/taigaio">mailing list</a> for that.
+</p>
+</li>
+<li>
+<p>
+Don’t use the github issues for lengthy discussions, because they&#8217;re likely to get lost. If a particular ticket is controversial, please move the discussion to the <a href="http://groups.google.com/d/forum/taigaio">mailing list</a>.
+</p>
+</li>
+</ul></div>
+</div>
+<div class="sect2">
+<h3 id="_license">5.2. License</h3>
+<div class="paragraph"><p>Every code patch accepted in taiga codebase it is licensed under AGPL v3.0. You should care
+about it and not include code that can not be licensed under that license.</p></div>
+<div class="paragraph"><p>You can see the complete license on <span class="monospaced">LICENSE</span> file on the root of repository.</p></div>
+</div>
+</div>
+</div>
+</div>
+<div id="footnotes"><hr></div>
+<div id="footer">
+<div id="footer-text">
+Last updated 2014-10-06 19:34:54 CEST
+</div>
+</div>
+</body>
+</html>
