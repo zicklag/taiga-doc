@@ -431,6 +431,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#_events_installation">5. Events installation</a></li>
+<li><a href="#_final_steps_2">6. Final steps</a>
+<ul class="sectlevel2">
+<li><a href="#_circus_and_gunicorn">6.1. Circus and gunicorn</a></li>
+<li><a href="#_nginx">6.2. Nginx</a></li>
+</ul>
+</li>
+<li><a href="#_faq">7. FAQ</a>
+<ul class="sectlevel2">
+<li><a href="#_how_i_can_change_the_domain_name">7.1. How I can change the domain name?</a></li>
+<li><a href="#_how_i_can_restart_backend_application">7.2. How I can restart backend application?</a></li>
+<li><a href="#_how_i_can_maintain_my_app_update_with_last_taiga_version">7.3. How I can maintain my app update with last taiga version?</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -620,7 +633,8 @@ git checkout stable</code></pre>
 <pre class="highlight"><code class="language-bash" data-lang="bash">python manage.py migrate --noinput
 python manage.py loaddata initial_user
 python manage.py loaddata initial_project_templates
-python manage.py loaddata initial_role</code></pre>
+python manage.py loaddata initial_role
+python manage.py collectstatic --noinput</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -648,6 +662,8 @@ MEDIA_URL = "http://example.com/media/"
 STATIC_URL = "http://example.com/static/"
 ADMIN_MEDIA_PREFIX = "http://example.com/static/admin/"
 SITES["front"]["domain"] = "example.com"
+
+SECRET_KEY = "theveryultratopsecretkey"
 
 DEBUG = False
 TEMPLATE_DEBUG = False
@@ -799,12 +815,276 @@ file web server: <strong>nginx</strong>. That process is explained in the last s
 <div class="paragraph">
 <p><strong>This step is completelly optional and can be skeeped</strong></p>
 </div>
+<div class="paragraph">
+<p>TODO</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_final_steps_2">6. Final steps</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>If you are here, it probable that you are compleded the installation of <strong>taiga-back</strong> and
+<strong>taiga-front</strong>. Having installed them is insufficient.</p>
+</div>
+<div class="paragraph">
+<p><strong>taiga-back</strong> should run under application server which in turn should be executed and monitored
+by one process manager. For this task we will use <strong>gunicorn</strong> and <strong>circus</strong> respectivelly.</p>
+</div>
+<div class="paragraph">
+<p><strong>taiga-front</strong> and <strong>taiga-back</strong> should be exposed to the outside, using good proxy/static-file
+web server. For this purpose we&#8217;ll go to use <strong>nginx</strong>.</p>
+</div>
+<div class="sect2">
+<h3 id="_circus_and_gunicorn">6.1. Circus and gunicorn</h3>
+<div class="paragraph">
+<p>Circus is a process manager written by <strong>Mozilla</strong> and we will be use it for execute <strong>gunicorn</strong>.
+Circus, not only serves for execute processes, it also has utils for monitorize them, collect logs,
+restar process if something happens and start processes on system boot.</p>
+</div>
+<div class="listingblock">
+<div class="title">Install circus</div>
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">sudo pip2 install circus</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Initial configuration for circus on ~/circus.ini</div>
+<div class="content">
+<pre class="highlight"><code class="language-ini" data-lang="ini">[circus]
+check_delay = 5
+endpoint = tcp://127.0.0.1:5555
+pubsub_endpoint = tcp://127.0.0.1:5556
+statsd = true
+
+[watcher:taiga]
+working_dir = /home/taiga/taiga-back
+cmd = gunicorn
+args = -w 3 -t 60 --pythonpath=. -b 0.0.0.0:8001 taiga.wsgi
+uid = taiga
+numprocesses = 1
+autostart = true
+send_hup = true
+stdout_stream.class = FileStream
+stdout_stream.filename = /home/taiga/logs/gunicorn.stdout.log
+stdout_stream.max_bytes = 10485760
+stdout_stream.backup_count = 4
+stderr_stream.class = FileStream
+stderr_stream.filename = /home/taiga/logs/gunicorn.stderr.log
+stderr_stream.max_bytes = 10485760
+stderr_stream.backup_count = 4
+
+[env:taiga]
+PATH = $PATH:/home/taiga/.virtualenvs/taiga/bin</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>We store logs on user home, making them available and inmediate access when
+you enters in a machine. For make everything works, make sure you have the logs directory
+created.</p>
+</div>
+<div class="paragraph">
+<p>You can create it with: <code>mkdir -p ~/logs</code></p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
+<div class="title">Setup circus for start on boot putting this on <code>/etc/init/circus.conf</code></div>
+<div class="content">
+<pre class="highlight"><code class="language-text" data-lang="text">start on filesystem and net-device-up IFACE=lo
+stop on runlevel [016]
+
+respawn
+exec /usr/local/bin/circusd /home/taiga/circus.ini</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And finally start circus:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">sudo service circus start</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_nginx">6.2. Nginx</h3>
+<div class="paragraph">
+<p>Nginx is used as static file web server for serve <strong>taiga-front</strong> and proxy requests to <strong>taiga-back</strong>.</p>
+</div>
+<div class="paragraph">
+<p>Let start configuring it.</p>
+</div>
+<div class="listingblock">
+<div class="title">Overwrite the <strong>/etc/nginx/nginx.conf</strong> with this content</div>
+<div class="content">
+<pre class="highlight"><code class="language-nginx" data-lang="nginx">user www-data;
+worker_processes 2;
+pid /var/run/nginx.pid;
+
+events {
+    worker_connections 1024;
+}
+
+http {
+    sendfile on;
+    tcp_nopush on;
+    tcp_nodelay on;
+    keepalive_timeout 15;
+    types_hash_max_size 2048;
+
+    include /etc/nginx/mime.types;
+    default_type application/octet-stream;
+
+    access_log /var/log/nginx/access.log;
+    error_log /var/log/nginx/error.log;
+
+    gzip on;
+    gzip_disable "msie6";
+
+    gzip_vary on;
+    gzip_proxied any;
+    gzip_comp_level 6;
+    gzip_buffers 16 8k;
+    gzip_http_version 1.1;
+    gzip_types text/plain text/css application/json application/x-javascript
+                    text/xml application/xml application/xml+rss text/javascript;
+
+    include /etc/nginx/conf.d/*.conf;
+    include /etc/nginx/sites-enabled/*;
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<div class="title">Add specific configuration for <strong>taiga-front</strong> and <strong>taiga-back</strong> on</div>
+<p>/etc/nginx/sites-available/default overwriting the file if it exists.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-nginx" data-lang="nginx">server {
+    listen 80 default_server;
+    server_name _;
+
+    large_client_header_buffers 4 32k;
+    client_max_body_size 50M;
+    charset utf-8;
+
+    access_log /home/taiga/logs/nginx.access.log;
+    error_log /home/taiga/logs/nginx.error.log;
+
+    # Frontend
+    location / {
+        root /home/taiga/taiga-front/dist/;
+        try_files $uri $uri/ /index.html;
+    }
+
+    # Backend
+    location /api {
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Scheme $scheme;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_pass http://127.0.0.1:8001/api;
+        proxy_redirect off;
+    }
+
+    # Static files
+    location /static {
+        alias /home/taiga/taiga-back/static;
+    }
+
+    # Media files
+    location /media {
+        alias /home/taiga/taiga-back/media;
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And finally, restart nginx with <code>sudo service nginx restart</code></p>
+</div>
+<div class="paragraph">
+<p><strong>*Now you should have service up and running on <code>http://example.com/</code></strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_faq">7. FAQ</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_how_i_can_change_the_domain_name">7.1. How I can change the domain name?</h3>
+<div class="paragraph">
+<p>The domain name it mainly affects to frontend application, because it needs comunicate with the
+backend through the domain/public-ip.</p>
+</div>
+<div class="paragraph">
+<p>For it you should update the <code>url</code> value on frontend config file and rebuild frontend with
+<code>gulp deploy</code>. Also you should update domain related configuration on the backend
+settings file: <code>settings/local.py</code>.</p>
+</div>
+<div class="paragraph">
+<p>And finally reload backend config with: <code>circusctl reload taiga</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_i_can_restart_backend_application">7.2. How I can restart backend application?</h3>
+<div class="paragraph">
+<p>Very simple. Backend application is running under circus, and restart any application running
+with circus is  through <code>circusctl</code> command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">circusctl restart taiga</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_i_can_maintain_my_app_update_with_last_taiga_version">7.3. How I can maintain my app update with last taiga version?</h3>
+<div class="paragraph">
+<p>Taiga platform is developed on github. For consistences you should alway maintain the same version
+in time of <strong>stable</strong> branch of git repository.</p>
+</div>
+<div class="paragraph">
+<p><strong>No packaged version of taiga is available at this moment.</strong></p>
+</div>
+<div class="listingblock">
+<div class="title">Frontend application</div>
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">cd ~/taiga-front
+git pull
+gulp deploy</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Backend application</div>
+<div class="content">
+<pre>cd ~/taiga-back
+workon taiga
+git pull
+pip install --upgrade -r requirements.txt
+python manage.py migrate --noinput
+python manage.py collectstatic --noinput
+circusctl reload taiga</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-10-08 20:21:13 CEST
+Last updated 2014-10-08 21:08:39 CEST
 </div>
 </div>
 </body>
