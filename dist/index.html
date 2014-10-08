@@ -421,8 +421,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_install">4. Install</a>
 <ul class="sectlevel2">
 <li><a href="#_requirements">4.1. Requirements</a></li>
-<li><a href="#_setup_development_environment">4.2. Setup development environment</a></li>
-<li><a href="#_setup_production_environment">4.3. Setup production environment</a></li>
+<li><a href="#_setup_production_environment">4.2. Setup production environment</a></li>
+<li><a href="#_setup_development_environment">4.3. Setup development environment</a></li>
 </ul>
 </li>
 <li><a href="#_how_to_contribute">5. How to contribute</a>
@@ -447,7 +447,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_project_maturity">2. Project Maturity</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Because_taiga_ is still a young project we consider it is currently in alpha state.</p>
+<p>Because <em>taiga</em> is still a young project we consider it is currently in alpha state.</p>
 </div>
 </div>
 </div>
@@ -487,6 +487,9 @@ on both development and production environments.</p>
 <div class="paragraph">
 <p>This is a list of major taiga dependencies:</p>
 </div>
+<div class="paragraph">
+<p>Runtime:</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -496,25 +499,38 @@ on both development and production environments.</p>
 <p>PostgreSQL &gt; 9.2</p>
 </li>
 <li>
-<p>Ruby 2.1 (only for sass)</p>
+<p>RabbitMQ (optional if you dont want async notifications)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Compile time:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>GCC &amp; Development Headers</p>
 </li>
 <li>
-<p>NodeJS 0.10 (with npm, gulp and bower)</p>
+<p>Ruby 2.1 (only for compile sass)</p>
+</li>
+<li>
+<p>NodeJS 0.10 (with npm, gulp and bower for download dependencies and compile coffeescript)</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_setup_development_environment">4.2. Setup development environment</h3>
+<h3 id="_setup_production_environment">4.2. Setup production environment</h3>
 <div class="paragraph">
-<p>You can see <a href="setup-development.html">here</a> the complete documentation on how to setup
+<p>You can see <a href="setup-production.html">here</a> the complete documentation on how to setup
 a proper development environment.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_setup_production_environment">4.3. Setup production environment</h3>
+<h3 id="_setup_development_environment">4.3. Setup development environment</h3>
 <div class="paragraph">
-<p>You can see <a href="setup-production.html">here</a> the complete documentation on how to setup
+<p>You can see <a href="setup-development.html">here</a> the complete documentation on how to setup
 a proper development environment.</p>
 </div>
 </div>
@@ -589,7 +605,7 @@ not include any code that can not be licensed under AGPL v3.0.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-10-08 18:56:48 CEST
+Last updated 2014-10-08 18:59:50 CEST
 </div>
 </div>
 </body>
