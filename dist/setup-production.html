@@ -424,7 +424,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_setup_python_environment">3.3. Setup python environment</a></li>
 </ul>
 </li>
-<li><a href="#_frontend_installation">4. Frontend installation</a></li>
+<li><a href="#_frontend_installation">4. Frontend installation</a>
+<ul class="sectlevel2">
+<li><a href="#_install_dependencies_2">4.1. Install dependencies</a></li>
+<li><a href="#_final_steps">4.2. Final steps</a></li>
+</ul>
+</li>
 <li><a href="#_events_installation">5. Events installation</a></li>
 </ul>
 </div>
@@ -573,10 +578,10 @@ source ~/.local/bin/virtualenvwrapper.sh</code></pre>
 </div>
 <div class="paragraph">
 <p>Include it from you shell configuration file, in case of ubuntu, we are using <strong>bash</strong> and the
-configuration file is <code>~/.bashrc</code>.</p>
+configuration file is <code>~/.bash_profile</code>.</p>
 </div>
 <div class="listingblock">
-<div class="title">Add this line at the end of <strong>~/.bashrc</strong></div>
+<div class="title">Add this line at the end of <strong>~/.bash_profile</strong></div>
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">source ~/.virtualenvwrapper-conf.sh</code></pre>
 </div>
@@ -681,7 +686,110 @@ section of this document.
 <h2 id="_frontend_installation">4. Frontend installation</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>TODO</p>
+<p>This section helps to install the frontend application</p>
+</div>
+<div class="sect2">
+<h3 id="_install_dependencies_2">4.1. Install dependencies</h3>
+<div class="paragraph">
+<p>Frontend application runs entirelly on browser, and it should be writed using javascript, css and html.
+In case of <strong>taiga-front</strong> we have used other languaes. Because of it, we should install some
+additional dependencies that compiles <strong>taiga-front</strong> code intro something that browser can understand.</p>
+</div>
+<div class="sect3">
+<h4 id="_ruby_and_gems">4.1.1. Ruby and Gems</h4>
+<div class="paragraph">
+<p>Ruby is used mainly for compile <strong>sass</strong> (css preprocessor). It also used for sass linting but that
+is only on development environments.</p>
+</div>
+<div class="listingblock">
+<div class="title">Install ruby</div>
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">sudo apt-get install -y ruby</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Install required gems</div>
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">gem install --user-install sass scss-lint</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Make gems scripts available in path putting this on <strong>~/.bash_profile</strong></div>
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">export PATH=~/.gem/ruby/1.9.1/bin:$PATH</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Restart the shell for make path changes available.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="_nodejs_and_friends">4.1.2. NodeJS and friends</h4>
+<div class="paragraph">
+<p>NodeJS is used for execute <strong>gulp</strong> and <strong>bower</strong>:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>gulp</strong>: task execution tool. Used mainly for execute deploy and compile tasks.</p>
+</li>
+<li>
+<p><strong>bower</strong>: javascript dependencies management tool. Used mainly for download third party libraries
+used by <strong>taiga-front</strong>.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Install nodejs</div>
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">sudo apt-get install -y nodejs npm</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Install <strong>gulp</strong> and <strong>bower</strong> using recently installed npm</div>
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">sudo npm install -g gulp bower</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Install all dependencies needed for run gulp and compile taiga-front</div>
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">cd ~/taiga-front
+npm install
+bower install</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_final_steps">4.2. Final steps</h3>
+<div class="paragraph">
+<p>Having installed all dependencies, it only left two steps: create configuration and compile.</p>
+</div>
+<div class="listingblock">
+<div class="title">Create intial configuration on ~/taiga-front/conf/main.json</div>
+<div class="content">
+<pre class="highlight"><code class="language-json" data-lang="json">{
+    "api": "http://example.com/api/v1/",
+    "eventsUrl": "ws://example.com/events",
+    "debug": "true",
+    "publicRegisterEnabled": true,
+    "privacyPolicyUrl": null,
+    "termsOfServiceUrl": null
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Run gulp task for compile</div>
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">cd ~/taiga-front
+gulp deploy</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Now, having compiled <strong>taiga-front</strong>, the only missing step is expose the code under static
+file web server: <strong>nginx</strong>. That process is explained in the last section of this tutorial.</p>
+</div>
 </div>
 </div>
 </div>
@@ -696,7 +804,7 @@ section of this document.
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-10-08 19:55:47 CEST
+Last updated 2014-10-08 20:21:13 CEST
 </div>
 </div>
 </body>
