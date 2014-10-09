@@ -558,54 +558,32 @@ sudo -u postgres createdb taiga -O taiga</code></pre>
 <h3 id="_setup_python_environment">3.3. Setup python environment</h3>
 <div class="paragraph">
 <p>For run <strong>taiga-back</strong> you should have python (3.4) installed with some other third party
-libraries. As a first step, start installing python:</p>
+libraries. As a first step, start installing python and virtualenvwrapper:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">sudo apt-get install -y python3 python3-pip python-dev python3-dev python-pip</code></pre>
+<pre class="highlight"><code class="language-bash" data-lang="bash">sudo apt-get install -y python3 python3-pip python-dev python3-dev python-pip virtualenvwrapper</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>Afterward, install <strong>virtualenvwrapper</strong>:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">pip3 install --user virtualenvwrapper</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p><strong>virtualenvwrapper</strong> helps maintain the system clean of third party libraries installed
-with language package manager. Before you use virtualevwrapper, you should configure it.</p>
-</div>
-<div class="paragraph">
-<p>Create a shell configuration file:</p>
-</div>
-<div class="listingblock">
-<div class="title">~/.virtualenvwrapper-conf.sh</div>
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">export PYTHONPATH="/home/ubuntu/.local/lib/python3.4/site-packages"
-export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON="/usr/bin/python3.4"
-export PATH=~/.local/bin:$PATH
-source ~/.local/bin/virtualenvwrapper.sh</code></pre>
-</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<strong>virtualenvwrapper</strong> helps maintain the system clean of third party libraries installed
+with language package manager, installing them in isolated virtual environment.
+</td>
+</tr>
+</table>
 </div>
 <div class="paragraph">
-<p>Include it from you shell configuration file, in case of ubuntu, we are using <strong>bash</strong> and the
-configuration file is <code>~/.bash_profile</code>.</p>
-</div>
-<div class="listingblock">
-<div class="title">Add this line at the end of <strong>~/.bash_profile</strong></div>
-<div class="content">
-<pre class="highlight"><code class="language-bash" data-lang="bash">source ~/.virtualenvwrapper-conf.sh</code></pre>
-</div>
+<p>Restart the shell or run <code>bash</code> again, for reload the bash environment with virtualenvwrapper
+variables and functions.</p>
 </div>
 <div class="paragraph">
-<p>Restart your shell or execute <code>source ~/.virtualenvwrapper-conf.sh</code>.</p>
-</div>
-<div class="paragraph">
-<p>Having virtualenvwrapper ready, you can start downloading the <strong>taiga-base</strong> source code from
-its repository and setup all the third party libraries it requires:</p>
+<p>The next step is donload the code from github and install their dependencies:</p>
 </div>
 <div class="listingblock">
 <div class="title">Download the code</div>
@@ -617,7 +595,7 @@ git checkout stable</code></pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Create new virtualenv</div>
+<div class="title">Create new virtualenv named <strong>taiga</strong></div>
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">mkvirtualenv taiga</code></pre>
 </div>
@@ -673,7 +651,8 @@ PUBLIC_REGISTER_ENABLED = True
 DEFAULT_FROM_EMAIL = "no-reply@example.com"
 SERVER_EMAIL = DEFAULT_FROM_EMAIL
 
-# Uncomment this if you want activate email sending
+# Uncomment and populate with proper connection parameters
+# for enable email sending.
 # EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 # EMAIL_USE_TLS = False
 # EMAIL_HOST = "localhost"
@@ -954,7 +933,7 @@ exec /usr/local/bin/circusd /home/taiga/circus.ini</code></pre>
 <p>Nginx is used as a static file web server to serve <strong>taiga-front</strong> and send proxy requests to <strong>taiga-back</strong>.</p>
 </div>
 <div class="paragraph">
-<p>Let start configuring it.</p>
+<p>Let start configuring it:</p>
 </div>
 <div class="listingblock">
 <div class="title">Add specific configuration for <strong>taiga-front</strong> and <strong>taiga-back</strong> on /etc/nginx/sites-available/taiga.</div>
@@ -999,25 +978,16 @@ exec /usr/local/bin/circusd /home/taiga/circus.ini</code></pre>
 }</code></pre>
 </div>
 </div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">Note</div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>You can configure it as a virtual host, if you want to have various webs in the same nginx.</p>
+<div class="listingblock">
+<div class="title">Disable the default nginx site (virtualhosT)</div>
+<div class="content">
+<pre class="highlight"><code class="language-nginx" data-lang="nginx">sudo rm /etc/nginx/sites-enabled/default</code></pre>
 </div>
-</td>
-</tr>
-</table>
 </div>
 <div class="listingblock">
-<div class="title">Remove the link on /etc/nginx/sites-enabled/default and add /etc/nginx/sites-enabled/taiga</div>
+<div class="title">Enable the recently created taiga site (virtualhost)</div>
 <div class="content">
-<pre class="highlight"><code class="language-nginx" data-lang="nginx">sudo rm /etc/nginx/sites-enabled/default
-sudo ln -s /etc/nginx/sites-available/taiga /etc/nginx/sites-enabled/taiga</code></pre>
+<pre class="highlight"><code class="language-nginx" data-lang="nginx">sudo ln -s /etc/nginx/sites-available/taiga /etc/nginx/sites-enabled/taiga</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1095,7 +1065,7 @@ circusctl reload taiga</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-10-09 20:18:40 CEST
+Last updated 2014-10-09 20:35:32 CEST
 </div>
 </div>
 </body>
