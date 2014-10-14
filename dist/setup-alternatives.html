@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.1">
-<title>Taiga documentation</title>
+<title>Other ways to setup initial environment</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -411,224 +411,128 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Taiga documentation</h1>
+<h1>Other ways to setup initial environment</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_introduction">1. Introduction</a></li>
-<li><a href="#_project_maturity">2. Project Maturity</a></li>
-<li><a href="#_how_it_works">3. How it works</a></li>
-<li><a href="#_requirements">4. Requirements</a></li>
-<li><a href="#_installation_guide">5. Installation Guide</a>
+<li><a href="#_setup_using_strong_taiga_scripts_strong">1. Setup using <strong>taiga-scripts</strong></a>
 <ul class="sectlevel2">
-<li><a href="#_setup_production_environment">5.1. Setup production environment</a></li>
-<li><a href="#_setup_development_environment">5.2. Setup development environment</a></li>
-<li><a href="#_other_ways_to_setup_initial_environment">5.3. Other ways to setup initial environment</a></li>
+<li><a href="#_introduction">1.1. Introduction</a></li>
+<li><a href="#_important_notes_about_using_strong_taiga_scripts_strong">1.2. Important notes about using <strong>taiga-scripts</strong></a></li>
+<li><a href="#_requirements">1.3. Requirements</a></li>
+<li><a href="#_setup_server_like_environment">1.4. Setup server-like environment</a></li>
+<li><a href="#_setup_development_like_environment">1.5. Setup development-like environment</a></li>
 </ul>
 </li>
-<li><a href="#_how_to_contribute">6. How to contribute</a>
-<ul class="sectlevel2">
-<li><a href="#_reporting_bugs">6.1. Reporting bugs</a></li>
-<li><a href="#_community">6.2. Community</a></li>
-<li><a href="#_license">6.3. License</a></li>
-</ul>
-</li>
+<li><a href="#_setup_using_strong_taiga_vagrant_strong">2. Setup using <strong>taiga-vagrant</strong></a></li>
 </ul>
 </div>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_introduction">1. Introduction</h2>
+<h2 id="_setup_using_strong_taiga_scripts_strong">1. Setup using <strong>taiga-scripts</strong></h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Your Agile, Free and Open Source Project Management Tool</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_project_maturity">2. Project Maturity</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Because <em>taiga</em> is still a young project we consider it is currently in beta state.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_how_it_works">3. How it works</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Taiga is made up of two components: <a href="https://github.com/taigaio/taiga-front">taiga-front</a>
-and <a href="https://github.com/taigaio/taiga-back">taiga-back</a></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>taiga-front</strong> has the front related code built with <strong>angularjs</strong> and <strong>coffescript</strong>.
-It can runs on any static file server like nginx.</p>
-</li>
-<li>
-<p><strong>taiga-back</strong> has the backend related code consisting of an api, built using <strong>django</strong>
-and <strong>python3</strong>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Taiga has some other modules, but they are optional and documented in other sections.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_requirements">4. Requirements</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This is a list of major taiga dependencies:</p>
-</div>
-<div class="paragraph">
-<p>Runtime:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Python 3.4</p>
-</li>
-<li>
-<p>PostgreSQL &gt;= 9.3</p>
-</li>
-<li>
-<p>RabbitMQ (optional if you dont want async notifications)</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Compile time:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>GCC &amp; Development Headers</p>
-</li>
-<li>
-<p>Ruby 2.1 (only for compile sass)</p>
-</li>
-<li>
-<p>NodeJS 0.10 (with npm, gulp and bower for download dependencies and compile coffeescript)</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_installation_guide">5. Installation Guide</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This section details everythign you need to know to get taiga up and running
-on both development and production environments.</p>
-</div>
 <div class="sect2">
-<h3 id="_setup_production_environment">5.1. Setup production environment</h3>
+<h3 id="_introduction">1.1. Introduction</h3>
 <div class="paragraph">
-<p><a href="setup-production.html">This document contains the complete, step by step tutorial</a> of how
-to setup properly taiga for low traffic production environment.</p>
+<p><strong>taiga-scrips</strong> follows mainly the standard installation process, but makes it more automatic. If
+something wrong happens in the process, should try fix them following the manual deploy process.</p>
+</div>
+<div class="paragraph">
+<p><strong>taiga-scripts</strong> always installs a concrete (last) version of taiga (taiga-front and taiga-back)</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_setup_development_environment">5.2. Setup development environment</h3>
-<div class="paragraph">
-<p>You can see <a href="setup-development.html">here</a> the complete documentation on how to setup
-a proper development environment.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_other_ways_to_setup_initial_environment">5.3. Other ways to setup initial environment</h3>
-<div class="paragraph">
-<p>Additionally to traditional step by step manuals, taiga comes with some other tools like
-collection of provisioning scripts and vagrant support, and the
-<a href="setup-alternatives.html">complete documentation of how to use them is here</a>.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_how_to_contribute">6. How to contribute</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Because Taiga is an open source project, we gratefully accept contributions in various forms.</p>
-</div>
-<div class="paragraph">
-<p>Examples of contributions include:</p>
-</div>
+<h3 id="_important_notes_about_using_strong_taiga_scripts_strong">1.2. Important notes about using <strong>taiga-scripts</strong></h3>
 <div class="ulist">
 <ul>
 <li>
-<p>Code patches.</p>
+<p>Is in alpha state. Not heavy tested in differents environments</p>
 </li>
 <li>
-<p>Improvemnent.</p>
+<p>Designed for work with taiga-vagrant (see next section of this documentation)</p>
 </li>
 <li>
-<p>Bug reports.</p>
+<p>Not supports reprovisioning (updating) at this moment, it still in development.</p>
 </li>
 <li>
-<p>Patch reviews.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Before starting to develope a big feature (intending to be included on the taiga code base), it is
-strongly recommended that you reach out to us at <a href="http://groups.google.com/d/forum/taigaio">mailing list</a>.</p>
-</div>
-<div class="sect2">
-<h3 id="_reporting_bugs">6.1. Reporting bugs</h3>
-<div class="paragraph">
-<p>Before reporting a bug or requesting a new feature, please consider these general points:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Check that someone hasn&#8217;t already filed the bug or feature request by searching our running custom queries in the ticket tracker.</p>
+<p>Does not supports installation with root user.</p>
 </li>
 <li>
-<p>Check the right repository to use for report a issue: bugs related to UI should go to <strong>taiga-front</strong>, if something is broken on backend, the issue should be opened on <strong>taiga-back</strong> repository.</p>
-</li>
-<li>
-<p>Do ask on <a href="http://groups.google.com/d/forum/taigaio">mailing list</a> first if you&#8217;re not sure if what you&#8217;re seeing is a bug.</p>
-</li>
-<li>
-<p>Don&#8217;t use the github issues system to ask support questions. Use the <a href="http://groups.google.com/d/forum/taigaio">mailing list</a> for that.</p>
-</li>
-<li>
-<p>Don’t use the github issues for lengthy discussions, because they&#8217;re likely to get lost. If a particular ticket is controversial, please move the discussion to the <a href="http://groups.google.com/d/forum/taigaio">mailing list</a>.</p>
+<p>The installation is not 100% ready for production.</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_community">6.2. Community</h3>
-<div class="paragraph">
-<p><a href="http://groups.google.com/d/forum/taigaio">Taiga has a mailing list</a>. Feel free to join it
-and ask any questions you may have.</p>
-</div>
-<div class="paragraph">
-<p>To subscribe for announcements of releases, important changes and so on, please follow
-<a href="https://twitter.com/taigaio">@taigaio</a> on Twitter.</p>
+<h3 id="_requirements">1.3. Requirements</h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Fresh installed and updated Ubuntu 14.04</p>
+</li>
+<li>
+<p>Bash shell</p>
+</li>
+<li>
+<p>Git</p>
+</li>
+</ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_license">6.3. License</h3>
+<h3 id="_setup_server_like_environment">1.4. Setup server-like environment</h3>
 <div class="paragraph">
-<p>Every code patch accepted in the taiga codebase is acceoted under the AGPL v3.0 license. It is important that you
-not include any code that can not be licensed under AGPL v3.0.</p>
+<p>Having fresh and updated ubuntu 14.04 machine or virtual image:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-txt" data-lang="txt">$ git clone https://github.com/taigaio/taiga-scripts.git
+$ cd taiga-scripts
+$ bash setup-server.sh</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_setup_development_like_environment">1.5. Setup development-like environment</h3>
+<div class="paragraph">
+<p>This setup is much like the previous but with a few differences:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Do not install services like nginx, because they are only necessary for production</p>
+</li>
+<li>
+<p>Set all hostnames to localhost to easily run everything on localhost</p>
+</li>
+</ul>
 </div>
 <div class="paragraph">
-<p>You can see the complete license on <code>LICENSE</code> file on the root of repository.</p>
+<p>Having fresh and updated ubuntu 14.04 machine or virtual image:</p>
 </div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-txt" data-lang="txt">$ git clone https://github.com/taigaio/taiga-scripts.git
+$ cd taiga-scripts
+$ bash setup-devel.sh</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_setup_using_strong_taiga_vagrant_strong">2. Setup using <strong>taiga-vagrant</strong></h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>TODO</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-10-14 10:19:16 CEST
+Last updated 2014-10-14 10:09:56 CEST
 </div>
 </div>
 </body>
