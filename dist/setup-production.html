@@ -937,7 +937,15 @@ exec /usr/local/bin/circusd /home/taiga/circus.ini</code></pre>
 <p>Nginx is used as a static file web server to serve <strong>taiga-front</strong> and send proxy requests to <strong>taiga-back</strong>.</p>
 </div>
 <div class="paragraph">
-<p>Let start configuring it:</p>
+<p>First install it:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-bash" data-lang="bash">sudo apt-get install -y nginx</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And now let start configuring it:</p>
 </div>
 <div class="listingblock">
 <div class="title">Add specific configuration for <strong>taiga-front</strong> and <strong>taiga-back</strong> on /etc/nginx/sites-available/taiga.</div>
@@ -1086,7 +1094,7 @@ circusctl reload taiga</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-11-04 15:25:56 CET
+Last updated 2014-11-04 16:10:22 CET
 </div>
 </div>
 </body>
