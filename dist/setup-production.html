@@ -416,7 +416,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_introduction">1. Introduction</a></li>
-<li><a href="#_before_start">2. Before start</a></li>
+<li><a href="#_before_starting">2. Before starting</a></li>
 <li><a href="#_backend_installation">3. Backend installation</a>
 <ul class="sectlevel2">
 <li><a href="#_install_dependencies">3.1. Install dependencies</a></li>
@@ -441,9 +441,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_faq">7. FAQ</a>
 <ul class="sectlevel2">
-<li><a href="#faq-change-domain">7.1. How I can change the domain name?</a></li>
-<li><a href="#_how_can_i_restart_backend_application">7.2. How can I restart backend application?</a></li>
-<li><a href="#faq-maintain-update">7.3. How I can maintain my app up to date with the most recent taiga version?</a></li>
+<li><a href="#faq-npm-error">7.1. Are you having npm errors when executing gulp?</a></li>
+<li><a href="#faq-change-domain">7.2. How can I change the domain name?</a></li>
+<li><a href="#_how_can_i_restart_the_backend_application">7.3. How can I restart the backend application?</a></li>
+<li><a href="#faq-maintain-update">7.4. How I can keep my app up to date with the most recent taiga version?</a></li>
 </ul>
 </li>
 </ul>
@@ -454,7 +455,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_introduction">1. Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This documentation explains how to deploy a taiga service (each module part of taiga platform).</p>
+<p>This documentation explains how to deploy a taiga service (each module is part of the taiga platform).</p>
 </div>
 <div class="paragraph">
 <p>The Taiga platform consists of three main components:</p>
@@ -476,14 +477,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>And each one has its own dependencies, at compile time and runtime.</p>
 </div>
 <div class="paragraph">
-<p>Each component can run on one unique machine or they can each be installed in a different machine. In
-this tutorial we will setup everything in one single machine. This setup should suffce should for small/medium
-production environments.</p>
+<p>Each component can run on one unique machine or each can be installed in a different machine. In
+this tutorial we will setup everything in one single machine. This type of setup should suffce should
+for small/medium production environments.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_before_start">2. Before start</h2>
+<h2 id="_before_starting">2. Before starting</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This tutorial assumes that you are using a clean, recently updated, <strong>ubuntu 14.04</strong> image.</p>
@@ -546,7 +547,7 @@ sudo apt-get install -y postgresql-doc-9.3 postgresql-server-dev-9.3</code></pre
 </div>
 </div>
 <div class="paragraph">
-<p>And setup teh initial user and database:</p>
+<p>And setup the initial user and database:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -580,11 +581,11 @@ with language package manager, installing them in isolated virtual environment.
 </table>
 </div>
 <div class="paragraph">
-<p>Restart the shell or run <code>bash</code> again, for reload the bash environment with virtualenvwrapper
+<p>Restart the shell or run <code>bash</code> again, to reload the bash environment with virtualenvwrapper
 variables and functions.</p>
 </div>
 <div class="paragraph">
-<p>The next step is download the code from github and install their dependencies:</p>
+<p>The next step is to download the code from github and install their dependencies:</p>
 </div>
 <div class="listingblock">
 <div class="title">Download the code</div>
@@ -622,7 +623,7 @@ python manage.py collectstatic --noinput</code></pre>
 </div>
 <div class="paragraph">
 <p>If you want some example data, you can execute the following command, which populates the database
-with sample projects and random data, usefull for demos:</p>
+with sample projects and random data; useful for demos:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -630,7 +631,7 @@ with sample projects and random data, usefull for demos:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>And as final step for setup <strong>taiga-back</strong>, we should create the intial configuration
+<p>And as final step for setup <strong>taiga-back</strong>, you should create the intial configuration
 for proper static/media files resolution and optionally, email sending support:</p>
 </div>
 <div class="listingblock">
@@ -683,8 +684,8 @@ SERVER_EMAIL = DEFAULT_FROM_EMAIL
 <div class="title">Note</div>
 </td>
 <td class="content">
-Now we have backend installed and setup successful. Obviously this is not finished here, because python
-in production environments should run in one application server. This details are explained on the last
+At this stage the backend has been installed successfully. But you&#8217;re not done yet. Because python
+in production environments, should run on an application server. The details for this are explained in the final
 section of this document.
 </td>
 </tr>
@@ -703,8 +704,8 @@ section of this document.
 <h3 id="_install_dependencies_2">4.1. Install dependencies</h3>
 <div class="paragraph">
 <p>The Frontend application runs entirelly on a browser, and it should be written using javascript, css and html.
-In case of <strong>taiga-front</strong> we have used other languaes. Because of this, you should install some
-additional dependencies that compiles <strong>taiga-front</strong> code intro something that the browser can understand.</p>
+In case of <strong>taiga-front</strong> we have used other languages. Because of this, you should install some
+additional dependencies that compile <strong>taiga-front</strong> code intro something the browser can understand.</p>
 </div>
 <div class="sect3">
 <h4 id="_ruby_and_gems">4.1.1. Ruby and Gems</h4>
@@ -783,7 +784,7 @@ bower install</code></pre>
 <div class="sect2">
 <h3 id="_final_steps">4.2. Final steps</h3>
 <div class="paragraph">
-<p>Having installed all dependencies, only two steps are left: creating the configuration and compiling.</p>
+<p>Having installed all dependencies, only two steps remain: creating the configuration and compiling.</p>
 </div>
 <div class="listingblock">
 <div class="title">Create intial configuration on ~/taiga-front/conf/main.json</div>
@@ -793,8 +794,10 @@ bower install</code></pre>
     "eventsUrl": "ws://example.com/events",
     "debug": "true",
     "publicRegisterEnabled": true,
+    "feedbackEnabled": true,
     "privacyPolicyUrl": null,
-    "termsOfServiceUrl": null
+    "termsOfServiceUrl": null,
+    "maxUploadFileSize": null
 }</code></pre>
 </div>
 </div>
@@ -808,7 +811,7 @@ gulp deploy</code></pre>
 <div class="paragraph">
 <p>Now, having compiled <strong>taiga-front</strong>, the next step is to expose the generated code
 (in <strong>dist</strong> directory) under static file web server: we use <strong>nginx</strong>. That process is
-explained in the last section of this tutorial.</p>
+explained in the final section of this tutorial.</p>
 </div>
 </div>
 <div class="sect2">
@@ -840,8 +843,8 @@ explained in the last section of this tutorial.</p>
 <strong>taiga-front</strong>. However, having installed them is insufficient.</p>
 </div>
 <div class="paragraph">
-<p><strong>taiga-back</strong> should run under application server which in turn should be executed and monitored
-by one process manager. For this task we will use <strong>gunicorn</strong> and <strong>circus</strong> respectivelly.</p>
+<p><strong>taiga-back</strong> should run under an application server which in turn should be executed and monitored
+by a process manager. For this task we will use <strong>gunicorn</strong> and <strong>circus</strong> respectivelly.</p>
 </div>
 <div class="paragraph">
 <p><strong>taiga-front</strong> and <strong>taiga-back</strong> should be exposed to the outside, using good proxy/static-file
@@ -850,7 +853,7 @@ web server. For this purpose we&#8217;ll use <strong>nginx</strong>.</p>
 <div class="sect2">
 <h3 id="_circus_and_gunicorn">6.1. Circus and gunicorn</h3>
 <div class="paragraph">
-<p>Circus is a process manager written by <strong>Mozilla</strong> and we will use it to execute <strong>gunicorn</strong>.
+<p>Circus is a process manager written by <strong>Mozilla</strong> and you will use it to execute <strong>gunicorn</strong>.
 Circus not only serves to execute processes, it also has utils for monitoring them, collecting logs,
 restarting processes if something goes wrong, and starting processes on system boot.</p>
 </div>
@@ -898,7 +901,7 @@ PATH = $PATH:/home/taiga/.virtualenvs/taiga/bin</code></pre>
 </td>
 <td class="content">
 <div class="paragraph">
-<p>We store logs on the user home, making them available and immediately accessible when
+<p>Taiga stores logs on the user home, making them available and immediately accessible when
 you enter a machine. To make everything work, make sure you have the logs directory
 created.</p>
 </div>
@@ -1004,7 +1007,23 @@ exec /usr/local/bin/circusd /home/taiga/circus.ini</code></pre>
 <h2 id="_faq">7. FAQ</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="faq-change-domain">7.1. How I can change the domain name?</h3>
+<h3 id="faq-npm-error">7.1. Are you having npm errors when executing gulp?</h3>
+<div class="paragraph">
+<p>Delete the tmp files and install the dependencies again:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-text" data-lang="text">mv ~/tmp ~/tmp_old
+cd ~/taiga-front/
+rm -rf ~/.npm; rm -rf node_modules
+npm install
+bower install
+gulp deploy</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="faq-change-domain">7.2. How can I change the domain name?</h3>
 <div class="paragraph">
 <p>The domain name mainly affects the frontend application, because it needs to comunicate with the
 backend through the domain/public-ip.</p>
@@ -1019,7 +1038,7 @@ settings file: <code>settings/local.py</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_can_i_restart_backend_application">7.2. How can I restart backend application?</h3>
+<h3 id="_how_can_i_restart_the_backend_application">7.3. How can I restart the backend application?</h3>
 <div class="paragraph">
 <p>The Backend application is running under circus. To restart any application running
 with circus use the <code>circusctl</code> command:</p>
@@ -1031,7 +1050,7 @@ with circus use the <code>circusctl</code> command:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="faq-maintain-update">7.3. How I can maintain my app up to date with the most recent taiga version?</h3>
+<h3 id="faq-maintain-update">7.4. How I can keep my app up to date with the most recent taiga version?</h3>
 <div class="paragraph">
 <p>The Taiga platform is developed on github. For consistences you should alway maintain the same version
 in time with the <strong>stable</strong> branch of git or use the last major version of each component.</p>
@@ -1067,7 +1086,7 @@ circusctl reload taiga</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-10-14 11:56:55 CEST
+Last updated 2014-11-04 15:25:56 CET
 </div>
 </div>
 </body>
