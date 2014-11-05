@@ -890,7 +890,13 @@ stderr_stream.max_bytes = 10485760
 stderr_stream.backup_count = 4
 
 [env:taiga]
-PATH = $PATH:/home/taiga/.virtualenvs/taiga/bin</code></pre>
+PATH = $PATH:/home/taiga/.virtualenvs/taiga/bin
+TERM=rxvt-256color
+SHELL=/bin/bash
+USER=taiga
+LANG=en_US.UTF-8
+HOME=/home/taiga
+PYTHONPATH=/home/taiga/.local/lib/python3.4/site-packages</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -1094,7 +1100,7 @@ circusctl reload taiga</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-11-04 16:10:22 CET
+Last updated 2014-11-05 17:12:36 CET
 </div>
 </div>
 </body>
