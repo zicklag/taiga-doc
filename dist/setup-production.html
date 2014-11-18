@@ -720,12 +720,17 @@ for proper static/media files resolution and optionally, email sending support:<
 
 <span class="tok-c"># Uncomment and populate with proper connection parameters</span>
 <span class="tok-c"># for enable email sending.</span>
-<span class="tok-c"># EMAIL_BACKEND = &quot;django.core.mail.backends.smtp.EmailBackend&quot;</span>
-<span class="tok-c"># EMAIL_USE_TLS = False</span>
-<span class="tok-c"># EMAIL_HOST = &quot;localhost&quot;</span>
-<span class="tok-c"># EMAIL_HOST_USER = &quot;&quot;</span>
-<span class="tok-c"># EMAIL_HOST_PASSWORD = &quot;&quot;</span>
-<span class="tok-c"># EMAIL_PORT = 25</span></code></pre>
+<span class="tok-c">#EMAIL_BACKEND = &quot;django.core.mail.backends.smtp.EmailBackend&quot;</span>
+<span class="tok-c">#EMAIL_USE_TLS = False</span>
+<span class="tok-c">#EMAIL_HOST = &quot;localhost&quot;</span>
+<span class="tok-c">#EMAIL_HOST_USER = &quot;&quot;</span>
+<span class="tok-c">#EMAIL_HOST_PASSWORD = &quot;&quot;</span>
+<span class="tok-c">#EMAIL_PORT = 25</span>
+
+<span class="tok-c"># Uncomment and populate with proper connection parameters</span>
+<span class="tok-c"># for enable github login/singin.</span>
+<span class="tok-c">#GITHUB_API_CLIENT_ID = &quot;yourgithubclientid&quot;</span>
+<span class="tok-c">#GITHUB_API_CLIENT_SECRET = &quot;yourgithubclientsecret&quot;</span></code></pre>
 </div>
 </div>
 </div>
@@ -736,7 +741,8 @@ for proper static/media files resolution and optionally, email sending support:<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash">python manage.py runserver</code></pre>
+<pre class="pygments highlight"><code data-lang="bash">workon taiga
+python manage.py runserver</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -876,7 +882,8 @@ bower install</code></pre>
     <span class="tok-nt">&quot;feedbackEnabled&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;privacyPolicyUrl&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;termsOfServiceUrl&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
-    <span class="tok-nt">&quot;maxUploadFileSize&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span>
+    <span class="tok-nt">&quot;maxUploadFileSize&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;gitHubClientId&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span>
 <span class="tok-p">}</span></code></pre>
 </div>
 </div>
@@ -1157,6 +1164,8 @@ in time with the <strong>stable</strong> branch of git or use the last major ver
 <pre class="pygments highlight"><code data-lang="bash"><span class="tok-nb">cd</span> ~/taiga-front
 git checkout stable
 git pull
+npm install
+bower install
 gulp deploy</code></pre>
 </div>
 </div>
@@ -1179,7 +1188,7 @@ circusctl reload taiga</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-11-06 16:52:12 CET
+Last updated 2014-11-18 12:47:05 CET
 </div>
 </div>
 </body>
