@@ -492,24 +492,26 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_resolver">2.2. Resolver</a></li>
 <li><a href="#_searches">2.3. Searches</a></li>
 <li><a href="#_user_storage">2.4. User storage</a></li>
-<li><a href="#_projects">2.5. Projects</a></li>
-<li><a href="#_memberships_invitations">2.6. Memberships/Invitations</a></li>
-<li><a href="#_milestones">2.7. Milestones</a></li>
-<li><a href="#_user_stories">2.8. User stories</a></li>
-<li><a href="#_user_story_status">2.9. User story status</a></li>
-<li><a href="#_points">2.10. Points</a></li>
-<li><a href="#_tasks">2.11. Tasks</a></li>
-<li><a href="#_task_status">2.12. Task status</a></li>
-<li><a href="#_issues">2.13. Issues</a></li>
-<li><a href="#_issue_status">2.14. Issue status</a></li>
-<li><a href="#_issue_types">2.15. Issue types</a></li>
-<li><a href="#_priorities">2.16. Priorities</a></li>
-<li><a href="#_severities">2.17. Severities</a></li>
-<li><a href="#_wiki_pages">2.18. Wiki pages</a></li>
-<li><a href="#_wiki_links">2.19. Wiki links</a></li>
-<li><a href="#_users">2.20. Users</a></li>
-<li><a href="#_notify_policies">2.21. Notify policies</a></li>
-<li><a href="#_feedback">2.22. Feedback</a></li>
+<li><a href="#_project_templates">2.5. Project templates</a></li>
+<li><a href="#_projects">2.6. Projects</a></li>
+<li><a href="#_memberships_invitations">2.7. Memberships/Invitations</a></li>
+<li><a href="#_milestones">2.8. Milestones</a></li>
+<li><a href="#_user_stories">2.9. User stories</a></li>
+<li><a href="#_user_story_status">2.10. User story status</a></li>
+<li><a href="#_points">2.11. Points</a></li>
+<li><a href="#_tasks">2.12. Tasks</a></li>
+<li><a href="#_task_status">2.13. Task status</a></li>
+<li><a href="#_issues">2.14. Issues</a></li>
+<li><a href="#_issue_status">2.15. Issue status</a></li>
+<li><a href="#_issue_types">2.16. Issue types</a></li>
+<li><a href="#_priorities">2.17. Priorities</a></li>
+<li><a href="#_severities">2.18. Severities</a></li>
+<li><a href="#_wiki_pages">2.19. Wiki pages</a></li>
+<li><a href="#_wiki_links">2.20. Wiki links</a></li>
+<li><a href="#_history">2.21. History</a></li>
+<li><a href="#_users">2.22. Users</a></li>
+<li><a href="#_notify_policies">2.23. Notify policies</a></li>
+<li><a href="#_feedback">2.24. Feedback</a></li>
 </ul>
 </li>
 <li><a href="#auth">3. Auth</a>
@@ -545,252 +547,273 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#user-storage-delete">6.5. Delete</a></li>
 </ul>
 </li>
-<li><a href="#projects">7. Projects</a>
+<li><a href="#project-templates">7. Project templates</a>
 <ul class="sectlevel2">
-<li><a href="#projects-list">7.1. List</a></li>
-<li><a href="#projects-create">7.2. Create</a></li>
-<li><a href="#projects-get">7.3. Get</a></li>
-<li><a href="#projects-edit">7.4. Edit</a></li>
-<li><a href="#projects-delete">7.5. Delete</a></li>
-<li><a href="#projects-get-modules">7.6. Get modules</a></li>
-<li><a href="#projects-edit-modules">7.7. Edit modules</a></li>
-<li><a href="#projects-stats">7.8. Stats</a></li>
-<li><a href="#projects-issue-stats">7.9. Issue stats</a></li>
-<li><a href="#projects-issue-filters-data">7.10. Issue filters data</a></li>
-<li><a href="#projects-tag-colors">7.11. Tag colors</a></li>
-<li><a href="#projects-star">7.12. Star</a></li>
-<li><a href="#projects-unstar">7.13. Unstar</a></li>
-<li><a href="#projects-fans">7.14. Fans</a></li>
-<li><a href="#projects-create-template">7.15. Create template</a></li>
+<li><a href="#project-templates-list">7.1. List</a></li>
+<li><a href="#project-templates-create">7.2. Create</a></li>
+<li><a href="#project-templates-get">7.3. Get</a></li>
+<li><a href="#project-templates-edit">7.4. Edit</a></li>
+<li><a href="#project-templates-delete">7.5. Delete</a></li>
 </ul>
 </li>
-<li><a href="#_memberships_invitations_2">8. Memberships/Invitations</a>
+<li><a href="#projects">8. Projects</a>
 <ul class="sectlevel2">
-<li><a href="#memberships-list">8.1. List</a></li>
-<li><a href="#memberships-create">8.2. Create</a></li>
-<li><a href="#memberships-bulk-create">8.3. Bulk creation</a></li>
-<li><a href="#memberships-get">8.4. Get</a></li>
-<li><a href="#memberships-edit">8.5. Edit</a></li>
-<li><a href="#memberships-delete">8.6. Delete</a></li>
-<li><a href="#memberships-resend-invitation">8.7. Resend invitation</a></li>
-<li><a href="#memberships-invitations">8.8. Get Invitation (by token)</a></li>
+<li><a href="#projects-list">8.1. List</a></li>
+<li><a href="#projects-create">8.2. Create</a></li>
+<li><a href="#projects-get">8.3. Get</a></li>
+<li><a href="#projects-edit">8.4. Edit</a></li>
+<li><a href="#projects-delete">8.5. Delete</a></li>
+<li><a href="#projects-get-modules">8.6. Get modules</a></li>
+<li><a href="#projects-edit-modules">8.7. Edit modules</a></li>
+<li><a href="#projects-stats">8.8. Stats</a></li>
+<li><a href="#projects-issue-stats">8.9. Issue stats</a></li>
+<li><a href="#projects-issue-filters-data">8.10. Issue filters data</a></li>
+<li><a href="#projects-tag-colors">8.11. Tag colors</a></li>
+<li><a href="#projects-star">8.12. Star</a></li>
+<li><a href="#projects-unstar">8.13. Unstar</a></li>
+<li><a href="#projects-fans">8.14. Fans</a></li>
+<li><a href="#projects-create-template">8.15. Create template</a></li>
 </ul>
 </li>
-<li><a href="#milestones">9. Milestones</a>
+<li><a href="#memberships">9. Memberships/Invitations</a>
 <ul class="sectlevel2">
-<li><a href="#milestones-list">9.1. List</a></li>
-<li><a href="#milestones-create">9.2. Create</a></li>
-<li><a href="#milestones-get">9.3. Get</a></li>
-<li><a href="#milestones-edit">9.4. Edit</a></li>
-<li><a href="#milestones-delete">9.5. Delete</a></li>
-<li><a href="#milestones-stats">9.6. Stats</a></li>
+<li><a href="#memberships-list">9.1. List</a></li>
+<li><a href="#memberships-create">9.2. Create</a></li>
+<li><a href="#memberships-bulk-create">9.3. Bulk creation</a></li>
+<li><a href="#memberships-get">9.4. Get</a></li>
+<li><a href="#memberships-edit">9.5. Edit</a></li>
+<li><a href="#memberships-delete">9.6. Delete</a></li>
+<li><a href="#memberships-resend-invitation">9.7. Resend invitation</a></li>
+<li><a href="#memberships-invitations">9.8. Get Invitation (by token)</a></li>
 </ul>
 </li>
-<li><a href="#user-stories">10. User stories</a>
+<li><a href="#milestones">10. Milestones</a>
 <ul class="sectlevel2">
-<li><a href="#user-stories-list">10.1. List</a></li>
-<li><a href="#user-stories-create">10.2. Create</a></li>
-<li><a href="#user-stories-get">10.3. Get</a></li>
-<li><a href="#user-stories-edit">10.4. Edit</a></li>
-<li><a href="#user-stories-delete">10.5. Delete</a></li>
-<li><a href="#user-stories-bulk-create">10.6. Bulk creation</a></li>
-<li><a href="#user-stories-bulk-update-backlog-order">10.7. Bulk update backlog order</a></li>
-<li><a href="#user-stories-bulk-update-kanban-order">10.8. Bulk update kanban order</a></li>
-<li><a href="#user-stories-bulk-update-sprint-order">10.9. Bulk update sprint order</a></li>
-<li><a href="#user-stories-list-attachments">10.10. List attachments</a></li>
-<li><a href="#user-stories-create-attachment">10.11. Create attachment</a></li>
-<li><a href="#user-stories-get-attachment">10.12. Get attachment</a></li>
-<li><a href="#user-stories-edit-attachment">10.13. Edit attachment</a></li>
-<li><a href="#user-stories-delete-attachment">10.14. Delete attachment</a></li>
+<li><a href="#milestones-list">10.1. List</a></li>
+<li><a href="#milestones-create">10.2. Create</a></li>
+<li><a href="#milestones-get">10.3. Get</a></li>
+<li><a href="#milestones-edit">10.4. Edit</a></li>
+<li><a href="#milestones-delete">10.5. Delete</a></li>
+<li><a href="#milestones-stats">10.6. Stats</a></li>
 </ul>
 </li>
-<li><a href="#user-story-statuses">11. User story status</a>
+<li><a href="#user-stories">11. User stories</a>
 <ul class="sectlevel2">
-<li><a href="#user-story-statuses-list">11.1. List</a></li>
-<li><a href="#user-story-statuses-create">11.2. Create</a></li>
-<li><a href="#user-story-statuses-get">11.3. Get</a></li>
-<li><a href="#user-story-statuses-edit">11.4. Edit</a></li>
-<li><a href="#user-story-statuses-delete">11.5. Delete</a></li>
-<li><a href="#user-story-statuses-bulk-update-order">11.6. Bulk update order</a></li>
+<li><a href="#user-stories-list">11.1. List</a></li>
+<li><a href="#user-stories-create">11.2. Create</a></li>
+<li><a href="#user-stories-get">11.3. Get</a></li>
+<li><a href="#user-stories-edit">11.4. Edit</a></li>
+<li><a href="#user-stories-delete">11.5. Delete</a></li>
+<li><a href="#user-stories-bulk-create">11.6. Bulk creation</a></li>
+<li><a href="#user-stories-bulk-update-backlog-order">11.7. Bulk update backlog order</a></li>
+<li><a href="#user-stories-bulk-update-kanban-order">11.8. Bulk update kanban order</a></li>
+<li><a href="#user-stories-bulk-update-sprint-order">11.9. Bulk update sprint order</a></li>
+<li><a href="#user-stories-list-attachments">11.10. List attachments</a></li>
+<li><a href="#user-stories-create-attachment">11.11. Create attachment</a></li>
+<li><a href="#user-stories-get-attachment">11.12. Get attachment</a></li>
+<li><a href="#user-stories-edit-attachment">11.13. Edit attachment</a></li>
+<li><a href="#user-stories-delete-attachment">11.14. Delete attachment</a></li>
 </ul>
 </li>
-<li><a href="#points">12. Points</a>
+<li><a href="#user-story-statuses">12. User story status</a>
 <ul class="sectlevel2">
-<li><a href="#points-list">12.1. List</a></li>
-<li><a href="#points-create">12.2. Create</a></li>
-<li><a href="#points-get">12.3. Get</a></li>
-<li><a href="#points-edit">12.4. Edit</a></li>
-<li><a href="#points-delete">12.5. Delete</a></li>
-<li><a href="#points-bulk-update-order">12.6. Bulk update order</a></li>
+<li><a href="#user-story-statuses-list">12.1. List</a></li>
+<li><a href="#user-story-statuses-create">12.2. Create</a></li>
+<li><a href="#user-story-statuses-get">12.3. Get</a></li>
+<li><a href="#user-story-statuses-edit">12.4. Edit</a></li>
+<li><a href="#user-story-statuses-delete">12.5. Delete</a></li>
+<li><a href="#user-story-statuses-bulk-update-order">12.6. Bulk update order</a></li>
 </ul>
 </li>
-<li><a href="#tasks">13. Tasks</a>
+<li><a href="#points">13. Points</a>
 <ul class="sectlevel2">
-<li><a href="#tasks-list">13.1. List</a></li>
-<li><a href="#tasks-create">13.2. Create</a></li>
-<li><a href="#tasks-get">13.3. Get</a></li>
-<li><a href="#tasks-edit">13.4. Edit</a></li>
-<li><a href="#tasks-delete">13.5. Delete</a></li>
-<li><a href="#tasks-bulk-create">13.6. Bulk creation</a></li>
-<li><a href="#tasks-list-attachments">13.7. List attachments</a></li>
-<li><a href="#tasks-create-attachment">13.8. Create attachment</a></li>
-<li><a href="#tasks-get-attachment">13.9. Get attachment</a></li>
-<li><a href="#tasks-edit-attachment">13.10. Edit attachment</a></li>
-<li><a href="#tasks-delete-attachment">13.11. Delete attachment</a></li>
+<li><a href="#points-list">13.1. List</a></li>
+<li><a href="#points-create">13.2. Create</a></li>
+<li><a href="#points-get">13.3. Get</a></li>
+<li><a href="#points-edit">13.4. Edit</a></li>
+<li><a href="#points-delete">13.5. Delete</a></li>
+<li><a href="#points-bulk-update-order">13.6. Bulk update order</a></li>
 </ul>
 </li>
-<li><a href="#task-statuses">14. Task status</a>
+<li><a href="#tasks">14. Tasks</a>
 <ul class="sectlevel2">
-<li><a href="#task-statuses-list">14.1. List</a></li>
-<li><a href="#task-statuses-create">14.2. Create</a></li>
-<li><a href="#task-statuses-get">14.3. Get</a></li>
-<li><a href="#task-statuses-edit">14.4. Edit</a></li>
-<li><a href="#task-statuses-delete">14.5. Delete</a></li>
-<li><a href="#task-statuses-bulk-update-order">14.6. Bulk update order</a></li>
+<li><a href="#tasks-list">14.1. List</a></li>
+<li><a href="#tasks-create">14.2. Create</a></li>
+<li><a href="#tasks-get">14.3. Get</a></li>
+<li><a href="#tasks-edit">14.4. Edit</a></li>
+<li><a href="#tasks-delete">14.5. Delete</a></li>
+<li><a href="#tasks-bulk-create">14.6. Bulk creation</a></li>
+<li><a href="#tasks-list-attachments">14.7. List attachments</a></li>
+<li><a href="#tasks-create-attachment">14.8. Create attachment</a></li>
+<li><a href="#tasks-get-attachment">14.9. Get attachment</a></li>
+<li><a href="#tasks-edit-attachment">14.10. Edit attachment</a></li>
+<li><a href="#tasks-delete-attachment">14.11. Delete attachment</a></li>
 </ul>
 </li>
-<li><a href="#issues">15. Issues</a>
+<li><a href="#task-statuses">15. Task status</a>
 <ul class="sectlevel2">
-<li><a href="#issues-list">15.1. List</a></li>
-<li><a href="#issues-create">15.2. Create</a></li>
-<li><a href="#issues-get">15.3. Get</a></li>
-<li><a href="#issues-edit">15.4. Edit</a></li>
-<li><a href="#issues-delete">15.5. Delete</a></li>
-<li><a href="#issues-upvote">15.6. Vote to an issue</a></li>
-<li><a href="#issues-downvote">15.7. Remove vote to an issue</a></li>
-<li><a href="#issues-voters">15.8. Get issue voters list</a></li>
-<li><a href="#issues-list-attachments">15.9. List attachments</a></li>
-<li><a href="#issues-create-attachment">15.10. Create attachment</a></li>
-<li><a href="#issues-get-attachment">15.11. Get attachment</a></li>
-<li><a href="#issues-edit-attachment">15.12. Edit attachment</a></li>
-<li><a href="#issues-delete-attachment">15.13. Delete attachment</a></li>
+<li><a href="#task-statuses-list">15.1. List</a></li>
+<li><a href="#task-statuses-create">15.2. Create</a></li>
+<li><a href="#task-statuses-get">15.3. Get</a></li>
+<li><a href="#task-statuses-edit">15.4. Edit</a></li>
+<li><a href="#task-statuses-delete">15.5. Delete</a></li>
+<li><a href="#task-statuses-bulk-update-order">15.6. Bulk update order</a></li>
 </ul>
 </li>
-<li><a href="#issue-statuses">16. Issue status</a>
+<li><a href="#issues">16. Issues</a>
 <ul class="sectlevel2">
-<li><a href="#issue-statuses-list">16.1. List</a></li>
-<li><a href="#issue-statuses-create">16.2. Create</a></li>
-<li><a href="#issue-statuses-get">16.3. Get</a></li>
-<li><a href="#issue-statuses-edit">16.4. Edit</a></li>
-<li><a href="#issue-statuses-delete">16.5. Delete</a></li>
-<li><a href="#issue-statuses-bulk-update-order">16.6. Bulk update order</a></li>
+<li><a href="#issues-list">16.1. List</a></li>
+<li><a href="#issues-create">16.2. Create</a></li>
+<li><a href="#issues-get">16.3. Get</a></li>
+<li><a href="#issues-edit">16.4. Edit</a></li>
+<li><a href="#issues-delete">16.5. Delete</a></li>
+<li><a href="#issues-upvote">16.6. Vote to an issue</a></li>
+<li><a href="#issues-downvote">16.7. Remove vote to an issue</a></li>
+<li><a href="#issues-voters">16.8. Get issue voters list</a></li>
+<li><a href="#issues-list-attachments">16.9. List attachments</a></li>
+<li><a href="#issues-create-attachment">16.10. Create attachment</a></li>
+<li><a href="#issues-get-attachment">16.11. Get attachment</a></li>
+<li><a href="#issues-edit-attachment">16.12. Edit attachment</a></li>
+<li><a href="#issues-delete-attachment">16.13. Delete attachment</a></li>
 </ul>
 </li>
-<li><a href="#issue-types">17. Issue types</a>
+<li><a href="#issue-statuses">17. Issue status</a>
 <ul class="sectlevel2">
-<li><a href="#issue-types-list">17.1. List</a></li>
-<li><a href="#issue-types-create">17.2. Create</a></li>
-<li><a href="#issue-types-get">17.3. Get</a></li>
-<li><a href="#issue-types-edit">17.4. Edit</a></li>
-<li><a href="#issue-types-delete">17.5. Delete</a></li>
-<li><a href="#issue-types-bulk-update-order">17.6. Bulk update order</a></li>
+<li><a href="#issue-statuses-list">17.1. List</a></li>
+<li><a href="#issue-statuses-create">17.2. Create</a></li>
+<li><a href="#issue-statuses-get">17.3. Get</a></li>
+<li><a href="#issue-statuses-edit">17.4. Edit</a></li>
+<li><a href="#issue-statuses-delete">17.5. Delete</a></li>
+<li><a href="#issue-statuses-bulk-update-order">17.6. Bulk update order</a></li>
 </ul>
 </li>
-<li><a href="#priorities">18. Prioritues</a>
+<li><a href="#issue-types">18. Issue types</a>
 <ul class="sectlevel2">
-<li><a href="#priorities-list">18.1. List</a></li>
-<li><a href="#priorities-create">18.2. Create</a></li>
-<li><a href="#priorities-get">18.3. Get</a></li>
-<li><a href="#priorities-edit">18.4. Edit</a></li>
-<li><a href="#priorities-delete">18.5. Delete</a></li>
-<li><a href="#priorities-bulk-update-order">18.6. Bulk update order</a></li>
+<li><a href="#issue-types-list">18.1. List</a></li>
+<li><a href="#issue-types-create">18.2. Create</a></li>
+<li><a href="#issue-types-get">18.3. Get</a></li>
+<li><a href="#issue-types-edit">18.4. Edit</a></li>
+<li><a href="#issue-types-delete">18.5. Delete</a></li>
+<li><a href="#issue-types-bulk-update-order">18.6. Bulk update order</a></li>
 </ul>
 </li>
-<li><a href="#severities">19. Severities</a>
+<li><a href="#priorities">19. Prioritues</a>
 <ul class="sectlevel2">
-<li><a href="#severities-list">19.1. List</a></li>
-<li><a href="#severities-create">19.2. Create</a></li>
-<li><a href="#severities-get">19.3. Get</a></li>
-<li><a href="#severities-edit">19.4. Edit</a></li>
-<li><a href="#severities-delete">19.5. Delete</a></li>
-<li><a href="#severities-bulk-update-order">19.6. Bulk update order</a></li>
+<li><a href="#priorities-list">19.1. List</a></li>
+<li><a href="#priorities-create">19.2. Create</a></li>
+<li><a href="#priorities-get">19.3. Get</a></li>
+<li><a href="#priorities-edit">19.4. Edit</a></li>
+<li><a href="#priorities-delete">19.5. Delete</a></li>
+<li><a href="#priorities-bulk-update-order">19.6. Bulk update order</a></li>
 </ul>
 </li>
-<li><a href="#wiki">20. Wiki pages</a>
+<li><a href="#severities">20. Severities</a>
 <ul class="sectlevel2">
-<li><a href="#wiki-list">20.1. List</a></li>
-<li><a href="#wiki-create">20.2. Create</a></li>
-<li><a href="#wiki-get">20.3. Get</a></li>
-<li><a href="#wiki-edit">20.4. Edit</a></li>
-<li><a href="#wiki-delete">20.5. Delete</a></li>
-<li><a href="#wiki-list-attachments">20.6. List attachments</a></li>
-<li><a href="#wiki-create-attachment">20.7. Create attachment</a></li>
-<li><a href="#wiki-get-attachment">20.8. Get attachment</a></li>
-<li><a href="#wiki-edit-attachment">20.9. Edit attachment</a></li>
-<li><a href="#wiki-delete-attachment">20.10. Delete attachment</a></li>
+<li><a href="#severities-list">20.1. List</a></li>
+<li><a href="#severities-create">20.2. Create</a></li>
+<li><a href="#severities-get">20.3. Get</a></li>
+<li><a href="#severities-edit">20.4. Edit</a></li>
+<li><a href="#severities-delete">20.5. Delete</a></li>
+<li><a href="#severities-bulk-update-order">20.6. Bulk update order</a></li>
 </ul>
 </li>
-<li><a href="#wikilinks">21. Wiki links</a>
+<li><a href="#wiki">21. Wiki pages</a>
 <ul class="sectlevel2">
-<li><a href="#wikilinks-list">21.1. List</a></li>
-<li><a href="#wikilinks-create">21.2. Create</a></li>
-<li><a href="#wikilinks-get">21.3. Get</a></li>
-<li><a href="#wikilinks-edit">21.4. Edit</a></li>
-<li><a href="#wikilinks-delete">21.5. Delete</a></li>
+<li><a href="#wiki-list">21.1. List</a></li>
+<li><a href="#wiki-create">21.2. Create</a></li>
+<li><a href="#wiki-get">21.3. Get</a></li>
+<li><a href="#wiki-edit">21.4. Edit</a></li>
+<li><a href="#wiki-delete">21.5. Delete</a></li>
+<li><a href="#wiki-list-attachments">21.6. List attachments</a></li>
+<li><a href="#wiki-create-attachment">21.7. Create attachment</a></li>
+<li><a href="#wiki-get-attachment">21.8. Get attachment</a></li>
+<li><a href="#wiki-edit-attachment">21.9. Edit attachment</a></li>
+<li><a href="#wiki-delete-attachment">21.10. Delete attachment</a></li>
 </ul>
 </li>
-<li><a href="#users">22. Users</a>
+<li><a href="#wikilinks">22. Wiki links</a>
 <ul class="sectlevel2">
-<li><a href="#users-list">22.1. List</a></li>
-<li><a href="#users-get">22.2. Get</a></li>
-<li><a href="#users-starred">22.3. Get starred projects</a></li>
-<li><a href="#users-edit">22.4. Edit</a></li>
-<li><a href="#users-delete">22.5. Delete</a></li>
-<li><a href="#users-cancel">22.6. Cancel</a></li>
-<li><a href="#users-change-avatar">22.7. Change avatar</a></li>
-<li><a href="#users-remove-avatar">22.8. Remove avatar</a></li>
-<li><a href="#users-change-email">22.9. Change email</a></li>
-<li><a href="#users-change-password">22.10. Change password</a></li>
-<li><a href="#users-password-recovery">22.11. Password recovery</a></li>
-<li><a href="#users-change-password-from-recovery">22.12. Change password from recovery</a></li>
+<li><a href="#wikilinks-list">22.1. List</a></li>
+<li><a href="#wikilinks-create">22.2. Create</a></li>
+<li><a href="#wikilinks-get">22.3. Get</a></li>
+<li><a href="#wikilinks-edit">22.4. Edit</a></li>
+<li><a href="#wikilinks-delete">22.5. Delete</a></li>
 </ul>
 </li>
-<li><a href="#notify-policies">23. Notify policies</a>
+<li><a href="#history">23. History</a>
 <ul class="sectlevel2">
-<li><a href="#notify-policies-list">23.1. List</a></li>
-<li><a href="#notify-policies-get">23.2. Get</a></li>
-<li><a href="#notify-policies-edit">23.3. Edit</a></li>
+<li><a href="#history-get">23.1. Get user story, task, issue or wiki page history</a></li>
+<li><a href="#history-delete-comment">23.2. Delete comment</a></li>
+<li><a href="#history-undelete-comment">23.3. Undelete comment</a></li>
 </ul>
 </li>
-<li><a href="#feedback">24. Feedback</a>
+<li><a href="#users">24. Users</a>
 <ul class="sectlevel2">
-<li><a href="#feedback-create">24.1. Create</a></li>
+<li><a href="#users-list">24.1. List</a></li>
+<li><a href="#users-get">24.2. Get</a></li>
+<li><a href="#users-starred">24.3. Get starred projects</a></li>
+<li><a href="#users-edit">24.4. Edit</a></li>
+<li><a href="#users-delete">24.5. Delete</a></li>
+<li><a href="#users-cancel">24.6. Cancel</a></li>
+<li><a href="#users-change-avatar">24.7. Change avatar</a></li>
+<li><a href="#users-remove-avatar">24.8. Remove avatar</a></li>
+<li><a href="#users-change-email">24.9. Change email</a></li>
+<li><a href="#users-change-password">24.10. Change password</a></li>
+<li><a href="#users-password-recovery">24.11. Password recovery</a></li>
+<li><a href="#users-change-password-from-recovery">24.12. Change password from recovery</a></li>
 </ul>
 </li>
-<li><a href="#_objects_summary">25. Objects Summary</a>
+<li><a href="#notify-policies">25. Notify policies</a>
 <ul class="sectlevel2">
-<li><a href="#object-attachment-detail">25.1. Attachment</a></li>
-<li><a href="#object-user-detail">25.2. User detail</a></li>
-<li><a href="#object-auth-user-detail">25.3. User authentication-detail</a></li>
-<li><a href="#object-search-results-detail">25.4. Search results detail</a></li>
-<li><a href="#object-user-storage-detail">25.5. User storage data</a></li>
-<li><a href="#object-project-list-entry">25.6. Project list entry</a></li>
-<li><a href="#object-project-detail">25.7. Project detail</a></li>
-<li><a href="#object-project-modules-detail">25.8. Project modules detail</a></li>
-<li><a href="#object-project-stats-detail">25.9. Project stats detail</a></li>
-<li><a href="#object-project-issue-stats-detail">25.10. Project issue stats detail</a></li>
-<li><a href="#object-project-issue-filters-data-detail">25.11. Project issue filters data detail</a></li>
-<li><a href="#object-project-tags-colors-detail">25.12. Project tag colors data detail</a></li>
-<li><a href="#object-project-voter-detail">25.13. Project voter detail</a></li>
-<li><a href="#object-project-template-detail">25.14. Project template detail</a></li>
-<li><a href="#object-membership-detail">25.15. Membership detail</a></li>
-<li><a href="#object-milestone-detail">25.16. Milestone detail</a></li>
-<li><a href="#object-milestone-stats-detail">25.17. Milestone stats detail</a></li>
-<li><a href="#object-userstory-detail">25.18. User story detail</a></li>
-<li><a href="#object-userstory-status-detail">25.19. User story status detail</a></li>
-<li><a href="#object-point-detail">25.20. Point detail</a></li>
-<li><a href="#object-task-detail">25.21. Task detail</a></li>
-<li><a href="#object-task-status-detail">25.22. Task status detail</a></li>
-<li><a href="#object-issue-detail">25.23. Issue detail</a></li>
-<li><a href="#object-issue-voters-detail">25.24. Issue voters detail</a></li>
-<li><a href="#object-issue-status-detail">25.25. Issue status detail</a></li>
-<li><a href="#object-issue-type-detail">25.26. Issue type detail</a></li>
-<li><a href="#object-priority-detail">25.27. Priority detail</a></li>
-<li><a href="#object-severity-detail">25.28. Severity detail</a></li>
-<li><a href="#object-wiki-detail">25.29. Wiki page</a></li>
-<li><a href="#object-wiki-link-detail">25.30. Wiki link</a></li>
-<li><a href="#object-notify-policy-detail">25.31. Notify policy</a></li>
-<li><a href="#object-feedback-detail">25.32. Feedback</a></li>
+<li><a href="#notify-policies-list">25.1. List</a></li>
+<li><a href="#notify-policies-get">25.2. Get</a></li>
+<li><a href="#notify-policies-edit">25.3. Edit</a></li>
+</ul>
+</li>
+<li><a href="#feedback">26. Feedback</a>
+<ul class="sectlevel2">
+<li><a href="#feedback-create">26.1. Create</a></li>
+</ul>
+</li>
+<li><a href="#_objects_summary">27. Objects Summary</a>
+<ul class="sectlevel2">
+<li><a href="#object-attachment-detail">27.1. Attachment</a></li>
+<li><a href="#object-user-detail">27.2. User detail</a></li>
+<li><a href="#object-auth-user-detail">27.3. User authentication-detail</a></li>
+<li><a href="#object-search-results-detail">27.4. Search results detail</a></li>
+<li><a href="#object-user-storage-detail">27.5. User storage data</a></li>
+</ul>
+</li>
+<li><a href="#object-project-template-detail">28. Project templates detail</a>
+<ul class="sectlevel2">
+<li><a href="#object-project-list-entry">28.1. Project list entry</a></li>
+<li><a href="#object-project-detail">28.2. Project detail</a></li>
+<li><a href="#object-project-modules-detail">28.3. Project modules detail</a></li>
+<li><a href="#object-project-stats-detail">28.4. Project stats detail</a></li>
+<li><a href="#object-project-issue-stats-detail">28.5. Project issue stats detail</a></li>
+<li><a href="#object-project-issue-filters-data-detail">28.6. Project issue filters data detail</a></li>
+<li><a href="#object-project-tags-colors-detail">28.7. Project tag colors data detail</a></li>
+<li><a href="#object-project-voter-detail">28.8. Project voter detail</a></li>
+<li><a href="#object-project-template-detail">28.9. Project template detail</a></li>
+<li><a href="#object-membership-detail">28.10. Membership detail</a></li>
+<li><a href="#object-milestone-detail">28.11. Milestone detail</a></li>
+<li><a href="#object-milestone-stats-detail">28.12. Milestone stats detail</a></li>
+<li><a href="#object-userstory-detail">28.13. User story detail</a></li>
+<li><a href="#object-userstory-status-detail">28.14. User story status detail</a></li>
+<li><a href="#object-point-detail">28.15. Point detail</a></li>
+<li><a href="#object-task-detail">28.16. Task detail</a></li>
+<li><a href="#object-task-status-detail">28.17. Task status detail</a></li>
+<li><a href="#object-issue-detail">28.18. Issue detail</a></li>
+<li><a href="#object-issue-voters-detail">28.19. Issue voters detail</a></li>
+<li><a href="#object-issue-status-detail">28.20. Issue status detail</a></li>
+<li><a href="#object-issue-type-detail">28.21. Issue type detail</a></li>
+<li><a href="#object-priority-detail">28.22. Priority detail</a></li>
+<li><a href="#object-severity-detail">28.23. Severity detail</a></li>
+<li><a href="#object-wiki-detail">28.24. Wiki page</a></li>
+<li><a href="#object-wiki-link-detail">28.25. Wiki link</a></li>
+<li><a href="#object-history-entry-detail">28.26. History entry</a></li>
+<li><a href="#object-notify-policy-detail">28.27. Notify policy</a></li>
+<li><a href="#object-feedback-detail">28.28. Feedback</a></li>
 </ul>
 </li>
 </ul>
@@ -982,7 +1005,56 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect2">
-<h3 id="_projects">2.5. Projects</h3>
+<h3 id="_project_templates">2.5. Project templates</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">URL</th>
+<th class="tableblock halign-left valign-top">Method</th>
+<th class="tableblock halign-left valign-top">Functionality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/project-templates</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#project-templates-list">List project templates</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/project-templates</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#project-templates-create">Create project template</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/project-templates/&lt;projectTemplateId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#project-templates-get">Get project template</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/project-templates/&lt;projectTemplateId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#project-templates-edit">Modify project template</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/project-templates/&lt;projectTemplateId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#project-templates-edit">Modify partially an project template</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/project-templates/&lt;projectTemplateId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#project-templates-delete">Delete an project template</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_projects">2.6. Projects</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -1081,7 +1153,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect2">
-<h3 id="_memberships_invitations">2.6. Memberships/Invitations</h3>
+<h3 id="_memberships_invitations">2.7. Memberships/Invitations</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -1145,7 +1217,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect2">
-<h3 id="_milestones">2.7. Milestones</h3>
+<h3 id="_milestones">2.8. Milestones</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -1199,7 +1271,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect2">
-<h3 id="_user_stories">2.8. User stories</h3>
+<h3 id="_user_stories">2.9. User stories</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -1298,7 +1370,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect2">
-<h3 id="_user_story_status">2.9. User story status</h3>
+<h3 id="_user_story_status">2.10. User story status</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -1352,7 +1424,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect2">
-<h3 id="_points">2.10. Points</h3>
+<h3 id="_points">2.11. Points</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -1406,7 +1478,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect2">
-<h3 id="_tasks">2.11. Tasks</h3>
+<h3 id="_tasks">2.12. Tasks</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -1490,7 +1562,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect2">
-<h3 id="_task_status">2.12. Task status</h3>
+<h3 id="_task_status">2.13. Task status</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -1544,7 +1616,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect2">
-<h3 id="_issues">2.13. Issues</h3>
+<h3 id="_issues">2.14. Issues</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -1643,7 +1715,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect2">
-<h3 id="_issue_status">2.14. Issue status</h3>
+<h3 id="_issue_status">2.15. Issue status</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -1697,7 +1769,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect2">
-<h3 id="_issue_types">2.15. Issue types</h3>
+<h3 id="_issue_types">2.16. Issue types</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -1751,7 +1823,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect2">
-<h3 id="_priorities">2.16. Priorities</h3>
+<h3 id="_priorities">2.17. Priorities</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -1805,7 +1877,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect2">
-<h3 id="_severities">2.17. Severities</h3>
+<h3 id="_severities">2.18. Severities</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -1859,7 +1931,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect2">
-<h3 id="_wiki_pages">2.18. Wiki pages</h3>
+<h3 id="_wiki_pages">2.19. Wiki pages</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -1938,7 +2010,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect2">
-<h3 id="_wiki_links">2.19. Wiki links</h3>
+<h3 id="_wiki_links">2.20. Wiki links</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -1987,7 +2059,86 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect2">
-<h3 id="_users">2.20. Users</h3>
+<h3 id="_history">2.21. History</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">URL</th>
+<th class="tableblock halign-left valign-top">Method</th>
+<th class="tableblock halign-left valign-top">Functionality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/userstory/&lt;usId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#history-get">Get user story history</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/userstory/&lt;usId&gt;/delete_comment?id=&lt;commentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#history-delete-comment">Delete user story comment</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/userstory/&lt;usId&gt;/undelete_comment?id=&lt;commentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#history-undelete-comment">Undelete user story comment</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/issue/&lt;issueId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#history-get">Get issue history</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/issue/&lt;usId&gt;/delete_comment?id=&lt;commentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#history-delete-comment">Delete issue comment</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/issue/&lt;usId&gt;/undelete_comment?id=&lt;commentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#history-undelete-comment">Undelete issue comment</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/task/&lt;taskId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#history-get">Get task history</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/task/&lt;usId&gt;/delete_comment?id=&lt;commentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#history-delete-comment">Delete task comment</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/task/&lt;usId&gt;/undelete_comment?id=&lt;commentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#history-undelete-comment">Undelete task comment</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/wiki/&lt;wikiId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#history-get">Get wiki history</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/wiki/&lt;usId&gt;/delete_comment?id=&lt;commentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#history-delete-comment">Delete wiki comment</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/wiki/&lt;usId&gt;/undelete_comment?id=&lt;commentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#history-undelete-comment">Undelete wiki comment</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_users">2.22. Users</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -2071,7 +2222,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect2">
-<h3 id="_notify_policies">2.21. Notify policies</h3>
+<h3 id="_notify_policies">2.23. Notify policies</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -2110,7 +2261,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </table>
 </div>
 <div class="sect2">
-<h3 id="_feedback">2.22. Feedback</h3>
+<h3 id="_feedback">2.24. Feedback</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -2674,10 +2825,686 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="projects">7. Projects</h2>
+<h2 id="project-templates">7. Project templates</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="projects-list">7.1. List</h3>
+<h3 id="project-templates-list">7.1. List</h3>
+<div class="paragraph">
+<p>To list project templates send a GET request with the following parameters:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/project-templates</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The HTTP response is a 200 OK and the response body is a JSON list of <a href="#object-project-template-detail">project template detail objects</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="project-templates-create">7.2. Create</h3>
+<div class="paragraph">
+<p>To create project templates send a POST request with the following data:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>name</strong> (required): string</p>
+</li>
+<li>
+<p><strong>slug</strong>: slug</p>
+</li>
+<li>
+<p><strong>description</strong> (required): string</p>
+</li>
+<li>
+<p><strong>default_owner_role</strong> (required):</p>
+</li>
+<li>
+<p><strong>is_backlog_activated</strong>: boolean</p>
+</li>
+<li>
+<p><strong>is_kanban_activated</strong>: boolean</p>
+</li>
+<li>
+<p><strong>is_wiki_activated</strong>: boolean</p>
+</li>
+<li>
+<p><strong>is_issues_activated</strong>: boolean</p>
+</li>
+<li>
+<p><strong>videoconferences</strong>: (talky|appear-in)</p>
+</li>
+<li>
+<p><strong>videoconferences_salt</strong>: string</p>
+</li>
+<li>
+<p><strong>default_options</strong>: a json with a list of objects with:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>points</strong>: slug</p>
+</li>
+<li>
+<p><strong>us_status</strong>: slug</p>
+</li>
+<li>
+<p><strong>task_status</strong>: slug</p>
+</li>
+<li>
+<p><strong>issue_status</strong>: slug</p>
+</li>
+<li>
+<p><strong>issue_type</strong>: slug</p>
+</li>
+<li>
+<p><strong>priority</strong>: slug</p>
+</li>
+<li>
+<p><strong>severity</strong>: slug</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>us_statuses</strong>: a json with a list of objects with:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>name</strong>: string</p>
+</li>
+<li>
+<p><strong>slug</strong>: slug</p>
+</li>
+<li>
+<p><strong>is_closed</strong>: boolean</p>
+</li>
+<li>
+<p><strong>color</strong>: #rgb color</p>
+</li>
+<li>
+<p><strong>wip_limit</strong>: integer or none</p>
+</li>
+<li>
+<p><strong>order</strong>: integer</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>points</strong>: a json with a list of objects with:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>name</strong>: string</p>
+</li>
+<li>
+<p><strong>value</strong>: integer or none</p>
+</li>
+<li>
+<p><strong>order</strong>: integer</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>task_statuses</strong>: a json with a list of objects with:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>name</strong>: string</p>
+</li>
+<li>
+<p><strong>slug</strong>: slug</p>
+</li>
+<li>
+<p><strong>is_closed</strong>: boolean</p>
+</li>
+<li>
+<p><strong>color</strong>: #rgb color</p>
+</li>
+<li>
+<p><strong>order</strong>: integer</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>issue_statuses</strong>: a json with a list of objects with:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>name</strong>: string</p>
+</li>
+<li>
+<p><strong>slug</strong>: slug</p>
+</li>
+<li>
+<p><strong>is_closed</strong>: boolean</p>
+</li>
+<li>
+<p><strong>color</strong>: #rgb color</p>
+</li>
+<li>
+<p><strong>order</strong>: integer</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>issue_types</strong>: a json with a list of objects with:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>name</strong>: string</p>
+</li>
+<li>
+<p><strong>color</strong>: #rgb color</p>
+</li>
+<li>
+<p><strong>order</strong>: integer</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>priorities</strong>: a json with a list of objects with:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>name</strong>: string</p>
+</li>
+<li>
+<p><strong>color</strong>: #rgb color</p>
+</li>
+<li>
+<p><strong>order</strong>: integer</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>severities</strong>: a json with a list of objects with:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>name</strong>: string</p>
+</li>
+<li>
+<p><strong>color</strong>: #rgb color</p>
+</li>
+<li>
+<p><strong>order</strong>: integer</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p><strong>roles</strong>: a json with a list of objects with:</p>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>name</strong>: string</p>
+</li>
+<li>
+<p><strong>slug</strong>: slug</p>
+</li>
+<li>
+<p><strong>permissions</strong>: list of permissions</p>
+</li>
+<li>
+<p><strong>order</strong>: integer</p>
+</li>
+<li>
+<p><strong>computable</strong>: boolean</p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X POST <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  -d <span class="tok-s1">&#39;{</span>
+<span class="tok-s1">          &quot;default_options&quot;: {</span>
+<span class="tok-s1">              &quot;us_status&quot;: &quot;New&quot;,</span>
+<span class="tok-s1">              &quot;points&quot;: &quot;?&quot;,</span>
+<span class="tok-s1">              &quot;priority&quot;: &quot;Normal&quot;,</span>
+<span class="tok-s1">              &quot;severity&quot;: &quot;Normal&quot;,</span>
+<span class="tok-s1">              &quot;task_status&quot;: &quot;New&quot;,</span>
+<span class="tok-s1">              &quot;issue_type&quot;: &quot;Bug&quot;,</span>
+<span class="tok-s1">              &quot;issue_status&quot;: &quot;New&quot;</span>
+<span class="tok-s1">          },</span>
+<span class="tok-s1">          &quot;us_statuses&quot;: [</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;wip_limit&quot;: null,</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#999999&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;New&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 1,</span>
+<span class="tok-s1">                  &quot;is_closed&quot;: false</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;wip_limit&quot;: null,</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#f57900&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Ready&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 2,</span>
+<span class="tok-s1">                  &quot;is_closed&quot;: false</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;wip_limit&quot;: null,</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#729fcf&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;In progress&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 3,</span>
+<span class="tok-s1">                  &quot;is_closed&quot;: false</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;wip_limit&quot;: null,</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#4e9a06&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Ready for test&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 4,</span>
+<span class="tok-s1">                  &quot;is_closed&quot;: false</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;wip_limit&quot;: null,</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#cc0000&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Done&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 5,</span>
+<span class="tok-s1">                  &quot;is_closed&quot;: true</span>
+<span class="tok-s1">              }</span>
+<span class="tok-s1">          ],</span>
+<span class="tok-s1">          &quot;points&quot;: [</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;value&quot;: null,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;?&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 1</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;value&quot;: 0.0,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;0&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 2</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;value&quot;: 0.5,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;1/2&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 3</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;value&quot;: 1.0,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;1&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 4</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;value&quot;: 2.0,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;2&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 5</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;value&quot;: 3.0,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;3&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 6</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;value&quot;: 5.0,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;5&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 7</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;value&quot;: 8.0,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;8&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 8</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;value&quot;: 10.0,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;10&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 9</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;value&quot;: 15.0,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;15&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 10</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;value&quot;: 20.0,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;20&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 11</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;value&quot;: 40.0,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;40&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 12</span>
+<span class="tok-s1">              }</span>
+<span class="tok-s1">          ],</span>
+<span class="tok-s1">          &quot;task_statuses&quot;: [</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#999999&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;New&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 1,</span>
+<span class="tok-s1">                  &quot;is_closed&quot;: false</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#729fcf&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;In progress&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 2,</span>
+<span class="tok-s1">                  &quot;is_closed&quot;: false</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#f57900&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Ready for test&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 3,</span>
+<span class="tok-s1">                  &quot;is_closed&quot;: true</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#4e9a06&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Closed&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 4,</span>
+<span class="tok-s1">                  &quot;is_closed&quot;: true</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#cc0000&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Needs Info&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 5,</span>
+<span class="tok-s1">                  &quot;is_closed&quot;: false</span>
+<span class="tok-s1">              }</span>
+<span class="tok-s1">          ],</span>
+<span class="tok-s1">          &quot;issue_statuses&quot;: [</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#999999&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;New&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 1,</span>
+<span class="tok-s1">                  &quot;is_closed&quot;: false</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#729fcf&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;In progress&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 2,</span>
+<span class="tok-s1">                  &quot;is_closed&quot;: false</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#f57900&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Ready for test&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 3,</span>
+<span class="tok-s1">                  &quot;is_closed&quot;: true</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#4e9a06&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Closed&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 4,</span>
+<span class="tok-s1">                  &quot;is_closed&quot;: true</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#cc0000&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Needs Info&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 5,</span>
+<span class="tok-s1">                  &quot;is_closed&quot;: false</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#d3d7cf&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Rejected&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 6,</span>
+<span class="tok-s1">                  &quot;is_closed&quot;: true</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#75507b&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Postponed&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 7,</span>
+<span class="tok-s1">                  &quot;is_closed&quot;: false</span>
+<span class="tok-s1">              }</span>
+<span class="tok-s1">          ],</span>
+<span class="tok-s1">          &quot;issue_types&quot;: [</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#cc0000&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Bug&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 1</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#729fcf&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Question&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 2</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#4e9a06&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Enhancement&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 3</span>
+<span class="tok-s1">              }</span>
+<span class="tok-s1">          ],</span>
+<span class="tok-s1">          &quot;priorities&quot;: [</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#999999&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Low&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 1</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#4e9a06&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Normal&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 3</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#CC0000&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;High&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 5</span>
+<span class="tok-s1">              }</span>
+<span class="tok-s1">          ],</span>
+<span class="tok-s1">          &quot;severities&quot;: [</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#999999&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Wishlist&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 1</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#729fcf&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Minor&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 2</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#4e9a06&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Normal&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 3</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#f57900&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Important&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 4</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;color&quot;: &quot;#CC0000&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Critical&quot;,</span>
+<span class="tok-s1">                  &quot;order&quot;: 5</span>
+<span class="tok-s1">              }</span>
+<span class="tok-s1">          ],</span>
+<span class="tok-s1">          &quot;roles&quot;: [</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;permissions&quot;: [</span>
+<span class="tok-s1">                      &quot;add_issue&quot;, &quot;modify_issue&quot;, &quot;delete_issue&quot;,</span>
+<span class="tok-s1">                      &quot;view_issues&quot;, &quot;add_milestone&quot;, &quot;modify_milestone&quot;,</span>
+<span class="tok-s1">                      &quot;delete_milestone&quot;, &quot;view_milestones&quot;, &quot;view_project&quot;,</span>
+<span class="tok-s1">                      &quot;add_task&quot;, &quot;modify_task&quot;, &quot;delete_task&quot;, &quot;view_tasks&quot;,</span>
+<span class="tok-s1">                      &quot;add_us&quot;, &quot;modify_us&quot;, &quot;delete_us&quot;, &quot;view_us&quot;,</span>
+<span class="tok-s1">                      &quot;add_wiki_page&quot;, &quot;modify_wiki_page&quot;, &quot;delete_wiki_page&quot;,</span>
+<span class="tok-s1">                      &quot;view_wiki_pages&quot;, &quot;add_wiki_link&quot;, &quot;delete_wiki_link&quot;,</span>
+<span class="tok-s1">                      &quot;view_wiki_links&quot;</span>
+<span class="tok-s1">                  ],</span>
+<span class="tok-s1">                  &quot;order&quot;: 10,</span>
+<span class="tok-s1">                  &quot;computable&quot;: true,</span>
+<span class="tok-s1">                  &quot;slug&quot;: &quot;ux&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;UX&quot;</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;permissions&quot;: [</span>
+<span class="tok-s1">                      &quot;add_issue&quot;, &quot;modify_issue&quot;, &quot;delete_issue&quot;,</span>
+<span class="tok-s1">                      &quot;view_issues&quot;, &quot;add_milestone&quot;, &quot;modify_milestone&quot;,</span>
+<span class="tok-s1">                      &quot;delete_milestone&quot;, &quot;view_milestones&quot;, &quot;view_project&quot;,</span>
+<span class="tok-s1">                      &quot;add_task&quot;, &quot;modify_task&quot;, &quot;delete_task&quot;, &quot;view_tasks&quot;,</span>
+<span class="tok-s1">                      &quot;add_us&quot;, &quot;modify_us&quot;, &quot;delete_us&quot;, &quot;view_us&quot;,</span>
+<span class="tok-s1">                      &quot;add_wiki_page&quot;, &quot;modify_wiki_page&quot;, &quot;delete_wiki_page&quot;,</span>
+<span class="tok-s1">                      &quot;view_wiki_pages&quot;, &quot;add_wiki_link&quot;, &quot;delete_wiki_link&quot;,</span>
+<span class="tok-s1">                      &quot;view_wiki_links&quot;</span>
+<span class="tok-s1">                  ],</span>
+<span class="tok-s1">                  &quot;order&quot;: 20,</span>
+<span class="tok-s1">                  &quot;computable&quot;: true,</span>
+<span class="tok-s1">                  &quot;slug&quot;: &quot;design&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Design&quot;</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;permissions&quot;: [</span>
+<span class="tok-s1">                      &quot;add_issue&quot;, &quot;modify_issue&quot;, &quot;delete_issue&quot;,</span>
+<span class="tok-s1">                      &quot;view_issues&quot;, &quot;add_milestone&quot;, &quot;modify_milestone&quot;,</span>
+<span class="tok-s1">                      &quot;delete_milestone&quot;, &quot;view_milestones&quot;, &quot;view_project&quot;,</span>
+<span class="tok-s1">                      &quot;add_task&quot;, &quot;modify_task&quot;, &quot;delete_task&quot;, &quot;view_tasks&quot;,</span>
+<span class="tok-s1">                      &quot;add_us&quot;, &quot;modify_us&quot;, &quot;delete_us&quot;, &quot;view_us&quot;,</span>
+<span class="tok-s1">                      &quot;add_wiki_page&quot;, &quot;modify_wiki_page&quot;, &quot;delete_wiki_page&quot;,</span>
+<span class="tok-s1">                      &quot;view_wiki_pages&quot;, &quot;add_wiki_link&quot;, &quot;delete_wiki_link&quot;,</span>
+<span class="tok-s1">                      &quot;view_wiki_links&quot;</span>
+<span class="tok-s1">                  ],</span>
+<span class="tok-s1">                  &quot;order&quot;: 30,</span>
+<span class="tok-s1">                  &quot;computable&quot;: true,</span>
+<span class="tok-s1">                  &quot;slug&quot;: &quot;front&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Front&quot;</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;permissions&quot;: [</span>
+<span class="tok-s1">                      &quot;add_issue&quot;, &quot;modify_issue&quot;, &quot;delete_issue&quot;,</span>
+<span class="tok-s1">                      &quot;view_issues&quot;, &quot;add_milestone&quot;, &quot;modify_milestone&quot;,</span>
+<span class="tok-s1">                      &quot;delete_milestone&quot;, &quot;view_milestones&quot;, &quot;view_project&quot;,</span>
+<span class="tok-s1">                      &quot;add_task&quot;, &quot;modify_task&quot;, &quot;delete_task&quot;, &quot;view_tasks&quot;,</span>
+<span class="tok-s1">                      &quot;add_us&quot;, &quot;modify_us&quot;, &quot;delete_us&quot;, &quot;view_us&quot;,</span>
+<span class="tok-s1">                      &quot;add_wiki_page&quot;, &quot;modify_wiki_page&quot;, &quot;delete_wiki_page&quot;,</span>
+<span class="tok-s1">                      &quot;view_wiki_pages&quot;, &quot;add_wiki_link&quot;, &quot;delete_wiki_link&quot;,</span>
+<span class="tok-s1">                      &quot;view_wiki_links&quot;</span>
+<span class="tok-s1">                  ],</span>
+<span class="tok-s1">                  &quot;order&quot;: 40,</span>
+<span class="tok-s1">                  &quot;computable&quot;: true,</span>
+<span class="tok-s1">                  &quot;slug&quot;: &quot;back&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Back&quot;</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;permissions&quot;: [</span>
+<span class="tok-s1">                      &quot;add_issue&quot;, &quot;modify_issue&quot;, &quot;delete_issue&quot;,</span>
+<span class="tok-s1">                      &quot;view_issues&quot;, &quot;add_milestone&quot;, &quot;modify_milestone&quot;,</span>
+<span class="tok-s1">                      &quot;delete_milestone&quot;, &quot;view_milestones&quot;, &quot;view_project&quot;,</span>
+<span class="tok-s1">                      &quot;add_task&quot;, &quot;modify_task&quot;, &quot;delete_task&quot;, &quot;view_tasks&quot;,</span>
+<span class="tok-s1">                      &quot;add_us&quot;, &quot;modify_us&quot;, &quot;delete_us&quot;, &quot;view_us&quot;,</span>
+<span class="tok-s1">                      &quot;add_wiki_page&quot;, &quot;modify_wiki_page&quot;, &quot;delete_wiki_page&quot;,</span>
+<span class="tok-s1">                      &quot;view_wiki_pages&quot;, &quot;add_wiki_link&quot;, &quot;delete_wiki_link&quot;,</span>
+<span class="tok-s1">                      &quot;view_wiki_links&quot;</span>
+<span class="tok-s1">                  ],</span>
+<span class="tok-s1">                  &quot;order&quot;: 50,</span>
+<span class="tok-s1">                  &quot;computable&quot;: false,</span>
+<span class="tok-s1">                  &quot;slug&quot;: &quot;product-owner&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Product Owner&quot;</span>
+<span class="tok-s1">              },</span>
+<span class="tok-s1">              {</span>
+<span class="tok-s1">                  &quot;permissions&quot;: [</span>
+<span class="tok-s1">                      &quot;add_issue&quot;, &quot;modify_issue&quot;, &quot;delete_issue&quot;,</span>
+<span class="tok-s1">                      &quot;view_issues&quot;, &quot;view_milestones&quot;, &quot;view_project&quot;,</span>
+<span class="tok-s1">                      &quot;view_tasks&quot;, &quot;view_us&quot;, &quot;modify_wiki_page&quot;,</span>
+<span class="tok-s1">                      &quot;view_wiki_pages&quot;, &quot;add_wiki_link&quot;, &quot;delete_wiki_link&quot;,</span>
+<span class="tok-s1">                      &quot;view_wiki_links&quot;</span>
+<span class="tok-s1">                  ],</span>
+<span class="tok-s1">                  &quot;order&quot;: 60,</span>
+<span class="tok-s1">                  &quot;computable&quot;: false,</span>
+<span class="tok-s1">                  &quot;slug&quot;: &quot;stakeholder&quot;,</span>
+<span class="tok-s1">                  &quot;name&quot;: &quot;Stakeholder&quot;</span>
+<span class="tok-s1">              }</span>
+<span class="tok-s1">          ],</span>
+<span class="tok-s1">          &quot;id&quot;: 2,</span>
+<span class="tok-s1">          &quot;name&quot;: &quot;Kanban&quot;,</span>
+<span class="tok-s1">          &quot;slug&quot;: &quot;kanban&quot;,</span>
+<span class="tok-s1">          &quot;description&quot;: &quot;Sample description&quot;,</span>
+<span class="tok-s1">          &quot;default_owner_role&quot;: &quot;product-owner&quot;,</span>
+<span class="tok-s1">          &quot;is_backlog_activated&quot;: false,</span>
+<span class="tok-s1">          &quot;is_kanban_activated&quot;: true,</span>
+<span class="tok-s1">          &quot;is_wiki_activated&quot;: false,</span>
+<span class="tok-s1">          &quot;is_issues_activated&quot;: false,</span>
+<span class="tok-s1">          &quot;videoconferences&quot;: null,</span>
+<span class="tok-s1">          &quot;videoconferences_salt&quot;: &quot;&quot;</span>
+<span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/project-templates</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X POST <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  -D <span class="tok-s1">&#39;{</span>
+<span class="tok-s1">          &quot;name&quot;: &quot;Kanban&quot;,</span>
+<span class="tok-s1">          &quot;description&quot;: &quot;Sample description&quot;,</span>
+<span class="tok-s1">          &quot;default_owner_role&quot;: &quot;product-owner&quot;</span>
+<span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
+  HTTPS://api.taiga.io/api/v1/project-templates</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>WHEN THE creation is successful, the HTTP response is a 201 Created and the response body is a JSON <a href="#object-project-template-detail">project template detail object</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="project-templates-get">7.3. Get</h3>
+<div class="paragraph">
+<p>To get a project template send a GET request specifying the project template id in the url</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/project-templates/1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The HTTP response is a 200 OK and the response body is a JSON <a href="#object-project-template-detail">project template detail object</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="project-templates-edit">7.4. Edit</h3>
+<div class="paragraph">
+<p>To edit project templates send a PUT or a PATCH specifying the project template id in the url.
+In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X PATCH <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  -d <span class="tok-s1">&#39;{</span>
+<span class="tok-s1">          &quot;description&quot;: &quot;New description&quot;</span>
+<span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/project-templates/1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the creation is successful, the HTTP response is a 200 OK and the response body is a JSON <a href="#object-project-template-detail">project template detail object</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="project-templates-delete">7.5. Delete</h3>
+<div class="paragraph">
+<p>To delete project template send a DELETE specifying the project template id in the url</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X DELETE <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/project-templates/1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When delete succeeded, the HTTP response is a 204 NO CONTENT with an empty body response</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="projects">8. Projects</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="projects-list">8.1. List</h3>
 <div class="paragraph">
 <p>To list projects send a GET request with the following parameters:</p>
 </div>
@@ -2694,7 +3521,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-create">7.2. Create</h3>
+<h3 id="projects-create">8.2. Create</h3>
 <div class="paragraph">
 <p>To create projects send a POST request with the following data:</p>
 </div>
@@ -2773,7 +3600,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-get">7.3. Get</h3>
+<h3 id="projects-get">8.3. Get</h3>
 <div class="paragraph">
 <p>To list projects send a GET request specifying the project id in the url</p>
 </div>
@@ -2790,7 +3617,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-edit">7.4. Edit</h3>
+<h3 id="projects-edit">8.4. Edit</h3>
 <div class="paragraph">
 <p>To edit projects send a PUT or a PATCH specifying the project id in the url. In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
 </div>
@@ -2822,7 +3649,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-delete">7.5. Delete</h3>
+<h3 id="projects-delete">8.5. Delete</h3>
 <div class="paragraph">
 <p>To delete projects send a DELETE specifying the project id in the url</p>
 </div>
@@ -2838,7 +3665,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-get-modules">7.6. Get modules</h3>
+<h3 id="projects-get-modules">8.6. Get modules</h3>
 <div class="paragraph">
 <p>To get a project modules configuration send a GET request specifying the project id in the url</p>
 </div>
@@ -2855,7 +3682,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-edit-modules">7.7. Edit modules</h3>
+<h3 id="projects-edit-modules">8.7. Edit modules</h3>
 <div class="paragraph">
 <p>To edit a project modules send a PATCH specifying the project id in the url.</p>
 </div>
@@ -2877,7 +3704,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-stats">7.8. Stats</h3>
+<h3 id="projects-stats">8.8. Stats</h3>
 <div class="paragraph">
 <p>To get a project stats send a GET request specifying the project id in the url</p>
 </div>
@@ -2894,7 +3721,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-issue-stats">7.9. Issue stats</h3>
+<h3 id="projects-issue-stats">8.9. Issue stats</h3>
 <div class="paragraph">
 <p>To get a project issue stats send a GET request specifying the project id in the url</p>
 </div>
@@ -2911,7 +3738,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-issue-filters-data">7.10. Issue filters data</h3>
+<h3 id="projects-issue-filters-data">8.10. Issue filters data</h3>
 <div class="paragraph">
 <p>To get a project issue filters data send a GET request specifying the project id in the url</p>
 </div>
@@ -2928,7 +3755,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-tag-colors">7.11. Tag colors</h3>
+<h3 id="projects-tag-colors">8.11. Tag colors</h3>
 <div class="paragraph">
 <p>To get a project tag colors stats send a GET request specifying the project id in the url</p>
 </div>
@@ -2945,7 +3772,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-star">7.12. Star</h3>
+<h3 id="projects-star">8.12. Star</h3>
 <div class="paragraph">
 <p>To add a star to a project send a POST request specifying the project id in the url</p>
 </div>
@@ -2961,7 +3788,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-unstar">7.13. Unstar</h3>
+<h3 id="projects-unstar">8.13. Unstar</h3>
 <div class="paragraph">
 <p>To add a star to a project send a POST request specifying the project id in the url</p>
 </div>
@@ -2977,7 +3804,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-fans">7.14. Fans</h3>
+<h3 id="projects-fans">8.14. Fans</h3>
 <div class="paragraph">
 <p>To get the list of fans from a project send a GET request specifying the project id in the url</p>
 </div>
@@ -2994,7 +3821,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-create-template">7.15. Create template</h3>
+<h3 id="projects-create-template">8.15. Create template</h3>
 <div class="paragraph">
 <p>To create a template from a selected project send a POST request specifying the project id in the url with the following parameters:</p>
 </div>
@@ -3027,10 +3854,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="_memberships_invitations_2">8. Memberships/Invitations</h2>
+<h2 id="memberships">9. Memberships/Invitations</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="memberships-list">8.1. List</h3>
+<h3 id="memberships-list">9.1. List</h3>
 <div class="paragraph">
 <p>To list memberships send a GET request with the following parameters:</p>
 </div>
@@ -3068,7 +3895,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="memberships-create">8.2. Create</h3>
+<h3 id="memberships-create">9.2. Create</h3>
 <div class="paragraph">
 <p>To create memberhips/invitation send a POST request with the following data:</p>
 </div>
@@ -3103,7 +3930,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="memberships-bulk-create">8.3. Bulk creation</h3>
+<h3 id="memberships-bulk-create">9.3. Bulk creation</h3>
 <div class="paragraph">
 <p>To create multiple memberhips at the same time send a POST request with the following data:</p>
 </div>
@@ -3150,7 +3977,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="memberships-get">8.4. Get</h3>
+<h3 id="memberships-get">9.4. Get</h3>
 <div class="paragraph">
 <p>To get a membership send a GET request specifying the membership id in the url</p>
 </div>
@@ -3167,7 +3994,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="memberships-edit">8.5. Edit</h3>
+<h3 id="memberships-edit">9.5. Edit</h3>
 <div class="paragraph">
 <p>To edit memberships send a PUT or a PATCH specifying the membership id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -3188,7 +4015,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="memberships-delete">8.6. Delete</h3>
+<h3 id="memberships-delete">9.6. Delete</h3>
 <div class="paragraph">
 <p>To delete memberships/invitations send a DELETE specifying the membership id in the url</p>
 </div>
@@ -3204,7 +4031,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="memberships-resend-invitation">8.7. Resend invitation</h3>
+<h3 id="memberships-resend-invitation">9.7. Resend invitation</h3>
 <div class="paragraph">
 <p>To resend an invitation send a POST request specifying the membership id in the url</p>
 </div>
@@ -3221,7 +4048,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="memberships-invitations">8.8. Get Invitation (by token)</h3>
+<h3 id="memberships-invitations">9.8. Get Invitation (by token)</h3>
 <div class="paragraph">
 <p>To get an invitation send a GET request specifying the invitation id in the url</p>
 </div>
@@ -3240,10 +4067,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="milestones">9. Milestones</h2>
+<h2 id="milestones">10. Milestones</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="milestones-list">9.1. List</h3>
+<h3 id="milestones-list">10.1. List</h3>
 <div class="paragraph">
 <p>To list milestones send a GET request with the following parameters:</p>
 </div>
@@ -3278,7 +4105,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="milestones-create">9.2. Create</h3>
+<h3 id="milestones-create">10.2. Create</h3>
 <div class="paragraph">
 <p>To create milestone send a POST request with the following data:</p>
 </div>
@@ -3347,7 +4174,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="milestones-get">9.3. Get</h3>
+<h3 id="milestones-get">10.3. Get</h3>
 <div class="paragraph">
 <p>To get a milestone send a GET request specifying the milestone id in the url</p>
 </div>
@@ -3364,7 +4191,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="milestones-edit">9.4. Edit</h3>
+<h3 id="milestones-edit">10.4. Edit</h3>
 <div class="paragraph">
 <p>To edit milestones send a PUT or a PATCH specifying the milestone id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -3385,7 +4212,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="milestones-delete">9.5. Delete</h3>
+<h3 id="milestones-delete">10.5. Delete</h3>
 <div class="paragraph">
 <p>To delete milestones send a DELETE specifying the milestone id in the url</p>
 </div>
@@ -3401,7 +4228,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="milestones-stats">9.6. Stats</h3>
+<h3 id="milestones-stats">10.6. Stats</h3>
 <div class="paragraph">
 <p>To get the milestone stats send a GET request specifying the milestone id in the url</p>
 </div>
@@ -3420,10 +4247,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="user-stories">10. User stories</h2>
+<h2 id="user-stories">11. User stories</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="user-stories-list">10.1. List</h3>
+<h3 id="user-stories-list">11.1. List</h3>
 <div class="paragraph">
 <p>To list user stories send a GET request with the following parameters:</p>
 </div>
@@ -3470,7 +4297,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-stories-create">10.2. Create</h3>
+<h3 id="user-stories-create">11.2. Create</h3>
 <div class="paragraph">
 <p>To create user stories send a POST request with the following data:</p>
 </div>
@@ -3585,7 +4412,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-stories-get">10.3. Get</h3>
+<h3 id="user-stories-get">11.3. Get</h3>
 <div class="paragraph">
 <p>To get a user story send a GET request specifying the user story id in the url</p>
 </div>
@@ -3602,7 +4429,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-stories-edit">10.4. Edit</h3>
+<h3 id="user-stories-edit">11.4. Edit</h3>
 <div class="paragraph">
 <p>To edit user stories send a PUT or a PATCH specifying the user story id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -3623,7 +4450,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-stories-delete">10.5. Delete</h3>
+<h3 id="user-stories-delete">11.5. Delete</h3>
 <div class="paragraph">
 <p>To delete user stories send a DELETE specifying the user story id in the url</p>
 </div>
@@ -3639,7 +4466,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-stories-bulk-create">10.6. Bulk creation</h3>
+<h3 id="user-stories-bulk-create">11.6. Bulk creation</h3>
 <div class="paragraph">
 <p>To create multiple user stories at the same time send a POST request with the following data:</p>
 </div>
@@ -3673,7 +4500,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-stories-bulk-update-backlog-order">10.7. Bulk update backlog order</h3>
+<h3 id="user-stories-bulk-update-backlog-order">11.7. Bulk update backlog order</h3>
 <div class="paragraph">
 <p>To update the backlog order of multiple user stories at the same time send a POST request with the following data:</p>
 </div>
@@ -3713,7 +4540,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-stories-bulk-update-kanban-order">10.8. Bulk update kanban order</h3>
+<h3 id="user-stories-bulk-update-kanban-order">11.8. Bulk update kanban order</h3>
 <div class="paragraph">
 <p>To update the kanban order of multiple user stories at the same time send a POST request with the following data:</p>
 </div>
@@ -3753,7 +4580,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-stories-bulk-update-sprint-order">10.9. Bulk update sprint order</h3>
+<h3 id="user-stories-bulk-update-sprint-order">11.9. Bulk update sprint order</h3>
 <div class="paragraph">
 <p>To update the sprint order of multiple user stories at the same time send a POST request with the following data:</p>
 </div>
@@ -3793,7 +4620,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-stories-list-attachments">10.10. List attachments</h3>
+<h3 id="user-stories-list-attachments">11.10. List attachments</h3>
 <div class="paragraph">
 <p>To list user story attachments send a GET request with the following parameters:</p>
 </div>
@@ -3820,7 +4647,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-stories-create-attachment">10.11. Create attachment</h3>
+<h3 id="user-stories-create-attachment">11.11. Create attachment</h3>
 <div class="paragraph">
 <p>To create user story attachments send a POST request with the following data:</p>
 </div>
@@ -3858,7 +4685,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-stories-get-attachment">10.12. Get attachment</h3>
+<h3 id="user-stories-get-attachment">11.12. Get attachment</h3>
 <div class="paragraph">
 <p>To get a user story attachment send a GET request specifying the user story attachment id in the url</p>
 </div>
@@ -3875,7 +4702,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-stories-edit-attachment">10.13. Edit attachment</h3>
+<h3 id="user-stories-edit-attachment">11.13. Edit attachment</h3>
 <div class="paragraph">
 <p>To edit user story attachments send a PUT or a PATCH specifying the user story attachment id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -3893,7 +4720,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-stories-delete-attachment">10.14. Delete attachment</h3>
+<h3 id="user-stories-delete-attachment">11.14. Delete attachment</h3>
 <div class="paragraph">
 <p>To delete user story attachments send a DELETE specifying the user story attachment id in the url</p>
 </div>
@@ -3911,10 +4738,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="user-story-statuses">11. User story status</h2>
+<h2 id="user-story-statuses">12. User story status</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="user-story-statuses-list">11.1. List</h3>
+<h3 id="user-story-statuses-list">12.1. List</h3>
 <div class="paragraph">
 <p>To list user story status send a GET request with the following parameters:</p>
 </div>
@@ -3949,7 +4776,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-story-statuses-create">11.2. Create</h3>
+<h3 id="user-story-statuses-create">12.2. Create</h3>
 <div class="paragraph">
 <p>To create user story statuses send a POST request with the following data:</p>
 </div>
@@ -4008,7 +4835,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-story-statuses-get">11.3. Get</h3>
+<h3 id="user-story-statuses-get">12.3. Get</h3>
 <div class="paragraph">
 <p>To get a user story status send a GET request specifying the user story status id in the url</p>
 </div>
@@ -4025,7 +4852,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-story-statuses-edit">11.4. Edit</h3>
+<h3 id="user-story-statuses-edit">12.4. Edit</h3>
 <div class="paragraph">
 <p>To edit user story statuses send a PUT or a PATCH specifying the user story status id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -4046,7 +4873,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-story-statuses-delete">11.5. Delete</h3>
+<h3 id="user-story-statuses-delete">12.5. Delete</h3>
 <div class="paragraph">
 <p>To delete user story satuses send a DELETE specifying the user story status id in the url</p>
 </div>
@@ -4062,7 +4889,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="user-story-statuses-bulk-update-order">11.6. Bulk update order</h3>
+<h3 id="user-story-statuses-bulk-update-order">12.6. Bulk update order</h3>
 <div class="paragraph">
 <p>To update the order of multiple user story statues at the same time send a POST request with the following data:</p>
 </div>
@@ -4095,10 +4922,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="points">12. Points</h2>
+<h2 id="points">13. Points</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="points-list">12.1. List</h3>
+<h3 id="points-list">13.1. List</h3>
 <div class="paragraph">
 <p>To list points send a GET request with the following parameters:</p>
 </div>
@@ -4133,7 +4960,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="points-create">12.2. Create</h3>
+<h3 id="points-create">13.2. Create</h3>
 <div class="paragraph">
 <p>To create points send a POST request with the following data:</p>
 </div>
@@ -4188,7 +5015,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="points-get">12.3. Get</h3>
+<h3 id="points-get">13.3. Get</h3>
 <div class="paragraph">
 <p>To get a point send a GET request specifying the point id in the url</p>
 </div>
@@ -4205,7 +5032,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="points-edit">12.4. Edit</h3>
+<h3 id="points-edit">13.4. Edit</h3>
 <div class="paragraph">
 <p>To edit points send a PUT or a PATCH specifying the point id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -4226,7 +5053,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="points-delete">12.5. Delete</h3>
+<h3 id="points-delete">13.5. Delete</h3>
 <div class="paragraph">
 <p>To delete points send a DELETE specifying the point id in the url</p>
 </div>
@@ -4242,7 +5069,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="points-bulk-update-order">12.6. Bulk update order</h3>
+<h3 id="points-bulk-update-order">13.6. Bulk update order</h3>
 <div class="paragraph">
 <p>To update the order of multiple points at the same time send a POST request with the following data:</p>
 </div>
@@ -4275,10 +5102,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="tasks">13. Tasks</h2>
+<h2 id="tasks">14. Tasks</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="tasks-list">13.1. List</h3>
+<h3 id="tasks-list">14.1. List</h3>
 <div class="paragraph">
 <p>To list tasks send a GET request with the following parameters:</p>
 </div>
@@ -4319,7 +5146,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="tasks-create">13.2. Create</h3>
+<h3 id="tasks-create">14.2. Create</h3>
 <div class="paragraph">
 <p>To create tasks send a POST request with the following data:</p>
 </div>
@@ -4421,7 +5248,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="tasks-get">13.3. Get</h3>
+<h3 id="tasks-get">14.3. Get</h3>
 <div class="paragraph">
 <p>To get a task send a GET request specifying the task id in the url</p>
 </div>
@@ -4438,7 +5265,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="tasks-edit">13.4. Edit</h3>
+<h3 id="tasks-edit">14.4. Edit</h3>
 <div class="paragraph">
 <p>To edit tasks send a PUT or a PATCH specifying the task id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -4459,7 +5286,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="tasks-delete">13.5. Delete</h3>
+<h3 id="tasks-delete">14.5. Delete</h3>
 <div class="paragraph">
 <p>To delete tasks send a DELETE specifying the task id in the url</p>
 </div>
@@ -4475,7 +5302,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="tasks-bulk-create">13.6. Bulk creation</h3>
+<h3 id="tasks-bulk-create">14.6. Bulk creation</h3>
 <div class="paragraph">
 <p>To create multiple tasks at the same time send a POST request with the following data:</p>
 </div>
@@ -4509,7 +5336,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="tasks-list-attachments">13.7. List attachments</h3>
+<h3 id="tasks-list-attachments">14.7. List attachments</h3>
 <div class="paragraph">
 <p>To list task attachments send a GET request with the following parameters:</p>
 </div>
@@ -4536,7 +5363,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="tasks-create-attachment">13.8. Create attachment</h3>
+<h3 id="tasks-create-attachment">14.8. Create attachment</h3>
 <div class="paragraph">
 <p>To create task attachments send a POST request with the following data:</p>
 </div>
@@ -4574,7 +5401,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="tasks-get-attachment">13.9. Get attachment</h3>
+<h3 id="tasks-get-attachment">14.9. Get attachment</h3>
 <div class="paragraph">
 <p>To get a task attachment send a GET request specifying the task attachment id in the url</p>
 </div>
@@ -4591,7 +5418,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="tasks-edit-attachment">13.10. Edit attachment</h3>
+<h3 id="tasks-edit-attachment">14.10. Edit attachment</h3>
 <div class="paragraph">
 <p>To edit task attachments send a PUT or a PATCH specifying the task attachment id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -4609,7 +5436,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="tasks-delete-attachment">13.11. Delete attachment</h3>
+<h3 id="tasks-delete-attachment">14.11. Delete attachment</h3>
 <div class="paragraph">
 <p>To delete task attachments send a DELETE specifying the task attachment id in the url</p>
 </div>
@@ -4627,10 +5454,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="task-statuses">14. Task status</h2>
+<h2 id="task-statuses">15. Task status</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="task-statuses-list">14.1. List</h3>
+<h3 id="task-statuses-list">15.1. List</h3>
 <div class="paragraph">
 <p>To list task status send a GET request with the following parameters:</p>
 </div>
@@ -4665,7 +5492,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="task-statuses-create">14.2. Create</h3>
+<h3 id="task-statuses-create">15.2. Create</h3>
 <div class="paragraph">
 <p>To create task statuses send a POST request with the following data:</p>
 </div>
@@ -4720,7 +5547,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="task-statuses-get">14.3. Get</h3>
+<h3 id="task-statuses-get">15.3. Get</h3>
 <div class="paragraph">
 <p>To get a task status send a GET request specifying the task status id in the url</p>
 </div>
@@ -4737,7 +5564,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="task-statuses-edit">14.4. Edit</h3>
+<h3 id="task-statuses-edit">15.4. Edit</h3>
 <div class="paragraph">
 <p>To edit task statuses send a PUT or a PATCH specifying the task status id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -4758,7 +5585,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="task-statuses-delete">14.5. Delete</h3>
+<h3 id="task-statuses-delete">15.5. Delete</h3>
 <div class="paragraph">
 <p>To delete task satuses send a DELETE specifying the task status id in the url</p>
 </div>
@@ -4774,7 +5601,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="task-statuses-bulk-update-order">14.6. Bulk update order</h3>
+<h3 id="task-statuses-bulk-update-order">15.6. Bulk update order</h3>
 <div class="paragraph">
 <p>To update the order of multiple task statuses at the same time send a POST request with the following data:</p>
 </div>
@@ -4807,10 +5634,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="issues">15. Issues</h2>
+<h2 id="issues">16. Issues</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="issues-list">15.1. List</h3>
+<h3 id="issues-list">16.1. List</h3>
 <div class="paragraph">
 <p>To list issues send a GET request with the following parameters:</p>
 </div>
@@ -4908,7 +5735,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issues-create">15.2. Create</h3>
+<h3 id="issues-create">16.2. Create</h3>
 <div class="paragraph">
 <p>To create issues send a POST request with the following data:</p>
 </div>
@@ -5002,7 +5829,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issues-get">15.3. Get</h3>
+<h3 id="issues-get">16.3. Get</h3>
 <div class="paragraph">
 <p>To get an issue send a GET request specifying the issue id in the url</p>
 </div>
@@ -5019,7 +5846,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issues-edit">15.4. Edit</h3>
+<h3 id="issues-edit">16.4. Edit</h3>
 <div class="paragraph">
 <p>To edit issues send a PUT or a PATCH specifying the issue id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -5040,7 +5867,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issues-delete">15.5. Delete</h3>
+<h3 id="issues-delete">16.5. Delete</h3>
 <div class="paragraph">
 <p>To delete issues send a DELETE specifying the issue id in the url</p>
 </div>
@@ -5056,7 +5883,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issues-upvote">15.6. Vote to an issue</h3>
+<h3 id="issues-upvote">16.6. Vote to an issue</h3>
 <div class="paragraph">
 <p>To vote issues send a POST specifying the issue id in the url</p>
 </div>
@@ -5072,7 +5899,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issues-downvote">15.7. Remove vote to an issue</h3>
+<h3 id="issues-downvote">16.7. Remove vote to an issue</h3>
 <div class="paragraph">
 <p>To remove a vote to an issues send a POST specifying the issue id in the url</p>
 </div>
@@ -5088,7 +5915,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issues-voters">15.8. Get issue voters list</h3>
+<h3 id="issues-voters">16.8. Get issue voters list</h3>
 <div class="paragraph">
 <p>To get an issue voters send a GET request specifying the issue id in the url</p>
 </div>
@@ -5105,7 +5932,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issues-list-attachments">15.9. List attachments</h3>
+<h3 id="issues-list-attachments">16.9. List attachments</h3>
 <div class="paragraph">
 <p>To list issue attachments send a GET request with the following parameters:</p>
 </div>
@@ -5132,7 +5959,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issues-create-attachment">15.10. Create attachment</h3>
+<h3 id="issues-create-attachment">16.10. Create attachment</h3>
 <div class="paragraph">
 <p>To create issue attachments send a POST request with the following data:</p>
 </div>
@@ -5170,7 +5997,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issues-get-attachment">15.11. Get attachment</h3>
+<h3 id="issues-get-attachment">16.11. Get attachment</h3>
 <div class="paragraph">
 <p>To get an issue attachment send a GET request specifying the issue attachment id in the url</p>
 </div>
@@ -5187,7 +6014,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issues-edit-attachment">15.12. Edit attachment</h3>
+<h3 id="issues-edit-attachment">16.12. Edit attachment</h3>
 <div class="paragraph">
 <p>To edit issue attachments send a PUT or a PATCH specifying the issue attachment id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -5205,7 +6032,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issues-delete-attachment">15.13. Delete attachment</h3>
+<h3 id="issues-delete-attachment">16.13. Delete attachment</h3>
 <div class="paragraph">
 <p>To delete issue attachments send a DELETE specifying the issue attachment id in the url</p>
 </div>
@@ -5223,10 +6050,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="issue-statuses">16. Issue status</h2>
+<h2 id="issue-statuses">17. Issue status</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="issue-statuses-list">16.1. List</h3>
+<h3 id="issue-statuses-list">17.1. List</h3>
 <div class="paragraph">
 <p>To list issue status send a GET request with the following parameters:</p>
 </div>
@@ -5261,7 +6088,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issue-statuses-create">16.2. Create</h3>
+<h3 id="issue-statuses-create">17.2. Create</h3>
 <div class="paragraph">
 <p>To create issue statuses send a POST request with the following data:</p>
 </div>
@@ -5316,7 +6143,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issue-statuses-get">16.3. Get</h3>
+<h3 id="issue-statuses-get">17.3. Get</h3>
 <div class="paragraph">
 <p>To get a issue status send a GET request specifying the issue status id in the url</p>
 </div>
@@ -5333,7 +6160,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issue-statuses-edit">16.4. Edit</h3>
+<h3 id="issue-statuses-edit">17.4. Edit</h3>
 <div class="paragraph">
 <p>To edit issue statuses send a PUT or a PATCH specifying the issue status id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -5354,7 +6181,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issue-statuses-delete">16.5. Delete</h3>
+<h3 id="issue-statuses-delete">17.5. Delete</h3>
 <div class="paragraph">
 <p>To delete issue satuses send a DELETE specifying the issue status id in the url</p>
 </div>
@@ -5370,7 +6197,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issue-statuses-bulk-update-order">16.6. Bulk update order</h3>
+<h3 id="issue-statuses-bulk-update-order">17.6. Bulk update order</h3>
 <div class="paragraph">
 <p>To update the order of multiple issue statuses at the same time send a POST request with the following data:</p>
 </div>
@@ -5403,10 +6230,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="issue-types">17. Issue types</h2>
+<h2 id="issue-types">18. Issue types</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="issue-types-list">17.1. List</h3>
+<h3 id="issue-types-list">18.1. List</h3>
 <div class="paragraph">
 <p>To list issue types send a GET request with the following parameters:</p>
 </div>
@@ -5441,7 +6268,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issue-types-create">17.2. Create</h3>
+<h3 id="issue-types-create">18.2. Create</h3>
 <div class="paragraph">
 <p>To create issue types send a POST request with the following data:</p>
 </div>
@@ -5492,7 +6319,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issue-types-get">17.3. Get</h3>
+<h3 id="issue-types-get">18.3. Get</h3>
 <div class="paragraph">
 <p>To get an issue type send a GET request specifying the issue type id in the url</p>
 </div>
@@ -5509,7 +6336,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issue-types-edit">17.4. Edit</h3>
+<h3 id="issue-types-edit">18.4. Edit</h3>
 <div class="paragraph">
 <p>To edit issue types send a PUT or a PATCH specifying the issue type id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -5530,7 +6357,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issue-types-delete">17.5. Delete</h3>
+<h3 id="issue-types-delete">18.5. Delete</h3>
 <div class="paragraph">
 <p>To delete issue satuses send a DELETE specifying the issue type id in the url</p>
 </div>
@@ -5546,7 +6373,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issue-types-bulk-update-order">17.6. Bulk update order</h3>
+<h3 id="issue-types-bulk-update-order">18.6. Bulk update order</h3>
 <div class="paragraph">
 <p>To update the order of multiple issue types at the same time send a POST request with the following data:</p>
 </div>
@@ -5579,10 +6406,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="priorities">18. Prioritues</h2>
+<h2 id="priorities">19. Prioritues</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="priorities-list">18.1. List</h3>
+<h3 id="priorities-list">19.1. List</h3>
 <div class="paragraph">
 <p>To list priorities send a GET request with the following parameters:</p>
 </div>
@@ -5617,7 +6444,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="priorities-create">18.2. Create</h3>
+<h3 id="priorities-create">19.2. Create</h3>
 <div class="paragraph">
 <p>To create priorities send a POST request with the following data:</p>
 </div>
@@ -5668,7 +6495,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="priorities-get">18.3. Get</h3>
+<h3 id="priorities-get">19.3. Get</h3>
 <div class="paragraph">
 <p>To get a priority send a GET request specifying the priority id in the url</p>
 </div>
@@ -5685,7 +6512,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="priorities-edit">18.4. Edit</h3>
+<h3 id="priorities-edit">19.4. Edit</h3>
 <div class="paragraph">
 <p>To edit priorities send a PUT or a PATCH specifying the priority id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -5706,7 +6533,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="priorities-delete">18.5. Delete</h3>
+<h3 id="priorities-delete">19.5. Delete</h3>
 <div class="paragraph">
 <p>To delete priorities send a DELETE specifying the priority id in the url</p>
 </div>
@@ -5722,7 +6549,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="priorities-bulk-update-order">18.6. Bulk update order</h3>
+<h3 id="priorities-bulk-update-order">19.6. Bulk update order</h3>
 <div class="paragraph">
 <p>To update the order of multiple priorities at the same time send a POST request with the following data:</p>
 </div>
@@ -5755,10 +6582,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="severities">19. Severities</h2>
+<h2 id="severities">20. Severities</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="severities-list">19.1. List</h3>
+<h3 id="severities-list">20.1. List</h3>
 <div class="paragraph">
 <p>To list severities send a GET request with the following parameters:</p>
 </div>
@@ -5793,7 +6620,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="severities-create">19.2. Create</h3>
+<h3 id="severities-create">20.2. Create</h3>
 <div class="paragraph">
 <p>To create severities send a POST request with the following data:</p>
 </div>
@@ -5844,7 +6671,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="severities-get">19.3. Get</h3>
+<h3 id="severities-get">20.3. Get</h3>
 <div class="paragraph">
 <p>To get a severity send a GET request specifying the severity id in the url</p>
 </div>
@@ -5861,7 +6688,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="severities-edit">19.4. Edit</h3>
+<h3 id="severities-edit">20.4. Edit</h3>
 <div class="paragraph">
 <p>To edit severities send a PUT or a PATCH specifying the severity id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -5882,7 +6709,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="severities-delete">19.5. Delete</h3>
+<h3 id="severities-delete">20.5. Delete</h3>
 <div class="paragraph">
 <p>To delete severities send a DELETE specifying the severity id in the url</p>
 </div>
@@ -5898,7 +6725,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="severities-bulk-update-order">19.6. Bulk update order</h3>
+<h3 id="severities-bulk-update-order">20.6. Bulk update order</h3>
 <div class="paragraph">
 <p>To update the order of multiple severities at the same time send a POST request with the following data:</p>
 </div>
@@ -5931,10 +6758,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="wiki">20. Wiki pages</h2>
+<h2 id="wiki">21. Wiki pages</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="wiki-list">20.1. List</h3>
+<h3 id="wiki-list">21.1. List</h3>
 <div class="paragraph">
 <p>To list wiki pages send a GET request with the following parameters:</p>
 </div>
@@ -5969,7 +6796,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wiki-create">20.2. Create</h3>
+<h3 id="wiki-create">21.2. Create</h3>
 <div class="paragraph">
 <p>To create wiki pages send a POST request with the following data:</p>
 </div>
@@ -6021,7 +6848,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wiki-get">20.3. Get</h3>
+<h3 id="wiki-get">21.3. Get</h3>
 <div class="paragraph">
 <p>To get a wiki page send a GET request specifying the wiki page id in the url</p>
 </div>
@@ -6038,7 +6865,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wiki-edit">20.4. Edit</h3>
+<h3 id="wiki-edit">21.4. Edit</h3>
 <div class="paragraph">
 <p>To edit wiki pages send a PUT or a PATCH specifying the wiki page id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -6059,7 +6886,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wiki-delete">20.5. Delete</h3>
+<h3 id="wiki-delete">21.5. Delete</h3>
 <div class="paragraph">
 <p>To delete wiki page send a DELETE specifying the wiki page id in the url</p>
 </div>
@@ -6075,7 +6902,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wiki-list-attachments">20.6. List attachments</h3>
+<h3 id="wiki-list-attachments">21.6. List attachments</h3>
 <div class="paragraph">
 <p>To list wiki page attachments send a GET request with the following parameters:</p>
 </div>
@@ -6102,7 +6929,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wiki-create-attachment">20.7. Create attachment</h3>
+<h3 id="wiki-create-attachment">21.7. Create attachment</h3>
 <div class="paragraph">
 <p>To create wiki page attachments send a POST request with the following data:</p>
 </div>
@@ -6140,7 +6967,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wiki-get-attachment">20.8. Get attachment</h3>
+<h3 id="wiki-get-attachment">21.8. Get attachment</h3>
 <div class="paragraph">
 <p>To get an wiki page attachment send a GET request specifying the wiki page attachment id in the url</p>
 </div>
@@ -6157,7 +6984,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wiki-edit-attachment">20.9. Edit attachment</h3>
+<h3 id="wiki-edit-attachment">21.9. Edit attachment</h3>
 <div class="paragraph">
 <p>To edit wiki page attachments send a PUT or a PATCH specifying the wiki page attachment id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -6175,7 +7002,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wiki-delete-attachment">20.10. Delete attachment</h3>
+<h3 id="wiki-delete-attachment">21.10. Delete attachment</h3>
 <div class="paragraph">
 <p>To delete wiki page attachments send a DELETE specifying the wiki page attachment id in the url</p>
 </div>
@@ -6193,10 +7020,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="wikilinks">21. Wiki links</h2>
+<h2 id="wikilinks">22. Wiki links</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="wikilinks-list">21.1. List</h3>
+<h3 id="wikilinks-list">22.1. List</h3>
 <div class="paragraph">
 <p>To list wiki links send a GET request with the following parameters:</p>
 </div>
@@ -6231,7 +7058,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wikilinks-create">21.2. Create</h3>
+<h3 id="wikilinks-create">22.2. Create</h3>
 <div class="paragraph">
 <p>To create wiki links send a POST request with the following data:</p>
 </div>
@@ -6283,7 +7110,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wikilinks-get">21.3. Get</h3>
+<h3 id="wikilinks-get">22.3. Get</h3>
 <div class="paragraph">
 <p>To get a wiki link send a GET request specifying the wiki link id in the url</p>
 </div>
@@ -6300,7 +7127,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wikilinks-edit">21.4. Edit</h3>
+<h3 id="wikilinks-edit">22.4. Edit</h3>
 <div class="paragraph">
 <p>To edit wiki links send a PUT or a PATCH specifying the wiki link id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -6321,7 +7148,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wikilinks-delete">21.5. Delete</h3>
+<h3 id="wikilinks-delete">22.5. Delete</h3>
 <div class="paragraph">
 <p>To delete wiki link send a DELETE specifying the wiki link id in the url</p>
 </div>
@@ -6339,10 +7166,64 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="users">22. Users</h2>
+<h2 id="history">23. History</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="users-list">22.1. List</h3>
+<h3 id="history-get">23.1. Get user story, task, issue or wiki page history</h3>
+<div class="paragraph">
+<p>To get the history of a user story, task, issue or wiki page send a GET request specifying the id in the url</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/history/userstory/1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The HTTP response is a 200 OK and the response body is a JSON of a list of <a href="#object-history-entry-detail">history entry detail objects</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="history-delete-comment">23.2. Delete comment</h3>
+<div class="paragraph">
+<p>To delete history comment send a POST specifying the history entry id in the url</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X POST <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/history/userstory/1/delete_comment?id<span class="tok-o">=</span>10</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When delete succeeded, the HTTP response is a 204 NO CONTENT with an empty body response</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="history-undelete-comment">23.3. Undelete comment</h3>
+<div class="paragraph">
+<p>To undelete history comment send a POST specifying the history entry id in the url</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X POST <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/history/userstory/1/undelete_comment?id<span class="tok-o">=</span>10</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When delete succeeded, the HTTP response is a 204 NO CONTENT with an empty body response</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="users">24. Users</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="users-list">24.1. List</h3>
 <div class="paragraph">
 <p>To list users send a GET request with the following parameters:</p>
 </div>
@@ -6377,7 +7258,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-get">22.2. Get</h3>
+<h3 id="users-get">24.2. Get</h3>
 <div class="paragraph">
 <p>To get a user send a GET request specifying the user id in the url</p>
 </div>
@@ -6394,7 +7275,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-starred">22.3. Get starred projects</h3>
+<h3 id="users-starred">24.3. Get starred projects</h3>
 <div class="paragraph">
 <p>To get the starred projects from a user send a GET request specifying the user id in the url</p>
 </div>
@@ -6411,7 +7292,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-edit">22.4. Edit</h3>
+<h3 id="users-edit">24.4. Edit</h3>
 <div class="paragraph">
 <p>To edit users send a PUT or a PATCH specifying the user id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -6432,7 +7313,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-delete">22.5. Delete</h3>
+<h3 id="users-delete">24.5. Delete</h3>
 <div class="paragraph">
 <p>To delete users send a DELETE specifying the user id in the url</p>
 </div>
@@ -6448,7 +7329,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-cancel">22.6. Cancel</h3>
+<h3 id="users-cancel">24.6. Cancel</h3>
 <div class="paragraph">
 <p>To cancel a user account send a POST with the following data</p>
 </div>
@@ -6467,7 +7348,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-change-avatar">22.7. Change avatar</h3>
+<h3 id="users-change-avatar">24.7. Change avatar</h3>
 <div class="paragraph">
 <p>To change your user avatar send a POST with the following data</p>
 </div>
@@ -6484,7 +7365,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-remove-avatar">22.8. Remove avatar</h3>
+<h3 id="users-remove-avatar">24.8. Remove avatar</h3>
 <div class="paragraph">
 <p>To remove your user avatar send a POST with the following data</p>
 </div>
@@ -6500,7 +7381,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-change-email">22.9. Change email</h3>
+<h3 id="users-change-email">24.9. Change email</h3>
 <div class="paragraph">
 <p>To change your user email send a POST with the following data</p>
 </div>
@@ -6520,7 +7401,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-change-password">22.10. Change password</h3>
+<h3 id="users-change-password">24.10. Change password</h3>
 <div class="paragraph">
 <p>To change your user password send a POST with the following data</p>
 </div>
@@ -6540,7 +7421,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-password-recovery">22.11. Password recovery</h3>
+<h3 id="users-password-recovery">24.11. Password recovery</h3>
 <div class="paragraph">
 <p>To request a user password recovery send a POST with the following data</p>
 </div>
@@ -6566,7 +7447,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-change-password-from-recovery">22.12. Change password from recovery</h3>
+<h3 id="users-change-password-from-recovery">24.12. Change password from recovery</h3>
 <div class="paragraph">
 <p>To change a user password from a request recovery send a POST with the following data</p>
 </div>
@@ -6587,10 +7468,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="notify-policies">23. Notify policies</h2>
+<h2 id="notify-policies">25. Notify policies</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="notify-policies-list">23.1. List</h3>
+<h3 id="notify-policies-list">25.1. List</h3>
 <div class="paragraph">
 <p>To list the notify policies of the current user send a GET request with the following parameters:</p>
 </div>
@@ -6607,7 +7488,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="notify-policies-get">23.2. Get</h3>
+<h3 id="notify-policies-get">25.2. Get</h3>
 <div class="paragraph">
 <p>To get a notify policy send a GET request specifying the notify policy id in the url</p>
 </div>
@@ -6624,7 +7505,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="notify-policies-edit">23.3. Edit</h3>
+<h3 id="notify-policies-edit">25.3. Edit</h3>
 <div class="paragraph">
 <p>To edit notify policies send a PUT or a PATCH specifying the notify policy id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -6647,10 +7528,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="feedback">24. Feedback</h2>
+<h2 id="feedback">26. Feedback</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="feedback-create">24.1. Create</h3>
+<h3 id="feedback-create">26.1. Create</h3>
 <div class="paragraph">
 <p>To create feedback send a POST request with the following data:</p>
 </div>
@@ -6679,10 +7560,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="_objects_summary">25. Objects Summary</h2>
+<h2 id="_objects_summary">27. Objects Summary</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="object-attachment-detail">25.1. Attachment</h3>
+<h3 id="object-attachment-detail">27.1. Attachment</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -6704,7 +7585,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-user-detail">25.2. User detail</h3>
+<h3 id="object-user-detail">27.2. User detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -6726,7 +7607,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-auth-user-detail">25.3. User authentication-detail</h3>
+<h3 id="object-auth-user-detail">27.3. User authentication-detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -6749,7 +7630,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-search-results-detail">25.4. Search results detail</h3>
+<h3 id="object-search-results-detail">27.4. Search results detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -6763,7 +7644,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-user-storage-detail">25.5. User storage data</h3>
+<h3 id="object-user-storage-detail">27.5. User storage data</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -6775,8 +7656,366 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="object-project-template-detail">28. Project templates detail</h2>
+<div class="sectionbody">
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
+    <span class="tok-nt">&quot;default_options&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;us_status&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;New&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;points&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;?&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;priority&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Normal&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;severity&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Normal&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;task_status&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;New&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;issue_type&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Bug&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;issue_status&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;New&quot;</span>
+    <span class="tok-p">},</span>
+    <span class="tok-nt">&quot;us_statuses&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;wip_limit&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#999999&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;New&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;wip_limit&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#f57900&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Ready&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">2</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;wip_limit&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#729fcf&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;In progress&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">3</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;wip_limit&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#4e9a06&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Ready for test&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">4</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;wip_limit&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#cc0000&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Done&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">5</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span>
+        <span class="tok-p">}</span>
+    <span class="tok-p">],</span>
+    <span class="tok-nt">&quot;points&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;value&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;?&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;value&quot;</span><span class="tok-p">:</span> <span class="tok-mf">0.0</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;0&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">2</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;value&quot;</span><span class="tok-p">:</span> <span class="tok-mf">0.5</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;1/2&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">3</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;value&quot;</span><span class="tok-p">:</span> <span class="tok-mf">1.0</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;1&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">4</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;value&quot;</span><span class="tok-p">:</span> <span class="tok-mf">2.0</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;2&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">5</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;value&quot;</span><span class="tok-p">:</span> <span class="tok-mf">3.0</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;3&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">6</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;value&quot;</span><span class="tok-p">:</span> <span class="tok-mf">5.0</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;5&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">7</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;value&quot;</span><span class="tok-p">:</span> <span class="tok-mf">8.0</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;8&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">8</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;value&quot;</span><span class="tok-p">:</span> <span class="tok-mf">10.0</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;10&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">9</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;value&quot;</span><span class="tok-p">:</span> <span class="tok-mf">15.0</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;15&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">10</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;value&quot;</span><span class="tok-p">:</span> <span class="tok-mf">20.0</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;20&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">11</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;value&quot;</span><span class="tok-p">:</span> <span class="tok-mf">40.0</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;40&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">12</span>
+        <span class="tok-p">}</span>
+    <span class="tok-p">],</span>
+    <span class="tok-nt">&quot;task_statuses&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#999999&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;New&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#729fcf&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;In progress&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">2</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#f57900&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Ready for test&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">3</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#4e9a06&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Closed&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">4</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#cc0000&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Needs Info&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">5</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span>
+        <span class="tok-p">}</span>
+    <span class="tok-p">],</span>
+    <span class="tok-nt">&quot;issue_statuses&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#999999&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;New&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#729fcf&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;In progress&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">2</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#f57900&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Ready for test&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">3</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#4e9a06&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Closed&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">4</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#cc0000&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Needs Info&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">5</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#d3d7cf&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Rejected&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">6</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#75507b&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Postponed&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">7</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span>
+        <span class="tok-p">}</span>
+    <span class="tok-p">],</span>
+    <span class="tok-nt">&quot;issue_types&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#cc0000&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Bug&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#729fcf&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Question&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">2</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#4e9a06&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Enhancement&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">3</span>
+        <span class="tok-p">}</span>
+    <span class="tok-p">],</span>
+    <span class="tok-nt">&quot;priorities&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#999999&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Low&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#4e9a06&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Normal&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">3</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#CC0000&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;High&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">5</span>
+        <span class="tok-p">}</span>
+    <span class="tok-p">],</span>
+    <span class="tok-nt">&quot;severities&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#999999&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Wishlist&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#729fcf&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Minor&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">2</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#4e9a06&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Normal&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">3</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#f57900&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Important&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">4</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#CC0000&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Critical&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">5</span>
+        <span class="tok-p">}</span>
+    <span class="tok-p">],</span>
+    <span class="tok-nt">&quot;roles&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;permissions&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+                <span class="tok-s2">&quot;add_issue&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_issue&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;delete_issue&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_issues&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;add_milestone&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_milestone&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;delete_milestone&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;view_milestones&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_project&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;add_task&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_task&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;delete_task&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_tasks&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;add_us&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_us&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;delete_us&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_us&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;add_wiki_page&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_wiki_page&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;delete_wiki_page&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_wiki_pages&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;add_wiki_link&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;delete_wiki_link&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_wiki_links&quot;</span>
+            <span class="tok-p">],</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">10</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;computable&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;ux&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;UX&quot;</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;permissions&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+                <span class="tok-s2">&quot;add_issue&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_issue&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;delete_issue&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_issues&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;add_milestone&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_milestone&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;delete_milestone&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;view_milestones&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_project&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;add_task&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_task&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;delete_task&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_tasks&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;add_us&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_us&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;delete_us&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_us&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;add_wiki_page&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_wiki_page&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;delete_wiki_page&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_wiki_pages&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;add_wiki_link&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;delete_wiki_link&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_wiki_links&quot;</span>
+            <span class="tok-p">],</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">20</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;computable&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;design&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Design&quot;</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;permissions&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+                <span class="tok-s2">&quot;add_issue&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_issue&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;delete_issue&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_issues&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;add_milestone&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_milestone&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;delete_milestone&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;view_milestones&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_project&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;add_task&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_task&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;delete_task&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_tasks&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;add_us&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_us&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;delete_us&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_us&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;add_wiki_page&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_wiki_page&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;delete_wiki_page&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_wiki_pages&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;add_wiki_link&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;delete_wiki_link&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_wiki_links&quot;</span>
+            <span class="tok-p">],</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">30</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;computable&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;front&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Front&quot;</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;permissions&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+                <span class="tok-s2">&quot;add_issue&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_issue&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;delete_issue&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_issues&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;add_milestone&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_milestone&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;delete_milestone&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;view_milestones&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_project&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;add_task&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_task&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;delete_task&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_tasks&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;add_us&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_us&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;delete_us&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_us&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;add_wiki_page&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_wiki_page&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;delete_wiki_page&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_wiki_pages&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;add_wiki_link&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;delete_wiki_link&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_wiki_links&quot;</span>
+            <span class="tok-p">],</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">40</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;computable&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;back&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Back&quot;</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;permissions&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+                <span class="tok-s2">&quot;add_issue&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_issue&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;delete_issue&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_issues&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;add_milestone&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_milestone&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;delete_milestone&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;view_milestones&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_project&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;add_task&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_task&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;delete_task&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_tasks&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;add_us&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_us&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;delete_us&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_us&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;add_wiki_page&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_wiki_page&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;delete_wiki_page&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_wiki_pages&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;add_wiki_link&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;delete_wiki_link&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_wiki_links&quot;</span>
+            <span class="tok-p">],</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">50</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;computable&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;product-owner&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Product Owner&quot;</span>
+        <span class="tok-p">},</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;permissions&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+                <span class="tok-s2">&quot;add_issue&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;modify_issue&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;delete_issue&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_issues&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;view_milestones&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_project&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_tasks&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_us&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;modify_wiki_page&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_wiki_pages&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;add_wiki_link&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;delete_wiki_link&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;view_wiki_links&quot;</span>
+            <span class="tok-p">],</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">60</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;computable&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;stakeholder&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Stakeholder&quot;</span>
+        <span class="tok-p">}</span>
+    <span class="tok-p">],</span>
+    <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">2</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Kanban&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;kanban&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;description&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Sample description&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;created_date&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;2014-04-22T14:50:19+0000&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;modified_date&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;2014-07-25T13:11:42+0000&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;default_owner_role&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;product-owner&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;is_backlog_activated&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;is_kanban_activated&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;is_wiki_activated&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;is_issues_activated&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;videoconferences&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;videoconferences_salt&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
 <div class="sect2">
-<h3 id="object-project-list-entry">25.6. Project list entry</h3>
+<h3 id="object-project-list-entry">28.1. Project list entry</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -6865,7 +8104,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-detail">25.7. Project detail</h3>
+<h3 id="object-project-detail">28.2. Project detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -7336,7 +8575,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-modules-detail">25.8. Project modules detail</h3>
+<h3 id="object-project-modules-detail">28.3. Project modules detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -7349,7 +8588,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-stats-detail">25.9. Project stats detail</h3>
+<h3 id="object-project-stats-detail">28.4. Project stats detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -7552,7 +8791,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-issue-stats-detail">25.10. Project issue stats detail</h3>
+<h3 id="object-project-issue-stats-detail">28.5. Project issue stats detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -8216,7 +9455,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-issue-filters-data-detail">25.11. Project issue filters data detail</h3>
+<h3 id="object-project-issue-filters-data-detail">28.6. Project issue filters data detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -8841,7 +10080,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-tags-colors-detail">25.12. Project tag colors data detail</h3>
+<h3 id="object-project-tags-colors-detail">28.7. Project tag colors data detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -8957,7 +10196,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-voter-detail">25.13. Project voter detail</h3>
+<h3 id="object-project-voter-detail">28.8. Project voter detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -8969,7 +10208,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-template-detail">25.14. Project template detail</h3>
+<h3 id="object-project-template-detail">28.9. Project template detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -9419,7 +10658,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-membership-detail">25.15. Membership detail</h3>
+<h3 id="object-membership-detail">28.10. Membership detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -9444,7 +10683,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-milestone-detail">25.16. Milestone detail</h3>
+<h3 id="object-milestone-detail">28.11. Milestone detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -9471,7 +10710,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-milestone-stats-detail">25.17. Milestone stats detail</h3>
+<h3 id="object-milestone-stats-detail">28.12. Milestone stats detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -9509,7 +10748,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-userstory-detail">25.18. User story detail</h3>
+<h3 id="object-userstory-detail">28.13. User story detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -9559,7 +10798,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-userstory-status-detail">25.19. User story status detail</h3>
+<h3 id="object-userstory-status-detail">28.14. User story status detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -9575,7 +10814,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-point-detail">25.20. Point detail</h3>
+<h3 id="object-point-detail">28.15. Point detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -9590,7 +10829,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-task-detail">25.21. Task detail</h3>
+<h3 id="object-task-detail">28.16. Task detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -9641,7 +10880,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-task-status-detail">25.22. Task status detail</h3>
+<h3 id="object-task-status-detail">28.17. Task status detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -9656,7 +10895,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-issue-detail">25.23. Issue detail</h3>
+<h3 id="object-issue-detail">28.18. Issue detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -9704,7 +10943,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-issue-voters-detail">25.24. Issue voters detail</h3>
+<h3 id="object-issue-voters-detail">28.19. Issue voters detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">[</span>
@@ -9723,7 +10962,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-issue-status-detail">25.25. Issue status detail</h3>
+<h3 id="object-issue-status-detail">28.20. Issue status detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -9738,7 +10977,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-issue-type-detail">25.26. Issue type detail</h3>
+<h3 id="object-issue-type-detail">28.21. Issue type detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -9752,7 +10991,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-priority-detail">25.27. Priority detail</h3>
+<h3 id="object-priority-detail">28.22. Priority detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -9766,7 +11005,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-severity-detail">25.28. Severity detail</h3>
+<h3 id="object-severity-detail">28.23. Severity detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -9780,7 +11019,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-wiki-detail">25.29. Wiki page</h3>
+<h3 id="object-wiki-detail">28.24. Wiki page</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -9801,7 +11040,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-wiki-link-detail">25.30. Wiki link</h3>
+<h3 id="object-wiki-link-detail">28.25. Wiki link</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -9815,7 +11054,60 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-notify-policy-detail">25.31. Notify policy</h3>
+<h3 id="object-history-entry-detail">28.26. History entry</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
+    <span class="tok-nt">&quot;diff&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;team_requirement&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+            <span class="tok-kc">false</span><span class="tok-p">,</span>
+            <span class="tok-kc">true</span>
+        <span class="tok-p">],</span>
+        <span class="tok-nt">&quot;finish_date&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+            <span class="tok-s2">&quot;None&quot;</span><span class="tok-p">,</span>
+            <span class="tok-s2">&quot;2014-11-17 16:19:04.411139+00:00&quot;</span>
+        <span class="tok-p">],</span>
+        <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+            <span class="tok-kc">false</span><span class="tok-p">,</span>
+            <span class="tok-kc">true</span>
+        <span class="tok-p">]</span>
+    <span class="tok-p">},</span>
+    <span class="tok-nt">&quot;snapshot&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;values&quot;</span><span class="tok-p">:</span> <span class="tok-p">{},</span>
+    <span class="tok-nt">&quot;values_diff&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;team_requirement&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+            <span class="tok-kc">false</span><span class="tok-p">,</span>
+            <span class="tok-kc">true</span>
+        <span class="tok-p">],</span>
+        <span class="tok-nt">&quot;finish_date&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+            <span class="tok-s2">&quot;None&quot;</span><span class="tok-p">,</span>
+            <span class="tok-s2">&quot;2014-11-17 16:19:04.411139+00:00&quot;</span>
+        <span class="tok-p">],</span>
+        <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+            <span class="tok-kc">false</span><span class="tok-p">,</span>
+            <span class="tok-kc">true</span>
+        <span class="tok-p">]</span>
+    <span class="tok-p">},</span>
+    <span class="tok-nt">&quot;user&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;pk&quot;</span><span class="tok-p">:</span> <span class="tok-mi">2</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;admin&quot;</span>
+    <span class="tok-p">},</span>
+    <span class="tok-nt">&quot;delete_comment_user&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;9660411e-6fea-11e4-a5b3-b499ba565108&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;created_at&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;2014-11-19T12:50:06+0000&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;type&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;key&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;userstories.userstory:1&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;comment&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;comment_html&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;delete_comment_date&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;is_hidden&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;is_snapshot&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="object-notify-policy-detail">28.27. Notify policy</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -9828,7 +11120,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-feedback-detail">25.32. Feedback</h3>
+<h3 id="object-feedback-detail">28.28. Feedback</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -9846,7 +11138,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-11-19 07:13:48 CET
+Last updated 2014-11-19 17:08:11 CET
 </div>
 </div>
 </body>
