@@ -720,12 +720,17 @@ for proper static/media files resolution and optionally, email sending support:<
 
 <span class="tok-c"># Uncomment and populate with proper connection parameters</span>
 <span class="tok-c"># for enable email sending.</span>
-<span class="tok-c"># EMAIL_BACKEND = &quot;django.core.mail.backends.smtp.EmailBackend&quot;</span>
-<span class="tok-c"># EMAIL_USE_TLS = False</span>
-<span class="tok-c"># EMAIL_HOST = &quot;localhost&quot;</span>
-<span class="tok-c"># EMAIL_HOST_USER = &quot;&quot;</span>
-<span class="tok-c"># EMAIL_HOST_PASSWORD = &quot;&quot;</span>
-<span class="tok-c"># EMAIL_PORT = 25</span></code></pre>
+<span class="tok-c">#EMAIL_BACKEND = &quot;django.core.mail.backends.smtp.EmailBackend&quot;</span>
+<span class="tok-c">#EMAIL_USE_TLS = False</span>
+<span class="tok-c">#EMAIL_HOST = &quot;localhost&quot;</span>
+<span class="tok-c">#EMAIL_HOST_USER = &quot;&quot;</span>
+<span class="tok-c">#EMAIL_HOST_PASSWORD = &quot;&quot;</span>
+<span class="tok-c">#EMAIL_PORT = 25</span>
+
+<span class="tok-c"># Uncomment and populate with proper connection parameters</span>
+<span class="tok-c"># for enable github login/singin.</span>
+<span class="tok-c">#GITHUB_API_CLIENT_ID = &quot;yourgithubclientid&quot;</span>
+<span class="tok-c">#GITHUB_API_CLIENT_SECRET = &quot;yourgithubclientsecret&quot;</span></code></pre>
 </div>
 </div>
 </div>
@@ -736,7 +741,8 @@ for proper static/media files resolution and optionally, email sending support:<
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash">python manage.py runserver</code></pre>
+<pre class="pygments highlight"><code data-lang="bash">workon taiga
+python manage.py runserver</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -823,6 +829,20 @@ used by <strong>taiga-front</strong>.</p>
 </div>
 </div>
 <div class="listingblock">
+<div class="title">Make sure your bash responds to node command to have a smooth installation of gulp and bower</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">node</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you get a "Command not found" error, then run</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">sudo ln -s /usr/bin/nodejs /usr/bin/node</code></pre>
+</div>
+</div>
+<div class="listingblock">
 <div class="title">Install <strong>gulp</strong> and <strong>bower</strong> using recently installed npm</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="bash">sudo npm install -g gulp bower</code></pre>
@@ -862,7 +882,8 @@ bower install</code></pre>
     <span class="tok-nt">&quot;feedbackEnabled&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;privacyPolicyUrl&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;termsOfServiceUrl&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
-    <span class="tok-nt">&quot;maxUploadFileSize&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span>
+    <span class="tok-nt">&quot;maxUploadFileSize&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;gitHubClientId&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span>
 <span class="tok-p">}</span></code></pre>
 </div>
 </div>
@@ -1143,6 +1164,8 @@ in time with the <strong>stable</strong> branch of git or use the last major ver
 <pre class="pygments highlight"><code data-lang="bash"><span class="tok-nb">cd</span> ~/taiga-front
 git checkout stable
 git pull
+npm install
+bower install
 gulp deploy</code></pre>
 </div>
 </div>
@@ -1165,7 +1188,7 @@ circusctl reload taiga</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-11-20 11:16:42 CET
+Last updated 2014-11-20 13:59:25 CET
 </div>
 </div>
 </body>
