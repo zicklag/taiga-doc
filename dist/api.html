@@ -573,6 +573,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#projects-unstar">8.13. Unstar</a></li>
 <li><a href="#projects-fans">8.14. Fans</a></li>
 <li><a href="#projects-create-template">8.15. Create template</a></li>
+<li><a href="#projects-leave">8.16. Leave</a></li>
 </ul>
 </li>
 <li><a href="#memberships">9. Memberships/Invitations</a>
@@ -840,7 +841,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_pagination">1.2. Pagination</h3>
 <div class="paragraph">
-<p>By default the API allways return paginated results and includes the following headers in the response:</p>
+<p>By default the API will always return paginated results and includes the following headers in the response:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -857,10 +858,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p>x-pagination-current: current page</p>
 </li>
 <li>
-<p>X-Pagination-Next: next results</p>
+<p>x-Pagination-Next: next results</p>
 </li>
 <li>
-<p>X-Pagination-Prev: previous results</p>
+<p>x-Pagination-Prev: previous results</p>
 </li>
 </ul>
 </div>
@@ -1148,6 +1149,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/&lt;projectId&gt;/create_template</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#projects-create-template">Create project template</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/&lt;projectId&gt;/leave</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#projects-create-template">Leave project</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -2326,7 +2332,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="auth-github-login">3.2. Github login</h3>
 <div class="paragraph">
-<p>To login a user  via GITHUB send a POST request containing the following data:</p>
+<p>To login a user via GitHub send a POST request containing the following data:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -2334,7 +2340,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><strong>type</strong> with value "github"</p>
 </li>
 <li>
-<p><strong>token</strong> (required): your github authentication token</p>
+<p><strong>code</strong> (required): your github authentication code</p>
+</li>
+<li>
+<p><strong>token</strong>: generated when creating a project&#8217;s membership (for accept invitations to projects)</p>
 </li>
 </ul>
 </div>
@@ -2344,13 +2353,34 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
   -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
   -d <span class="tok-s1">&#39;{</span>
 <span class="tok-s1">          &quot;type&quot;: &quot;github&quot;,</span>
-<span class="tok-s1">          &quot;token&quot;: &quot;${GITHUB_TOKEN}&quot;</span>
+<span class="tok-s1">          &quot;code&quot;: &quot;${GITHUB_CODE}&quot;</span>
 <span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
   https://api.taiga.io/api/v1/auth</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>When the login is successful, the HTTP response is a 200 OK and the response body is a JSON <a href="#object-auth-user-detail">user auth detail object</a></p>
+<p>When the login is successful, the HTTP response is a 200 OK and the response body is a JSON
+<a href="#object-auth-user-detail">user auth detail object</a></p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+<div class="title">Get GitHub autorized code</div>
+<div class="paragraph">
+<p>To get the GitHub code you have to follow the first step <em>Redirect users to request GitHub access</em>
+described in <a href="https://developer.github.com/v3/oauth/#web-application-flow">GitHub Documentation for
+Developers - API - OAuth - Web Application Flow</a>.</p>
+</div>
+<div class="paragraph">
+<p>Taiga needs privileges to get the user email from Github so you have to use the scope user:email.</p>
+</div>
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -3849,6 +3879,22 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 <div class="paragraph">
 <p>When the creation is successful, the HTTP response is a 201 Created and the response body is a JSON <a href="#object-project-template-detail">project template detail object</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="projects-leave">8.16. Leave</h3>
+<div class="paragraph">
+<p>To leave a project send a POST request specifying the project id in the url</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X POST <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/projects/1/leave</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The HTTP response is a 200 OK with an empty body response</p>
 </div>
 </div>
 </div>
@@ -6359,7 +6405,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <div class="sect2">
 <h3 id="issue-types-delete">18.5. Delete</h3>
 <div class="paragraph">
-<p>To delete issue satuses send a DELETE specifying the issue type id in the url</p>
+<p>To delete issue statuses send a DELETE specifying the issue type id in the url</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -7198,7 +7244,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="paragraph">
-<p>When delete succeeded, the HTTP response is a 204 NO CONTENT with an empty body response</p>
+<p>When deleted succesfully, the HTTP response is a 204 NO CONTENT with an empty body response</p>
 </div>
 </div>
 <div class="sect2">
@@ -7214,7 +7260,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="paragraph">
-<p>When delete succeeded, the HTTP response is a 204 NO CONTENT with an empty body response</p>
+<p>When deleted succesfully, the HTTP response is a 204 NO CONTENT with an empty body response</p>
 </div>
 </div>
 </div>
@@ -7554,7 +7600,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="paragraph">
-<p>When the creation is successful, the HTTP response is a 201 Created and the response body is a JSON <a href="#object-feedback-detail">feedback object</a></p>
+<p>When created successfully, the HTTP response is a 201 Created and the response body is a JSON <a href="#object-feedback-detail">feedback object</a></p>
 </div>
 </div>
 </div>
@@ -7678,6 +7724,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
             <span class="tok-nt">&quot;wip_limit&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#999999&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;New&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;new&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span>
         <span class="tok-p">},</span>
@@ -7685,6 +7732,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
             <span class="tok-nt">&quot;wip_limit&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#f57900&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Ready&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;ready&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">2</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span>
         <span class="tok-p">},</span>
@@ -7692,6 +7740,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
             <span class="tok-nt">&quot;wip_limit&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#729fcf&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;In progress&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;in-progress&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">3</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span>
         <span class="tok-p">},</span>
@@ -7699,6 +7748,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
             <span class="tok-nt">&quot;wip_limit&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#4e9a06&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Ready for test&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;ready-for-test&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">4</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span>
         <span class="tok-p">},</span>
@@ -7706,6 +7756,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
             <span class="tok-nt">&quot;wip_limit&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#cc0000&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Done&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;done&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">5</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span>
         <span class="tok-p">}</span>
@@ -7776,30 +7827,35 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
         <span class="tok-p">{</span>
             <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#999999&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;New&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;new&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span>
         <span class="tok-p">},</span>
         <span class="tok-p">{</span>
             <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#729fcf&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;In progress&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;in-progress&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">2</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span>
         <span class="tok-p">},</span>
         <span class="tok-p">{</span>
             <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#f57900&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Ready for test&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;ready-for-test&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">3</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span>
         <span class="tok-p">},</span>
         <span class="tok-p">{</span>
             <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#4e9a06&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Closed&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;closed&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">4</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span>
         <span class="tok-p">},</span>
         <span class="tok-p">{</span>
             <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#cc0000&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Needs Info&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;needs-info&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">5</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span>
         <span class="tok-p">}</span>
@@ -7808,42 +7864,49 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
         <span class="tok-p">{</span>
             <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#999999&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;New&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;new&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span>
         <span class="tok-p">},</span>
         <span class="tok-p">{</span>
             <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#729fcf&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;In progress&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;in-progress&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">2</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span>
         <span class="tok-p">},</span>
         <span class="tok-p">{</span>
             <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#f57900&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Ready for test&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;ready-for-test&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">3</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span>
         <span class="tok-p">},</span>
         <span class="tok-p">{</span>
             <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#4e9a06&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Closed&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;closed&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">4</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span>
         <span class="tok-p">},</span>
         <span class="tok-p">{</span>
             <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#cc0000&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Needs Info&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;needs-info&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">5</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span>
         <span class="tok-p">},</span>
         <span class="tok-p">{</span>
             <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#d3d7cf&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Rejected&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;rejected&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">6</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span>
         <span class="tok-p">},</span>
         <span class="tok-p">{</span>
             <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#75507b&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Postponed&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;postponed&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">7</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span>
         <span class="tok-p">}</span>
@@ -11138,7 +11201,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-11-19 17:08:11 CET
+Last updated 2014-11-20 11:16:42 CET
 </div>
 </div>
 </body>
