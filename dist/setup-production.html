@@ -961,7 +961,7 @@ restarting processes if something goes wrong, and starting processes on system b
 <span class="tok-k">[watcher:taiga]</span>
 <span class="tok-na">working_dir</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/taiga-back</span>
 <span class="tok-na">cmd</span> <span class="tok-o">=</span> <span class="tok-s">gunicorn</span>
-<span class="tok-na">args</span> <span class="tok-o">=</span> <span class="tok-s">-w 3 -t 60 --pythonpath=. -b 0.0.0.0:8001 taiga.wsgi</span>
+<span class="tok-na">args</span> <span class="tok-o">=</span> <span class="tok-s">-w 3 -t 60 --pythonpath=. -b 127.0.0.1:8001 taiga.wsgi</span>
 <span class="tok-na">uid</span> <span class="tok-o">=</span> <span class="tok-s">taiga</span>
 <span class="tok-na">numprocesses</span> <span class="tok-o">=</span> <span class="tok-s">1</span>
 <span class="tok-na">autostart</span> <span class="tok-o">=</span> <span class="tok-s">true</span>
@@ -1037,7 +1037,7 @@ exec /usr/local/bin/circusd /home/taiga/circus.ini</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>And now let start configuring it:</p>
+<p>And now let us start configuring it:</p>
 </div>
 <div class="listingblock">
 <div class="title">Add specific configuration for <strong>taiga-front</strong> and <strong>taiga-back</strong> on /etc/nginx/sites-available/taiga.</div>
@@ -1070,6 +1070,17 @@ exec /usr/local/bin/circusd /home/taiga/circus.ini</code></pre>
         <span class="tok-kn">proxy_redirect</span> <span class="tok-no">off</span><span class="tok-p">;</span>
     <span class="tok-p">}</span>
 
+    <span class="tok-c1"># Django admin access (/admin/)</span>
+    <span class="tok-kn">location</span> <span class="tok-s">/admin</span> <span class="tok-p">{</span>
+        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">Host</span> <span class="tok-nv">$http_host</span><span class="tok-p">;</span>
+        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Real-IP</span> <span class="tok-nv">$remote_addr</span><span class="tok-p">;</span>
+        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Scheme</span> <span class="tok-nv">$scheme</span><span class="tok-p">;</span>
+        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Forwarded-Proto</span> <span class="tok-nv">$scheme</span><span class="tok-p">;</span>
+        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Forwarded-For</span> <span class="tok-nv">$proxy_add_x_forwarded_for</span><span class="tok-p">;</span>
+        <span class="tok-kn">proxy_pass</span> <span class="tok-s">http://127.0.0.1:8001</span><span class="tok-nv">$request_uri</span><span class="tok-p">;</span>
+        <span class="tok-kn">proxy_redirect</span> <span class="tok-no">off</span><span class="tok-p">;</span>
+    <span class="tok-p">}</span>
+
     <span class="tok-c1"># Static files</span>
     <span class="tok-kn">location</span> <span class="tok-s">/static</span> <span class="tok-p">{</span>
         <span class="tok-kn">alias</span> <span class="tok-s">/home/taiga/taiga-back/static</span><span class="tok-p">;</span>
@@ -1083,7 +1094,7 @@ exec /usr/local/bin/circusd /home/taiga/circus.ini</code></pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Disable the default nginx site (virtualhosT)</div>
+<div class="title">Disable the default nginx site (virtualhost)</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="nginx"><span class="tok-k">sudo</span> <span class="tok-s">rm</span> <span class="tok-s">/etc/nginx/sites-enabled/default</span></code></pre>
 </div>
@@ -1099,6 +1110,160 @@ exec /usr/local/bin/circusd /home/taiga/circus.ini</code></pre>
 </div>
 <div class="paragraph">
 <p><strong>Now you should have the service up and running on <code>http://example.com/</code></strong></p>
+</div>
+<div class="sect3">
+<h4 id="_serving_https">6.2.1. Serving HTTPS</h4>
+<div class="paragraph">
+<p>Place your SSL certificates in <code>/etc/nginx/ssl</code>. It is recommended to replace
+the original configuration for port 80 so that users are redirected to the HTTPS
+version automatically.</p>
+</div>
+<div class="listingblock">
+<div class="title">New configuration in /etc/nginx/sites-available/taiga</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="nginx"><span class="tok-k">server</span> <span class="tok-p">{</span>
+    <span class="tok-kn">listen</span> <span class="tok-mi">80</span> <span class="tok-s">default_server</span><span class="tok-p">;</span>
+    <span class="tok-kn">server_name</span> <span class="tok-s">_</span><span class="tok-p">;</span>
+    <span class="tok-kn">return</span> <span class="tok-mi">301</span> <span class="tok-s">https://</span><span class="tok-nv">$server_name$request_uri</span><span class="tok-p">;</span>
+<span class="tok-p">}</span>
+
+<span class="tok-k">server</span> <span class="tok-p">{</span>
+    <span class="tok-kn">listen</span> <span class="tok-mi">443</span> <span class="tok-s">ssl</span> <span class="tok-s">default_server</span><span class="tok-p">;</span>
+    <span class="tok-kn">server_name</span> <span class="tok-s">_</span><span class="tok-p">;</span>
+
+    <span class="tok-kn">large_client_header_buffers</span> <span class="tok-mi">4</span> <span class="tok-mi">32k</span><span class="tok-p">;</span>
+    <span class="tok-kn">client_max_body_size</span> <span class="tok-s">50M</span><span class="tok-p">;</span>
+    <span class="tok-kn">charset</span> <span class="tok-s">utf-8</span><span class="tok-p">;</span>
+
+    <span class="tok-kn">index</span> <span class="tok-s">index.html</span><span class="tok-p">;</span>
+
+    <span class="tok-c1"># Frontend</span>
+    <span class="tok-kn">location</span> <span class="tok-s">/</span> <span class="tok-p">{</span>
+        <span class="tok-kn">root</span> <span class="tok-s">/home/taiga/taiga-front/dist/</span><span class="tok-p">;</span>
+        <span class="tok-kn">try_files</span> <span class="tok-nv">$uri</span> <span class="tok-nv">$uri/</span> <span class="tok-s">/index.html</span><span class="tok-p">;</span>
+    <span class="tok-p">}</span>
+
+    <span class="tok-c1"># Backend</span>
+    <span class="tok-kn">location</span> <span class="tok-s">/api</span> <span class="tok-p">{</span>
+        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">Host</span> <span class="tok-nv">$http_host</span><span class="tok-p">;</span>
+        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Real-IP</span> <span class="tok-nv">$remote_addr</span><span class="tok-p">;</span>
+        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Scheme</span> <span class="tok-nv">$scheme</span><span class="tok-p">;</span>
+        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Forwarded-Proto</span> <span class="tok-nv">$scheme</span><span class="tok-p">;</span>
+        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Forwarded-For</span> <span class="tok-nv">$proxy_add_x_forwarded_for</span><span class="tok-p">;</span>
+        <span class="tok-kn">proxy_pass</span> <span class="tok-s">http://127.0.0.1:8001/api</span><span class="tok-p">;</span>
+        <span class="tok-kn">proxy_redirect</span> <span class="tok-no">off</span><span class="tok-p">;</span>
+    <span class="tok-p">}</span>
+
+    <span class="tok-kn">location</span> <span class="tok-s">/admin</span> <span class="tok-p">{</span>
+        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">Host</span> <span class="tok-nv">$http_host</span><span class="tok-p">;</span>
+        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Real-IP</span> <span class="tok-nv">$remote_addr</span><span class="tok-p">;</span>
+        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Scheme</span> <span class="tok-nv">$scheme</span><span class="tok-p">;</span>
+        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Forwarded-Proto</span> <span class="tok-nv">$scheme</span><span class="tok-p">;</span>
+        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Forwarded-For</span> <span class="tok-nv">$proxy_add_x_forwarded_for</span><span class="tok-p">;</span>
+        <span class="tok-kn">proxy_pass</span> <span class="tok-s">http://127.0.0.1:8001</span><span class="tok-nv">$request_uri</span><span class="tok-p">;</span>
+        <span class="tok-kn">proxy_redirect</span> <span class="tok-no">off</span><span class="tok-p">;</span>
+    <span class="tok-p">}</span>
+
+    <span class="tok-c1"># Static files</span>
+    <span class="tok-kn">location</span> <span class="tok-s">/static</span> <span class="tok-p">{</span>
+        <span class="tok-kn">alias</span> <span class="tok-s">/home/taiga/taiga-back/static</span><span class="tok-p">;</span>
+    <span class="tok-p">}</span>
+
+    <span class="tok-c1"># Media files</span>
+    <span class="tok-kn">location</span> <span class="tok-s">/media</span> <span class="tok-p">{</span>
+        <span class="tok-kn">alias</span> <span class="tok-s">/home/taiga/taiga-back/media</span><span class="tok-p">;</span>
+    <span class="tok-p">}</span>
+
+
+    <span class="tok-kn">ssl</span> <span class="tok-no">on</span><span class="tok-p">;</span>
+    <span class="tok-kn">ssl_certificate</span> <span class="tok-s">/etc/nginx/ssl/example.com.crt</span><span class="tok-p">;</span>
+    <span class="tok-kn">ssl_certificate_key</span> <span class="tok-s">/etc/nginx/ssl/example.com.key</span><span class="tok-p">;</span>
+
+    <span class="tok-kn">ssl_session_timeout</span> <span class="tok-mi">5m</span><span class="tok-p">;</span>
+
+    <span class="tok-kn">ssl_protocols</span> <span class="tok-s">TLSv1</span> <span class="tok-s">TLSv1.1</span> <span class="tok-s">TLSv1.2</span><span class="tok-p">;</span>
+    <span class="tok-kn">ssl_ciphers</span> <span class="tok-s">&quot;HIGH:!aNULL:!MD5</span> <span class="tok-s">or</span> <span class="tok-s">HIGH:!aNULL:!MD5:!3DES&quot;</span><span class="tok-p">;</span>
+    <span class="tok-kn">ssl_prefer_server_ciphers</span> <span class="tok-no">on</span><span class="tok-p">;</span>
+
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Before activating the HTTPS site, the configuration for the front-end and back-end have to be updated;
+change the scheme from <code>http</code> to <code>https</code>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Update ~/taiga-back/settings/local.py</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span class="tok-kn">from</span> <span class="tok-nn">.common</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
+
+<span class="tok-n">MEDIA_URL</span> <span class="tok-o">=</span> <span class="tok-s">&quot;https://example.com/media/&quot;</span>
+<span class="tok-n">STATIC_URL</span> <span class="tok-o">=</span> <span class="tok-s">&quot;https://example.com/static/&quot;</span>
+<span class="tok-n">ADMIN_MEDIA_PREFIX</span> <span class="tok-o">=</span> <span class="tok-s">&quot;https://example.com/static/admin/&quot;</span>
+<span class="tok-n">SITES</span><span class="tok-p">[</span><span class="tok-s">&quot;front&quot;</span><span class="tok-p">][</span><span class="tok-s">&quot;domain&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-s">&quot;example.com&quot;</span>
+
+<span class="tok-n">SECRET_KEY</span> <span class="tok-o">=</span> <span class="tok-s">&quot;theveryultratopsecretkey&quot;</span>
+
+<span class="tok-n">DEBUG</span> <span class="tok-o">=</span> <span class="tok-bp">False</span>
+<span class="tok-n">TEMPLATE_DEBUG</span> <span class="tok-o">=</span> <span class="tok-bp">False</span>
+<span class="tok-n">PUBLIC_REGISTER_ENABLED</span> <span class="tok-o">=</span> <span class="tok-bp">True</span>
+
+<span class="tok-n">DEFAULT_FROM_EMAIL</span> <span class="tok-o">=</span> <span class="tok-s">&quot;no-reply@example.com&quot;</span>
+<span class="tok-n">SERVER_EMAIL</span> <span class="tok-o">=</span> <span class="tok-n">DEFAULT_FROM_EMAIL</span>
+
+<span class="tok-c"># Uncomment and populate with proper connection parameters</span>
+<span class="tok-c"># for enable email sending.</span>
+<span class="tok-c">#EMAIL_BACKEND = &quot;django.core.mail.backends.smtp.EmailBackend&quot;</span>
+<span class="tok-c">#EMAIL_USE_TLS = False</span>
+<span class="tok-c">#EMAIL_HOST = &quot;localhost&quot;</span>
+<span class="tok-c">#EMAIL_HOST_USER = &quot;&quot;</span>
+<span class="tok-c">#EMAIL_HOST_PASSWORD = &quot;&quot;</span>
+<span class="tok-c">#EMAIL_PORT = 25</span>
+
+<span class="tok-c"># Uncomment and populate with proper connection parameters</span>
+<span class="tok-c"># for enable github login/singin.</span>
+<span class="tok-c">#GITHUB_API_CLIENT_ID = &quot;yourgithubclientid&quot;</span>
+<span class="tok-c">#GITHUB_API_CLIENT_SECRET = &quot;yourgithubclientsecret&quot;</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Restart circus after updating the configuration</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">sudo service circus restart</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Update ~/taiga-front/conf/main.json</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
+    <span class="tok-nt">&quot;api&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;https://example.com/api/v1/&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;eventsUrl&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;ws://example.com/events&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;debug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;true&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;publicRegisterEnabled&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;feedbackEnabled&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;privacyPolicyUrl&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;termsOfServiceUrl&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;maxUploadFileSize&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;gitHubClientId&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Run gulp task for compile</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span class="tok-nb">cd</span> ~/taiga-front
+gulp deploy</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And nginx:</p>
+</div>
+<div class="listingblock">
+<div class="title">Reload the nginx configuration</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">sudo service nginx reload</code></pre>
+</div>
+</div>
 </div>
 </div>
 </div>
@@ -1188,7 +1353,7 @@ circusctl reload taiga</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2014-12-14 22:43:24 CET
+Last updated 2015-01-02 12:50:54 CET
 </div>
 </div>
 </body>
