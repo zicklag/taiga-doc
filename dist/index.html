@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.1">
+<meta name="generator" content="Asciidoctor 1.5.2">
 <title>Taiga documentation</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 /* Remove the comments around the @import statement below when using this as a custom stylesheet */
-/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400";*/
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400";*/
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
 audio,canvas,video{display:inline-block}
 audio:not([controls]){display:none;height:0}
@@ -274,8 +274,8 @@ dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
 ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
 ul.unstyled,ol.unnumbered,ul.checklist,ul.none{list-style-type:none}
 ul.unstyled,ol.unnumbered,ul.checklist{margin-left:.625em}
-ul.checklist li>p:first-child>.fa-check-square-o:first-child,ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
-ul.checklist li>p:first-child>input[type="checkbox"]:first-child{position:relative;top:1px}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1em;font-size:.85em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{width:1em;position:relative;top:1px}
 ul.inline{margin:0 auto .625em auto;margin-left:-1.375em;margin-right:0;padding:0;list-style:none;overflow:hidden}
 ul.inline>li{list-style:none;float:left;margin-left:1.375em;display:block}
 ul.inline>li>*{display:block}
@@ -534,29 +534,29 @@ and <strong>python3</strong>.</p>
 <h2 id="_installation_guide">6. Installation Guide</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section details everythign you need to know to get <em>Taiga</em> up and running
+<p>This section details everything you need to know to get <em>Taiga</em> up and running
 on both development and production environments.</p>
 </div>
 <div class="sect2">
 <h3 id="_setup_production_environment">6.1. Setup production environment</h3>
 <div class="paragraph">
 <p><a href="setup-production.html">This document contains the complete, step by step tutorial</a> of how
-to setup properly <em>Taiga</em> for low traffic production environment.</p>
+to properly setup <em>Taiga</em> for a low traffic production environment.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_setup_development_environment">6.2. Setup development environment</h3>
 <div class="paragraph">
-<p>You can see <a href="setup-development.html">here</a> the complete documentation on how to setup
-a proper development environment.</p>
+<p>You can view the complete documentation on how to <a href="setup-development.html">setup a proper
+development environment</a>.</p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_other_ways_to_setup_initial_environment">6.3. Other ways to setup initial environment</h3>
 <div class="paragraph">
-<p>Additionally to traditional step by step manuals, <em>Taiga</em> comes with some other tools like
-collection of provisioning scripts and vagrant support, and the
-<a href="setup-alternatives.html">complete documentation of how to use them is here</a>.</p>
+<p>Additional to traditional step by step manuals, <em>Taiga</em> comes with a
+collection of provisioning scripts and Vagrant support, and the
+<a href="setup-alternatives.html">complete documentation of how to use them</a>.</p>
 </div>
 </div>
 </div>
@@ -573,22 +573,22 @@ collection of provisioning scripts and vagrant support, and the
 <div class="ulist">
 <ul>
 <li>
-<p>Code patches.</p>
+<p>Code patches</p>
 </li>
 <li>
-<p>Improvemnent.</p>
+<p>Improvements</p>
 </li>
 <li>
-<p>Bug reports.</p>
+<p>Bug reports</p>
 </li>
 <li>
-<p>Patch reviews.</p>
+<p>Patch reviews</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
 <p>Before starting to develope a big feature (intending to be included on the <em>Taiga</em> code base), it is
-strongly recommended that you reach out to us at <a href="http://groups.google.com/d/forum/taigaio">mailing list</a>.</p>
+strongly recommended that you reach out to us on the <a href="http://groups.google.com/d/forum/taigaio">mailing list</a>.</p>
 </div>
 <div class="sect2">
 <h3 id="_reporting_bugs">7.1. Reporting bugs</h3>
@@ -602,11 +602,11 @@ strongly recommended that you reach out to us at <a href="http://groups.google.c
 queries in the ticket tracker.</p>
 </li>
 <li>
-<p>Check the right repository to use for report a issue: bugs related to UI should go to <strong>taiga-front</strong>,
-if something is broken on backend, the issue should be opened on <strong>taiga-back</strong> repository.</p>
+<p>Check the right repository to use for report an issue: bugs related to UI should go to <strong>taiga-front</strong>,
+if something is broken on the backend, an issue should be opened on <strong>taiga-back</strong> repository.</p>
 </li>
 <li>
-<p>Do ask on <a href="http://groups.google.com/d/forum/taigaio">mailing list</a> first if you&#8217;re not sure if
+<p>First ask on the <a href="http://groups.google.com/d/forum/taigaio">mailing list</a> first if you&#8217;re not sure if
 what you&#8217;re seeing is a bug.</p>
 </li>
 <li>
@@ -636,7 +636,7 @@ and ask any questions you may have.</p>
 <h3 id="_donations">7.3. Donations</h3>
 <div class="paragraph">
 <p>We are grateful for your emails volunteering donations to <em>Taiga</em>. We feel comfortable accepting them under
-these conditions: The first that we will only do so while we are in the current beta / pre-revenue stage
+these conditions: The first is that we will only do so while we are in the current beta / pre-revenue stage
 and that whatever money is donated will go towards a bounty fund. Starting Q2 2015 we will be engaging
 much more actively with our community to help further the development of Taiga, and we will use these
 donations to reward people working alongside us.</p>
@@ -652,18 +652,18 @@ using the email: <a href="mailto:eposner@taiga.io">eposner@taiga.io</a></p>
 <h2 id="_license">8. License</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Every code patch accepted in the taiga codebase is accepted under the AGPL v3.0 license. It is important that you
-not include any code that can not be licensed under AGPL v3.0.</p>
+<p>Every code patch accepted in the Taiga codebase is accepted under the AGPL v3.0 license. It is important that you
+not include any code which cannot be licensed under AGPL v3.0.</p>
 </div>
 <div class="paragraph">
-<p>You can see the complete license on <code>LICENSE</code> file on the root of repository.</p>
+<p>You can see the complete license in the <code>LICENSE</code> file in the root of repository.</p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-01-02 12:50:55 CET
+Last updated 2015-01-08 08:42:52 CET
 </div>
 </div>
 </body>
