@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.2">
+<meta name="generator" content="Asciidoctor 1.5.1">
 <title>Taiga REST API</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 /* Remove the comments around the @import statement below when using this as a custom stylesheet */
-/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400";*/
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400";*/
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
 audio,canvas,video{display:inline-block}
 audio:not([controls]){display:none;height:0}
@@ -274,8 +274,8 @@ dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
 ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
 ul.unstyled,ol.unnumbered,ul.checklist,ul.none{list-style-type:none}
 ul.unstyled,ol.unnumbered,ul.checklist{margin-left:.625em}
-ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1em;font-size:.85em}
-ul.checklist li>p:first-child>input[type="checkbox"]:first-child{width:1em;position:relative;top:1px}
+ul.checklist li>p:first-child>.fa-check-square-o:first-child,ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{position:relative;top:1px}
 ul.inline{margin:0 auto .625em auto;margin-left:-1.375em;margin-right:0;padding:0;list-style:none;overflow:hidden}
 ul.inline>li{list-style:none;float:left;margin-left:1.375em;display:block}
 ul.inline>li>*{display:block}
@@ -2369,8 +2369,8 @@ instance remember to change the url.</p>
   -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
   -d <span class="tok-s1">&#39;{</span>
 <span class="tok-s1">          &quot;type&quot;: &quot;normal&quot;,</span>
-<span class="tok-s1">          &quot;username&quot;: &quot;${USERNAME}&quot;,</span>
-<span class="tok-s1">          &quot;password&quot;: &quot;${PASSWORD}&quot;</span>
+<span class="tok-s1">          &quot;username&quot;: &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">USERNAME</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;,</span>
+<span class="tok-s1">          &quot;password&quot;: &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">PASSWORD</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;</span>
 <span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
   https://api.taiga.io/api/v1/auth</code></pre>
 </div>
@@ -2403,7 +2403,7 @@ instance remember to change the url.</p>
   -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
   -d <span class="tok-s1">&#39;{</span>
 <span class="tok-s1">          &quot;type&quot;: &quot;github&quot;,</span>
-<span class="tok-s1">          &quot;code&quot;: &quot;${GITHUB_CODE}&quot;</span>
+<span class="tok-s1">          &quot;code&quot;: &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">GITHUB_CODE</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;</span>
 <span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
   https://api.taiga.io/api/v1/auth</code></pre>
 </div>
@@ -2463,10 +2463,10 @@ Developers - API - OAuth - Web Application Flow</a>.</p>
   -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
   -d <span class="tok-s1">&#39;{</span>
 <span class="tok-s1">          &quot;type&quot;: &quot;public&quot;,</span>
-<span class="tok-s1">          &quot;username&quot;: &quot;${USERNAME}&quot;,</span>
-<span class="tok-s1">          &quot;password&quot;: &quot;${PASSWORD}&quot;,</span>
-<span class="tok-s1">          &quot;email&quot;: &quot;${EMAIL}&quot;,</span>
-<span class="tok-s1">          &quot;full_name&quot;: &quot;${FULL_NAME}&quot;</span>
+<span class="tok-s1">          &quot;username&quot;: &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">USERNAME</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;,</span>
+<span class="tok-s1">          &quot;password&quot;: &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">PASSWORD</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;,</span>
+<span class="tok-s1">          &quot;email&quot;: &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">EMAIL</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;,</span>
+<span class="tok-s1">          &quot;full_name&quot;: &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">FULL_NAME</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;</span>
 <span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
   https://api.taiga.io/api/v1/auth/register</code></pre>
 </div>
@@ -2513,10 +2513,10 @@ Developers - API - OAuth - Web Application Flow</a>.</p>
 <span class="tok-s1">          &quot;type&quot;: &quot;private&quot;,</span>
 <span class="tok-s1">          &quot;existing&quot;: false,</span>
 <span class="tok-s1">          &quot;token&quot;: &quot;e8ea658e-6655-11e4-9d95-b499ba562790&quot;,</span>
-<span class="tok-s1">          &quot;username&quot;: &quot;${USERNAME}&quot;,</span>
-<span class="tok-s1">          &quot;password&quot;: &quot;${PASSWORD}&quot;,</span>
-<span class="tok-s1">          &quot;email&quot;: &quot;${EMAIL}&quot;,</span>
-<span class="tok-s1">          &quot;full_name&quot;: &quot;${FULL_NAME}&quot;</span>
+<span class="tok-s1">          &quot;username&quot;: &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">USERNAME</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;,</span>
+<span class="tok-s1">          &quot;password&quot;: &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">PASSWORD</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;,</span>
+<span class="tok-s1">          &quot;email&quot;: &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">EMAIL</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;,</span>
+<span class="tok-s1">          &quot;full_name&quot;: &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">FULL_NAME</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;</span>
 <span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
   https://api.taiga.io/api/v1/auth/register</code></pre>
 </div>
@@ -2581,7 +2581,7 @@ Developers - API - OAuth - Web Application Flow</a>.</p>
 <pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
-  https://api.taiga.io/api/v1/resolver?project<span class="tok-o">=</span>taiga<span class="tok-p">&amp;</span><span class="tok-nv">us</span><span class="tok-o">=</span>1</code></pre>
+  https://api.taiga.io/api/v1/resolver?project<span class="tok-o">=</span>taiga<span class="tok-se">\&amp;</span><span class="tok-nv">us</span><span class="tok-o">=</span>1</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2616,7 +2616,7 @@ Developers - API - OAuth - Web Application Flow</a>.</p>
 <pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
-  https://api.taiga.io/api/v1/resolver?project<span class="tok-o">=</span>taiga<span class="tok-p">&amp;</span><span class="tok-nv">issue</span><span class="tok-o">=</span>1485</code></pre>
+  https://api.taiga.io/api/v1/resolver?project<span class="tok-o">=</span>taiga<span class="tok-se">\&amp;</span><span class="tok-nv">issue</span><span class="tok-o">=</span>1485</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2651,7 +2651,7 @@ Developers - API - OAuth - Web Application Flow</a>.</p>
 <pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
-  https://api.taiga.io/api/v1/resolver?project<span class="tok-o">=</span>taiga<span class="tok-p">&amp;</span><span class="tok-nv">task</span><span class="tok-o">=</span>915</code></pre>
+  https://api.taiga.io/api/v1/resolver?project<span class="tok-o">=</span>taiga<span class="tok-se">\&amp;</span><span class="tok-nv">task</span><span class="tok-o">=</span>915</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2686,7 +2686,7 @@ Developers - API - OAuth - Web Application Flow</a>.</p>
 <pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
-  https://api.taiga.io/api/v1/resolver?project<span class="tok-o">=</span>taiga<span class="tok-p">&amp;</span><span class="tok-nv">milestone</span><span class="tok-o">=</span>sprint-0</code></pre>
+  https://api.taiga.io/api/v1/resolver?project<span class="tok-o">=</span>taiga<span class="tok-se">\&amp;</span><span class="tok-nv">milestone</span><span class="tok-o">=</span>sprint-0</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2721,7 +2721,7 @@ Developers - API - OAuth - Web Application Flow</a>.</p>
 <pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
-  https://api.taiga.io/api/v1/resolver?project<span class="tok-o">=</span>taiga<span class="tok-p">&amp;</span><span class="tok-nv">wikipage</span><span class="tok-o">=</span>home</code></pre>
+  https://api.taiga.io/api/v1/resolver?project<span class="tok-o">=</span>taiga<span class="tok-se">\&amp;</span><span class="tok-nv">wikipage</span><span class="tok-o">=</span>home</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2746,7 +2746,7 @@ Developers - API - OAuth - Web Application Flow</a>.</p>
 <pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
-  https://api.taiga.io/api/v1/resolver?project<span class="tok-o">=</span>taiga<span class="tok-p">&amp;</span><span class="tok-nv">task</span><span class="tok-o">=</span>915<span class="tok-p">&amp;</span><span class="tok-nv">us</span><span class="tok-o">=</span>1<span class="tok-p">&amp;</span><span class="tok-nv">wikipage</span><span class="tok-o">=</span>home</code></pre>
+  https://api.taiga.io/api/v1/resolver?project<span class="tok-o">=</span>taiga<span class="tok-se">\&amp;</span><span class="tok-nv">task</span><span class="tok-o">=</span>915<span class="tok-se">\&amp;</span><span class="tok-nv">us</span><span class="tok-o">=</span>1<span class="tok-se">\&amp;</span><span class="tok-nv">wikipage</span><span class="tok-o">=</span>home</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -2788,7 +2788,7 @@ Developers - API - OAuth - Web Application Flow</a>.</p>
 <pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
-  https://api.taiga.io/api/v1/wiki?project<span class="tok-o">=</span>1<span class="tok-p">&amp;</span><span class="tok-nv">text</span><span class="tok-o">=</span>design</code></pre>
+  https://api.taiga.io/api/v1/wiki?project<span class="tok-o">=</span>1<span class="tok-se">\&amp;</span><span class="tok-nv">text</span><span class="tok-o">=</span>design</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -3517,11 +3517,11 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <span class="tok-s1">          &quot;description&quot;: &quot;Sample description&quot;,</span>
 <span class="tok-s1">          &quot;default_owner_role&quot;: &quot;product-owner&quot;</span>
 <span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
-  HTTPS://api.taiga.io/api/v1/project-templates</code></pre>
+  https://api.taiga.io/api/v1/project-templates</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>WHEN THE creation is successful, the HTTP response is a 201 Created and the response body is a JSON <a href="#object-project-template-detail">project template detail object</a></p>
+<p>When the creation is successful, the HTTP response is a 201 Created and the response body is a JSON <a href="#object-project-template-detail">project template detail object</a></p>
 </div>
 </div>
 <div class="sect2">
@@ -3617,7 +3617,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <p><strong>is_backlog_activated</strong></p>
 </li>
 <li>
-<p><strong>is_issues_activated"</strong></p>
+<p><strong>is_issues_activated</strong></p>
 </li>
 <li>
 <p><strong>is_kanban_activated</strong></p>
@@ -4551,7 +4551,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
-  https://api.taiga.io/api/v1/userstories/by_ref?ref<span class="tok-o">=</span>1<span class="tok-p">&amp;</span><span class="tok-nv">project</span><span class="tok-o">=</span>1</code></pre>
+  https://api.taiga.io/api/v1/userstories/by_ref?ref<span class="tok-o">=</span>1<span class="tok-se">\&amp;</span><span class="tok-nv">project</span><span class="tok-o">=</span>1</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -4769,7 +4769,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
-  https://api.taiga.io/api/v1/userstories/attachments?object_id<span class="tok-o">=</span>81<span class="tok-p">&amp;</span><span class="tok-nv">project</span><span class="tok-o">=</span>3</code></pre>
+  https://api.taiga.io/api/v1/userstories/attachments?object_id<span class="tok-o">=</span>81<span class="tok-se">\&amp;</span><span class="tok-nv">project</span><span class="tok-o">=</span>3</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5404,7 +5404,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
-  https://api.taiga.io/api/v1/tasks/by_ref?ref<span class="tok-o">=</span>1<span class="tok-p">&amp;</span><span class="tok-nv">project</span><span class="tok-o">=</span>1</code></pre>
+  https://api.taiga.io/api/v1/tasks/by_ref?ref<span class="tok-o">=</span>1<span class="tok-se">\&amp;</span><span class="tok-nv">project</span><span class="tok-o">=</span>1</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5502,7 +5502,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
-  https://api.taiga.io/api/v1/tasks/attachments?object_id<span class="tok-o">=</span>81<span class="tok-p">&amp;</span><span class="tok-nv">project</span><span class="tok-o">=</span>3</code></pre>
+  https://api.taiga.io/api/v1/tasks/attachments?object_id<span class="tok-o">=</span>81<span class="tok-se">\&amp;</span><span class="tok-nv">project</span><span class="tok-o">=</span>3</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -5877,7 +5877,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
-  https://api.taiga.io/api/v1/issues?project<span class="tok-o">=</span>1<span class="tok-p">&amp;</span><span class="tok-nv">order_by</span><span class="tok-o">=</span>priority</code></pre>
+  https://api.taiga.io/api/v1/issues?project<span class="tok-o">=</span>1<span class="tok-se">\&amp;</span><span class="tok-nv">order_by</span><span class="tok-o">=</span>priority</code></pre>
 </div>
 </div>
 </div>
@@ -6002,7 +6002,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
-  https://api.taiga.io/api/v1/issues/by_ref?ref<span class="tok-o">=</span>1<span class="tok-p">&amp;</span><span class="tok-nv">project</span><span class="tok-o">=</span>1</code></pre>
+  https://api.taiga.io/api/v1/issues/by_ref?ref<span class="tok-o">=</span>1<span class="tok-se">\&amp;</span><span class="tok-nv">project</span><span class="tok-o">=</span>1</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -6115,7 +6115,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
-  https://api.taiga.io/api/v1/issues/attachments?object_id<span class="tok-o">=</span>81<span class="tok-p">&amp;</span><span class="tok-nv">project</span><span class="tok-o">=</span>3</code></pre>
+  https://api.taiga.io/api/v1/issues/attachments?object_id<span class="tok-o">=</span>81<span class="tok-se">\&amp;</span><span class="tok-nv">project</span><span class="tok-o">=</span>3</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7038,7 +7038,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
-  https://api.taiga.io/api/v1/wiki/by_slug?slug<span class="tok-o">=</span>home<span class="tok-p">&amp;</span><span class="tok-nv">project</span><span class="tok-o">=</span>1</code></pre>
+  https://api.taiga.io/api/v1/wiki/by_slug?slug<span class="tok-o">=</span>home<span class="tok-se">\&amp;</span><span class="tok-nv">project</span><span class="tok-o">=</span>1</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7102,7 +7102,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
-  https://api.taiga.io/api/v1/wiki/attachments?object_id<span class="tok-o">=</span>81<span class="tok-p">&amp;</span><span class="tok-nv">project</span><span class="tok-o">=</span>3</code></pre>
+  https://api.taiga.io/api/v1/wiki/attachments?object_id<span class="tok-o">=</span>81<span class="tok-se">\&amp;</span><span class="tok-nv">project</span><span class="tok-o">=</span>3</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -7519,7 +7519,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <pre class="pygments highlight"><code data-lang="bash">curl -X POST <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
   -d <span class="tok-s1">&#39;{</span>
-<span class="tok-s1">          &quot;cancel_token&quot;: &quot;${CANCEL_TOKEN}&quot;</span>
+<span class="tok-s1">          &quot;cancel_token&quot;: &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">CANCEL_TOKEN</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;</span>
 <span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
   https://api.taiga.io/api/v1/users/cancel</code></pre>
 </div>
@@ -7572,7 +7572,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
   -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
   -d <span class="tok-s1">&#39;{</span>
-<span class="tok-s1">          &quot;email_token&quot;: &quot;${EMAIL_TOKEN}&quot;</span>
+<span class="tok-s1">          &quot;email_token&quot;: &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">EMAIL_TOKEN</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;</span>
 <span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
   https://api.taiga.io/api/v1/users/change_email</code></pre>
 </div>
@@ -7591,8 +7591,8 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <pre class="pygments highlight"><code data-lang="bash">curl -X POST <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
   -d <span class="tok-s1">&#39;{</span>
-<span class="tok-s1">          &quot;current_password&quot;: &quot;${CURRENT_PASSWORD}&quot;,</span>
-<span class="tok-s1">          &quot;password&quot;: &quot;${NEW_PASSWORD}&quot;</span>
+<span class="tok-s1">          &quot;current_password&quot;: &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">CURRENT_PASSWORD</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;,</span>
+<span class="tok-s1">          &quot;password&quot;: &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">NEW_PASSWORD</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;</span>
 <span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
   https://api.taiga.io/api/v1/users/change_password</code></pre>
 </div>
@@ -7610,7 +7610,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <div class="content">
 <pre class="pygments highlight"><code data-lang="bash">curl -X POST <span class="tok-se">\</span>
   -d <span class="tok-s1">&#39;{</span>
-<span class="tok-s1">          &quot;username&quot;: &quot;${USERNAME_OR_EMAIL}&quot;,</span>
+<span class="tok-s1">          &quot;username&quot;: &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">USERNAME_OR_EMAIL</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;,</span>
 <span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
   https://api.taiga.io/api/v1/users/password_recovery</code></pre>
 </div>
@@ -7621,9 +7621,9 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
-    <span class="tok-nt">&quot;detail&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Mail sended successfully!&quot;</span><span class="tok-p">}</span><span class="tok-err">,</span>
-    <span class="tok-s2">&quot;email&quot;</span><span class="tok-err">:</span> <span class="tok-s2">&quot;${USER_EMAIL}&quot;</span>
-<span class="tok-err">}</span></code></pre>
+    <span class="tok-nt">&quot;detail&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Mail sended successfully!&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;email&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;${USER_EMAIL}&quot;</span>
+<span class="tok-p">}</span></code></pre>
 </div>
 </div>
 </div>
@@ -7636,8 +7636,8 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <div class="content">
 <pre class="pygments highlight"><code data-lang="bash">curl -X POST <span class="tok-se">\</span>
   -d <span class="tok-s1">&#39;{</span>
-<span class="tok-s1">          &quot;token&quot;: &quot;${CHANGE_PASSWORD_TOKEN}&quot;,</span>
-<span class="tok-s1">          &quot;password&quot;; &quot;${NEW_TOKEN}&quot;</span>
+<span class="tok-s1">          &quot;token&quot;: &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">CHANGE_PASSWORD_TOKEN</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;,</span>
+<span class="tok-s1">          &quot;password&quot;; &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">NEW_TOKEN</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;</span>
 <span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
   https://api.taiga.io/api/v1/users/change_password_from_recovery</code></pre>
 </div>
@@ -11336,7 +11336,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-01-08 08:42:49 CET
+Last updated 2015-01-11 02:01:36 CET
 </div>
 </div>
 </body>
