@@ -4,13 +4,13 @@
 <meta charset="UTF-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.1">
+<meta name="generator" content="Asciidoctor 1.5.2">
 <title>Taiga REST API</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 /* Remove the comments around the @import statement below when using this as a custom stylesheet */
-/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic|Noto+Serif:400,400italic,700,700italic|Droid+Sans+Mono:400";*/
+/*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400";*/
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
 audio,canvas,video{display:inline-block}
 audio:not([controls]){display:none;height:0}
@@ -274,8 +274,8 @@ dl dd:last-child,dl dd:last-child>:last-child{margin-bottom:0}
 ol>li p,ul>li p,ul dd,ol dd,.olist .olist,.ulist .ulist,.ulist .olist,.olist .ulist{margin-bottom:.625em}
 ul.unstyled,ol.unnumbered,ul.checklist,ul.none{list-style-type:none}
 ul.unstyled,ol.unnumbered,ul.checklist{margin-left:.625em}
-ul.checklist li>p:first-child>.fa-check-square-o:first-child,ul.checklist li>p:first-child>input[type="checkbox"]:first-child{margin-right:.25em}
-ul.checklist li>p:first-child>input[type="checkbox"]:first-child{position:relative;top:1px}
+ul.checklist li>p:first-child>.fa-square-o:first-child,ul.checklist li>p:first-child>.fa-check-square-o:first-child{width:1em;font-size:.85em}
+ul.checklist li>p:first-child>input[type="checkbox"]:first-child{width:1em;position:relative;top:1px}
 ul.inline{margin:0 auto .625em auto;margin-left:-1.375em;margin-right:0;padding:0;list-style:none;overflow:hidden}
 ul.inline>li{list-style:none;float:left;margin-left:1.375em;display:block}
 ul.inline>li>*{display:block}
@@ -860,7 +860,72 @@ instance remember to change the url.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>This token can be received through the <a href="#auth-normal-login">login API </a></p>
+<p>This token can be received through the <a href="#auth-normal-login">login API</a></p>
+</div>
+<div class="paragraph">
+<p>To provide an example, the following can be used within a Bash script running on Ubuntu - customise as appropriate for your system configuration.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Install <code>jq</code> (a command-line JSON processor):</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span class="tok-nv">$ </span>sudo apt-get install jq</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Bash snippet:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span class="tok-c">#!/bin/bash</span>
+<span class="tok-c"># Request username and password for connecting to Taiga</span>
+<span class="tok-nb">read</span> -p <span class="tok-s2">&quot;Username: &quot;</span> USERNAME
+<span class="tok-nb">read</span> -s -p <span class="tok-s2">&quot;Password: &quot;</span> PASSWORD
+
+<span class="tok-c"># Get AUTH_TOKEN</span>
+<span class="tok-nv">USER_AUTH_DETAIL</span><span class="tok-o">=</span><span class="tok-k">$(</span> curl -X POST <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -d <span class="tok-s1">&#39;{</span>
+<span class="tok-s1">          &quot;type&quot;: &quot;normal&quot;,</span>
+<span class="tok-s1">          &quot;username&quot;: &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">USERNAME</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;,</span>
+<span class="tok-s1">          &quot;password&quot;: &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">PASSWORD</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;</span>
+<span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/auth 2&gt;/dev/null <span class="tok-k">)</span>
+
+<span class="tok-nv">AUTH_TOKEN</span><span class="tok-o">=</span><span class="tok-k">$(</span> <span class="tok-nb">echo</span> <span class="tok-k">${</span><span class="tok-nv">USER_AUTH_DETAIL</span><span class="tok-k">}</span> <span class="tok-p">|</span> jq -r <span class="tok-s1">&#39;.auth_token&#39;</span> <span class="tok-k">)</span>
+
+<span class="tok-c"># Exit if AUTH_TOKEN is not available</span>
+<span class="tok-k">if</span> <span class="tok-o">[</span> -z <span class="tok-k">${</span><span class="tok-nv">AUTH_TOKEN</span><span class="tok-k">}</span> <span class="tok-o">]</span><span class="tok-p">;</span> <span class="tok-k">then</span>
+    <span class="tok-nb">echo</span> <span class="tok-s2">&quot;Error: Incorrect username and/or password supplied&quot;</span>
+    <span class="tok-nb">exit </span>1
+<span class="tok-k">else</span>
+    <span class="tok-nb">echo</span> <span class="tok-s2">&quot;auth_token is ${AUTH_TOKEN}&quot;</span>
+<span class="tok-k">fi</span>
+
+<span class="tok-c"># Proceed to use API calls as desired</span>
+...</code></pre>
+</div>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>If unable to install <code>jq</code>, it is possible (but not recommended) to use <code>grep</code> and <code>cut</code> to extract the value of <code>auth_token</code> from the JSON <a href="#object-auth-user-detail">user auth detail object</a> - use the following line instead:</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span class="tok-nv">AUTH_TOKEN</span><span class="tok-o">=</span><span class="tok-k">$(</span> <span class="tok-nb">echo</span> <span class="tok-k">${</span><span class="tok-nv">USER_AUTH_DETAIL</span><span class="tok-k">}</span> <span class="tok-p">|</span> grep -Po <span class="tok-s1">&#39;&quot;auth_token&quot;:.*?[^\\]&quot;,&#39;</span> <span class="tok-p">|</span> cut -d<span class="tok-se">\&quot;</span> -f4 <span class="tok-k">)</span></code></pre>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -11336,7 +11401,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-01-11 02:01:36 CET
+Last updated 2015-01-13 11:15:11 CET
 </div>
 </div>
 </body>
