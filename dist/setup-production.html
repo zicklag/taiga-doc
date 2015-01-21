@@ -488,6 +488,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_setup_a_database">3.2. Setup a database</a></li>
 <li><a href="#_setup_python_environment">3.3. Setup python environment</a></li>
 <li><a href="#_verification">3.4. Verification</a></li>
+<li><a href="#_async_tasks_optional">3.5. Async tasks (Optional)</a></li>
 </ul>
 </li>
 <li><a href="#_frontend_installation">4. Frontend installation</a>
@@ -500,7 +501,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_events_installation">5. Events installation</a></li>
 <li><a href="#_final_steps_2">6. Final steps</a>
 <ul class="sectlevel2">
-<li><a href="#_circus_and_gunicorn">6.1. Circus and gunicorn</a></li>
+<li><a href="#circus-and-gunicorn">6.1. Circus and gunicorn</a></li>
 <li><a href="#_nginx">6.2. Nginx</a></li>
 </ul>
 </li>
@@ -763,6 +764,82 @@ section of this document.
 </table>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_async_tasks_optional">3.5. Async tasks (Optional)</h3>
+<div class="paragraph">
+<p>The default behavior in Taiga is to do all tasks in a synchronous way, but some of them
+can be completely asynchronous (for example webhooks or import/export). To do
+this, you have to configure and install the celery service requirements.</p>
+</div>
+<div class="paragraph">
+<p>Install <code>rabbitmq-server</code> and <code>redis-server</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">sudo apt-get install -y rabbitmq-server redis-server</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>To run celery with taiga you have to include in your local.py the lines:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span class="tok-kn">from</span> <span class="tok-nn">.celery</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
+
+<span class="tok-n">BROKER_URL</span> <span class="tok-o">=</span> <span class="tok-s">&#39;amqp://guest:guest@localhost:5672//&#39;</span>
+<span class="tok-n">CELERY_RESULT_BACKEND</span> <span class="tok-o">=</span> <span class="tok-s">&#39;redis://localhost:6379/0&#39;</span>
+<span class="tok-n">CELERY_ENABLED</span> <span class="tok-o">=</span> <span class="tok-bp">True</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can configure other broker or results backend. If you need more info about it you can check the celery documentation web page:
+<a href="http://docs.celeryproject.org/en/latest/index.html" class="bare">http://docs.celeryproject.org/en/latest/index.html</a></p>
+</div>
+<div class="paragraph">
+<p>Once you have configured celery on Taiga, you have to add celery to circus configuration. See <a href="#circus-and-gunicorn">Circus and gunicorn</a> section.</p>
+</div>
+<div class="listingblock">
+<div class="title">Taiga celery configuration block for circus on ~/circus.ini</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="ini"><span class="tok-k">[watcher:taiga-celery]</span>
+<span class="tok-na">working_dir</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/taiga-back</span>
+<span class="tok-na">cmd</span> <span class="tok-o">=</span> <span class="tok-s">celery</span>
+<span class="tok-na">args</span> <span class="tok-o">=</span> <span class="tok-s">-A taiga worker -c 4</span>
+<span class="tok-na">uid</span> <span class="tok-o">=</span> <span class="tok-s">taiga</span>
+<span class="tok-na">numprocesses</span> <span class="tok-o">=</span> <span class="tok-s">1</span>
+<span class="tok-na">autostart</span> <span class="tok-o">=</span> <span class="tok-s">true</span>
+<span class="tok-na">send_hup</span> <span class="tok-o">=</span> <span class="tok-s">true</span>
+<span class="tok-na">stdout_stream.class</span> <span class="tok-o">=</span> <span class="tok-s">FileStream</span>
+<span class="tok-na">stdout_stream.filename</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/logs/celery.stdout.log</span>
+<span class="tok-na">stdout_stream.max_bytes</span> <span class="tok-o">=</span> <span class="tok-s">10485760</span>
+<span class="tok-na">stdout_stream.backup_count</span> <span class="tok-o">=</span> <span class="tok-s">4</span>
+<span class="tok-na">stderr_stream.class</span> <span class="tok-o">=</span> <span class="tok-s">FileStream</span>
+<span class="tok-na">stderr_stream.filename</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/logs/celery.stderr.log</span>
+<span class="tok-na">stderr_stream.max_bytes</span> <span class="tok-o">=</span> <span class="tok-s">10485760</span>
+<span class="tok-na">stderr_stream.backup_count</span> <span class="tok-o">=</span> <span class="tok-s">4</span>
+
+<span class="tok-k">[env:taiga-celery]</span>
+<span class="tok-na">PATH</span> <span class="tok-o">=</span> <span class="tok-s">$PATH:/home/taiga/.virtualenvs/taiga/bin</span>
+<span class="tok-na">TERM</span><span class="tok-o">=</span><span class="tok-s">rxvt-256color</span>
+<span class="tok-na">SHELL</span><span class="tok-o">=</span><span class="tok-s">/bin/bash</span>
+<span class="tok-na">USER</span><span class="tok-o">=</span><span class="tok-s">taiga</span>
+<span class="tok-na">LANG</span><span class="tok-o">=</span><span class="tok-s">en_US.UTF-8</span>
+<span class="tok-na">HOME</span><span class="tok-o">=</span><span class="tok-s">/home/taiga</span>
+<span class="tok-na">PYTHONPATH</span><span class="tok-o">=</span><span class="tok-s">/home/taiga/.local/lib/python3.4/site-packages</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then you have to reload your circus configuration, restart taiga and start
+taiga-celery:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">circusctl reloadconfig
+circusctl restart taiga
+circusctl start taiga-celery</code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -937,7 +1014,7 @@ by a process manager. For this task we will use <strong>gunicorn</strong> and <s
 web server. For this purpose we&#8217;ll use <strong>nginx</strong>.</p>
 </div>
 <div class="sect2">
-<h3 id="_circus_and_gunicorn">6.1. Circus and gunicorn</h3>
+<h3 id="circus-and-gunicorn">6.1. Circus and gunicorn</h3>
 <div class="paragraph">
 <p>Circus is a process manager written by <strong>Mozilla</strong> and you will use it to execute <strong>gunicorn</strong>.
 Circus not only serves to execute processes, it also has utils for monitoring them, collecting logs,
@@ -1353,7 +1430,7 @@ circusctl reload taiga</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-01-16 07:11:33 CET
+Last updated 2015-01-21 07:31:15 CET
 </div>
 </div>
 </body>
