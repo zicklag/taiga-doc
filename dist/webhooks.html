@@ -499,7 +499,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>The taiga webhooks notify changes on milestones, user stories, tasks, issues
+<p>Taiga webhooks notify changes on milestones, user stories, tasks, issues
 and wiki pages sending POST requests signed with a private key, to the
 configured urls.</p>
 </div>
@@ -512,18 +512,17 @@ configured urls.</p>
 <h2 id="_request">1. Request</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The request made by the Taiga webhooks can be sync or async (depends on the
-Taiga configuration, for example tree.taiga.io is async), then the request to
-your url can have a delay of some seconds.</p>
+<p>The request made by the Taiga webhooks can be synchronous or asynchronous (it depends on the
+Taiga configuration, for example tree.taiga.io is async). In asynchronous mode those requests to
+your configured url can have a delay of some seconds.</p>
 </div>
 <div class="paragraph">
-<p>All request send to the URL are POST with the header <code>Content-Type</code> equals to
+<p>All request send to the URL are POST with header <code>Content-Type</code> equals to
 <code>application/json</code> and a signature of the message in the
 <code>X-TAIGA-WEBHOOK-SIGNATURE</code> HTTP header.</p>
 </div>
 <div class="paragraph">
-<p>The body of the request will be directly the JSON with the corresponding
-payload.</p>
+<p>The body of the POST request is just a JSON with the corresponding payload.</p>
 </div>
 </div>
 </div>
@@ -537,7 +536,7 @@ the signature generated with
 using sha1 hash.</p>
 </div>
 <div class="paragraph">
-<p>You can verify it in python, for example, with:</p>
+<p>An example of signature verification in python:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -547,7 +546,7 @@ using sha1 hash.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>or in php:</p>
+<p>in php:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -564,7 +563,7 @@ using sha1 hash.</p>
 <h2 id="_payloads">3. Payloads</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>The request sended depends on the object and the type of change, all payloads
+<p>The sended request depends on the object type and the kind of change, all payloads
 have the same base structure</p>
 </div>
 <div class="listingblock">
@@ -580,16 +579,16 @@ have the same base structure</p>
 <div class="ulist">
 <ul>
 <li>
-<p>The <code>data</code> field has the current object information.</p>
+<p>The <code>data</code> field contains the current object information.</p>
 </li>
 <li>
-<p>The <code>action</code> field has notification type, may be "create", "delete", "change" or "test".</p>
+<p>The <code>action</code> field contains notification type with values: "create", "delete", "change" or "test".</p>
 </li>
 <li>
-<p>The <code>type</code> field has the type of object, may be "milestone", "userstory", "task", "issue", "wikipage" or "test".</p>
+<p>The <code>type</code> field contains the type of object with values:  "milestone", "userstory", "task", "issue", "wikipage" or "test".</p>
 </li>
 <li>
-<p>The <code>change</code> field (only present on change notifications) have the information about the changes made.</p>
+<p>The <code>change</code> field (only present on change notifications) contains the information about the changes made.</p>
 </li>
 </ul>
 </div>
@@ -1194,7 +1193,7 @@ have the same base structure</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-01-23 08:12:16 CET
+Last updated 2015-01-23 08:26:39 CET
 </div>
 </div>
 </body>
