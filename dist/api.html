@@ -849,6 +849,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#object-webhook-log-detail">30.33. Webhook log</a></li>
 </ul>
 </li>
+<li><a href="#_contrib_plugins">31. Contrib plugins</a></li>
 </ul>
 </div>
 </div>
@@ -5325,7 +5326,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <span class="tok-s1">        &quot;name&quot;: &quot;Huge&quot;,</span>
 <span class="tok-s1">        &quot;order&quot;: 8,</span>
 <span class="tok-s1">        &quot;value&quot;: 40,</span>
-<span class="tok-s1">        &quot;project&quot;: 3,</span>
+<span class="tok-s1">        &quot;project&quot;: 3</span>
 <span class="tok-s1">    }&#39;</span> <span class="tok-se">\</span>
   https://api.taiga.io/api/v1/points</code></pre>
 </div>
@@ -5874,7 +5875,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <span class="tok-s1">        &quot;is_closed&quot;: true,</span>
 <span class="tok-s1">        &quot;name&quot;: &quot;New status&quot;,</span>
 <span class="tok-s1">        &quot;order&quot;: 8,</span>
-<span class="tok-s1">        &quot;project&quot;: 3,</span>
+<span class="tok-s1">        &quot;project&quot;: 3</span>
 <span class="tok-s1">    }&#39;</span> <span class="tok-se">\</span>
   https://api.taiga.io/api/v1/task-statuses</code></pre>
 </div>
@@ -6487,7 +6488,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <span class="tok-s1">        &quot;is_closed&quot;: true,</span>
 <span class="tok-s1">        &quot;name&quot;: &quot;New status&quot;,</span>
 <span class="tok-s1">        &quot;order&quot;: 8,</span>
-<span class="tok-s1">        &quot;project&quot;: 3,</span>
+<span class="tok-s1">        &quot;project&quot;: 3</span>
 <span class="tok-s1">    }&#39;</span> <span class="tok-se">\</span>
   https://api.taiga.io/api/v1/issue-statuses</code></pre>
 </div>
@@ -6663,7 +6664,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <span class="tok-s1">        &quot;color&quot;: &quot;#AAAAAA&quot;,</span>
 <span class="tok-s1">        &quot;name&quot;: &quot;New type&quot;,</span>
 <span class="tok-s1">        &quot;order&quot;: 8,</span>
-<span class="tok-s1">        &quot;project&quot;: 3,</span>
+<span class="tok-s1">        &quot;project&quot;: 3</span>
 <span class="tok-s1">    }&#39;</span> <span class="tok-se">\</span>
   https://api.taiga.io/api/v1/issue-types</code></pre>
 </div>
@@ -6839,7 +6840,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <span class="tok-s1">        &quot;color&quot;: &quot;#AAAAAA&quot;,</span>
 <span class="tok-s1">        &quot;name&quot;: &quot;New priority&quot;,</span>
 <span class="tok-s1">        &quot;order&quot;: 8,</span>
-<span class="tok-s1">        &quot;project&quot;: 3,</span>
+<span class="tok-s1">        &quot;project&quot;: 3</span>
 <span class="tok-s1">    }&#39;</span> <span class="tok-se">\</span>
   https://api.taiga.io/api/v1/priorities</code></pre>
 </div>
@@ -7015,7 +7016,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <span class="tok-s1">        &quot;color&quot;: &quot;#AAAAAA&quot;,</span>
 <span class="tok-s1">        &quot;name&quot;: &quot;New severity&quot;,</span>
 <span class="tok-s1">        &quot;order&quot;: 8,</span>
-<span class="tok-s1">        &quot;project&quot;: 3,</span>
+<span class="tok-s1">        &quot;project&quot;: 3</span>
 <span class="tok-s1">    }&#39;</span> <span class="tok-se">\</span>
   https://api.taiga.io/api/v1/severities</code></pre>
 </div>
@@ -7204,7 +7205,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
   -d <span class="tok-s1">&#39;{</span>
 <span class="tok-s1">          &quot;project&quot;: 1,</span>
 <span class="tok-s1">          &quot;slug&quot;: &quot;home&quot;,</span>
-<span class="tok-s1">          &quot;content&quot;: &quot;Lorem ipsum dolor.&quot;,</span>
+<span class="tok-s1">          &quot;content&quot;: &quot;Lorem ipsum dolor.&quot;</span>
 <span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
   https://api.taiga.io/api/v1/wiki</code></pre>
 </div>
@@ -7812,7 +7813,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <div class="content">
 <pre class="pygments highlight"><code data-lang="bash">curl -X POST <span class="tok-se">\</span>
   -d <span class="tok-s1">&#39;{</span>
-<span class="tok-s1">          &quot;username&quot;: &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">USERNAME_OR_EMAIL</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;,</span>
+<span class="tok-s1">          &quot;username&quot;: &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">USERNAME_OR_EMAIL</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;</span>
 <span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
   https://api.taiga.io/api/v1/users/password_recovery</code></pre>
 </div>
@@ -8270,7 +8271,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
     <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;is_active&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;photo&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;//www.gravatar.com/avatar/4648b6d514c3ecece1b87136ceeda1d1?size=80&quot;</span><span class="tok-p">,</span>
-    <span class="tok-nt">&quot;username&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;beta.tester&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;username&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;beta.tester&quot;</span>
 <span class="tok-p">}</span></code></pre>
 </div>
 </div>
@@ -11893,10 +11894,34 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_contrib_plugins">31. Contrib plugins</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Taiga allows adding features through contrib plugins, each plugin can add new
+API endpoints, and has its own documentation.</p>
+</div>
+<div class="paragraph">
+<p>Current supported contrib plugins that adding endpoints:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>taiga-contrib-slack: Slack integration
+(<a href="http://taigaio.github.io/taiga-contrib-slack/dist/index.html">documentation</a>)</p>
+</li>
+<li>
+<p>taiga-contrib-hall: Hall.com integration
+(<a href="http://taigaio.github.io/taiga-contrib-hall/dist/index.html">documentation</a>)</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-01-23 08:27:55 CET
+Last updated 2015-01-29 11:28:53 CET
 </div>
 </div>
 </body>

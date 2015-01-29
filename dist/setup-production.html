@@ -491,15 +491,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_async_tasks_optional">3.5. Async tasks (Optional)</a></li>
 </ul>
 </li>
-<li><a href="#_frontend_installation">4. Frontend installation</a>
-<ul class="sectlevel2">
-<li><a href="#_install_dependencies_2">4.1. Install dependencies</a></li>
-<li><a href="#_final_steps">4.2. Final steps</a></li>
-<li><a href="#_verification_2">4.3. Verification</a></li>
-</ul>
-</li>
+<li><a href="#_frontend_installation">4. Frontend installation</a></li>
 <li><a href="#_events_installation">5. Events installation</a></li>
-<li><a href="#_final_steps_2">6. Final steps</a>
+<li><a href="#_final_steps">6. Final steps</a>
 <ul class="sectlevel2">
 <li><a href="#circus-and-gunicorn">6.1. Circus and gunicorn</a></li>
 <li><a href="#_nginx">6.2. Nginx</a></li>
@@ -511,6 +505,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#faq-change-domain">7.2. How can I change the domain name?</a></li>
 <li><a href="#_how_can_i_restart_the_backend_application">7.3. How can I restart the backend application?</a></li>
 <li><a href="#faq-maintain-update">7.4. How I can keep my app up to date with the most recent Taiga version?</a></li>
+<li><a href="#faq-add-extra-functionality">7.5. How I can add extra functionality to Taiga?</a></li>
 </ul>
 </li>
 </ul>
@@ -847,110 +842,24 @@ circusctl start taiga-celery</code></pre>
 <h2 id="_frontend_installation">4. Frontend installation</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section helps you install the frontend application</p>
-</div>
-<div class="sect2">
-<h3 id="_install_dependencies_2">4.1. Install dependencies</h3>
-<div class="paragraph">
-<p>The Frontend application runs entirelly on a browser, and it should be written using javascript, css and html.
-In case of <strong>taiga-front</strong> we have used other languages. Because of this, you should install some
-additional dependencies that compile <strong>taiga-front</strong> code intro something the browser can understand.</p>
-</div>
-<div class="sect3">
-<h4 id="_ruby_and_gems">4.1.1. Ruby and Gems</h4>
-<div class="paragraph">
-<p>Ruby is used mainly for compiling <strong>sass</strong> (css preprocessor). It is also used for sass linting but that
-is only on development environments.</p>
-</div>
-<div class="listingblock">
-<div class="title">Install ruby</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash">sudo apt-get install -y ruby</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Install required gems</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash">gem install --user-install sass scss-lint</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Make gems scripts available in path putting this on <strong>~/.bashrc</strong></div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span class="tok-nb">export </span><span class="tok-nv">PATH</span><span class="tok-o">=</span>~/.gem/ruby/1.9.1/bin:<span class="tok-nv">$PATH</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Restart the shell or run bash to make the path changes available.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_nodejs_and_friends">4.1.2. NodeJS and friends</h4>
-<div class="paragraph">
-<p>NodeJS is used to execute <strong>gulp</strong> and <strong>bower</strong>:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>gulp</strong>: task execution tool. Used mainly for executing deploying and compiling tasks.</p>
-</li>
-<li>
-<p><strong>bower</strong>: javascript dependencies management tool. Used mainly for downloading third party libraries
-used by <strong>taiga-front</strong>.</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="title">Install nodejs</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash">sudo apt-get install -y nodejs npm</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Make sure your bash responds to node command to have a smooth installation of gulp and bower</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash">node</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>If you get a "Command not found" error, then run</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash">sudo ln -s /usr/bin/nodejs /usr/bin/node</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Install <strong>gulp</strong> and <strong>bower</strong> using recently installed npm</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash">sudo npm install -g gulp bower</code></pre>
-</div>
+<p>Download the code from github:</p>
 </div>
 <div class="listingblock">
 <div class="title">Download the code</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="bash"><span class="tok-nb">cd</span> ~
-git clone https://github.com/taigaio/taiga-front.git taiga-front
+git clone https://github.com/taigaio/taiga-front-dist.git taiga-front
 <span class="tok-nb">cd </span>taiga-front
 git checkout stable</code></pre>
 </div>
 </div>
-<div class="listingblock">
-<div class="title">Install all dependencies needed for run gulp and compile taiga-front</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash">npm install
-bower install</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_final_steps">4.2. Final steps</h3>
 <div class="paragraph">
-<p>Having installed all dependencies, only two steps remain: creating the configuration and compiling.</p>
+<p>And now, you can configure it copying the
+<code>taiga-front/dist/js/conf.example.json</code> to <code>taiga-front/dist/js/conf.json</code>
+and editing it.</p>
 </div>
 <div class="listingblock">
-<div class="title">Create intial configuration on ~/taiga-front/conf/main.json</div>
+<div class="title">Copy and edit initial configuration on ~/taiga-front/dist/js/conf.json</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
     <span class="tok-nt">&quot;api&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;http://example.com/api/v1/&quot;</span><span class="tok-p">,</span>
@@ -961,30 +870,15 @@ bower install</code></pre>
     <span class="tok-nt">&quot;privacyPolicyUrl&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;termsOfServiceUrl&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;maxUploadFileSize&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
-    <span class="tok-nt">&quot;gitHubClientId&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span>
+    <span class="tok-nt">&quot;gitHubClientId&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;contribPlugins&quot;</span><span class="tok-p">:</span> <span class="tok-p">[]</span>
 <span class="tok-p">}</span></code></pre>
 </div>
 </div>
-<div class="listingblock">
-<div class="title">Run gulp task for compile</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span class="tok-nb">cd</span> ~/taiga-front
-gulp deploy</code></pre>
-</div>
-</div>
 <div class="paragraph">
-<p>Now, having compiled <strong>taiga-front</strong>, the next step is to expose the generated code
+<p>Now, having <strong>taiga-front</strong> downloaded and configured, the next step is to expose the code
 (in <strong>dist</strong> directory) under static file web server: we use <strong>nginx</strong>. That process is
 explained in the final section of this tutorial.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_verification_2">4.3. Verification</h3>
-<div class="paragraph">
-<p>To make sure everything is ok, you can check the <strong>dist</strong> directory and you&#8217;ll see an
-<strong>index.html</strong> file and <strong>fonts</strong>, <strong>images</strong>, <strong>js</strong>, <strong>partials</strong>, <strong>plugins</strong>,
-<strong>styles</strong> and <strong>svg</strong> directories.</p>
-</div>
 </div>
 </div>
 </div>
@@ -1000,7 +894,7 @@ explained in the final section of this tutorial.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_final_steps_2">6. Final steps</h2>
+<h2 id="_final_steps">6. Final steps</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you are here, it&#8217;s probable that you completed the installation of <strong>taiga-back</strong> and
@@ -1426,12 +1320,36 @@ circusctl reload taiga</pre>
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="faq-add-extra-functionality">7.5. How I can add extra functionality to Taiga?</h3>
+<div class="paragraph">
+<p>Taiga allows adding functionality through contrib plugins. The instalation of each
+plugin depends on the plugin itself and must be documented in the plugin
+repository.</p>
+</div>
+<div class="paragraph">
+<p>The current supported plugins are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="http://github.com/taigaio/taiga-contrib-gogs">taiga-contrib-gogs</a>: Gogs integration</p>
+</li>
+<li>
+<p><a href="http://github.com/taigaio/taiga-contrib-slack">taiga-contrib-slack</a>: Slack integration</p>
+</li>
+<li>
+<p><a href="http://github.com/taigaio/taiga-contrib-hall">taiga-contrib-hall</a>: Hall.com integration</p>
+</li>
+</ul>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-01-23 08:27:55 CET
+Last updated 2015-01-29 11:28:53 CET
 </div>
 </div>
 </body>
