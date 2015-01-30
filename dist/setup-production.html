@@ -501,11 +501,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li><a href="#_faq">7. FAQ</a>
 <ul class="sectlevel2">
-<li><a href="#faq-npm-error">7.1. Are you having npm errors when executing gulp?</a></li>
-<li><a href="#faq-change-domain">7.2. How can I change the domain name?</a></li>
-<li><a href="#_how_can_i_restart_the_backend_application">7.3. How can I restart the backend application?</a></li>
-<li><a href="#faq-maintain-update">7.4. How I can keep my app up to date with the most recent Taiga version?</a></li>
-<li><a href="#faq-add-extra-functionality">7.5. How I can add extra functionality to Taiga?</a></li>
+<li><a href="#faq-change-domain">7.1. How can I change the domain name?</a></li>
+<li><a href="#_how_can_i_restart_the_backend_application">7.2. How can I restart the backend application?</a></li>
+<li><a href="#faq-maintain-update">7.3. How I can keep my app up to date with the most recent Taiga version?</a></li>
+<li><a href="#faq-add-extra-functionality">7.4. How I can add extra functionality to Taiga?</a></li>
 </ul>
 </li>
 </ul>
@@ -527,7 +526,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><strong>taiga-back</strong> (backend/api)</p>
 </li>
 <li>
-<p><strong>taiga-front</strong> (frontend)</p>
+<p><strong>taiga-front-dist</strong> (frontend)</p>
 </li>
 <li>
 <p><strong>taiga-events</strong> (websockets gateway) (optional)</p>
@@ -848,18 +847,18 @@ circusctl start taiga-celery</code></pre>
 <div class="title">Download the code</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="bash"><span class="tok-nb">cd</span> ~
-git clone https://github.com/taigaio/taiga-front-dist.git taiga-front
-<span class="tok-nb">cd </span>taiga-front
+git clone https://github.com/taigaio/taiga-front-dist.git taiga-front-dist
+<span class="tok-nb">cd </span>taiga-front-dist
 git checkout stable</code></pre>
 </div>
 </div>
 <div class="paragraph">
 <p>And now, you can configure it copying the
-<code>taiga-front/dist/js/conf.example.json</code> to <code>taiga-front/dist/js/conf.json</code>
+<code>taiga-front-dist/dist/js/conf.example.json</code> to <code>taiga-front-dist/dist/js/conf.json</code>
 and editing it.</p>
 </div>
 <div class="listingblock">
-<div class="title">Copy and edit initial configuration on ~/taiga-front/dist/js/conf.json</div>
+<div class="title">Copy and edit initial configuration on ~/taiga-front-dist/dist/js/conf.json</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
     <span class="tok-nt">&quot;api&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;http://example.com/api/v1/&quot;</span><span class="tok-p">,</span>
@@ -876,7 +875,7 @@ and editing it.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>Now, having <strong>taiga-front</strong> downloaded and configured, the next step is to expose the code
+<p>Now, having <strong>taiga-front-dist</strong> downloaded and configured, the next step is to expose the code
 (in <strong>dist</strong> directory) under static file web server: we use <strong>nginx</strong>. That process is
 explained in the final section of this tutorial.</p>
 </div>
@@ -898,14 +897,14 @@ explained in the final section of this tutorial.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>If you are here, it&#8217;s probable that you completed the installation of <strong>taiga-back</strong> and
-<strong>taiga-front</strong>. However, having installed them is insufficient.</p>
+<strong>taiga-front-dist</strong>. However, having installed them is insufficient.</p>
 </div>
 <div class="paragraph">
 <p><strong>taiga-back</strong> should run under an application server which in turn should be executed and monitored
 by a process manager. For this task we will use <strong>gunicorn</strong> and <strong>circus</strong> respectivelly.</p>
 </div>
 <div class="paragraph">
-<p><strong>taiga-front</strong> and <strong>taiga-back</strong> should be exposed to the outside, using good proxy/static-file
+<p><strong>taiga-front-dist</strong> and <strong>taiga-back</strong> should be exposed to the outside, using good proxy/static-file
 web server. For this purpose we&#8217;ll use <strong>nginx</strong>.</p>
 </div>
 <div class="sect2">
@@ -998,7 +997,7 @@ exec /usr/local/bin/circusd /home/taiga/circus.ini</code></pre>
 <div class="sect2">
 <h3 id="_nginx">6.2. Nginx</h3>
 <div class="paragraph">
-<p>Nginx is used as a static file web server to serve <strong>taiga-front</strong> and send proxy requests to <strong>taiga-back</strong>.</p>
+<p>Nginx is used as a static file web server to serve <strong>taiga-front-dist</strong> and send proxy requests to <strong>taiga-back</strong>.</p>
 </div>
 <div class="paragraph">
 <p>First install it:</p>
@@ -1012,7 +1011,7 @@ exec /usr/local/bin/circusd /home/taiga/circus.ini</code></pre>
 <p>And now let us start configuring it:</p>
 </div>
 <div class="listingblock">
-<div class="title">Add specific configuration for <strong>taiga-front</strong> and <strong>taiga-back</strong> on /etc/nginx/sites-available/taiga.</div>
+<div class="title">Add specific configuration for <strong>taiga-front-dist</strong> and <strong>taiga-back</strong> on /etc/nginx/sites-available/taiga.</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="nginx"><span class="tok-k">server</span> <span class="tok-p">{</span>
     <span class="tok-kn">listen</span> <span class="tok-mi">80</span> <span class="tok-s">default_server</span><span class="tok-p">;</span>
@@ -1027,7 +1026,7 @@ exec /usr/local/bin/circusd /home/taiga/circus.ini</code></pre>
 
     <span class="tok-c1"># Frontend</span>
     <span class="tok-kn">location</span> <span class="tok-s">/</span> <span class="tok-p">{</span>
-        <span class="tok-kn">root</span> <span class="tok-s">/home/taiga/taiga-front/dist/</span><span class="tok-p">;</span>
+        <span class="tok-kn">root</span> <span class="tok-s">/home/taiga/taiga-front-dist/dist/</span><span class="tok-p">;</span>
         <span class="tok-kn">try_files</span> <span class="tok-nv">$uri</span> <span class="tok-nv">$uri/</span> <span class="tok-s">/index.html</span><span class="tok-p">;</span>
     <span class="tok-p">}</span>
 
@@ -1111,7 +1110,7 @@ version automatically.</p>
 
     <span class="tok-c1"># Frontend</span>
     <span class="tok-kn">location</span> <span class="tok-s">/</span> <span class="tok-p">{</span>
-        <span class="tok-kn">root</span> <span class="tok-s">/home/taiga/taiga-front/dist/</span><span class="tok-p">;</span>
+        <span class="tok-kn">root</span> <span class="tok-s">/home/taiga/taiga-front-dist/dist/</span><span class="tok-p">;</span>
         <span class="tok-kn">try_files</span> <span class="tok-nv">$uri</span> <span class="tok-nv">$uri/</span> <span class="tok-s">/index.html</span><span class="tok-p">;</span>
     <span class="tok-p">}</span>
 
@@ -1205,7 +1204,7 @@ change the scheme from <code>http</code> to <code>https</code>.</p>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Update ~/taiga-front/conf/main.json</div>
+<div class="title">Update ~/taiga-front-dist/dist/js/conf.json</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
     <span class="tok-nt">&quot;api&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;https://example.com/api/v1/&quot;</span><span class="tok-p">,</span>
@@ -1218,13 +1217,6 @@ change the scheme from <code>http</code> to <code>https</code>.</p>
     <span class="tok-nt">&quot;maxUploadFileSize&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;gitHubClientId&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span>
 <span class="tok-p">}</span></code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Run gulp task for compile</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span class="tok-nb">cd</span> ~/taiga-front
-gulp deploy</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1244,23 +1236,7 @@ gulp deploy</code></pre>
 <h2 id="_faq">7. FAQ</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="faq-npm-error">7.1. Are you having npm errors when executing gulp?</h3>
-<div class="paragraph">
-<p>Delete the tmp files and install the dependencies again:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="text">mv ~/tmp ~/tmp_old
-cd ~/taiga-front/
-rm -rf ~/.npm; rm -rf node_modules
-npm install
-bower install
-gulp deploy</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="faq-change-domain">7.2. How can I change the domain name?</h3>
+<h3 id="faq-change-domain">7.1. How can I change the domain name?</h3>
 <div class="paragraph">
 <p>The domain name mainly affects the frontend application, because it needs to comunicate with the
 backend through the domain/public-ip.</p>
@@ -1275,7 +1251,7 @@ settings file: <code>settings/local.py</code>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_how_can_i_restart_the_backend_application">7.3. How can I restart the backend application?</h3>
+<h3 id="_how_can_i_restart_the_backend_application">7.2. How can I restart the backend application?</h3>
 <div class="paragraph">
 <p>The Backend application is running under circus. To restart any application running
 with circus use the <code>circusctl</code> command:</p>
@@ -1287,7 +1263,7 @@ with circus use the <code>circusctl</code> command:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="faq-maintain-update">7.4. How I can keep my app up to date with the most recent Taiga version?</h3>
+<h3 id="faq-maintain-update">7.3. How I can keep my app up to date with the most recent Taiga version?</h3>
 <div class="paragraph">
 <p>The Taiga platform is developed on github. For consistences you should alway maintain the same version
 in time with the <strong>stable</strong> branch of git or use the last major version of each component.</p>
@@ -1298,12 +1274,9 @@ in time with the <strong>stable</strong> branch of git or use the last major ver
 <div class="listingblock">
 <div class="title">Frontend application</div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span class="tok-nb">cd</span> ~/taiga-front
+<pre class="pygments highlight"><code data-lang="bash"><span class="tok-nb">cd</span> ~/taiga-front-dist
 git checkout stable
-git pull
-npm install
-bower install
-gulp deploy</code></pre>
+git pull</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -1321,7 +1294,7 @@ circusctl reload taiga</pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="faq-add-extra-functionality">7.5. How I can add extra functionality to Taiga?</h3>
+<h3 id="faq-add-extra-functionality">7.4. How I can add extra functionality to Taiga?</h3>
 <div class="paragraph">
 <p>Taiga allows adding functionality through contrib plugins. The instalation of each
 plugin depends on the plugin itself and must be documented in the plugin
@@ -1349,7 +1322,7 @@ repository.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-01-29 11:28:53 CET
+Last updated 2015-01-30 14:48:17 CET
 </div>
 </div>
 </body>
