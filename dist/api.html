@@ -2987,7 +2987,7 @@ Developers - API - OAuth - Web Application Flow</a>.</p>
 <pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
-  https://api.taiga.io/api/v1/wiki?project<span class="tok-o">=</span>1<span class="tok-se">\&amp;</span><span class="tok-nv">text</span><span class="tok-o">=</span>design</code></pre>
+  https://api.taiga.io/api/v1/search?project<span class="tok-o">=</span>1<span class="tok-se">\&amp;</span><span class="tok-nv">text</span><span class="tok-o">=</span>design</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -8784,6 +8784,23 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
     <span class="tok-p">},</span>
     <span class="tok-nt">&quot;total_milestones&quot;</span><span class="tok-p">:</span> <span class="tok-mi">3</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;total_story_points&quot;</span><span class="tok-p">:</span> <span class="tok-mf">20.0</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;users&quot;</span><span class="tok-p">:[</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span><span class="tok-mi">2</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;username&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;user6532909695705815086&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;full_name&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;Silvia Soto&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;full_name_display&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;Silvia Soto&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;email&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;expedita@sequi.org&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;github_id&quot;</span><span class="tok-p">:</span><span class="tok-kc">null</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;#2099DB&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;bio&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;default_language&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;default_timezone&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;is_active&quot;</span><span class="tok-p">:</span><span class="tok-kc">true</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;photo&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;//www.gravatar.com/avatar/f64db24896b923753d440e23faa856aa?size=80&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;big_photo&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;//www.gravatar.com/avatar/f64db24896b923753d440e23faa856aa?size=80&quot;</span>
+        <span class="tok-p">}</span>
+    <span class="tok-p">],</span>
     <span class="tok-nt">&quot;videoconferences&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;appear-in&quot;</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;videoconferences_salt&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span>
 <span class="tok-p">}</span></code></pre>
@@ -9253,6 +9270,23 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
             <span class="tok-nt">&quot;project&quot;</span><span class="tok-p">:</span> <span class="tok-mi">9</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;done&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;wip_limit&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span>
+        <span class="tok-p">}</span>
+    <span class="tok-p">],</span>
+    <span class="tok-nt">&quot;users&quot;</span><span class="tok-p">:[</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span><span class="tok-mi">2</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;username&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;user6532909695705815086&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;full_name&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;Silvia Soto&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;full_name_display&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;Silvia Soto&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;email&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;expedita@sequi.org&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;github_id&quot;</span><span class="tok-p">:</span><span class="tok-kc">null</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;#2099DB&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;bio&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;default_language&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;default_timezone&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;is_active&quot;</span><span class="tok-p">:</span><span class="tok-kc">true</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;photo&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;//www.gravatar.com/avatar/f64db24896b923753d440e23faa856aa?size=80&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;big_photo&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;//www.gravatar.com/avatar/f64db24896b923753d440e23faa856aa?size=80&quot;</span>
         <span class="tok-p">}</span>
     <span class="tok-p">],</span>
     <span class="tok-nt">&quot;videoconferences&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
@@ -11921,7 +11955,7 @@ API endpoints, and has its own documentation.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-01-30 14:48:17 CET
+Last updated 2015-02-02 07:19:00 CET
 </div>
 </div>
 </body>
