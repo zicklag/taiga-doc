@@ -760,16 +760,17 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li><a href="#users-list">24.1. List</a></li>
 <li><a href="#users-get">24.2. Get</a></li>
-<li><a href="#users-starred">24.3. Get starred projects</a></li>
-<li><a href="#users-edit">24.4. Edit</a></li>
-<li><a href="#users-delete">24.5. Delete</a></li>
-<li><a href="#users-cancel">24.6. Cancel</a></li>
-<li><a href="#users-change-avatar">24.7. Change avatar</a></li>
-<li><a href="#users-remove-avatar">24.8. Remove avatar</a></li>
-<li><a href="#users-change-email">24.9. Change email</a></li>
-<li><a href="#users-change-password">24.10. Change password</a></li>
-<li><a href="#users-password-recovery">24.11. Password recovery</a></li>
-<li><a href="#users-change-password-from-recovery">24.12. Change password from recovery</a></li>
+<li><a href="#users-me">24.3. Me</a></li>
+<li><a href="#users-starred">24.4. Get starred projects</a></li>
+<li><a href="#users-edit">24.5. Edit</a></li>
+<li><a href="#users-delete">24.6. Delete</a></li>
+<li><a href="#users-cancel">24.7. Cancel</a></li>
+<li><a href="#users-change-avatar">24.8. Change avatar</a></li>
+<li><a href="#users-remove-avatar">24.9. Remove avatar</a></li>
+<li><a href="#users-change-email">24.10. Change email</a></li>
+<li><a href="#users-change-password">24.11. Change password</a></li>
+<li><a href="#users-password-recovery">24.12. Password recovery</a></li>
+<li><a href="#users-change-password-from-recovery">24.13. Change password from recovery</a></li>
 </ul>
 </li>
 <li><a href="#notify-policies">25. Notify policies</a>
@@ -1109,22 +1110,22 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-storage-create">Create user storage data</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/user-storage/&lt;key&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/user-storage/{key}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-storage-get">Get user storage data</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/user-storage/&lt;key&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/user-storage/{key}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-storage-edit">Modify user storage data</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/user-storage/&lt;key&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/user-storage/{key}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-storage-edit">Modify partially an user storage data</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/user-storage/&lt;key&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/user-storage/{key}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-storage-delete">Delete user storage data</a></p></td>
 </tr>
@@ -1158,22 +1159,22 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#project-templates-create">Create project template</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/project-templates/&lt;projectTemplateId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/project-templates/{projectTemplateId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#project-templates-get">Get project template</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/project-templates/&lt;projectTemplateId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/project-templates/{projectTemplateId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#project-templates-edit">Modify project template</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/project-templates/&lt;projectTemplateId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/project-templates/{projectTemplateId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#project-templates-edit">Modify partially an project template</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/project-templates/&lt;projectTemplateId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/project-templates/{projectTemplateId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#project-templates-delete">Delete an project template</a></p></td>
 </tr>
@@ -1207,82 +1208,82 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#projects-create">Create project</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/&lt;projectId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/{projectId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#projects-get">Get project</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/by_slug?slug=&lt;projectSlug&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/by_slug?slug={projectSlug}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#projects-get-by-slug">Get project</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/&lt;projectId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/{projectId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#projects-edit">Modify project</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/&lt;projectId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/{projectId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#projects-edit">Modify partially a project</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/&lt;projectId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/{projectId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#projects-delete">Delete a project</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/&lt;projectId&gt;/modules</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/{projectId}/modules</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#projects-get-modules">Get project modules configuration</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/&lt;projectId&gt;/modules</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/{projectId}/modules</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#projects-edit-modules">Modify partially a project modules configuration</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/&lt;projectId&gt;/stats</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/{projectId}/stats</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#projects-stats">Get project stats</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/&lt;projectId&gt;/issues_stats</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/{projectId}/issues_stats</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#projects-issue-stats">Get project issue stats</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/&lt;projectId&gt;/issue_filters_data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/{projectId}/issue_filters_data</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#projects-issue-filters-data">Get project issue filters data</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/&lt;projectId&gt;/tags_colors</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/{projectId}/tags_colors</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#projects-tag-colors">Get project tags colors</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/&lt;projectId&gt;/star</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/{projectId}/star</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#projects-star">Add star to a project</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/&lt;projectId&gt;/unstar</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/{projectId}/unstar</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#projects-unstar">Remove star from project</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/&lt;projectId&gt;/fans</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/{projectId}/fans</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#projects-fans">Get project fans</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/&lt;projectId&gt;/create_template</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/{projectId}/create_template</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#projects-create-template">Create project template</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/&lt;projectId&gt;/leave</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/{projectId}/leave</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#projects-create-template">Leave project</a></p></td>
 </tr>
@@ -1321,32 +1322,32 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#memberships-bulk-create">Create a bulk of memberships</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/memberships/&lt;membershipId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/memberships/{membershipId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#memberships-get">Get membership</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/memberships/&lt;membershipId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/memberships/{membershipId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#memberships-edit">Modify membership</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/memberships/&lt;membershipId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/memberships/{membershipId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#memberships-edit">Modify partially a membership</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/memberships/&lt;membershipId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/memberships/{membershipId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#memberships-delete">Delete a membership</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/memberships/&lt;membershipId&gt;/resend_invitation</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/memberships/{membershipId}/resend_invitation</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#memberships-resend-invitation">Resend invitation</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/invitations/&lt;invitationUuid&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/invitations/{invitationUuid}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#memberships-invitations">Get invitation by anonymous user</a></p></td>
 </tr>
@@ -1380,27 +1381,27 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#milestones-create">Create milestone</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/milestones/&lt;milestoneId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/milestones/{milestoneId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#milestones-get">Get milestone</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/milestones/&lt;milestoneId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/milestones/{milestoneId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#milestones-edit">Modify milestone</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/milestones/&lt;milestoneId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/milestones/{milestoneId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#milestones-edit">Modify partially a milestone</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/milestones/&lt;milestoneId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/milestones/{milestoneId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#milestones-delete">Delete a milestone</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/milestones/&lt;milestoneId&gt;/stats</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/milestones/{milestoneId}/stats</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#milestones-stats">Get a milestone stats</a></p></td>
 </tr>
@@ -1434,27 +1435,27 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-stories-create">Create user story</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstories/&lt;userStoryId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstories/{userStoryId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-stories-get">Get user story</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstories/by_ref?ref=&lt;userStoryRef&gt;&amp;project=&lt;projectId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstories/by_ref?ref={userStoryRef}&amp;project={userStoryId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-stories-get-by-ref">Get user story</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstories/&lt;userStoryId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstories/{userStoryId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-stories-edit">Modify user story</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstories/&lt;userStoryId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstories/{userStoryId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-stories-edit">Modify partially a user story</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstories/&lt;userStoryId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstories/{userStoryId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-stories-delete">Delete a user story</a></p></td>
 </tr>
@@ -1489,22 +1490,22 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-stories-create-attachment">Create user story attachments</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstories/attachments/&lt;userStoryAttachmentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstories/attachments/{userStoryAttachmentId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-stories-get-attachment">Get user story attachments</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstories/attachments/&lt;userStoryAttachmentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstories/attachments/{userStoryAttachmentId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-stories-edit-attachment">Modify user story attachments</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstories/attachments/&lt;userStoryAttachmentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstories/attachments/{userStoryAttachmentId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-stories-edit-attachment">Modify partially a user story attachments</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstories/attachments/&lt;userStoryAttachmentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstories/attachments/{userStoryAttachmentId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-stories-delete-attachment">Delete a user story attachments</a></p></td>
 </tr>
@@ -1538,22 +1539,22 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-story-statuses-create">Create user story status</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstory-statuses/&lt;userStoryStatusId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstory-statuses/{userStoryStatusId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-story-statuses-get">Get user story status</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstory-statuses/&lt;userStoryStatusId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstory-statuses/{userStoryStatusId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-story-statuses-edit">Modify user story status</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstory-statuses/&lt;userStoryStatusId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstory-statuses/{userStoryStatusId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-story-statuses-edit">Modify partially a user story status</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstory-statuses/&lt;userStoryStatusId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstory-statuses/{userStoryStatusId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-story-statuses-delete">Delete a user story status</a></p></td>
 </tr>
@@ -1592,22 +1593,22 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#points-create">Create point</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/points/&lt;pointId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/points/{pointId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#points-get">Get point</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/points/&lt;pointId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/points/{pointId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#points-edit">Modify point</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/points/&lt;pointId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/points/{pointId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#points-edit">Modify partially a point</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/points/&lt;pointId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/points/{pointId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#points-delete">Delete a point</a></p></td>
 </tr>
@@ -1646,27 +1647,27 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#tasks-create">Create task</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/tasks/&lt;taskId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/tasks/{taskId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#tasks-get">Get task</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/tasks/by_ref?ref=&lt;taskRef&gt;&amp;project=&lt;projectId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/tasks/by_ref?ref={taskRef}&amp;project={projectId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#tasks-get-by-ref">Get task</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/tasks/&lt;taskId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/tasks/{taskId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#tasks-edit">Modify task</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/tasks/&lt;taskId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/tasks/{taskId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#tasks-edit">Modify partially a task</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/tasks/&lt;taskId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/tasks/{taskId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#tasks-delete">Delete a task</a></p></td>
 </tr>
@@ -1686,22 +1687,22 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#tasks-create-attachment">Create task attachments</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/tasks/attachments/&lt;taskAttachmentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/tasks/attachments/{taskAttachmentId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#tasks-get-attachment">Get task attachments</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/tasks/attachments/&lt;taskAttachmentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/tasks/attachments/{taskAttachmentId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#tasks-edit-attachment">Modify task attachments</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/tasks/attachments/&lt;taskAttachmentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/tasks/attachments/{taskAttachmentId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#tasks-edit-attachment">Modify partially a task attachments</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/tasks/attachments/&lt;taskAttachmentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/tasks/attachments/{taskAttachmentId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#tasks-delete-attachment">Delete a task attachments</a></p></td>
 </tr>
@@ -1735,22 +1736,22 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#task-statuses-create">Create task status</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/task-statuses/&lt;taskStatusId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/task-statuses/{taskStatusId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#task-statuses-get">Get task status</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/task-statuses/&lt;taskStatusId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/task-statuses/{taskStatusId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#task-statuses-edit">Modify task status</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/task-statuses/&lt;taskStatusId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/task-statuses/{taskStatusId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#task-statuses-edit">Modify partially a task status</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/task-statuses/&lt;taskStatusId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/task-statuses/{taskStatusId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#task-statuses-delete">Delete a task status</a></p></td>
 </tr>
@@ -1789,42 +1790,42 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issues-create">Create issue</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/&lt;issueId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/{issueId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issues-get">Get issue</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/by_ref?ref=&lt;issueRef&gt;&amp;project=&lt;projectId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/by_ref?ref={issueRef}&amp;project={projectId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issues-get-by-ref">Get issue</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/&lt;issueId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/{issueId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issues-edit">Modify issue</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/&lt;issueId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/{issueId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issues-edit">Modify partially an issue</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/&lt;issueId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/{issueId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issues-delete">Delete an issue</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/&lt;issueId&gt;/upvote</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/{issueId}/upvote</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issues-upvote">Add a vote to an issue</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/&lt;issueId&gt;/downvote</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/{issueId}/downvote</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issues-downvote">Remove your vote to an issue</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/&lt;issueId&gt;/voters</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/{issueId}/voters</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issues-voters">Get issue voters list</a></p></td>
 </tr>
@@ -1844,22 +1845,22 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issues-create-attachment">Create issue attachments</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/attachments/&lt;issueAttachmentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/attachments/{issueAttachmentId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issues-get-attachment">Get issue attachments</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/attachments/&lt;issueAttachmentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/attachments/{issueAttachmentId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issues-edit-attachment">Modify issue attachments</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/attachments/&lt;issueAttachmentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/attachments/{issueAttachmentId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issues-edit-attachment">Modify partially an issue attachments</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/attachments/&lt;issueAttachmentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/attachments/{issueAttachmentId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issues-delete-attachment">Delete an issue attachments</a></p></td>
 </tr>
@@ -1893,22 +1894,22 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issue-statuses-create">Create issue status</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issue-statuses/&lt;issueStatusId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issue-statuses/{issueStatusId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issue-statuses-get">Get issue status</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issue-statuses/&lt;issueStatusId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issue-statuses/{issueStatusId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issue-statuses-edit">Modify issue status</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issue-statuses/&lt;issueStatusId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issue-statuses/{issueStatusId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issue-statuses-edit">Modify partially a issue status</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issue-statuses/&lt;issueStatusId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issue-statuses/{issueStatusId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issue-statuses-delete">Delete a issue status</a></p></td>
 </tr>
@@ -1947,22 +1948,22 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issue-types-create">Create issue type</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issue-types/&lt;issueTypeId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issue-types/{issueTypeId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issue-types-get">Get issue type</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issue-types/&lt;issueTypeId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issue-types/{issueTypeId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issue-types-edit">Modify issue type</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issue-types/&lt;issueTypeId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issue-types/{issueTypeId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issue-types-edit">Modify partially a issue type</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issue-types/&lt;issueTypeId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issue-types/{issueTypeId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issue-types-delete">Delete a issue type</a></p></td>
 </tr>
@@ -2001,22 +2002,22 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#priorities-create">Create priority</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/priorities/&lt;priorityId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/priorities/{priorityId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#priorities-get">Get priority</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/priorities/&lt;priorityId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/priorities/{priorityId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#priorities-edit">Modify priority</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/priorities/&lt;priorityId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/priorities/{priorityId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#priorities-edit">Modify partially a priority</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/priorities/&lt;priorityId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/priorities/{priorityId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#priorities-delete">Delete a priority</a></p></td>
 </tr>
@@ -2055,22 +2056,22 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#severities-create">Create severity</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/severities/&lt;severityId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/severities/{severityId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#severities-get">Get severity</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/severities/&lt;severityId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/severities/{severityId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#severities-edit">Modify severity</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/severities/&lt;severityId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/severities/{severityId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#severities-edit">Modify partially a severity</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/severities/&lt;severityId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/severities/{severityId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#severities-delete">Delete a severity</a></p></td>
 </tr>
@@ -2109,27 +2110,27 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#wiki-create">Create wiki page</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki/&lt;wikiId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki/{wikiId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#wiki-get">Get wiki page</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki/by_slug?slug=&lt;wikiPageSlug&gt;&amp;project=&lt;projectId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki/by_slug?slug={wikiPageSlug}&amp;project={projectId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#wiki-get-by-slug">Get wiki page</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki/&lt;wikiPageId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki/{wikiPageId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#wiki-edit">Modify wiki page</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki/&lt;wikiPageId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki/{wikiPageId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#wiki-edit">Modify partially an wiki page</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki/&lt;wikiPageId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki/{wikiPageId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#wiki-delete">Delete an wiki page</a></p></td>
 </tr>
@@ -2144,22 +2145,22 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#wiki-create-attachment">Create wiki page attachments</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki/attachments/&lt;wikiPageAttachmentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki/attachments/{wikiPageAttachmentId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#wiki-get-attachment">Get wiki page attachments</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki/attachments/&lt;wikiPageAttachmentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki/attachments/{wikiPageAttachmentId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#wiki-edit-attachment">Modify wiki page attachments</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki/attachments/&lt;wikiPageAttachmentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki/attachments/{wikiPageAttachmentId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#wiki-edit-attachment">Modify partially an wiki page attachments</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki/attachments/&lt;wikiPageAttachmentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki/attachments/{wikiPageAttachmentId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#wiki-delete-attachment">Delete an wiki page attachments</a></p></td>
 </tr>
@@ -2193,22 +2194,22 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#wikilinks-create">Create wiki link</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki-links/&lt;wikiId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki-links/{wikiLinkId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#wikilinks-get">Get wiki link</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki-links/&lt;wikiLinkId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki-links/{wikiLinkId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#wikilinks-edit">Modify wiki link</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki-links/&lt;wikiLinkId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki-links/{wikiLinkId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#wikilinks-edit">Modify partially an wiki link</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki-links/&lt;wikiLinkId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/wiki-links/{wikiLinkId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#wikilinks-delete">Delete an wiki link</a></p></td>
 </tr>
@@ -2232,32 +2233,32 @@ limit.</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/userstory/&lt;usId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/userstory/{usId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#history-get">Get user story history</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/userstory/&lt;usId&gt;/delete_comment?id=&lt;commentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/userstory/{usId}/delete_comment?id={commentId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#history-delete-comment">Delete user story comment</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/userstory/&lt;usId&gt;/undelete_comment?id=&lt;commentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/userstory/{usId}/undelete_comment?id={commentId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#history-undelete-comment">Undelete user story comment</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/issue/&lt;issueId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/issue/{issueId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#history-get">Get issue history</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/issue/&lt;usId&gt;/delete_comment?id=&lt;commentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/issue/{usId}/delete_comment?id={commentId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#history-delete-comment">Delete issue comment</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/issue/&lt;usId&gt;/undelete_comment?id=&lt;commentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/issue/{usId}/undelete_comment?id={commentId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#history-undelete-comment">Undelete issue comment</a></p></td>
 </tr>
@@ -2267,27 +2268,27 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#history-get">Get task history</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/task/&lt;usId&gt;/delete_comment?id=&lt;commentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/task/{usId}/delete_comment?id={commentId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#history-delete-comment">Delete task comment</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/task/&lt;usId&gt;/undelete_comment?id=&lt;commentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/task/{usId}/undelete_comment?id={commentId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#history-undelete-comment">Undelete task comment</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/wiki/&lt;wikiId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/wiki/{wikiId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#history-get">Get wiki history</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/wiki/&lt;usId&gt;/delete_comment?id=&lt;commentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/wiki/{usId}/delete_comment?id={commentId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#history-delete-comment">Delete wiki comment</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/wiki/&lt;usId&gt;/undelete_comment?id=&lt;commentId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/history/wiki/{usId}/undelete_comment?id={commentId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#history-undelete-comment">Undelete wiki comment</a></p></td>
 </tr>
@@ -2316,27 +2317,32 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#users-list">List users</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/users/&lt;userId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/users/{userId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#users-get">Get user</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/users/&lt;userId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/users/me</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#users-me">Get myself</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/users/{userId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#users-edit">Modify user</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/users/&lt;userId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/users/{userId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#users-edit">Modify partially a user</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/users/&lt;userId&gt;/starred</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/users/{userId}/starred</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#users-starred">Get user starred projects</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/users/&lt;userId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/users/{userId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#users-delete">Delete a user</a></p></td>
 </tr>
@@ -2400,17 +2406,17 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#notify-policies-list">List notify policies</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/notify-policies/&lt;policyId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/notify-policies/{policyId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#notify-policies-get">Get notify policy</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/notify-policies/&lt;policyId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/notify-policies/{policyId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#notify-policies-edit">Modify notify policy</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/notify-policies/&lt;policyId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/notify-policies/{policyId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#notify-policies-edit">Modify partially a notify policy</a></p></td>
 </tr>
@@ -2458,7 +2464,7 @@ limit.</p>
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/exporter/&lt;projectId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/exporter/{projectId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#export-import-export-dump">Export a project dump</a></p></td>
 </tr>
@@ -2497,27 +2503,27 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#webhooks-create">Create webhook</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/webhooks/&lt;webhookId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/webhooks/{webhookId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#webhooks-get">Get webhook</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/webhooks/&lt;webhookId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/webhooks/{webhookId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#webhooks-edit">Modify webhook</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/webhooks/&lt;webhookId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/webhooks/{webhookId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#webhooks-edit">Modify partially an webhook</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/webhooks/&lt;webhookId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/webhooks/{webhookId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#webhooks-delete">Delete an webhook</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/webhooks/&lt;webhookId&gt;/test</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/webhooks/{webhookId}/test</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#webhooks-test">Test webhook</a></p></td>
 </tr>
@@ -2527,12 +2533,12 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#webhooks-list">List webhooks logs</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/webhooklogs/&lt;webhookLogId&gt;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/webhooklogs/{webhookLogId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#webhooks-get">Get webhook log</a></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/webhooklogs/&lt;webhookLogId&gt;/resend</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/webhooklogs/{webhookLogId}/resend</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#webhooklogs-resend">Resend webhook log request</a></p></td>
 </tr>
@@ -7659,7 +7665,24 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-starred">24.3. Get starred projects</h3>
+<h3 id="users-me">24.3. Me</h3>
+<div class="paragraph">
+<p>To get your own user send a GET request to the url</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/users/me</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The HTTP response is a 200 OK and the response body is a JSON <a href="#object-user-detail">user detail object</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="users-starred">24.4. Get starred projects</h3>
 <div class="paragraph">
 <p>To get the starred projects from a user send a GET request specifying the user id in the url</p>
 </div>
@@ -7676,7 +7699,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-edit">24.4. Edit</h3>
+<h3 id="users-edit">24.5. Edit</h3>
 <div class="paragraph">
 <p>To edit users send a PUT or a PATCH specifying the user id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -7697,7 +7720,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-delete">24.5. Delete</h3>
+<h3 id="users-delete">24.6. Delete</h3>
 <div class="paragraph">
 <p>To delete users send a DELETE specifying the user id in the url</p>
 </div>
@@ -7713,7 +7736,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-cancel">24.6. Cancel</h3>
+<h3 id="users-cancel">24.7. Cancel</h3>
 <div class="paragraph">
 <p>To cancel a user account send a POST with the following data</p>
 </div>
@@ -7732,7 +7755,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-change-avatar">24.7. Change avatar</h3>
+<h3 id="users-change-avatar">24.8. Change avatar</h3>
 <div class="paragraph">
 <p>To change your user avatar send a POST with the following data</p>
 </div>
@@ -7749,7 +7772,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-remove-avatar">24.8. Remove avatar</h3>
+<h3 id="users-remove-avatar">24.9. Remove avatar</h3>
 <div class="paragraph">
 <p>To remove your user avatar send a POST with the following data</p>
 </div>
@@ -7765,7 +7788,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-change-email">24.9. Change email</h3>
+<h3 id="users-change-email">24.10. Change email</h3>
 <div class="paragraph">
 <p>To change your user email send a POST with the following data</p>
 </div>
@@ -7785,7 +7808,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-change-password">24.10. Change password</h3>
+<h3 id="users-change-password">24.11. Change password</h3>
 <div class="paragraph">
 <p>To change your user password send a POST with the following data</p>
 </div>
@@ -7805,7 +7828,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-password-recovery">24.11. Password recovery</h3>
+<h3 id="users-password-recovery">24.12. Password recovery</h3>
 <div class="paragraph">
 <p>To request a user password recovery send a POST with the following data</p>
 </div>
@@ -7831,7 +7854,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-change-password-from-recovery">24.12. Change password from recovery</h3>
+<h3 id="users-change-password-from-recovery">24.13. Change password from recovery</h3>
 <div class="paragraph">
 <p>To change a user password from a request recovery send a POST with the following data</p>
 </div>
@@ -11647,8 +11670,8 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
         <span class="tok-s2">&quot;customer&quot;</span>
     <span class="tok-p">],</span>
     <span class="tok-nt">&quot;version&quot;</span><span class="tok-p">:</span> <span class="tok-mi">8</span><span class="tok-p">,</span>
-    <span class="tok-nt">&quot;watchers&quot;</span><span class="tok-p">:</span> <span class="tok-p">[]</span>
-    <span class="tok-s2">&quot;generated_user_stories&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+    <span class="tok-nt">&quot;watchers&quot;</span><span class="tok-p">:</span> <span class="tok-p">[],</span>
+    <span class="tok-nt">&quot;generated_user_stories&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
     <span class="tok-p">],</span>
     <span class="tok-nt">&quot;votes&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;neighbors&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
@@ -11955,7 +11978,7 @@ API endpoints, and has its own documentation.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-02-02 07:19:00 CET
+Last updated 2015-02-10 07:27:23 CET
 </div>
 </div>
 </body>
