@@ -500,21 +500,27 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_user_stories">2.9. User stories</a></li>
 <li><a href="#_user_story_status">2.10. User story status</a></li>
 <li><a href="#_points">2.11. Points</a></li>
-<li><a href="#_tasks">2.12. Tasks</a></li>
-<li><a href="#_task_status">2.13. Task status</a></li>
-<li><a href="#_issues">2.14. Issues</a></li>
-<li><a href="#_issue_status">2.15. Issue status</a></li>
-<li><a href="#_issue_types">2.16. Issue types</a></li>
-<li><a href="#_priorities">2.17. Priorities</a></li>
-<li><a href="#_severities">2.18. Severities</a></li>
-<li><a href="#_wiki_pages">2.19. Wiki pages</a></li>
-<li><a href="#_wiki_links">2.20. Wiki links</a></li>
-<li><a href="#_history">2.21. History</a></li>
-<li><a href="#_users">2.22. Users</a></li>
-<li><a href="#_notify_policies">2.23. Notify policies</a></li>
-<li><a href="#_feedback">2.24. Feedback</a></li>
-<li><a href="#_export_import">2.25. Export/Import</a></li>
-<li><a href="#_webhooks">2.26. Webhooks</a></li>
+<li><a href="#_user_story_custom_attribute">2.12. User story custom attribute</a></li>
+<li><a href="#_user_story_custom_attributes_values">2.13. User story custom attributes values</a></li>
+<li><a href="#_tasks">2.14. Tasks</a></li>
+<li><a href="#_task_status">2.15. Task status</a></li>
+<li><a href="#_task_custom_attribute">2.16. Task custom attribute</a></li>
+<li><a href="#_task_custom_attributes_values">2.17. Task custom attributes values</a></li>
+<li><a href="#_issues">2.18. Issues</a></li>
+<li><a href="#_issue_status">2.19. Issue status</a></li>
+<li><a href="#_issue_types">2.20. Issue types</a></li>
+<li><a href="#_priorities">2.21. Priorities</a></li>
+<li><a href="#_severities">2.22. Severities</a></li>
+<li><a href="#_issue_custom_attribute">2.23. Issue custom attribute</a></li>
+<li><a href="#_issue_custom_attributes_values">2.24. Issue custom attributes values</a></li>
+<li><a href="#_wiki_pages">2.25. Wiki pages</a></li>
+<li><a href="#_wiki_links">2.26. Wiki links</a></li>
+<li><a href="#_history">2.27. History</a></li>
+<li><a href="#_users">2.28. Users</a></li>
+<li><a href="#_notify_policies">2.29. Notify policies</a></li>
+<li><a href="#_feedback">2.30. Feedback</a></li>
+<li><a href="#_export_import">2.31. Export/Import</a></li>
+<li><a href="#_webhooks">2.32. Webhooks</a></li>
 </ul>
 </li>
 <li><a href="#auth">3. Auth</a>
@@ -641,216 +647,270 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#points-bulk-update-order">13.6. Bulk update order</a></li>
 </ul>
 </li>
-<li><a href="#tasks">14. Tasks</a>
+<li><a href="#user-story-custom-attributes">14. User story custom attribute</a>
 <ul class="sectlevel2">
-<li><a href="#tasks-list">14.1. List</a></li>
-<li><a href="#tasks-create">14.2. Create</a></li>
-<li><a href="#tasks-get">14.3. Get</a></li>
-<li><a href="#tasks-get-by-ref">14.4. Get by ref</a></li>
-<li><a href="#tasks-edit">14.5. Edit</a></li>
-<li><a href="#tasks-delete">14.6. Delete</a></li>
-<li><a href="#tasks-bulk-create">14.7. Bulk creation</a></li>
-<li><a href="#tasks-list-attachments">14.8. List attachments</a></li>
-<li><a href="#tasks-create-attachment">14.9. Create attachment</a></li>
-<li><a href="#tasks-get-attachment">14.10. Get attachment</a></li>
-<li><a href="#tasks-edit-attachment">14.11. Edit attachment</a></li>
-<li><a href="#tasks-delete-attachment">14.12. Delete attachment</a></li>
+<li><a href="#user-story-custom-attributes-list">14.1. List</a></li>
+<li><a href="#user-story-custom-attributes-create">14.2. Create</a></li>
+<li><a href="#user-story-custom-attributes-get">14.3. Get</a></li>
+<li><a href="#user-story-custom-attributes-edit">14.4. Edit</a></li>
+<li><a href="#user-story-custom-attributes-delete">14.5. Delete</a></li>
+<li><a href="#user-story-custom-attributes-bulk-update-order">14.6. Bulk update order</a></li>
 </ul>
 </li>
-<li><a href="#task-statuses">15. Task status</a>
+<li><a href="#user-story-custom-attributes-values">15. User story custom attributes values</a>
 <ul class="sectlevel2">
-<li><a href="#task-statuses-list">15.1. List</a></li>
-<li><a href="#task-statuses-create">15.2. Create</a></li>
-<li><a href="#task-statuses-get">15.3. Get</a></li>
-<li><a href="#task-statuses-edit">15.4. Edit</a></li>
-<li><a href="#task-statuses-delete">15.5. Delete</a></li>
-<li><a href="#task-statuses-bulk-update-order">15.6. Bulk update order</a></li>
+<li><a href="#user-story-custom-attributes-values-get">15.1. Get</a></li>
+<li><a href="#user-story-custom-attributes-values-edit">15.2. Edit</a></li>
 </ul>
 </li>
-<li><a href="#issues">16. Issues</a>
+<li><a href="#tasks">16. Tasks</a>
 <ul class="sectlevel2">
-<li><a href="#issues-list">16.1. List</a></li>
-<li><a href="#issues-create">16.2. Create</a></li>
-<li><a href="#issues-get">16.3. Get</a></li>
-<li><a href="#issues-get-by-ref">16.4. Get by ref</a></li>
-<li><a href="#issues-edit">16.5. Edit</a></li>
-<li><a href="#issues-delete">16.6. Delete</a></li>
-<li><a href="#issues-upvote">16.7. Vote to an issue</a></li>
-<li><a href="#issues-downvote">16.8. Remove vote to an issue</a></li>
-<li><a href="#issues-voters">16.9. Get issue voters list</a></li>
-<li><a href="#issues-list-attachments">16.10. List attachments</a></li>
-<li><a href="#issues-create-attachment">16.11. Create attachment</a></li>
-<li><a href="#issues-get-attachment">16.12. Get attachment</a></li>
-<li><a href="#issues-edit-attachment">16.13. Edit attachment</a></li>
-<li><a href="#issues-delete-attachment">16.14. Delete attachment</a></li>
+<li><a href="#tasks-list">16.1. List</a></li>
+<li><a href="#tasks-create">16.2. Create</a></li>
+<li><a href="#tasks-get">16.3. Get</a></li>
+<li><a href="#tasks-get-by-ref">16.4. Get by ref</a></li>
+<li><a href="#tasks-edit">16.5. Edit</a></li>
+<li><a href="#tasks-delete">16.6. Delete</a></li>
+<li><a href="#tasks-bulk-create">16.7. Bulk creation</a></li>
+<li><a href="#tasks-list-attachments">16.8. List attachments</a></li>
+<li><a href="#tasks-create-attachment">16.9. Create attachment</a></li>
+<li><a href="#tasks-get-attachment">16.10. Get attachment</a></li>
+<li><a href="#tasks-edit-attachment">16.11. Edit attachment</a></li>
+<li><a href="#tasks-delete-attachment">16.12. Delete attachment</a></li>
 </ul>
 </li>
-<li><a href="#issue-statuses">17. Issue status</a>
+<li><a href="#task-statuses">17. Task status</a>
 <ul class="sectlevel2">
-<li><a href="#issue-statuses-list">17.1. List</a></li>
-<li><a href="#issue-statuses-create">17.2. Create</a></li>
-<li><a href="#issue-statuses-get">17.3. Get</a></li>
-<li><a href="#issue-statuses-edit">17.4. Edit</a></li>
-<li><a href="#issue-statuses-delete">17.5. Delete</a></li>
-<li><a href="#issue-statuses-bulk-update-order">17.6. Bulk update order</a></li>
+<li><a href="#task-statuses-list">17.1. List</a></li>
+<li><a href="#task-statuses-create">17.2. Create</a></li>
+<li><a href="#task-statuses-get">17.3. Get</a></li>
+<li><a href="#task-statuses-edit">17.4. Edit</a></li>
+<li><a href="#task-statuses-delete">17.5. Delete</a></li>
+<li><a href="#task-statuses-bulk-update-order">17.6. Bulk update order</a></li>
 </ul>
 </li>
-<li><a href="#issue-types">18. Issue types</a>
+<li><a href="#task-custom-attributes">18. Task custom attribute</a>
 <ul class="sectlevel2">
-<li><a href="#issue-types-list">18.1. List</a></li>
-<li><a href="#issue-types-create">18.2. Create</a></li>
-<li><a href="#issue-types-get">18.3. Get</a></li>
-<li><a href="#issue-types-edit">18.4. Edit</a></li>
-<li><a href="#issue-types-delete">18.5. Delete</a></li>
-<li><a href="#issue-types-bulk-update-order">18.6. Bulk update order</a></li>
+<li><a href="#task-custom-attributes-list">18.1. List</a></li>
+<li><a href="#task-custom-attributes-create">18.2. Create</a></li>
+<li><a href="#task-custom-attributes-get">18.3. Get</a></li>
+<li><a href="#task-custom-attributes-edit">18.4. Edit</a></li>
+<li><a href="#task-custom-attributes-delete">18.5. Delete</a></li>
+<li><a href="#task-custom-attributes-bulk-update-order">18.6. Bulk update order</a></li>
 </ul>
 </li>
-<li><a href="#priorities">19. Priorities</a>
+<li><a href="#task-custom-attributes-values">19. Task custom attributes values</a>
 <ul class="sectlevel2">
-<li><a href="#priorities-list">19.1. List</a></li>
-<li><a href="#priorities-create">19.2. Create</a></li>
-<li><a href="#priorities-get">19.3. Get</a></li>
-<li><a href="#priorities-edit">19.4. Edit</a></li>
-<li><a href="#priorities-delete">19.5. Delete</a></li>
-<li><a href="#priorities-bulk-update-order">19.6. Bulk update order</a></li>
+<li><a href="#task-custom-attributes-values-get">19.1. Get</a></li>
+<li><a href="#task-custom-attributes-values-edit">19.2. Edit</a></li>
 </ul>
 </li>
-<li><a href="#severities">20. Severities</a>
+<li><a href="#issues">20. Issues</a>
 <ul class="sectlevel2">
-<li><a href="#severities-list">20.1. List</a></li>
-<li><a href="#severities-create">20.2. Create</a></li>
-<li><a href="#severities-get">20.3. Get</a></li>
-<li><a href="#severities-edit">20.4. Edit</a></li>
-<li><a href="#severities-delete">20.5. Delete</a></li>
-<li><a href="#severities-bulk-update-order">20.6. Bulk update order</a></li>
+<li><a href="#issues-list">20.1. List</a></li>
+<li><a href="#issues-create">20.2. Create</a></li>
+<li><a href="#issues-get">20.3. Get</a></li>
+<li><a href="#issues-get-by-ref">20.4. Get by ref</a></li>
+<li><a href="#issues-edit">20.5. Edit</a></li>
+<li><a href="#issues-delete">20.6. Delete</a></li>
+<li><a href="#issues-upvote">20.7. Vote to an issue</a></li>
+<li><a href="#issues-downvote">20.8. Remove vote to an issue</a></li>
+<li><a href="#issues-voters">20.9. Get issue voters list</a></li>
+<li><a href="#issues-list-attachments">20.10. List attachments</a></li>
+<li><a href="#issues-create-attachment">20.11. Create attachment</a></li>
+<li><a href="#issues-get-attachment">20.12. Get attachment</a></li>
+<li><a href="#issues-edit-attachment">20.13. Edit attachment</a></li>
+<li><a href="#issues-delete-attachment">20.14. Delete attachment</a></li>
 </ul>
 </li>
-<li><a href="#wiki">21. Wiki pages</a>
+<li><a href="#issue-statuses">21. Issue status</a>
 <ul class="sectlevel2">
-<li><a href="#wiki-list">21.1. List</a></li>
-<li><a href="#wiki-create">21.2. Create</a></li>
-<li><a href="#wiki-get">21.3. Get</a></li>
-<li><a href="#wiki-get-by-slug">21.4. Get by slug</a></li>
-<li><a href="#wiki-edit">21.5. Edit</a></li>
-<li><a href="#wiki-delete">21.6. Delete</a></li>
-<li><a href="#wiki-list-attachments">21.7. List attachments</a></li>
-<li><a href="#wiki-create-attachment">21.8. Create attachment</a></li>
-<li><a href="#wiki-get-attachment">21.9. Get attachment</a></li>
-<li><a href="#wiki-edit-attachment">21.10. Edit attachment</a></li>
-<li><a href="#wiki-delete-attachment">21.11. Delete attachment</a></li>
+<li><a href="#issue-statuses-list">21.1. List</a></li>
+<li><a href="#issue-statuses-create">21.2. Create</a></li>
+<li><a href="#issue-statuses-get">21.3. Get</a></li>
+<li><a href="#issue-statuses-edit">21.4. Edit</a></li>
+<li><a href="#issue-statuses-delete">21.5. Delete</a></li>
+<li><a href="#issue-statuses-bulk-update-order">21.6. Bulk update order</a></li>
 </ul>
 </li>
-<li><a href="#wikilinks">22. Wiki links</a>
+<li><a href="#issue-types">22. Issue types</a>
 <ul class="sectlevel2">
-<li><a href="#wikilinks-list">22.1. List</a></li>
-<li><a href="#wikilinks-create">22.2. Create</a></li>
-<li><a href="#wikilinks-get">22.3. Get</a></li>
-<li><a href="#wikilinks-edit">22.4. Edit</a></li>
-<li><a href="#wikilinks-delete">22.5. Delete</a></li>
+<li><a href="#issue-types-list">22.1. List</a></li>
+<li><a href="#issue-types-create">22.2. Create</a></li>
+<li><a href="#issue-types-get">22.3. Get</a></li>
+<li><a href="#issue-types-edit">22.4. Edit</a></li>
+<li><a href="#issue-types-delete">22.5. Delete</a></li>
+<li><a href="#issue-types-bulk-update-order">22.6. Bulk update order</a></li>
 </ul>
 </li>
-<li><a href="#history">23. History</a>
+<li><a href="#priorities">23. Priorities</a>
 <ul class="sectlevel2">
-<li><a href="#history-get">23.1. Get user story, task, issue or wiki page history</a></li>
-<li><a href="#history-delete-comment">23.2. Delete comment</a></li>
-<li><a href="#history-undelete-comment">23.3. Undelete comment</a></li>
+<li><a href="#priorities-list">23.1. List</a></li>
+<li><a href="#priorities-create">23.2. Create</a></li>
+<li><a href="#priorities-get">23.3. Get</a></li>
+<li><a href="#priorities-edit">23.4. Edit</a></li>
+<li><a href="#priorities-delete">23.5. Delete</a></li>
+<li><a href="#priorities-bulk-update-order">23.6. Bulk update order</a></li>
 </ul>
 </li>
-<li><a href="#users">24. Users</a>
+<li><a href="#severities">24. Severities</a>
 <ul class="sectlevel2">
-<li><a href="#users-list">24.1. List</a></li>
-<li><a href="#users-get">24.2. Get</a></li>
-<li><a href="#users-me">24.3. Me</a></li>
-<li><a href="#users-starred">24.4. Get starred projects</a></li>
-<li><a href="#users-edit">24.5. Edit</a></li>
-<li><a href="#users-delete">24.6. Delete</a></li>
-<li><a href="#users-cancel">24.7. Cancel</a></li>
-<li><a href="#users-change-avatar">24.8. Change avatar</a></li>
-<li><a href="#users-remove-avatar">24.9. Remove avatar</a></li>
-<li><a href="#users-change-email">24.10. Change email</a></li>
-<li><a href="#users-change-password">24.11. Change password</a></li>
-<li><a href="#users-password-recovery">24.12. Password recovery</a></li>
-<li><a href="#users-change-password-from-recovery">24.13. Change password from recovery</a></li>
+<li><a href="#severities-list">24.1. List</a></li>
+<li><a href="#severities-create">24.2. Create</a></li>
+<li><a href="#severities-get">24.3. Get</a></li>
+<li><a href="#severities-edit">24.4. Edit</a></li>
+<li><a href="#severities-delete">24.5. Delete</a></li>
+<li><a href="#severities-bulk-update-order">24.6. Bulk update order</a></li>
 </ul>
 </li>
-<li><a href="#notify-policies">25. Notify policies</a>
+<li><a href="#issue-custom-attributes">25. Issue custom attribute</a>
 <ul class="sectlevel2">
-<li><a href="#notify-policies-list">25.1. List</a></li>
-<li><a href="#notify-policies-get">25.2. Get</a></li>
-<li><a href="#notify-policies-edit">25.3. Edit</a></li>
+<li><a href="#issue-custom-attributes-list">25.1. List</a></li>
+<li><a href="#issue-custom-attributes-create">25.2. Create</a></li>
+<li><a href="#issue-custom-attributes-get">25.3. Get</a></li>
+<li><a href="#issue-custom-attributes-edit">25.4. Edit</a></li>
+<li><a href="#issue-custom-attributes-delete">25.5. Delete</a></li>
+<li><a href="#issue-custom-attributes-bulk-update-order">25.6. Bulk update order</a></li>
 </ul>
 </li>
-<li><a href="#feedback">26. Feedback</a>
+<li><a href="#issue-custom-attributes-values">26. Issue custom attributes values</a>
 <ul class="sectlevel2">
-<li><a href="#feedback-create">26.1. Create</a></li>
+<li><a href="#issue-custom-attributes-values-get">26.1. Get</a></li>
+<li><a href="#issue-custom-attributes-values-edit">26.2. Edit</a></li>
 </ul>
 </li>
-<li><a href="#export-import">27. Export/Import</a>
+<li><a href="#wiki">27. Wiki pages</a>
 <ul class="sectlevel2">
-<li><a href="#export-import-export-dump">27.1. Export</a></li>
-<li><a href="#export-import-import-dump">27.2. Import</a></li>
+<li><a href="#wiki-list">27.1. List</a></li>
+<li><a href="#wiki-create">27.2. Create</a></li>
+<li><a href="#wiki-get">27.3. Get</a></li>
+<li><a href="#wiki-get-by-slug">27.4. Get by slug</a></li>
+<li><a href="#wiki-edit">27.5. Edit</a></li>
+<li><a href="#wiki-delete">27.6. Delete</a></li>
+<li><a href="#wiki-list-attachments">27.7. List attachments</a></li>
+<li><a href="#wiki-create-attachment">27.8. Create attachment</a></li>
+<li><a href="#wiki-get-attachment">27.9. Get attachment</a></li>
+<li><a href="#wiki-edit-attachment">27.10. Edit attachment</a></li>
+<li><a href="#wiki-delete-attachment">27.11. Delete attachment</a></li>
 </ul>
 </li>
-<li><a href="#webhooks">28. Webhooks</a>
+<li><a href="#wikilinks">28. Wiki links</a>
 <ul class="sectlevel2">
-<li><a href="#webhooks-list">28.1. List</a></li>
-<li><a href="#webhooks-create">28.2. Create</a></li>
-<li><a href="#webhooks-get">28.3. Get</a></li>
-<li><a href="#webhooks-edit">28.4. Edit</a></li>
-<li><a href="#webhooks-delete">28.5. Delete</a></li>
-<li><a href="#webhooks-test">28.6. Test</a></li>
-<li><a href="#webhooklogs-list">28.7. Logs list</a></li>
-<li><a href="#webhooklogs-get">28.8. Log get</a></li>
-<li><a href="#webhooklogs-resend">28.9. Resend request</a></li>
+<li><a href="#wikilinks-list">28.1. List</a></li>
+<li><a href="#wikilinks-create">28.2. Create</a></li>
+<li><a href="#wikilinks-get">28.3. Get</a></li>
+<li><a href="#wikilinks-edit">28.4. Edit</a></li>
+<li><a href="#wikilinks-delete">28.5. Delete</a></li>
 </ul>
 </li>
-<li><a href="#_objects_summary">29. Objects Summary</a>
+<li><a href="#history">29. History</a>
 <ul class="sectlevel2">
-<li><a href="#object-attachment-detail">29.1. Attachment</a></li>
-<li><a href="#object-user-detail">29.2. User detail</a></li>
-<li><a href="#object-auth-user-detail">29.3. User authentication-detail</a></li>
-<li><a href="#object-search-results-detail">29.4. Search results detail</a></li>
-<li><a href="#object-user-storage-detail">29.5. User storage data</a></li>
+<li><a href="#history-get">29.1. Get user story, task, issue or wiki page history</a></li>
+<li><a href="#history-delete-comment">29.2. Delete comment</a></li>
+<li><a href="#history-undelete-comment">29.3. Undelete comment</a></li>
 </ul>
 </li>
-<li><a href="#object-project-template-detail">30. Project templates detail</a>
+<li><a href="#users">30. Users</a>
 <ul class="sectlevel2">
-<li><a href="#object-project-list-entry">30.1. Project list entry</a></li>
-<li><a href="#object-project-detail">30.2. Project detail</a></li>
-<li><a href="#object-project-modules-detail">30.3. Project modules detail</a></li>
-<li><a href="#object-project-stats-detail">30.4. Project stats detail</a></li>
-<li><a href="#object-project-issue-stats-detail">30.5. Project issue stats detail</a></li>
-<li><a href="#object-project-issue-filters-data-detail">30.6. Project issue filters data detail</a></li>
-<li><a href="#object-project-tags-colors-detail">30.7. Project tag colors data detail</a></li>
-<li><a href="#object-project-voter-detail">30.8. Project voter detail</a></li>
-<li><a href="#object-project-template-detail">30.9. Project template detail</a></li>
-<li><a href="#object-membership-detail">30.10. Membership detail</a></li>
-<li><a href="#object-milestone-detail">30.11. Milestone detail</a></li>
-<li><a href="#object-milestone-stats-detail">30.12. Milestone stats detail</a></li>
-<li><a href="#object-userstory-detail">30.13. User story detail</a></li>
-<li><a href="#object-userstory-status-detail">30.14. User story status detail</a></li>
-<li><a href="#object-point-detail">30.15. Point detail</a></li>
-<li><a href="#object-task-detail">30.16. Task detail</a></li>
-<li><a href="#object-task-status-detail">30.17. Task status detail</a></li>
-<li><a href="#object-issue-detail">30.18. Issue detail</a></li>
-<li><a href="#object-issue-voters-detail">30.19. Issue voters detail</a></li>
-<li><a href="#object-issue-status-detail">30.20. Issue status detail</a></li>
-<li><a href="#object-issue-type-detail">30.21. Issue type detail</a></li>
-<li><a href="#object-priority-detail">30.22. Priority detail</a></li>
-<li><a href="#object-severity-detail">30.23. Severity detail</a></li>
-<li><a href="#object-wiki-detail">30.24. Wiki page</a></li>
-<li><a href="#object-wiki-link-detail">30.25. Wiki link</a></li>
-<li><a href="#object-history-entry-detail">30.26. History entry</a></li>
-<li><a href="#object-notify-policy-detail">30.27. Notify policy</a></li>
-<li><a href="#object-feedback-detail">30.28. Feedback</a></li>
-<li><a href="#object-export-synch">30.29. Export detail for synch mode</a></li>
-<li><a href="#object-export-accepted">30.30. Export accepted response</a></li>
-<li><a href="#object-import-accepted">30.31. Import accepted response</a></li>
-<li><a href="#object-webhook-detail">30.32. Webhook</a></li>
-<li><a href="#object-webhook-log-detail">30.33. Webhook log</a></li>
+<li><a href="#users-list">30.1. List</a></li>
+<li><a href="#users-get">30.2. Get</a></li>
+<li><a href="#users-me">30.3. Me</a></li>
+<li><a href="#users-starred">30.4. Get starred projects</a></li>
+<li><a href="#users-edit">30.5. Edit</a></li>
+<li><a href="#users-delete">30.6. Delete</a></li>
+<li><a href="#users-cancel">30.7. Cancel</a></li>
+<li><a href="#users-change-avatar">30.8. Change avatar</a></li>
+<li><a href="#users-remove-avatar">30.9. Remove avatar</a></li>
+<li><a href="#users-change-email">30.10. Change email</a></li>
+<li><a href="#users-change-password">30.11. Change password</a></li>
+<li><a href="#users-password-recovery">30.12. Password recovery</a></li>
+<li><a href="#users-change-password-from-recovery">30.13. Change password from recovery</a></li>
 </ul>
 </li>
-<li><a href="#_contrib_plugins">31. Contrib plugins</a></li>
+<li><a href="#notify-policies">31. Notify policies</a>
+<ul class="sectlevel2">
+<li><a href="#notify-policies-list">31.1. List</a></li>
+<li><a href="#notify-policies-get">31.2. Get</a></li>
+<li><a href="#notify-policies-edit">31.3. Edit</a></li>
+</ul>
+</li>
+<li><a href="#feedback">32. Feedback</a>
+<ul class="sectlevel2">
+<li><a href="#feedback-create">32.1. Create</a></li>
+</ul>
+</li>
+<li><a href="#export-import">33. Export/Import</a>
+<ul class="sectlevel2">
+<li><a href="#export-import-export-dump">33.1. Export</a></li>
+<li><a href="#export-import-import-dump">33.2. Import</a></li>
+</ul>
+</li>
+<li><a href="#webhooks">34. Webhooks</a>
+<ul class="sectlevel2">
+<li><a href="#webhooks-list">34.1. List</a></li>
+<li><a href="#webhooks-create">34.2. Create</a></li>
+<li><a href="#webhooks-get">34.3. Get</a></li>
+<li><a href="#webhooks-edit">34.4. Edit</a></li>
+<li><a href="#webhooks-delete">34.5. Delete</a></li>
+<li><a href="#webhooks-test">34.6. Test</a></li>
+<li><a href="#webhooklogs-list">34.7. Logs list</a></li>
+<li><a href="#webhooklogs-get">34.8. Log get</a></li>
+<li><a href="#webhooklogs-resend">34.9. Resend request</a></li>
+</ul>
+</li>
+<li><a href="#_objects_summary">35. Objects Summary</a>
+<ul class="sectlevel2">
+<li><a href="#object-attachment-detail">35.1. Attachment</a></li>
+<li><a href="#object-user-detail">35.2. User detail</a></li>
+<li><a href="#object-auth-user-detail">35.3. User authentication-detail</a></li>
+<li><a href="#object-search-results-detail">35.4. Search results detail</a></li>
+<li><a href="#object-user-storage-detail">35.5. User storage data</a></li>
+</ul>
+</li>
+<li><a href="#object-project-template-detail">36. Project templates detail</a>
+<ul class="sectlevel2">
+<li><a href="#object-project-list-entry">36.1. Project list entry</a></li>
+<li><a href="#object-project-detail">36.2. Project detail</a></li>
+<li><a href="#object-project-modules-detail">36.3. Project modules detail</a></li>
+<li><a href="#object-project-stats-detail">36.4. Project stats detail</a></li>
+<li><a href="#object-project-issue-stats-detail">36.5. Project issue stats detail</a></li>
+<li><a href="#object-project-issue-filters-data-detail">36.6. Project issue filters data detail</a></li>
+<li><a href="#object-project-tags-colors-detail">36.7. Project tag colors data detail</a></li>
+<li><a href="#object-project-voter-detail">36.8. Project voter detail</a></li>
+<li><a href="#object-project-template-detail">36.9. Project template detail</a></li>
+<li><a href="#object-membership-detail">36.10. Membership detail</a></li>
+<li><a href="#object-milestone-detail">36.11. Milestone detail</a></li>
+<li><a href="#object-milestone-stats-detail">36.12. Milestone stats detail</a></li>
+<li><a href="#object-userstory-detail">36.13. User story detail</a></li>
+<li><a href="#object-userstory-status-detail">36.14. User story status detail</a></li>
+<li><a href="#object-point-detail">36.15. Point detail</a></li>
+<li><a href="#object-userstory-custom-attribute-detail">36.16. User story custom attribute detail</a></li>
+<li><a href="#object-userstory-custom-attributes-values-detail">36.17. User story custom attributes values detail</a></li>
+<li><a href="#object-task-detail">36.18. Task detail</a></li>
+<li><a href="#object-task-status-detail">36.19. Task status detail</a></li>
+<li><a href="#object-task-custom-attribute-detail">36.20. Task custom attribute detail</a></li>
+<li><a href="#object-task-custom-attributes-values-detail">36.21. Task custom attributes values detail</a></li>
+<li><a href="#object-issue-detail">36.22. Issue detail</a></li>
+<li><a href="#object-issue-voters-detail">36.23. Issue voters detail</a></li>
+<li><a href="#object-issue-status-detail">36.24. Issue status detail</a></li>
+<li><a href="#object-issue-type-detail">36.25. Issue type detail</a></li>
+<li><a href="#object-priority-detail">36.26. Priority detail</a></li>
+<li><a href="#object-severity-detail">36.27. Severity detail</a></li>
+<li><a href="#object-issue-custom-attribute-detail">36.28. Issue custom attribute detail</a></li>
+<li><a href="#object-issue-custom-attributes-values-detail">36.29. Issue custom attributes values detail</a></li>
+<li><a href="#object-wiki-detail">36.30. Wiki page</a></li>
+<li><a href="#object-wiki-link-detail">36.31. Wiki link</a></li>
+<li><a href="#object-history-entry-detail">36.32. History entry</a></li>
+<li><a href="#object-notify-policy-detail">36.33. Notify policy</a></li>
+<li><a href="#object-feedback-detail">36.34. Feedback</a></li>
+<li><a href="#object-export-synch">36.35. Export detail for synch mode</a></li>
+<li><a href="#object-export-accepted">36.36. Export accepted response</a></li>
+<li><a href="#object-import-accepted">36.37. Import accepted response</a></li>
+<li><a href="#object-webhook-detail">36.38. Webhook</a></li>
+<li><a href="#object-webhook-log-detail">36.39. Webhook log</a></li>
+</ul>
+</li>
+<li><a href="#_contrib_plugins">37. Contrib plugins</a></li>
 </ul>
 </div>
 </div>
@@ -1621,7 +1681,95 @@ limit.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_tasks">2.12. Tasks</h3>
+<h3 id="_user_story_custom_attribute">2.12. User story custom attribute</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">URL</th>
+<th class="tableblock halign-left valign-top">Method</th>
+<th class="tableblock halign-left valign-top">Functionality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstory-custom-attributes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-story-custom-attributes-list">List user story custom attributes</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstory-custom-attributes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-story-custom-attributes-create">Create user story custom attribute</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstory-custom-attributes/{userStoryCustomAttributeId}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-story-custom-attributes-get">Get user story custom attribute</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstory-custom-attributes/{userStoryCustomAttributeId}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-story-custom-attributes-edit">Modify user story custom attribute</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstory-custom-attributes/{userStoryCustomAttributeId}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-story-custom-attributes-edit">Modify partially a user story custom attribute</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstory-custom-attributes/{userStoryCustomAttributeId}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-story-custom-attributes-delete">Delete a user story custom attribute</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstory-custom-attributes/bulk_update_order</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-story-custom-attributes-bulk-update-order">Update user story custom attributes order in bulk mode</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_user_story_custom_attributes_values">2.13. User story custom attributes values</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">URL</th>
+<th class="tableblock halign-left valign-top">Method</th>
+<th class="tableblock halign-left valign-top">Functionality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstories/custom-attributes-values/{userStoryId}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-story-custom-attributes-values-get">Get user story custom attributes values</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstories/custom-attributes-values/{userStoryId}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-story-custom-attributes-values-edit">Modify user story custom attributes values</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/userstories/custom-attributes-values/{userStoryId}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#user-story-custom-attributes-values-edit">Modify partially a user story custom attributes values</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_tasks">2.14. Tasks</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -1710,7 +1858,7 @@ limit.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_task_status">2.13. Task status</h3>
+<h3 id="_task_status">2.15. Task status</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -1764,7 +1912,95 @@ limit.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_issues">2.14. Issues</h3>
+<h3 id="_task_custom_attribute">2.16. Task custom attribute</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">URL</th>
+<th class="tableblock halign-left valign-top">Method</th>
+<th class="tableblock halign-left valign-top">Functionality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/task-custom-attributes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#task-custom-attributes-list">List task custom attributes</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/task-custom-attributes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#task-custom-attributes-create">Create task custom attribute</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/task-custom-attributes/{taskCustomAttributeId}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#task-custom-attributes-get">Get task custom attribute</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/task-custom-attributes/{taskCustomAttributeId}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#task-custom-attributes-edit">Modify task custom attribute</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/task-custom-attributes/{taskCustomAttributeId}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#task-custom-attributes-edit">Modify partially a task custom attribute</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/task-custom-attributes/{taskCustomAttributeId}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#task-custom-attributes-delete">Delete a task custom attribute</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/task-custom-attributes/bulk_update_order</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#task-custom-attributes-bulk-update-order">Update task custom attributes order in bulk mode</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_task_custom_attributes_values">2.17. Task custom attributes values</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">URL</th>
+<th class="tableblock halign-left valign-top">Method</th>
+<th class="tableblock halign-left valign-top">Functionality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/tasks/custom-attributes-values/{taskId}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#task-custom-attributes-values-get">Get task custom attributes values</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/tasks/custom-attributes-values/{taskId}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#task-custom-attributes-values-edit">Modify task custom attributes values</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/tasks/custom-attributes-values/{taskId}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#task-custom-attributes-values-edit">Modify partially a task custom attributes values</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_issues">2.18. Issues</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -1868,7 +2104,7 @@ limit.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_issue_status">2.15. Issue status</h3>
+<h3 id="_issue_status">2.19. Issue status</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -1922,7 +2158,7 @@ limit.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_issue_types">2.16. Issue types</h3>
+<h3 id="_issue_types">2.20. Issue types</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -1976,7 +2212,7 @@ limit.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_priorities">2.17. Priorities</h3>
+<h3 id="_priorities">2.21. Priorities</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -2030,7 +2266,7 @@ limit.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_severities">2.18. Severities</h3>
+<h3 id="_severities">2.22. Severities</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -2084,7 +2320,95 @@ limit.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_wiki_pages">2.19. Wiki pages</h3>
+<h3 id="_issue_custom_attribute">2.23. Issue custom attribute</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">URL</th>
+<th class="tableblock halign-left valign-top">Method</th>
+<th class="tableblock halign-left valign-top">Functionality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issue-custom-attributes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issue-custom-attributes-list">List issue custom attributes</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issue-custom-attributes</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issue-custom-attributes-create">Create issue custom attribute</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issue-custom-attributes/{issueCustomAttributeId}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issue-custom-attributes-get">Get issue custom attribute</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issue-custom-attributes/{issueCustomAttributeId}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issue-custom-attributes-edit">Modify issue custom attribute</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issue-custom-attributes/{issueCustomAttributeId}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issue-custom-attributes-edit">Modify partially a issue custom attribute</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issue-custom-attributes/{issueCustomAttributeId}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issue-custom-attributes-delete">Delete a issue custom attribute</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issue-custom-attributes/bulk_update_order</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issue-custom-attributes-bulk-update-order">Update issue custom attributes order in bulk mode</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_issue_custom_attributes_values">2.24. Issue custom attributes values</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">URL</th>
+<th class="tableblock halign-left valign-top">Method</th>
+<th class="tableblock halign-left valign-top">Functionality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/custom-attributes-values/{issueId}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issue-custom-attributes-values-get">Get issue custom attributes values</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/custom-attributes-values/{issueId}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PUT</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issue-custom-attributes-values-edit">Modify issue custom attributes values</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/issues/custom-attributes-values/{issueId}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">PATCH</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#issue-custom-attributes-values-edit">Modify partially a issue custom attributes values</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_wiki_pages">2.25. Wiki pages</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -2168,7 +2492,7 @@ limit.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_wiki_links">2.20. Wiki links</h3>
+<h3 id="_wiki_links">2.26. Wiki links</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -2217,7 +2541,7 @@ limit.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_history">2.21. History</h3>
+<h3 id="_history">2.27. History</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -2296,7 +2620,7 @@ limit.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_users">2.22. Users</h3>
+<h3 id="_users">2.28. Users</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -2385,7 +2709,7 @@ limit.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_notify_policies">2.23. Notify policies</h3>
+<h3 id="_notify_policies">2.29. Notify policies</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -2424,7 +2748,7 @@ limit.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_feedback">2.24. Feedback</h3>
+<h3 id="_feedback">2.30. Feedback</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -2448,7 +2772,7 @@ limit.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_export_import">2.25. Export/Import</h3>
+<h3 id="_export_import">2.31. Export/Import</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -2477,7 +2801,7 @@ limit.</p>
 </table>
 </div>
 <div class="sect2">
-<h3 id="_webhooks">2.26. Webhooks</h3>
+<h3 id="_webhooks">2.32. Webhooks</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
 <col style="width: 33%;">
@@ -5441,10 +5765,231 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="tasks">14. Tasks</h2>
+<h2 id="user-story-custom-attributes">14. User story custom attribute</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="tasks-list">14.1. List</h3>
+<h3 id="user-story-custom-attributes-list">14.1. List</h3>
+<div class="paragraph">
+<p>To list user story custom attributes send a GET request with the following parameters:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/userstory-custom-attributes</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The HTTP response is a 200 OK and the response body is a JSON list of <a href="#object-userstory-custom-attribute-detail">user story custom attribute detail objects</a></p>
+</div>
+<div class="paragraph">
+<p>The results can be filtered using the following parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>project</strong>: project id</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/userstory-custom-attributes?project<span class="tok-o">=</span>1</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="user-story-custom-attributes-create">14.2. Create</h3>
+<div class="paragraph">
+<p>To create user story custom attributes send a POST request with the following data:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>name</strong>: (required) text</p>
+</li>
+<li>
+<p><strong>description</strong>: text</p>
+</li>
+<li>
+<p><strong>order</strong>: integer</p>
+</li>
+<li>
+<p><strong>project</strong>: (required) integer, project id</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X POST <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  -d <span class="tok-s1">&#39;{</span>
+<span class="tok-s1">        &quot;name&quot;: &quot;Duration&quot;,</span>
+<span class="tok-s1">        &quot;description&quot;: &quot;Duration in minutes&quot;,</span>
+<span class="tok-s1">        &quot;order&quot;: 8,</span>
+<span class="tok-s1">        &quot;project&quot;: 3,</span>
+<span class="tok-s1">    }&#39;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/userstory-custom-attributes</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X POST <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  -d <span class="tok-s1">&#39;{</span>
+<span class="tok-s1">          &quot;name&quot;: &quot;Duration&quot;,</span>
+<span class="tok-s1">          &quot;project&quot;: 3,</span>
+<span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/userstory-custom-attributes</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the creation is successful, the HTTP response is a 201 Created and the response body is a JSON <a href="#object-userstory-custom-attribute-detail">user story custom attribute detail object</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="user-story-custom-attributes-get">14.3. Get</h3>
+<div class="paragraph">
+<p>To get a user story custom attribute send a GET request specifying the user story custom attribute id in the url</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/userstory-custom-attributes/1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The HTTP response is a 200 OK and the response body is a JSON <a href="#object-userstory-custom-attribute-detail">user story custom attribute detail object</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="user-story-custom-attributes-edit">14.4. Edit</h3>
+<div class="paragraph">
+<p>To edit user story custom attributes send a PUT or a PATCH specifying the user story custom attribute id in the url.
+In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X PATCH <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  -d <span class="tok-s1">&#39;{</span>
+<span class="tok-s1">          &quot;name&quot;: &quot;Duration&quot;</span>
+<span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/userstory-custom-attributes/1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the update is successful, the HTTP response is a 200 OK and the response body is a JSON <a href="#object-userstory-custom-attribute-detail">user story custom attribute detail object</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="user-story-custom-attributes-delete">14.5. Delete</h3>
+<div class="paragraph">
+<p>To delete user story custom attributes send a DELETE specifying the user story custom attribute id in the url</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X DELETE <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/userstory-custom-attributes/1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When delete succeeded, the HTTP response is a 204 NO CONTENT with an empty body response</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="user-story-custom-attributes-bulk-update-order">14.6. Bulk update order</h3>
+<div class="paragraph">
+<p>To update the order of multiple user story custom attributes at the same time send a POST request with the following data:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>project</strong> (required)</p>
+</li>
+<li>
+<p><strong>bulk_userstory_custom_attributes</strong>: list where each element is a list, the first element is the custom attribute id and the second the new order</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X POST <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  -d <span class="tok-s1">&#39;{</span>
+<span class="tok-s1">          &quot;project_id&quot;: 3,</span>
+<span class="tok-s1">          &quot;bulk_userstory_custom_attributes&quot;: [[1,10], [2,5]]</span>
+<span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/userstory-custom-attributes/bulk_update_order</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the update is successful, the HTTP response is a 204 NO CONTENT with an empty body response</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="user-story-custom-attributes-values">15. User story custom attributes values</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="user-story-custom-attributes-values-get">15.1. Get</h3>
+<div class="paragraph">
+<p>To get a user story custom attribute send a GET request specifying the user story custom attribute id in the url</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/userstories/custom-attributes-values/1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The HTTP response is a 200 OK and the response body is a JSON <a href="#object-userstory-custom-attribute-detail">user story custom attribute detail object</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="user-story-custom-attributes-values-edit">15.2. Edit</h3>
+<div class="paragraph">
+<p>To edit user story custom attributes values send a PUT or a PATCH specifying the user story id in the url.
+"attribute_values" must be a JSON object with pairs user story custom atribute id - value.
+In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X PATCH <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  -d <span class="tok-s1">&#39;{</span>
+<span class="tok-s1">          &quot;attributes_values&quot;: {&quot;1&quot;: &quot;240 min&quot;},</span>
+<span class="tok-s1">          &quot;version&quot;: 2</span>
+<span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/userstories/custom-attributes-values/1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the update is successful, the HTTP response is a 200 OK and the response body is a JSON <a href="#object-userstory-custom-attributes-values-detail">user story custom attribute detail object</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="tasks">16. Tasks</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="tasks-list">16.1. List</h3>
 <div class="paragraph">
 <p>To list tasks send a GET request with the following parameters:</p>
 </div>
@@ -5485,7 +6030,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="tasks-create">14.2. Create</h3>
+<h3 id="tasks-create">16.2. Create</h3>
 <div class="paragraph">
 <p>To create tasks send a POST request with the following data:</p>
 </div>
@@ -5587,7 +6132,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="tasks-get">14.3. Get</h3>
+<h3 id="tasks-get">16.3. Get</h3>
 <div class="paragraph">
 <p>To get a task send a GET request specifying the task id in the url</p>
 </div>
@@ -5604,7 +6149,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="tasks-get-by-ref">14.4. Get by ref</h3>
+<h3 id="tasks-get-by-ref">16.4. Get by ref</h3>
 <div class="paragraph">
 <p>To get a task send a GET request specifying the task reference and the project id as parameters:</p>
 </div>
@@ -5621,7 +6166,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="tasks-edit">14.5. Edit</h3>
+<h3 id="tasks-edit">16.5. Edit</h3>
 <div class="paragraph">
 <p>To edit tasks send a PUT or a PATCH specifying the task id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -5642,7 +6187,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="tasks-delete">14.6. Delete</h3>
+<h3 id="tasks-delete">16.6. Delete</h3>
 <div class="paragraph">
 <p>To delete tasks send a DELETE specifying the task id in the url</p>
 </div>
@@ -5658,7 +6203,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="tasks-bulk-create">14.7. Bulk creation</h3>
+<h3 id="tasks-bulk-create">16.7. Bulk creation</h3>
 <div class="paragraph">
 <p>To create multiple tasks at the same time send a POST request with the following data:</p>
 </div>
@@ -5692,7 +6237,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="tasks-list-attachments">14.8. List attachments</h3>
+<h3 id="tasks-list-attachments">16.8. List attachments</h3>
 <div class="paragraph">
 <p>To list task attachments send a GET request with the following parameters:</p>
 </div>
@@ -5719,7 +6264,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="tasks-create-attachment">14.9. Create attachment</h3>
+<h3 id="tasks-create-attachment">16.9. Create attachment</h3>
 <div class="paragraph">
 <p>To create task attachments send a POST request with the following data:</p>
 </div>
@@ -5757,7 +6302,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="tasks-get-attachment">14.10. Get attachment</h3>
+<h3 id="tasks-get-attachment">16.10. Get attachment</h3>
 <div class="paragraph">
 <p>To get a task attachment send a GET request specifying the task attachment id in the url</p>
 </div>
@@ -5774,7 +6319,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="tasks-edit-attachment">14.11. Edit attachment</h3>
+<h3 id="tasks-edit-attachment">16.11. Edit attachment</h3>
 <div class="paragraph">
 <p>To edit task attachments send a PUT or a PATCH specifying the task attachment id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -5792,7 +6337,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="tasks-delete-attachment">14.12. Delete attachment</h3>
+<h3 id="tasks-delete-attachment">16.12. Delete attachment</h3>
 <div class="paragraph">
 <p>To delete task attachments send a DELETE specifying the task attachment id in the url</p>
 </div>
@@ -5810,10 +6355,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="task-statuses">15. Task status</h2>
+<h2 id="task-statuses">17. Task status</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="task-statuses-list">15.1. List</h3>
+<h3 id="task-statuses-list">17.1. List</h3>
 <div class="paragraph">
 <p>To list task status send a GET request with the following parameters:</p>
 </div>
@@ -5848,7 +6393,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="task-statuses-create">15.2. Create</h3>
+<h3 id="task-statuses-create">17.2. Create</h3>
 <div class="paragraph">
 <p>To create task statuses send a POST request with the following data:</p>
 </div>
@@ -5903,7 +6448,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="task-statuses-get">15.3. Get</h3>
+<h3 id="task-statuses-get">17.3. Get</h3>
 <div class="paragraph">
 <p>To get a task status send a GET request specifying the task status id in the url</p>
 </div>
@@ -5920,7 +6465,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="task-statuses-edit">15.4. Edit</h3>
+<h3 id="task-statuses-edit">17.4. Edit</h3>
 <div class="paragraph">
 <p>To edit task statuses send a PUT or a PATCH specifying the task status id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -5941,7 +6486,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="task-statuses-delete">15.5. Delete</h3>
+<h3 id="task-statuses-delete">17.5. Delete</h3>
 <div class="paragraph">
 <p>To delete task satuses send a DELETE specifying the task status id in the url</p>
 </div>
@@ -5957,7 +6502,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="task-statuses-bulk-update-order">15.6. Bulk update order</h3>
+<h3 id="task-statuses-bulk-update-order">17.6. Bulk update order</h3>
 <div class="paragraph">
 <p>To update the order of multiple task statuses at the same time send a POST request with the following data:</p>
 </div>
@@ -5990,10 +6535,231 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="issues">16. Issues</h2>
+<h2 id="task-custom-attributes">18. Task custom attribute</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="issues-list">16.1. List</h3>
+<h3 id="task-custom-attributes-list">18.1. List</h3>
+<div class="paragraph">
+<p>To list task custom attributes send a GET request with the following parameters:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/task-custom-attributes</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The HTTP response is a 200 OK and the response body is a JSON list of <a href="#object-task-custom-attribute-detail">task custom attribute detail objects</a></p>
+</div>
+<div class="paragraph">
+<p>The results can be filtered using the following parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>project</strong>: project id</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/task-custom-attributes?project<span class="tok-o">=</span>1</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="task-custom-attributes-create">18.2. Create</h3>
+<div class="paragraph">
+<p>To create task custom attributes send a POST request with the following data:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>name</strong>: (required) text</p>
+</li>
+<li>
+<p><strong>description</strong>: text</p>
+</li>
+<li>
+<p><strong>order</strong>: integer</p>
+</li>
+<li>
+<p><strong>project</strong>: (required) integer, project id</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X POST <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  -d <span class="tok-s1">&#39;{</span>
+<span class="tok-s1">        &quot;name&quot;: &quot;Duration&quot;,</span>
+<span class="tok-s1">        &quot;description&quot;: &quot;Duration in minutes&quot;,</span>
+<span class="tok-s1">        &quot;order&quot;: 8,</span>
+<span class="tok-s1">        &quot;project&quot;: 3,</span>
+<span class="tok-s1">    }&#39;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/task-custom-attributes</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X POST <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  -d <span class="tok-s1">&#39;{</span>
+<span class="tok-s1">          &quot;name&quot;: &quot;Duration&quot;,</span>
+<span class="tok-s1">          &quot;project&quot;: 3,</span>
+<span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/task-custom-attributes</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the creation is successful, the HTTP response is a 201 Created and the response body is a JSON <a href="#object-task-custom-attribute-detail">task custom attribute detail object</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="task-custom-attributes-get">18.3. Get</h3>
+<div class="paragraph">
+<p>To get a task custom attribute send a GET request specifying the task custom attribute id in the url</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/task-custom-attributes/1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The HTTP response is a 200 OK and the response body is a JSON <a href="#object-task-custom-attribute-detail">task custom attribute detail object</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="task-custom-attributes-edit">18.4. Edit</h3>
+<div class="paragraph">
+<p>To edit task custom attributes send a PUT or a PATCH specifying the task custom attribute id in the url.
+In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X PATCH <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  -d <span class="tok-s1">&#39;{</span>
+<span class="tok-s1">          &quot;name&quot;: &quot;Duration&quot;</span>
+<span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/task-custom-attributes/1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the update is successful, the HTTP response is a 200 OK and the response body is a JSON <a href="#object-task-custom-attribute-detail">task custom attribute detail object</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="task-custom-attributes-delete">18.5. Delete</h3>
+<div class="paragraph">
+<p>To delete task custom attributes send a DELETE specifying the task custom attribute id in the url</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X DELETE <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/task-custom-attributes/1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When delete succeeded, the HTTP response is a 204 NO CONTENT with an empty body response</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="task-custom-attributes-bulk-update-order">18.6. Bulk update order</h3>
+<div class="paragraph">
+<p>To update the order of multiple task custom attributes at the same time send a POST request with the following data:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>project</strong> (required)</p>
+</li>
+<li>
+<p><strong>bulk_task_custom_attributes</strong>: list where each element is a list, the first element is the custom attribute id and the second the new order</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X POST <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  -d <span class="tok-s1">&#39;{</span>
+<span class="tok-s1">          &quot;project_id&quot;: 3,</span>
+<span class="tok-s1">          &quot;bulk_task_custom_attributes&quot;: [[1,10], [2,5]]</span>
+<span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/task-custom-attributes/bulk_update_order</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the update is successful, the HTTP response is a 204 NO CONTENT with an empty body response</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="task-custom-attributes-values">19. Task custom attributes values</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="task-custom-attributes-values-get">19.1. Get</h3>
+<div class="paragraph">
+<p>To get a task custom attribute send a GET request specifying the task custom attribute id in the url</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/tasks/custom-attributes-values/1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The HTTP response is a 200 OK and the response body is a JSON <a href="#object-task-custom-attribute-detail">task custom attribute detail object</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="task-custom-attributes-values-edit">19.2. Edit</h3>
+<div class="paragraph">
+<p>To edit task custom attributes values send a PUT or a PATCH specifying the task id in the url.
+"attribute_values" must be a JSON object with pairs task custom atribute id - value.
+In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X PATCH <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  -d <span class="tok-s1">&#39;{</span>
+<span class="tok-s1">          &quot;attributes_values&quot;: {&quot;1&quot;: &quot;240 min&quot;},</span>
+<span class="tok-s1">          &quot;version&quot;: 2</span>
+<span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/tasks/custom-attributes-values/1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the update is successful, the HTTP response is a 200 OK and the response body is a JSON <a href="#object-task-custom-attributes-values-detail">task custom attribute detail object</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="issues">20. Issues</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="issues-list">20.1. List</h3>
 <div class="paragraph">
 <p>To list issues send a GET request with the following parameters:</p>
 </div>
@@ -6091,7 +6857,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issues-create">16.2. Create</h3>
+<h3 id="issues-create">20.2. Create</h3>
 <div class="paragraph">
 <p>To create issues send a POST request with the following data:</p>
 </div>
@@ -6185,7 +6951,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issues-get">16.3. Get</h3>
+<h3 id="issues-get">20.3. Get</h3>
 <div class="paragraph">
 <p>To get an issue send a GET request specifying the issue id in the url</p>
 </div>
@@ -6202,7 +6968,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issues-get-by-ref">16.4. Get by ref</h3>
+<h3 id="issues-get-by-ref">20.4. Get by ref</h3>
 <div class="paragraph">
 <p>To get an issue send a GET request specifying the issue reference end project id as parameters:</p>
 </div>
@@ -6219,7 +6985,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issues-edit">16.5. Edit</h3>
+<h3 id="issues-edit">20.5. Edit</h3>
 <div class="paragraph">
 <p>To edit issues send a PUT or a PATCH specifying the issue id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -6240,7 +7006,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issues-delete">16.6. Delete</h3>
+<h3 id="issues-delete">20.6. Delete</h3>
 <div class="paragraph">
 <p>To delete issues send a DELETE specifying the issue id in the url</p>
 </div>
@@ -6256,7 +7022,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issues-upvote">16.7. Vote to an issue</h3>
+<h3 id="issues-upvote">20.7. Vote to an issue</h3>
 <div class="paragraph">
 <p>To vote issues send a POST specifying the issue id in the url</p>
 </div>
@@ -6272,7 +7038,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issues-downvote">16.8. Remove vote to an issue</h3>
+<h3 id="issues-downvote">20.8. Remove vote to an issue</h3>
 <div class="paragraph">
 <p>To remove a vote to an issues send a POST specifying the issue id in the url</p>
 </div>
@@ -6288,7 +7054,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issues-voters">16.9. Get issue voters list</h3>
+<h3 id="issues-voters">20.9. Get issue voters list</h3>
 <div class="paragraph">
 <p>To get an issue voters send a GET request specifying the issue id in the url</p>
 </div>
@@ -6305,7 +7071,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issues-list-attachments">16.10. List attachments</h3>
+<h3 id="issues-list-attachments">20.10. List attachments</h3>
 <div class="paragraph">
 <p>To list issue attachments send a GET request with the following parameters:</p>
 </div>
@@ -6332,7 +7098,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issues-create-attachment">16.11. Create attachment</h3>
+<h3 id="issues-create-attachment">20.11. Create attachment</h3>
 <div class="paragraph">
 <p>To create issue attachments send a POST request with the following data:</p>
 </div>
@@ -6370,7 +7136,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issues-get-attachment">16.12. Get attachment</h3>
+<h3 id="issues-get-attachment">20.12. Get attachment</h3>
 <div class="paragraph">
 <p>To get an issue attachment send a GET request specifying the issue attachment id in the url</p>
 </div>
@@ -6387,7 +7153,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issues-edit-attachment">16.13. Edit attachment</h3>
+<h3 id="issues-edit-attachment">20.13. Edit attachment</h3>
 <div class="paragraph">
 <p>To edit issue attachments send a PUT or a PATCH specifying the issue attachment id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -6405,7 +7171,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issues-delete-attachment">16.14. Delete attachment</h3>
+<h3 id="issues-delete-attachment">20.14. Delete attachment</h3>
 <div class="paragraph">
 <p>To delete issue attachments send a DELETE specifying the issue attachment id in the url</p>
 </div>
@@ -6423,10 +7189,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="issue-statuses">17. Issue status</h2>
+<h2 id="issue-statuses">21. Issue status</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="issue-statuses-list">17.1. List</h3>
+<h3 id="issue-statuses-list">21.1. List</h3>
 <div class="paragraph">
 <p>To list issue status send a GET request with the following parameters:</p>
 </div>
@@ -6461,7 +7227,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issue-statuses-create">17.2. Create</h3>
+<h3 id="issue-statuses-create">21.2. Create</h3>
 <div class="paragraph">
 <p>To create issue statuses send a POST request with the following data:</p>
 </div>
@@ -6516,7 +7282,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issue-statuses-get">17.3. Get</h3>
+<h3 id="issue-statuses-get">21.3. Get</h3>
 <div class="paragraph">
 <p>To get a issue status send a GET request specifying the issue status id in the url</p>
 </div>
@@ -6533,7 +7299,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issue-statuses-edit">17.4. Edit</h3>
+<h3 id="issue-statuses-edit">21.4. Edit</h3>
 <div class="paragraph">
 <p>To edit issue statuses send a PUT or a PATCH specifying the issue status id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -6554,7 +7320,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issue-statuses-delete">17.5. Delete</h3>
+<h3 id="issue-statuses-delete">21.5. Delete</h3>
 <div class="paragraph">
 <p>To delete issue satuses send a DELETE specifying the issue status id in the url</p>
 </div>
@@ -6570,7 +7336,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issue-statuses-bulk-update-order">17.6. Bulk update order</h3>
+<h3 id="issue-statuses-bulk-update-order">21.6. Bulk update order</h3>
 <div class="paragraph">
 <p>To update the order of multiple issue statuses at the same time send a POST request with the following data:</p>
 </div>
@@ -6603,10 +7369,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="issue-types">18. Issue types</h2>
+<h2 id="issue-types">22. Issue types</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="issue-types-list">18.1. List</h3>
+<h3 id="issue-types-list">22.1. List</h3>
 <div class="paragraph">
 <p>To list issue types send a GET request with the following parameters:</p>
 </div>
@@ -6641,7 +7407,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issue-types-create">18.2. Create</h3>
+<h3 id="issue-types-create">22.2. Create</h3>
 <div class="paragraph">
 <p>To create issue types send a POST request with the following data:</p>
 </div>
@@ -6692,7 +7458,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issue-types-get">18.3. Get</h3>
+<h3 id="issue-types-get">22.3. Get</h3>
 <div class="paragraph">
 <p>To get an issue type send a GET request specifying the issue type id in the url</p>
 </div>
@@ -6709,7 +7475,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issue-types-edit">18.4. Edit</h3>
+<h3 id="issue-types-edit">22.4. Edit</h3>
 <div class="paragraph">
 <p>To edit issue types send a PUT or a PATCH specifying the issue type id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -6730,7 +7496,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issue-types-delete">18.5. Delete</h3>
+<h3 id="issue-types-delete">22.5. Delete</h3>
 <div class="paragraph">
 <p>To delete issue statuses send a DELETE specifying the issue type id in the url</p>
 </div>
@@ -6746,7 +7512,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="issue-types-bulk-update-order">18.6. Bulk update order</h3>
+<h3 id="issue-types-bulk-update-order">22.6. Bulk update order</h3>
 <div class="paragraph">
 <p>To update the order of multiple issue types at the same time send a POST request with the following data:</p>
 </div>
@@ -6779,10 +7545,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="priorities">19. Priorities</h2>
+<h2 id="priorities">23. Priorities</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="priorities-list">19.1. List</h3>
+<h3 id="priorities-list">23.1. List</h3>
 <div class="paragraph">
 <p>To list priorities send a GET request with the following parameters:</p>
 </div>
@@ -6817,7 +7583,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="priorities-create">19.2. Create</h3>
+<h3 id="priorities-create">23.2. Create</h3>
 <div class="paragraph">
 <p>To create priorities send a POST request with the following data:</p>
 </div>
@@ -6868,7 +7634,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="priorities-get">19.3. Get</h3>
+<h3 id="priorities-get">23.3. Get</h3>
 <div class="paragraph">
 <p>To get a priority send a GET request specifying the priority id in the url</p>
 </div>
@@ -6885,7 +7651,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="priorities-edit">19.4. Edit</h3>
+<h3 id="priorities-edit">23.4. Edit</h3>
 <div class="paragraph">
 <p>To edit priorities send a PUT or a PATCH specifying the priority id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -6906,7 +7672,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="priorities-delete">19.5. Delete</h3>
+<h3 id="priorities-delete">23.5. Delete</h3>
 <div class="paragraph">
 <p>To delete priorities send a DELETE specifying the priority id in the url</p>
 </div>
@@ -6922,7 +7688,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="priorities-bulk-update-order">19.6. Bulk update order</h3>
+<h3 id="priorities-bulk-update-order">23.6. Bulk update order</h3>
 <div class="paragraph">
 <p>To update the order of multiple priorities at the same time send a POST request with the following data:</p>
 </div>
@@ -6955,10 +7721,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="severities">20. Severities</h2>
+<h2 id="severities">24. Severities</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="severities-list">20.1. List</h3>
+<h3 id="severities-list">24.1. List</h3>
 <div class="paragraph">
 <p>To list severities send a GET request with the following parameters:</p>
 </div>
@@ -6993,7 +7759,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="severities-create">20.2. Create</h3>
+<h3 id="severities-create">24.2. Create</h3>
 <div class="paragraph">
 <p>To create severities send a POST request with the following data:</p>
 </div>
@@ -7044,7 +7810,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="severities-get">20.3. Get</h3>
+<h3 id="severities-get">24.3. Get</h3>
 <div class="paragraph">
 <p>To get a severity send a GET request specifying the severity id in the url</p>
 </div>
@@ -7061,7 +7827,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="severities-edit">20.4. Edit</h3>
+<h3 id="severities-edit">24.4. Edit</h3>
 <div class="paragraph">
 <p>To edit severities send a PUT or a PATCH specifying the severity id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -7082,7 +7848,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="severities-delete">20.5. Delete</h3>
+<h3 id="severities-delete">24.5. Delete</h3>
 <div class="paragraph">
 <p>To delete severities send a DELETE specifying the severity id in the url</p>
 </div>
@@ -7098,7 +7864,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="severities-bulk-update-order">20.6. Bulk update order</h3>
+<h3 id="severities-bulk-update-order">24.6. Bulk update order</h3>
 <div class="paragraph">
 <p>To update the order of multiple severities at the same time send a POST request with the following data:</p>
 </div>
@@ -7131,10 +7897,231 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="wiki">21. Wiki pages</h2>
+<h2 id="issue-custom-attributes">25. Issue custom attribute</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="wiki-list">21.1. List</h3>
+<h3 id="issue-custom-attributes-list">25.1. List</h3>
+<div class="paragraph">
+<p>To list issue custom attributes send a GET request with the following parameters:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/issue-custom-attributes</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The HTTP response is a 200 OK and the response body is a JSON list of <a href="#object-issue-custom-attribute-detail">issue custom attribute detail objects</a></p>
+</div>
+<div class="paragraph">
+<p>The results can be filtered using the following parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>project</strong>: project id</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/issue-custom-attributes?project<span class="tok-o">=</span>1</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="issue-custom-attributes-create">25.2. Create</h3>
+<div class="paragraph">
+<p>To create issue custom attributes send a POST request with the following data:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>name</strong>: (required) text</p>
+</li>
+<li>
+<p><strong>description</strong>: text</p>
+</li>
+<li>
+<p><strong>order</strong>: integer</p>
+</li>
+<li>
+<p><strong>project</strong>: (required) integer, project id</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X POST <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  -d <span class="tok-s1">&#39;{</span>
+<span class="tok-s1">        &quot;name&quot;: &quot;Duration&quot;,</span>
+<span class="tok-s1">        &quot;description&quot;: &quot;Duration in minutes&quot;,</span>
+<span class="tok-s1">        &quot;order&quot;: 8,</span>
+<span class="tok-s1">        &quot;project&quot;: 3,</span>
+<span class="tok-s1">    }&#39;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/issue-custom-attributes</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X POST <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  -d <span class="tok-s1">&#39;{</span>
+<span class="tok-s1">          &quot;name&quot;: &quot;Duration&quot;,</span>
+<span class="tok-s1">          &quot;project&quot;: 3,</span>
+<span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/issue-custom-attributes</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the creation is successful, the HTTP response is a 201 Created and the response body is a JSON <a href="#object-issue-custom-attribute-detail">issue custom attribute detail object</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="issue-custom-attributes-get">25.3. Get</h3>
+<div class="paragraph">
+<p>To get a issue custom attribute send a GET request specifying the issue custom attribute id in the url</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/issue-custom-attributes/1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The HTTP response is a 200 OK and the response body is a JSON <a href="#object-issue-custom-attribute-detail">issue custom attribute detail object</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="issue-custom-attributes-edit">25.4. Edit</h3>
+<div class="paragraph">
+<p>To edit issue custom attributes send a PUT or a PATCH specifying the issue custom attribute id in the url.
+In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X PATCH <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  -d <span class="tok-s1">&#39;{</span>
+<span class="tok-s1">          &quot;name&quot;: &quot;Duration&quot;</span>
+<span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/issue-custom-attributes/1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the update is successful, the HTTP response is a 200 OK and the response body is a JSON <a href="#object-issue-custom-attribute-detail">issue custom attribute detail object</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="issue-custom-attributes-delete">25.5. Delete</h3>
+<div class="paragraph">
+<p>To delete issue custom attributes send a DELETE specifying the issue custom attribute id in the url</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X DELETE <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/issue-custom-attributes/1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When delete succeeded, the HTTP response is a 204 NO CONTENT with an empty body response</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="issue-custom-attributes-bulk-update-order">25.6. Bulk update order</h3>
+<div class="paragraph">
+<p>To update the order of multiple issue custom attributes at the same time send a POST request with the following data:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>project</strong> (required)</p>
+</li>
+<li>
+<p><strong>bulk_issue_custom_attributes</strong>: list where each element is a list, the first element is the custom attribute id and the second the new order</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X POST <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  -d <span class="tok-s1">&#39;{</span>
+<span class="tok-s1">          &quot;project_id&quot;: 3,</span>
+<span class="tok-s1">          &quot;bulk_issue_custom_attributes&quot;: [[1,10], [2,5]]</span>
+<span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/issue-custom-attributes/bulk_update_order</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the update is successful, the HTTP response is a 204 NO CONTENT with an empty body response</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="issue-custom-attributes-values">26. Issue custom attributes values</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="issue-custom-attributes-values-get">26.1. Get</h3>
+<div class="paragraph">
+<p>To get a issue custom attribute send a GET request specifying the issue custom attribute id in the url</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/issues/custom-attributes-values/1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The HTTP response is a 200 OK and the response body is a JSON <a href="#object-issue-custom-attribute-detail">issue custom attribute detail object</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="issue-custom-attributes-values-edit">26.2. Edit</h3>
+<div class="paragraph">
+<p>To edit issue custom attributes values send a PUT or a PATCH specifying the issue id in the url.
+"attribute_values" must be a JSON object with pairs issue custom atribute id - value.
+In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X PATCH <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  -d <span class="tok-s1">&#39;{</span>
+<span class="tok-s1">          &quot;attributes_values&quot;: {&quot;1&quot;: &quot;240 min&quot;},</span>
+<span class="tok-s1">          &quot;version&quot;: 2</span>
+<span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/issues/custom-attributes-values/1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the update is successful, the HTTP response is a 200 OK and the response body is a JSON <a href="#object-issue-custom-attributes-values-detail">issue custom attribute detail object</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="wiki">27. Wiki pages</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="wiki-list">27.1. List</h3>
 <div class="paragraph">
 <p>To list wiki pages send a GET request with the following parameters:</p>
 </div>
@@ -7169,7 +8156,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wiki-create">21.2. Create</h3>
+<h3 id="wiki-create">27.2. Create</h3>
 <div class="paragraph">
 <p>To create wiki pages send a POST request with the following data:</p>
 </div>
@@ -7221,7 +8208,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wiki-get">21.3. Get</h3>
+<h3 id="wiki-get">27.3. Get</h3>
 <div class="paragraph">
 <p>To get a wiki page send a GET request specifying the wiki page id in the url</p>
 </div>
@@ -7238,7 +8225,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wiki-get-by-slug">21.4. Get by slug</h3>
+<h3 id="wiki-get-by-slug">27.4. Get by slug</h3>
 <div class="paragraph">
 <p>To get a wiki page send a GET request specifying the wiki page slug and the project id as parameters:</p>
 </div>
@@ -7255,7 +8242,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wiki-edit">21.5. Edit</h3>
+<h3 id="wiki-edit">27.5. Edit</h3>
 <div class="paragraph">
 <p>To edit wiki pages send a PUT or a PATCH specifying the wiki page id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -7276,7 +8263,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wiki-delete">21.6. Delete</h3>
+<h3 id="wiki-delete">27.6. Delete</h3>
 <div class="paragraph">
 <p>To delete wiki page send a DELETE specifying the wiki page id in the url</p>
 </div>
@@ -7292,7 +8279,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wiki-list-attachments">21.7. List attachments</h3>
+<h3 id="wiki-list-attachments">27.7. List attachments</h3>
 <div class="paragraph">
 <p>To list wiki page attachments send a GET request with the following parameters:</p>
 </div>
@@ -7319,14 +8306,14 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wiki-create-attachment">21.8. Create attachment</h3>
+<h3 id="wiki-create-attachment">27.8. Create attachment</h3>
 <div class="paragraph">
 <p>To create wiki page attachments send a POST request with the following data:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>object_id</strong> (required): issue id</p>
+<p><strong>object_id</strong> (required): wiki page id</p>
 </li>
 <li>
 <p><strong>project</strong> (required): project id</p>
@@ -7357,7 +8344,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wiki-get-attachment">21.9. Get attachment</h3>
+<h3 id="wiki-get-attachment">27.9. Get attachment</h3>
 <div class="paragraph">
 <p>To get an wiki page attachment send a GET request specifying the wiki page attachment id in the url</p>
 </div>
@@ -7374,7 +8361,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wiki-edit-attachment">21.10. Edit attachment</h3>
+<h3 id="wiki-edit-attachment">27.10. Edit attachment</h3>
 <div class="paragraph">
 <p>To edit wiki page attachments send a PUT or a PATCH specifying the wiki page attachment id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -7392,7 +8379,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wiki-delete-attachment">21.11. Delete attachment</h3>
+<h3 id="wiki-delete-attachment">27.11. Delete attachment</h3>
 <div class="paragraph">
 <p>To delete wiki page attachments send a DELETE specifying the wiki page attachment id in the url</p>
 </div>
@@ -7410,10 +8397,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="wikilinks">22. Wiki links</h2>
+<h2 id="wikilinks">28. Wiki links</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="wikilinks-list">22.1. List</h3>
+<h3 id="wikilinks-list">28.1. List</h3>
 <div class="paragraph">
 <p>To list wiki links send a GET request with the following parameters:</p>
 </div>
@@ -7448,7 +8435,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wikilinks-create">22.2. Create</h3>
+<h3 id="wikilinks-create">28.2. Create</h3>
 <div class="paragraph">
 <p>To create wiki links send a POST request with the following data:</p>
 </div>
@@ -7500,7 +8487,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wikilinks-get">22.3. Get</h3>
+<h3 id="wikilinks-get">28.3. Get</h3>
 <div class="paragraph">
 <p>To get a wiki link send a GET request specifying the wiki link id in the url</p>
 </div>
@@ -7517,7 +8504,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wikilinks-edit">22.4. Edit</h3>
+<h3 id="wikilinks-edit">28.4. Edit</h3>
 <div class="paragraph">
 <p>To edit wiki links send a PUT or a PATCH specifying the wiki link id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -7538,7 +8525,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="wikilinks-delete">22.5. Delete</h3>
+<h3 id="wikilinks-delete">28.5. Delete</h3>
 <div class="paragraph">
 <p>To delete wiki link send a DELETE specifying the wiki link id in the url</p>
 </div>
@@ -7556,10 +8543,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="history">23. History</h2>
+<h2 id="history">29. History</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="history-get">23.1. Get user story, task, issue or wiki page history</h3>
+<h3 id="history-get">29.1. Get user story, task, issue or wiki page history</h3>
 <div class="paragraph">
 <p>To get the history of a user story, task, issue or wiki page send a GET request specifying the id in the url</p>
 </div>
@@ -7576,7 +8563,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="history-delete-comment">23.2. Delete comment</h3>
+<h3 id="history-delete-comment">29.2. Delete comment</h3>
 <div class="paragraph">
 <p>To delete history comment send a POST specifying the history entry id in the url</p>
 </div>
@@ -7592,7 +8579,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="history-undelete-comment">23.3. Undelete comment</h3>
+<h3 id="history-undelete-comment">29.3. Undelete comment</h3>
 <div class="paragraph">
 <p>To undelete history comment send a POST specifying the history entry id in the url</p>
 </div>
@@ -7610,10 +8597,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="users">24. Users</h2>
+<h2 id="users">30. Users</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="users-list">24.1. List</h3>
+<h3 id="users-list">30.1. List</h3>
 <div class="paragraph">
 <p>To list users send a GET request with the following parameters:</p>
 </div>
@@ -7648,7 +8635,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-get">24.2. Get</h3>
+<h3 id="users-get">30.2. Get</h3>
 <div class="paragraph">
 <p>To get a user send a GET request specifying the user id in the url</p>
 </div>
@@ -7665,7 +8652,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-me">24.3. Me</h3>
+<h3 id="users-me">30.3. Me</h3>
 <div class="paragraph">
 <p>To get your own user send a GET request to the url</p>
 </div>
@@ -7682,7 +8669,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-starred">24.4. Get starred projects</h3>
+<h3 id="users-starred">30.4. Get starred projects</h3>
 <div class="paragraph">
 <p>To get the starred projects from a user send a GET request specifying the user id in the url</p>
 </div>
@@ -7699,7 +8686,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-edit">24.5. Edit</h3>
+<h3 id="users-edit">30.5. Edit</h3>
 <div class="paragraph">
 <p>To edit users send a PUT or a PATCH specifying the user id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -7720,7 +8707,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-delete">24.6. Delete</h3>
+<h3 id="users-delete">30.6. Delete</h3>
 <div class="paragraph">
 <p>To delete users send a DELETE specifying the user id in the url</p>
 </div>
@@ -7736,7 +8723,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-cancel">24.7. Cancel</h3>
+<h3 id="users-cancel">30.7. Cancel</h3>
 <div class="paragraph">
 <p>To cancel a user account send a POST with the following data</p>
 </div>
@@ -7755,7 +8742,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-change-avatar">24.8. Change avatar</h3>
+<h3 id="users-change-avatar">30.8. Change avatar</h3>
 <div class="paragraph">
 <p>To change your user avatar send a POST with the following data</p>
 </div>
@@ -7772,7 +8759,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-remove-avatar">24.9. Remove avatar</h3>
+<h3 id="users-remove-avatar">30.9. Remove avatar</h3>
 <div class="paragraph">
 <p>To remove your user avatar send a POST with the following data</p>
 </div>
@@ -7788,7 +8775,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-change-email">24.10. Change email</h3>
+<h3 id="users-change-email">30.10. Change email</h3>
 <div class="paragraph">
 <p>To change your user email send a POST with the following data</p>
 </div>
@@ -7808,7 +8795,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-change-password">24.11. Change password</h3>
+<h3 id="users-change-password">30.11. Change password</h3>
 <div class="paragraph">
 <p>To change your user password send a POST with the following data</p>
 </div>
@@ -7828,7 +8815,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-password-recovery">24.12. Password recovery</h3>
+<h3 id="users-password-recovery">30.12. Password recovery</h3>
 <div class="paragraph">
 <p>To request a user password recovery send a POST with the following data</p>
 </div>
@@ -7854,7 +8841,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-change-password-from-recovery">24.13. Change password from recovery</h3>
+<h3 id="users-change-password-from-recovery">30.13. Change password from recovery</h3>
 <div class="paragraph">
 <p>To change a user password from a request recovery send a POST with the following data</p>
 </div>
@@ -7875,10 +8862,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="notify-policies">25. Notify policies</h2>
+<h2 id="notify-policies">31. Notify policies</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="notify-policies-list">25.1. List</h3>
+<h3 id="notify-policies-list">31.1. List</h3>
 <div class="paragraph">
 <p>To list the notify policies of the current user send a GET request with the following parameters:</p>
 </div>
@@ -7895,7 +8882,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="notify-policies-get">25.2. Get</h3>
+<h3 id="notify-policies-get">31.2. Get</h3>
 <div class="paragraph">
 <p>To get a notify policy send a GET request specifying the notify policy id in the url</p>
 </div>
@@ -7912,7 +8899,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="notify-policies-edit">25.3. Edit</h3>
+<h3 id="notify-policies-edit">31.3. Edit</h3>
 <div class="paragraph">
 <p>To edit notify policies send a PUT or a PATCH specifying the notify policy id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -7935,10 +8922,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="feedback">26. Feedback</h2>
+<h2 id="feedback">32. Feedback</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="feedback-create">26.1. Create</h3>
+<h3 id="feedback-create">32.1. Create</h3>
 <div class="paragraph">
 <p>To create feedback send a POST request with the following data:</p>
 </div>
@@ -7967,10 +8954,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="export-import">27. Export/Import</h2>
+<h2 id="export-import">33. Export/Import</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="export-import-export-dump">27.1. Export</h3>
+<h3 id="export-import-export-dump">33.1. Export</h3>
 <div class="paragraph">
 <p>To get a project dump send a GET request with the project id:</p>
 </div>
@@ -7997,7 +8984,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="export-import-import-dump">27.2. Import</h3>
+<h3 id="export-import-import-dump">33.2. Import</h3>
 <div class="paragraph">
 <p>To load a project dump send a POST request with the following file:</p>
 </div>
@@ -8034,10 +9021,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="webhooks">28. Webhooks</h2>
+<h2 id="webhooks">34. Webhooks</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="webhooks-list">28.1. List</h3>
+<h3 id="webhooks-list">34.1. List</h3>
 <div class="paragraph">
 <p>To list webhooks send a GET request with the following parameters:</p>
 </div>
@@ -8072,7 +9059,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="webhooks-create">28.2. Create</h3>
+<h3 id="webhooks-create">34.2. Create</h3>
 <div class="paragraph">
 <p>To create webhook send a POST request with the following data:</p>
 </div>
@@ -8111,7 +9098,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="webhooks-get">28.3. Get</h3>
+<h3 id="webhooks-get">34.3. Get</h3>
 <div class="paragraph">
 <p>To get a webhook send a GET request specifying the webhook id in the url</p>
 </div>
@@ -8128,7 +9115,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="webhooks-edit">28.4. Edit</h3>
+<h3 id="webhooks-edit">34.4. Edit</h3>
 <div class="paragraph">
 <p>To edit a webhook send a PUT or a PATCH specifying the webhook id in the url.
 In a PATCH request you just need to send the modified data, in a PUT one the whole object must be sent.</p>
@@ -8149,7 +9136,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="webhooks-delete">28.5. Delete</h3>
+<h3 id="webhooks-delete">34.5. Delete</h3>
 <div class="paragraph">
 <p>To delete a webhook send a DELETE specifying the webhook id in the url</p>
 </div>
@@ -8165,7 +9152,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="webhooks-test">28.6. Test</h3>
+<h3 id="webhooks-test">34.6. Test</h3>
 <div class="paragraph">
 <p>To test a webhook send a POST request specifying the webhook id in the url</p>
 </div>
@@ -8182,7 +9169,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="webhooklogs-list">28.7. Logs list</h3>
+<h3 id="webhooklogs-list">34.7. Logs list</h3>
 <div class="paragraph">
 <p>To list webhook logs send a GET request to the url:</p>
 </div>
@@ -8217,7 +9204,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="webhooklogs-get">28.8. Log get</h3>
+<h3 id="webhooklogs-get">34.8. Log get</h3>
 <div class="paragraph">
 <p>To get a webhook log send a GET request specifying the webhook log id in the url</p>
 </div>
@@ -8234,7 +9221,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="webhooklogs-resend">28.9. Resend request</h3>
+<h3 id="webhooklogs-resend">34.9. Resend request</h3>
 <div class="paragraph">
 <p>To resend a request from a webhook log send a POST request specifying the webhook log id in the url</p>
 </div>
@@ -8253,10 +9240,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="_objects_summary">29. Objects Summary</h2>
+<h2 id="_objects_summary">35. Objects Summary</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="object-attachment-detail">29.1. Attachment</h3>
+<h3 id="object-attachment-detail">35.1. Attachment</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -8278,7 +9265,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-user-detail">29.2. User detail</h3>
+<h3 id="object-user-detail">35.2. User detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -8300,7 +9287,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-auth-user-detail">29.3. User authentication-detail</h3>
+<h3 id="object-auth-user-detail">35.3. User authentication-detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -8323,7 +9310,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-search-results-detail">29.4. Search results detail</h3>
+<h3 id="object-search-results-detail">35.4. Search results detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -8337,7 +9324,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-user-storage-detail">29.5. User storage data</h3>
+<h3 id="object-user-storage-detail">35.5. User storage data</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -8352,7 +9339,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="object-project-template-detail">30. Project templates detail</h2>
+<h2 id="object-project-template-detail">36. Project templates detail</h2>
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
@@ -8725,7 +9712,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-list-entry">30.1. Project list entry</h3>
+<h3 id="object-project-list-entry">36.1. Project list entry</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -8831,7 +9818,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-detail">30.2. Project detail</h3>
+<h3 id="object-project-detail">36.2. Project detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -8853,6 +9840,15 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
     <span class="tok-nt">&quot;is_kanban_activated&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;is_private&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;is_wiki_activated&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;issue_custom_attributes&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Duration&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;description&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Duration in minutes&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;project&quot;</span><span class="tok-p">:</span> <span class="tok-mi">9</span>
+        <span class="tok-p">}</span>
+    <span class="tok-p">],</span>
     <span class="tok-nt">&quot;issue_statuses&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
         <span class="tok-p">{</span>
             <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#8C2318&quot;</span><span class="tok-p">,</span>
@@ -9194,6 +10190,15 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
     <span class="tok-nt">&quot;stars&quot;</span><span class="tok-p">:</span> <span class="tok-mi">0</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;tags&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;tags_colors&quot;</span><span class="tok-p">:</span> <span class="tok-p">{},</span>
+    <span class="tok-nt">&quot;task_custom_attributes&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Duration&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;description&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Duration in minutes&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;project&quot;</span><span class="tok-p">:</span> <span class="tok-mi">9</span>
+        <span class="tok-p">}</span>
+    <span class="tok-p">],</span>
     <span class="tok-nt">&quot;task_statuses&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
         <span class="tok-p">{</span>
             <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#999999&quot;</span><span class="tok-p">,</span>
@@ -9312,6 +10317,15 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
             <span class="tok-nt">&quot;big_photo&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;//www.gravatar.com/avatar/f64db24896b923753d440e23faa856aa?size=80&quot;</span>
         <span class="tok-p">}</span>
     <span class="tok-p">],</span>
+    <span class="tok-nt">&quot;userstory_custom_attributes&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+        <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Duration&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;description&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Duration in minutes&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;project&quot;</span><span class="tok-p">:</span> <span class="tok-mi">9</span>
+        <span class="tok-p">}</span>
+    <span class="tok-p">],</span>
     <span class="tok-nt">&quot;videoconferences&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;videoconferences_salt&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span>
 <span class="tok-p">}</span></code></pre>
@@ -9319,7 +10333,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-modules-detail">30.3. Project modules detail</h3>
+<h3 id="object-project-modules-detail">36.3. Project modules detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -9332,7 +10346,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-stats-detail">30.4. Project stats detail</h3>
+<h3 id="object-project-stats-detail">36.4. Project stats detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -9535,7 +10549,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-issue-stats-detail">30.5. Project issue stats detail</h3>
+<h3 id="object-project-issue-stats-detail">36.5. Project issue stats detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -10199,7 +11213,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-issue-filters-data-detail">30.6. Project issue filters data detail</h3>
+<h3 id="object-project-issue-filters-data-detail">36.6. Project issue filters data detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -10824,7 +11838,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-tags-colors-detail">30.7. Project tag colors data detail</h3>
+<h3 id="object-project-tags-colors-detail">36.7. Project tag colors data detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -10940,7 +11954,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-voter-detail">30.8. Project voter detail</h3>
+<h3 id="object-project-voter-detail">36.8. Project voter detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -10952,7 +11966,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-template-detail">30.9. Project template detail</h3>
+<h3 id="object-project-template-detail">36.9. Project template detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11402,7 +12416,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-membership-detail">30.10. Membership detail</h3>
+<h3 id="object-membership-detail">36.10. Membership detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11427,7 +12441,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-milestone-detail">30.11. Milestone detail</h3>
+<h3 id="object-milestone-detail">36.11. Milestone detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11454,7 +12468,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-milestone-stats-detail">30.12. Milestone stats detail</h3>
+<h3 id="object-milestone-stats-detail">36.12. Milestone stats detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11492,7 +12506,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-userstory-detail">30.13. User story detail</h3>
+<h3 id="object-userstory-detail">36.13. User story detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11542,7 +12556,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-userstory-status-detail">30.14. User story status detail</h3>
+<h3 id="object-userstory-status-detail">36.14. User story status detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11558,7 +12572,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-point-detail">30.15. Point detail</h3>
+<h3 id="object-point-detail">36.15. Point detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11573,7 +12587,35 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-task-detail">30.16. Task detail</h3>
+<h3 id="object-userstory-custom-attribute-detail">36.16. User story custom attribute detail</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
+    <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Duration&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;description&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Duration in minutes&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;project&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="object-userstory-custom-attributes-values-detail">36.17. User story custom attributes values detail</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
+    <span class="tok-nt">&quot;user_story&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;attributes_values&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;1&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;240 minutes&quot;</span>
+    <span class="tok-p">},</span>
+    <span class="tok-nt">&quot;version&quot;</span><span class="tok-p">:</span> <span class="tok-mi">2</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="object-task-detail">36.18. Task detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11624,7 +12666,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-task-status-detail">30.17. Task status detail</h3>
+<h3 id="object-task-status-detail">36.19. Task status detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11639,7 +12681,35 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-issue-detail">30.18. Issue detail</h3>
+<h3 id="object-task-custom-attribute-detail">36.20. Task custom attribute detail</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
+    <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Duration&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;description&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Duration in minutes&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;project&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="object-task-custom-attributes-values-detail">36.21. Task custom attributes values detail</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
+    <span class="tok-nt">&quot;task&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;attributes_values&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;1&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;240 minutes&quot;</span>
+    <span class="tok-p">},</span>
+    <span class="tok-nt">&quot;version&quot;</span><span class="tok-p">:</span> <span class="tok-mi">2</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="object-issue-detail">36.22. Issue detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11687,7 +12757,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-issue-voters-detail">30.19. Issue voters detail</h3>
+<h3 id="object-issue-voters-detail">36.23. Issue voters detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">[</span>
@@ -11706,7 +12776,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-issue-status-detail">30.20. Issue status detail</h3>
+<h3 id="object-issue-status-detail">36.24. Issue status detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11721,7 +12791,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-issue-type-detail">30.21. Issue type detail</h3>
+<h3 id="object-issue-type-detail">36.25. Issue type detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11735,7 +12805,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-priority-detail">30.22. Priority detail</h3>
+<h3 id="object-priority-detail">36.26. Priority detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11749,7 +12819,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-severity-detail">30.23. Severity detail</h3>
+<h3 id="object-severity-detail">36.27. Severity detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11763,7 +12833,35 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-wiki-detail">30.24. Wiki page</h3>
+<h3 id="object-issue-custom-attribute-detail">36.28. Issue custom attribute detail</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
+    <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Duration&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;description&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Duration in minutes&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;project&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="object-issue-custom-attributes-values-detail">36.29. Issue custom attributes values detail</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
+    <span class="tok-nt">&quot;issue&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;attributes_values&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;1&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;240 minutes&quot;</span>
+    <span class="tok-p">},</span>
+    <span class="tok-nt">&quot;version&quot;</span><span class="tok-p">:</span> <span class="tok-mi">2</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="object-wiki-detail">36.30. Wiki page</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11784,7 +12882,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-wiki-link-detail">30.25. Wiki link</h3>
+<h3 id="object-wiki-link-detail">36.31. Wiki link</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11798,7 +12896,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-history-entry-detail">30.26. History entry</h3>
+<h3 id="object-history-entry-detail">36.32. History entry</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11851,7 +12949,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-notify-policy-detail">30.27. Notify policy</h3>
+<h3 id="object-notify-policy-detail">36.33. Notify policy</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11864,7 +12962,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-feedback-detail">30.28. Feedback</h3>
+<h3 id="object-feedback-detail">36.34. Feedback</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11878,7 +12976,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-export-synch">30.29. Export detail for synch mode</h3>
+<h3 id="object-export-synch">36.35. Export detail for synch mode</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11888,7 +12986,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-export-accepted">30.30. Export accepted response</h3>
+<h3 id="object-export-accepted">36.36. Export accepted response</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11898,7 +12996,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-import-accepted">30.31. Import accepted response</h3>
+<h3 id="object-import-accepted">36.37. Import accepted response</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11908,7 +13006,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-webhook-detail">30.32. Webhook</h3>
+<h3 id="object-webhook-detail">36.38. Webhook</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11923,7 +13021,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-webhook-log-detail">30.33. Webhook log</h3>
+<h3 id="object-webhook-log-detail">36.39. Webhook log</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11952,7 +13050,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="_contrib_plugins">31. Contrib plugins</h2>
+<h2 id="_contrib_plugins">37. Contrib plugins</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Taiga allows adding features through contrib plugins, each plugin can add new
@@ -11978,7 +13076,7 @@ API endpoints, and has its own documentation.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-02-10 07:27:23 CET
+Last updated 2015-03-11 13:25:52 CET
 </div>
 </div>
 </body>
