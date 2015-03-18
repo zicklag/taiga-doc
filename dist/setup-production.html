@@ -815,13 +815,13 @@ this, you have to configure and install the celery service requirements.</p>
 <span class="tok-na">stderr_stream.backup_count</span> <span class="tok-o">=</span> <span class="tok-s">4</span>
 
 <span class="tok-k">[env:taiga-celery]</span>
-<span class="tok-na">PATH</span> <span class="tok-o">=</span> <span class="tok-s">$PATH:/home/taiga/.virtualenvs/taiga/bin</span>
+<span class="tok-na">PATH</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/.virtualenvs/taiga/bin:$PATH</span>
 <span class="tok-na">TERM</span><span class="tok-o">=</span><span class="tok-s">rxvt-256color</span>
 <span class="tok-na">SHELL</span><span class="tok-o">=</span><span class="tok-s">/bin/bash</span>
 <span class="tok-na">USER</span><span class="tok-o">=</span><span class="tok-s">taiga</span>
 <span class="tok-na">LANG</span><span class="tok-o">=</span><span class="tok-s">en_US.UTF-8</span>
 <span class="tok-na">HOME</span><span class="tok-o">=</span><span class="tok-s">/home/taiga</span>
-<span class="tok-na">PYTHONPATH</span><span class="tok-o">=</span><span class="tok-s">/home/taiga/.local/lib/python3.4/site-packages</span></code></pre>
+<span class="tok-na">PYTHONPATH</span><span class="tok-o">=</span><span class="tok-s">/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -947,13 +947,13 @@ restarting processes if something goes wrong, and starting processes on system b
 <span class="tok-na">stderr_stream.backup_count</span> <span class="tok-o">=</span> <span class="tok-s">4</span>
 
 <span class="tok-k">[env:taiga]</span>
-<span class="tok-na">PATH</span> <span class="tok-o">=</span> <span class="tok-s">$PATH:/home/taiga/.virtualenvs/taiga/bin</span>
+<span class="tok-na">PATH</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/.virtualenvs/taiga/bin:$PATH</span>
 <span class="tok-na">TERM</span><span class="tok-o">=</span><span class="tok-s">rxvt-256color</span>
 <span class="tok-na">SHELL</span><span class="tok-o">=</span><span class="tok-s">/bin/bash</span>
 <span class="tok-na">USER</span><span class="tok-o">=</span><span class="tok-s">taiga</span>
 <span class="tok-na">LANG</span><span class="tok-o">=</span><span class="tok-s">en_US.UTF-8</span>
 <span class="tok-na">HOME</span><span class="tok-o">=</span><span class="tok-s">/home/taiga</span>
-<span class="tok-na">PYTHONPATH</span><span class="tok-o">=</span><span class="tok-s">/home/taiga/.local/lib/python3.4/site-packages</span></code></pre>
+<span class="tok-na">PYTHONPATH</span><span class="tok-o">=</span><span class="tok-s">/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages</span></code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -1321,7 +1321,7 @@ repository.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-03-17 10:09:56 CET
+Last updated 2015-03-18 18:53:31 CET
 </div>
 </div>
 </body>
