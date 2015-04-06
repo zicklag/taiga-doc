@@ -483,8 +483,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_general_notes">1. General notes</a>
 <ul class="sectlevel2">
 <li><a href="#_authentication">1.1. Authentication</a></li>
-<li><a href="#_pagination">1.2. Pagination</a></li>
-<li><a href="#_throttling">1.3. Throttling</a></li>
+<li><a href="#_occ_optimistic_concurrency_control">1.2. OCC - Optimistic concurrency control</a></li>
+<li><a href="#_pagination">1.3. Pagination</a></li>
+<li><a href="#_throttling">1.4. Throttling</a></li>
 </ul>
 </li>
 <li><a href="#_endpoints_summary">2. Endpoints Summary</a>
@@ -1018,7 +1019,26 @@ instance remember to change the url.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_pagination">1.2. Pagination</h3>
+<h3 id="_occ_optimistic_concurrency_control">1.2. OCC - Optimistic concurrency control</h3>
+<div class="paragraph">
+<p>In taiga multiple operations can be happening at the same time for an element so every modifying request should include a valid version parameter. You can think about two different users updating the same user story, there are two possible scenarios here:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>They are updating the same attributes on the element. In this situation the API will accept the first request and deny the second one because the version parameter will be considered as invalid.</p>
+</li>
+<li>
+<p>They are updating different attributes on the element. In this situation the API is smart enough for accepting both requests, the second one would have an invalid version but the changes are not affecting modified attributes so they can be applied safely</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The version parameter is considered valid if it contains the current version for the element, it will be incremented automatically if the modification is successful.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_pagination">1.3. Pagination</h3>
 <div class="paragraph">
 <p>By default the API will always return paginated results and includes the following headers in the response:</p>
 </div>
@@ -1054,7 +1074,7 @@ instance remember to change the url.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_throttling">1.3. Throttling</h3>
+<h3 id="_throttling">1.4. Throttling</h3>
 <div class="paragraph">
 <p>If the api is configured with throttling you have to take care on responses
 with 429 (Too many requests) status code, that mean you reach the throttling
@@ -9272,8 +9292,8 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
     <span class="tok-nt">&quot;big_photo&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;//www.gravatar.com/avatar/4648b6d514c3ecece1b87136ceeda1d1?size=80&quot;</span>
     <span class="tok-s2">&quot;bio&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;black&quot;</span><span class="tok-p">,</span>
-    <span class="tok-nt">&quot;default_language&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
-    <span class="tok-nt">&quot;default_timezone&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;lang&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;timezone&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;email&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;beta.testing@taiga.io&quot;</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;full_name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Beta testing&quot;</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;full_name_display&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Beta testing&quot;</span><span class="tok-p">,</span>
@@ -9297,9 +9317,9 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
     <span class="tok-nt">&quot;email&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;beta.testing@taiga.io&quot;</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;github_id&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#FC8EAC&quot;</span><span class="tok-p">,</span>
-    <span class="tok-nt">&quot;default_language&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;lang&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;full_name_display&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Beta testing&quot;</span><span class="tok-p">,</span>
-    <span class="tok-nt">&quot;default_timezone&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;timezone&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">7</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;full_name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Beta testing&quot;</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;photo&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;//www.gravatar.com/avatar/4648b6d514c3ecece1b87136ceeda1d1?size=80&quot;</span><span class="tok-p">,</span>
@@ -9804,8 +9824,8 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
             <span class="tok-nt">&quot;github_id&quot;</span><span class="tok-p">:</span><span class="tok-kc">null</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;#2099DB&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;bio&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
-            <span class="tok-nt">&quot;default_language&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
-            <span class="tok-nt">&quot;default_timezone&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;lang&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;timezone&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;is_active&quot;</span><span class="tok-p">:</span><span class="tok-kc">true</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;photo&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;//www.gravatar.com/avatar/f64db24896b923753d440e23faa856aa?size=80&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;big_photo&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;//www.gravatar.com/avatar/f64db24896b923753d440e23faa856aa?size=80&quot;</span>
@@ -10310,8 +10330,8 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
             <span class="tok-nt">&quot;github_id&quot;</span><span class="tok-p">:</span><span class="tok-kc">null</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;#2099DB&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;bio&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
-            <span class="tok-nt">&quot;default_language&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
-            <span class="tok-nt">&quot;default_timezone&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;lang&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;timezone&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;is_active&quot;</span><span class="tok-p">:</span><span class="tok-kc">true</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;photo&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;//www.gravatar.com/avatar/f64db24896b923753d440e23faa856aa?size=80&quot;</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;big_photo&quot;</span><span class="tok-p">:</span><span class="tok-s2">&quot;//www.gravatar.com/avatar/f64db24896b923753d440e23faa856aa?size=80&quot;</span>
@@ -13076,7 +13096,7 @@ API endpoints, and has its own documentation.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-03-18 18:53:31 CET
+Last updated 2015-04-06 08:15:30 CEST
 </div>
 </div>
 </body>

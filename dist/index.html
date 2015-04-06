@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.2">
-<title>Taiga documentation</title>
+<title>Taiga Documentation</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -411,30 +411,29 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>Taiga documentation</h1>
+<h1>Taiga Documentation</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li><a href="#_introduction">1. Introduction</a></li>
 <li><a href="#_project_maturity">2. Project Maturity</a></li>
 <li><a href="#_api">3. API</a></li>
-<li><a href="#_how_it_works">4. How it works</a></li>
+<li><a href="#_how_it_works">4. How it Works</a></li>
 <li><a href="#_requirements">5. Requirements</a></li>
 <li><a href="#_installation_guide">6. Installation Guide</a>
 <ul class="sectlevel2">
-<li><a href="#_setup_production_environment">6.1. Setup production environment</a></li>
-<li><a href="#_setup_development_environment">6.2. Setup development environment</a></li>
-<li><a href="#_other_ways_to_setup_initial_environment">6.3. Other ways to setup initial environment</a></li>
+<li><a href="#_setup_production_environment">6.1. Setup Production Environment</a></li>
+<li><a href="#_setup_development_environment">6.2. Setup Development Environment</a></li>
 </ul>
 </li>
-<li><a href="#_how_to_contribute">7. How to contribute</a>
+<li><a href="#_how_to_contribute">7. How to Contribute</a>
 <ul class="sectlevel2">
-<li><a href="#_reporting_bugs">7.1. Reporting bugs</a></li>
+<li><a href="#_reporting_bugs">7.1. Reporting Bugs</a></li>
 <li><a href="#_community">7.2. Community</a></li>
 <li><a href="#_donations">7.3. Donations</a></li>
 </ul>
 </li>
-<li><a href="#contrib-plugins">8. Contrib plugins</a></li>
+<li><a href="#contrib-plugins">8. Contrib Plugins</a></li>
 <li><a href="#_license">9. License</a></li>
 </ul>
 </div>
@@ -454,7 +453,7 @@ truly enjoyable.</p>
 <h2 id="_project_maturity">2. Project Maturity</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Because <em>Taiga</em> is still a young project we consider it is currently in beta state.</p>
+<p>Because <em>Taiga</em> is still a young project we currently consider it to be in a beta state.</p>
 </div>
 </div>
 </div>
@@ -468,7 +467,7 @@ documentation <a href="api.html">here</a>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_how_it_works">4. How it works</h2>
+<h2 id="_how_it_works">4. How it Works</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><em>Taiga</em> is made up of two components: <a href="https://github.com/taigaio/taiga-front">taiga-front</a>
@@ -477,11 +476,11 @@ and <a href="https://github.com/taigaio/taiga-back">taiga-back</a></p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>taiga-front</strong> has the front related code built with <strong>angularjs</strong> and <strong>coffescript</strong>.
-It can runs on any static file server like nginx.</p>
+<p><strong>taiga-front</strong> has the frontend related code built with <strong>angularjs</strong> and <strong>coffescript</strong>.
+It can run on any static file server like nginx.</p>
 </li>
 <li>
-<p><strong>taiga-back</strong> has the backend related code consisting of an api, built using <strong>django</strong>
+<p><strong>taiga-back</strong> has the backend related code consisting of an API, built using <strong>django</strong>
 and <strong>python3</strong>.</p>
 </li>
 </ul>
@@ -509,7 +508,7 @@ and <strong>python3</strong>.</p>
 <p>PostgreSQL &gt;= 9.3</p>
 </li>
 <li>
-<p>RabbitMQ (optional if you dont want async notifications)</p>
+<p>RabbitMQ (optional as long as you don&#8217;t want async notifications)</p>
 </li>
 </ul>
 </div>
@@ -522,10 +521,10 @@ and <strong>python3</strong>.</p>
 <p>GCC &amp; Development Headers</p>
 </li>
 <li>
-<p>Ruby 2.1 (only for compile sass)</p>
+<p>Ruby 2.1 (only for compiling sass)</p>
 </li>
 <li>
-<p>NodeJS 0.10 (with npm, gulp and bower for download dependencies and compile coffeescript)</p>
+<p>NodeJS 0.10 (with npm, gulp and bower for downloading dependencies and compiling coffeescript)</p>
 </li>
 </ul>
 </div>
@@ -536,34 +535,35 @@ and <strong>python3</strong>.</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section details everything you need to know to get <em>Taiga</em> up and running
-on both development and production environments.</p>
+in both development and production environments.</p>
 </div>
 <div class="sect2">
-<h3 id="_setup_production_environment">6.1. Setup production environment</h3>
+<h3 id="_setup_production_environment">6.1. Setup Production Environment</h3>
 <div class="paragraph">
 <p><a href="setup-production.html">This document contains the complete, step by step tutorial</a> of how
 to properly setup <em>Taiga</em> for a low traffic production environment.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_setup_development_environment">6.2. Setup development environment</h3>
+<h3 id="_setup_development_environment">6.2. Setup Development Environment</h3>
 <div class="paragraph">
 <p>You can view the complete documentation on how to <a href="setup-development.html">setup a proper
 development environment</a>.</p>
 </div>
-</div>
-<div class="sect2">
-<h3 id="_other_ways_to_setup_initial_environment">6.3. Other ways to setup initial environment</h3>
 <div class="paragraph">
-<p>Additional to traditional step by step manuals, <em>Taiga</em> comes with a
-collection of provisioning scripts and Vagrant support, and the
+<p>Other Ways to Setup an Initial Environment
+<sub>~</sub><sub>~</sub><sub>~</sub><sub>~</sub><sub>~</sub><sub>~</sub><sub>~</sub><sub>~</sub><sub>~</sub><sub>~</sub><sub>~</sub><sub>~</sub><sub>~</sub></p>
+</div>
+<div class="paragraph">
+<p>In addition to the traditional step-by-step manuals, <em>Taiga</em> comes with a
+collection of provisioning scripts and Vagrant support, and
 <a href="setup-alternatives.html">complete documentation of how to use them</a>.</p>
 </div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_how_to_contribute">7. How to contribute</h2>
+<h2 id="_how_to_contribute">7. How to Contribute</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Because <em>Taiga</em> is an open source project, we gratefully accept contributions in various forms.</p>
@@ -591,34 +591,34 @@ collection of provisioning scripts and Vagrant support, and the
 </ul>
 </div>
 <div class="paragraph">
-<p>Before starting to develope a big feature (intending to be included on the <em>Taiga</em> code base), it is
+<p>Before starting to develop a big feature (intended to be included on the <em>Taiga</em> code base), it is
 strongly recommended that you reach out to us on the <a href="http://groups.google.com/d/forum/taigaio">mailing list</a>.</p>
 </div>
 <div class="sect2">
-<h3 id="_reporting_bugs">7.1. Reporting bugs</h3>
+<h3 id="_reporting_bugs">7.1. Reporting Bugs</h3>
 <div class="paragraph">
 <p>Before reporting a bug or requesting a new feature, please consider these general points:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Check that someone hasn&#8217;t already filed the bug or feature request by searching our running custom
-queries in the ticket tracker.</p>
+<p>Check that someone hasn&#8217;t already filed the bug or feature request by searching, or running custom
+queries in, the ticket tracker.</p>
 </li>
 <li>
-<p>Check the right repository to use for report an issue: bugs related to UI should go to <strong>taiga-front</strong>,
-if something is broken on the backend, an issue should be opened on <strong>taiga-back</strong> repository.</p>
+<p>Check the right repository to use for reporting an issue: bugs related to UI should go to <strong>taiga-front</strong>,
+but if something is broken on the backend, an issue should be opened on the <strong>taiga-back</strong> repository.</p>
 </li>
 <li>
-<p>First ask on the <a href="http://groups.google.com/d/forum/taigaio">mailing list</a> first if you&#8217;re not sure if
+<p>Ask on the <a href="http://groups.google.com/d/forum/taigaio">mailing list</a> first if you&#8217;re not sure if
 what you&#8217;re seeing is a bug.</p>
 </li>
 <li>
-<p>Don&#8217;t use the github issues system to ask support questions. Use the
+<p>Don&#8217;t use the GitHub issues system to ask support questions. Use the
 <a href="http://groups.google.com/d/forum/taigaio">mailing list</a> for that.</p>
 </li>
 <li>
-<p>Don’t use the github issues for lengthy discussions, because they&#8217;re likely to get lost. If a particular
+<p>Don’t use GitHub issues for lengthy discussions, because they&#8217;re likely to get lost. If a particular
 ticket is controversial, please move the discussion to the
 <a href="http://groups.google.com/d/forum/taigaio">mailing list</a>.</p>
 </li>
@@ -640,8 +640,8 @@ and ask any questions you may have.</p>
 <h3 id="_donations">7.3. Donations</h3>
 <div class="paragraph">
 <p>We are grateful for your emails volunteering donations to <em>Taiga</em>. We feel comfortable accepting them under
-these conditions: The first is that we will only do so while we are in the current beta / pre-revenue stage
-and that whatever money is donated will go towards a bounty fund. Starting Q2 2015 we will be engaging
+these conditions: the first is that we will only do so while we are in the current beta/pre-revenue stage,
+and the second is that whatever money is donated will go towards a bounty fund. Starting Q2 2015 we will be engaging
 much more actively with our community to help further the development of Taiga, and we will use these
 donations to reward people working alongside us.</p>
 </div>
@@ -653,11 +653,11 @@ using the email: <a href="mailto:eposner@taiga.io">eposner@taiga.io</a></p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="contrib-plugins">8. Contrib plugins</h2>
+<h2 id="contrib-plugins">8. Contrib Plugins</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Taiga supports the inclusion of contrib plugins, each plugin has its own
-documentation and repository. The current supported plugins are:</p>
+documentation and repository. The currently supported plugins are:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -679,7 +679,7 @@ documentation and repository. The current supported plugins are:</p>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Every code patch accepted in the Taiga codebase is accepted under the AGPL v3.0 license. It is important that you
-not include any code which cannot be licensed under AGPL v3.0.</p>
+do not include any code which cannot be licensed under AGPL v3.0.</p>
 </div>
 <div class="paragraph">
 <p>You can see the complete license in the <code>LICENSE</code> file in the root of repository.</p>
@@ -689,7 +689,7 @@ not include any code which cannot be licensed under AGPL v3.0.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-03-18 18:53:31 CET
+Last updated 2015-04-06 10:25:18 CEST
 </div>
 </div>
 </body>
