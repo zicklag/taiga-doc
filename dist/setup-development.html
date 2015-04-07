@@ -876,6 +876,21 @@ gulp</code></pre>
 <pre class="pygments highlight"><code data-lang="bash">sudo  apt-get install rabbitmq-server</code></pre>
 </div>
 </div>
+<div class="listingblock">
+<div class="title">Creating a taiga user and virtualhost for rabbitmq</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">sudo rabbitmqctl add_user taiga PASSWORD
+sudo rabbitmqctl add_vhost taiga
+sudo rabbitmqctl set_permissions -p taiga taiga <span class="tok-s2">&quot;.*&quot;</span> <span class="tok-s2">&quot;.*&quot;</span> <span class="tok-s2">&quot;.*&quot;</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Update your taiga-back settings to include in your local.py the lines:</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span class="tok-n">EVENTS_PUSH_BACKEND</span> <span class="tok-o">=</span> <span class="tok-s">&quot;taiga.events.backends.rabbitmq.EventsPushBackend&quot;</span>
+<span class="tok-n">EVENTS_PUSH_BACKEND_OPTIONS</span> <span class="tok-o">=</span> <span class="tok-p">{</span><span class="tok-s">&quot;url&quot;</span><span class="tok-p">:</span> <span class="tok-s">&quot;amqp://taiga:PASSWORD@localhost:5672/taiga&quot;</span><span class="tok-p">}</span></code></pre>
+</div>
+</div>
 <div class="paragraph">
 <p>The next step is downloading the code from github and installing their dependencies:</p>
 </div>
@@ -901,6 +916,18 @@ sudo npm install -g coffee-script</code></pre>
 </div>
 </div>
 <div class="listingblock">
+<div class="title">Your config.json should be like:</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
+    <span class="tok-nt">&quot;url&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;amqp://taiga:PASSWORD@localhost:5672/taiga&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;secret&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;mysecret&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;webSocketServer&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;port&quot;</span><span class="tok-p">:</span> <span class="tok-mi">8888</span>
+    <span class="tok-p">}</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
 <div class="title">Now run the taiga events service</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="bash">coffee index.coffee</code></pre>
@@ -911,7 +938,7 @@ sudo npm install -g coffee-script</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-04-07 09:07:56 CEST
+Last updated 2015-04-07 10:43:24 CEST
 </div>
 </div>
 </body>

@@ -899,6 +899,21 @@ explained in the final section of this tutorial.</p>
 <pre class="pygments highlight"><code data-lang="bash">sudo  apt-get install rabbitmq-server</code></pre>
 </div>
 </div>
+<div class="listingblock">
+<div class="title">Creating a taiga user and virtualhost for rabbitmq</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">sudo rabbitmqctl add_user taiga PASSWORD
+sudo rabbitmqctl add_vhost taiga
+sudo rabbitmqctl set_permissions -p taiga taiga <span class="tok-s2">&quot;.*&quot;</span> <span class="tok-s2">&quot;.*&quot;</span> <span class="tok-s2">&quot;.*&quot;</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Update your taiga-back settings to include in your local.py the lines:</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span class="tok-n">EVENTS_PUSH_BACKEND</span> <span class="tok-o">=</span> <span class="tok-s">&quot;taiga.events.backends.rabbitmq.EventsPushBackend&quot;</span>
+<span class="tok-n">EVENTS_PUSH_BACKEND_OPTIONS</span> <span class="tok-o">=</span> <span class="tok-p">{</span><span class="tok-s">&quot;url&quot;</span><span class="tok-p">:</span> <span class="tok-s">&quot;amqp://taiga:PASSWORD@localhost:5672/taiga&quot;</span><span class="tok-p">}</span></code></pre>
+</div>
+</div>
 <div class="paragraph">
 <p>The next step is downloading the code from github and installing their dependencies:</p>
 </div>
@@ -923,6 +938,18 @@ sudo npm install -g coffee-script</code></pre>
 <pre class="pygments highlight"><code data-lang="bash">cp config.example.json config.json</code></pre>
 </div>
 </div>
+<div class="listingblock">
+<div class="title">Your config.json should be like:</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
+    <span class="tok-nt">&quot;url&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;amqp://taiga:PASSWORD@localhost:5672/taiga&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;secret&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;mysecret&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;webSocketServer&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;port&quot;</span><span class="tok-p">:</span> <span class="tok-mi">8888</span>
+    <span class="tok-p">}</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
 <div class="paragraph">
 <p>Now you have to add taiga-events to circus configuration. See <a href="#circus-and-gunicorn">Circus and gunicorn</a> section.</p>
 </div>
@@ -930,7 +957,7 @@ sudo npm install -g coffee-script</code></pre>
 <div class="title">Taiga taiga-events configuration block for circus on ~/circus.ini</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="ini"><span class="tok-k">[watcher:taiga-events]</span>
-<span class="tok-na">working_dir</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/taiga/taiga-events</span>
+<span class="tok-na">working_dir</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/taiga-events</span>
 <span class="tok-na">cmd</span> <span class="tok-o">=</span> <span class="tok-s">node_modules/coffee-script/bin/coffee</span>
 <span class="tok-na">args</span> <span class="tok-o">=</span> <span class="tok-s">index.coffee</span>
 <span class="tok-na">uid</span> <span class="tok-o">=</span> <span class="tok-s">taiga</span>
@@ -948,13 +975,39 @@ sudo npm install -g coffee-script</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Then you have to reload your circus configuration and start taiga-events:</p>
+<p>Then you have to reload your circus configuration restart the other services and start taiga-events:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="bash">circusctl reloadconfig
+circusctl restart taiga
+circusctl restart taiga-celery
 circusctl start taiga-events</code></pre>
 </div>
+</div>
+<div class="paragraph">
+<p>Nginx need extra configuration too for taiga-events</p>
+</div>
+<div class="listingblock">
+<div class="title">Add specific configuration for <strong>taiga-events</strong> on /etc/nginx/sites-available/taiga.</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="nginx"><span class="tok-k">server</span> <span class="tok-p">{</span>
+    <span class="tok-kn">...</span>
+    <span class="tok-s">location</span> <span class="tok-s">/events</span> <span class="tok-p">{</span>
+       <span class="tok-kn">proxy_pass</span> <span class="tok-s">http://127.0.0.1:8888/events</span><span class="tok-p">;</span>
+       <span class="tok-kn">proxy_http_version</span> <span class="tok-mi">1</span><span class="tok-s">.1</span><span class="tok-p">;</span>
+       <span class="tok-kn">proxy_set_header</span> <span class="tok-s">Upgrade</span> <span class="tok-nv">$http_upgrade</span><span class="tok-p">;</span>
+       <span class="tok-kn">proxy_set_header</span> <span class="tok-s">Connection</span> <span class="tok-s">&quot;upgrade&quot;</span><span class="tok-p">;</span>
+       <span class="tok-kn">proxy_connect_timeout</span> <span class="tok-s">7d</span><span class="tok-p">;</span>
+       <span class="tok-kn">proxy_send_timeout</span> <span class="tok-s">7d</span><span class="tok-p">;</span>
+       <span class="tok-kn">proxy_read_timeout</span> <span class="tok-s">7d</span><span class="tok-p">;</span>
+    <span class="tok-p">}</span>
+    <span class="tok-kn">...</span>
+<span class="tok-err">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And finally, reload nginx with <code>sudo service nginx reload</code></p>
 </div>
 </div>
 </div>
@@ -1387,7 +1440,7 @@ repository.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-04-07 09:11:06 CEST
+Last updated 2015-04-07 10:46:06 CEST
 </div>
 </div>
 </body>
