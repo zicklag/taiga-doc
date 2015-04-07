@@ -868,14 +868,50 @@ gulp</code></pre>
 <p><strong>This step is completelly optional and can be skipped</strong></p>
 </div>
 <div class="paragraph">
-<p>TODO</p>
+<p>Taiga events needs rabbitmq (the message broker) to be installed</p>
+</div>
+<div class="listingblock">
+<div class="title">Installing rabbitmq</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">sudo  apt-get install rabbitmq-server</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The next step is downloading the code from github and installing their dependencies:</p>
+</div>
+<div class="listingblock">
+<div class="title">Download the code</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span class="tok-nb">cd</span> ~
+git clone https://github.com/taigaio/taiga-events.git taiga-events
+<span class="tok-nb">cd </span>taiga-events</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Install all the javascript dependencies needed</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">npm install
+sudo npm install -g coffee-script</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Copy and edit the config.json file you should update your rabbitmq uri and the secret key.</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">cp config.example.json config.json</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Now run the taiga events service</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">coffee index.coffee</code></pre>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-04-06 08:15:30 CEST
+Last updated 2015-04-07 09:07:56 CEST
 </div>
 </div>
 </body>
