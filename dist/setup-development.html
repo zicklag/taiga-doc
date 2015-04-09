@@ -489,12 +489,14 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_setup_python_environment">3.3. Setup python environment</a></li>
 <li><a href="#_run">3.4. Run</a></li>
 <li><a href="#_async_tasks_optional">3.5. Async tasks (Optional)</a></li>
+<li><a href="#_debian_installation_notes">3.6. Debian installation notes</a></li>
 </ul>
 </li>
 <li><a href="#_frontend_installation">4. Frontend installation</a>
 <ul class="sectlevel2">
 <li><a href="#_install_dependencies_2">4.1. Install dependencies</a></li>
-<li><a href="#_final_steps">4.2. Final steps</a></li>
+<li><a href="#_debian_installation_notes_2">4.2. Debian installation notes</a></li>
+<li><a href="#_final_steps">4.3. Final steps</a></li>
 </ul>
 </li>
 <li><a href="#_events_installation">5. Events installation</a></li>
@@ -533,7 +535,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_before_starting">2. Before starting</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This tutorial assumes that you are using a clean, recently updated, <strong>ubuntu 14.04</strong> image.</p>
+<p>This tutorial assumes that you are using a clean, recently updated, <strong>ubuntu 14.04</strong> image.
+Notes for a Debian stable (wheezy) install are included at the end of the appropriate sections.</p>
 </div>
 </div>
 </div>
@@ -541,13 +544,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_backend_environment">3. Backend environment</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section helps with the download an run of the backend (api) Taiga service.</p>
+<p>This section helps with the download and configuration of the backend (api) Taiga service.</p>
 </div>
 <div class="sect2">
 <h3 id="_install_dependencies">3.1. Install dependencies</h3>
 <div class="paragraph">
-<p>The Backend is written mainly in python (3.4) but for some third party libraries we need to install a
-C compiller and development headers.</p>
+<p>The backend is written mainly in python (3.4) but for some third party libraries we need to install a
+C compiler and development headers.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -584,7 +587,7 @@ sudo -u postgres createdb taiga -O taiga</code></pre>
 <div class="sect2">
 <h3 id="_setup_python_environment">3.3. Setup python environment</h3>
 <div class="paragraph">
-<p>For run <strong>taiga-back</strong> you should have python (3.4) installed with some other third party
+<p>To run <strong>taiga-back</strong> you should have python (3.4) installed along with some other third party
 libraries. As a first step, start installing python and virtualenvwrapper:</p>
 </div>
 <div class="listingblock">
@@ -600,18 +603,18 @@ sudo apt-get install libxml2-dev libxslt-dev</code></pre>
 <div class="title">Note</div>
 </td>
 <td class="content">
-<strong>virtualenvwrapper</strong> helps maintain the system clean of third party libraries installed
-with language package manager, installing them in isolated virtual environment.
+<strong>virtualenvwrapper</strong> helps keep the system clean from third party libraries installed
+with the language&#8217;s package manager by installing them in isolated virtual environments.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Restart the shell or run <code>bash</code> again, to reload the bash environment with virtualenvwrapper
+<p>Restart the shell or run <code>bash</code> again, to reload the bash environment with virtualenvwrapper&#8217;s
 variables and functions.</p>
 </div>
 <div class="paragraph">
-<p>The next step is to download the code from github and install their dependencies:</p>
+<p>The next step is to download the code from GitHub and install its dependencies:</p>
 </div>
 <div class="listingblock">
 <div class="title">Download the code</div>
@@ -623,7 +626,7 @@ git checkout stable</code></pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Create new virtualenv named <strong>taiga</strong></div>
+<div class="title">Create a new virtualenv named <strong>taiga</strong></div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="bash">mkvirtualenv -p /usr/bin/python3.4 taiga</code></pre>
 </div>
@@ -649,11 +652,11 @@ python manage.py sample_data</code></pre>
 <p>This creates a new user <strong>admin</strong> with password <strong>123123</strong> and some sample data.</p>
 </div>
 <div class="paragraph">
-<p>You can tune your own environment configuration editing the <code>settings/local.py</code>
+<p>You can tune your own environment configuration by editing the <code>settings/local.py</code>
 configuration file to overwrite any setting in <code>settings/common.py</code>.</p>
 </div>
 <div class="listingblock">
-<div class="title">Put this on ~/taiga-back/settings/local.py</div>
+<div class="title">Put this in ~/taiga-back/settings/local.py</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="python"><span class="tok-kn">from</span> <span class="tok-nn">.common</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
 
@@ -673,13 +676,13 @@ python manage.py runserver</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Then you must be able to see a json representing the list of endpoints in the url <a href="http://localhost:8000/api/v1/" class="bare">http://localhost:8000/api/v1/</a> .</p>
+<p>Then you should be able to see a json represention of the list of endpoints at the url <a href="http://localhost:8000/api/v1/" class="bare">http://localhost:8000/api/v1/</a></p>
 </div>
 </div>
 <div class="sect2">
 <h3 id="_async_tasks_optional">3.5. Async tasks (Optional)</h3>
 <div class="paragraph">
-<p>The default behavior in Taiga is to do all tasks in a synchronous way, but some of them
+<p>The default behavior in Taiga is to do all tasks synchronously, but some of them
 can be completely asynchronous (for example webhooks or import/export). To do
 this, you have to configure and install the celery service requirements.</p>
 </div>
@@ -692,7 +695,7 @@ this, you have to configure and install the celery service requirements.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>To run celery with taiga you have to include in your local.py the lines:</p>
+<p>To run celery with Taiga you have to include the following lines in your local.py:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -704,8 +707,8 @@ this, you have to configure and install the celery service requirements.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>You can configure other broker or results backend. If you need more info about
-it you can check the celery documentation web page:
+<p>You can configure other broker or results backends as needed. If you need more
+info about configuration you can check the celery documentation web page:
 <a href="http://docs.celeryproject.org/en/latest/index.html" class="bare">http://docs.celeryproject.org/en/latest/index.html</a></p>
 </div>
 <div class="paragraph">
@@ -716,6 +719,33 @@ tasks. You can run celery with:</p>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="bash">workon taiga  <span class="tok-c"># enable the taiga virtualenv</span>
 celery -A taiga worker -l info -E</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_debian_installation_notes">3.6. Debian installation notes</h3>
+<div class="paragraph">
+<p>The latest Python available from Stable/Wheezy&#8217;s apt repositories is only 3.1, which is not sufficient for taiga-back.
+Python 3.4 is available from Debian Testing (jessie) if you are comfortable using mixed versions in your apt sources.
+Otherwise, you must build Python 3.4 from source (see <a href="https://www.python.org/downloads/source/" class="bare">https://www.python.org/downloads/source/</a> for links).
+When building from source, if the bz2 development libraries are not already present on your system, then you must first:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">sudo apt-get install libbz2-dev</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Or else Python will build without the bz2 module necessary for some pip installed requirements.</p>
+</div>
+<div class="paragraph">
+<p>The latest Postgresql available for Stable/Wheezy is 9.1, but a fully Wheezy-compatible 9.3 build is available from
+the official Postgresql apt repositories, however:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span class="tok-nb">echo</span> <span class="tok-s2">&quot;deb http://apt.postgresql.org/pub/repos/apt/ wheezy-pgdg main&quot;</span> <span class="tok-p">|</span> sudo tee -a /etc/apt/sources.list
+sudo apt-get update</code></pre>
 </div>
 </div>
 </div>
@@ -730,15 +760,15 @@ celery -A taiga worker -l info -E</code></pre>
 <div class="sect2">
 <h3 id="_install_dependencies_2">4.1. Install dependencies</h3>
 <div class="paragraph">
-<p>The Frontend application runs entirelly on a browser, and it should be written using javascript, css and html.
-In case of <strong>taiga-front</strong> we have used other languages. Because of this, you should install some
-additional dependencies that compile <strong>taiga-front</strong> code intro something the browser can understand.</p>
+<p>The frontend application runs entirely in a browser, and thus must be deployed as javascript, css and html.
+In the case of <strong>taiga-front</strong> we have used other languages. Because of this, you will need to install some
+additional dependencies that compile <strong>taiga-front</strong> code into something the browser can understand.</p>
 </div>
 <div class="sect3">
 <h4 id="_ruby_and_gems">4.1.1. Ruby and Gems</h4>
 <div class="paragraph">
 <p>Ruby is used mainly for compiling <strong>sass</strong> (css preprocessor). It is also used for sass linting but that
-is only on development environments.</p>
+is only in development environments.</p>
 </div>
 <div class="listingblock">
 <div class="title">Install ruby</div>
@@ -753,13 +783,13 @@ is only on development environments.</p>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Make gems scripts available in path putting this on <strong>~/.bashrc</strong></div>
+<div class="title">Make gems' scripts available from your path by putting this in your <strong>~/.bashrc</strong></div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="bash"><span class="tok-nb">export </span><span class="tok-nv">PATH</span><span class="tok-o">=</span>~/.gem/ruby/1.9.1/bin:<span class="tok-nv">$PATH</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Restart the shell or run bash to make the path changes available.</p>
+<p>Restart the shell, source ~/.bashrc, or run bash again to make the path changes available.</p>
 </div>
 </div>
 <div class="sect3">
@@ -770,10 +800,10 @@ is only on development environments.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><strong>gulp</strong>: task execution tool. Used mainly for executing deploying and compiling tasks.</p>
+<p><strong>gulp</strong>: task execution tool. Used mainly for executing deployment and compilation tasks.</p>
 </li>
 <li>
-<p><strong>bower</strong>: javascript dependencies management tool. Used mainly for downloading third party libraries
+<p><strong>bower</strong>: javascript dependency management tool. Used mainly for downloading third party libraries
 used by <strong>taiga-front</strong>.</p>
 </li>
 </ul>
@@ -785,7 +815,7 @@ used by <strong>taiga-front</strong>.</p>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Make sure your bash responds to node command to have a smooth installation of gulp and bower</div>
+<div class="title">Make sure your bash responds to the node command to have a smooth installation of gulp and bower</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="bash">node</code></pre>
 </div>
@@ -798,8 +828,11 @@ used by <strong>taiga-front</strong>.</p>
 <pre class="pygments highlight"><code data-lang="bash">sudo ln -s /usr/bin/nodejs /usr/bin/node</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>(If you&#8217;re on Debian, see the Debian-specific installation notes below.)</p>
+</div>
 <div class="listingblock">
-<div class="title">Install <strong>gulp</strong> and <strong>bower</strong> using recently installed npm</div>
+<div class="title">Install <strong>gulp</strong> and <strong>bower</strong> using the recently installed npm</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="bash">sudo npm install -g gulp bower</code></pre>
 </div>
@@ -814,7 +847,7 @@ git checkout stable</code></pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Install all dependencies needed for run gulp and compile taiga-front</div>
+<div class="title">Install all dependencies needed to run gulp and compile taiga-front</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="bash">npm install
 bower install</code></pre>
@@ -823,9 +856,54 @@ bower install</code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_final_steps">4.2. Final steps</h3>
+<h3 id="_debian_installation_notes_2">4.2. Debian installation notes</h3>
 <div class="paragraph">
-<p>Having installed all dependencies you only have to run the code.</p>
+<p>While Debian Testing (jessie), provides a nodejs package out of the box, Debian Stable (wheezy) does not.
+You can access one via the wheezy-backports apt repository, however, which can be added to your system as follows:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span class="tok-nb">echo</span> <span class="tok-s2">&quot;deb http://ftp.us.debian.org/debian wheezy-backports main&quot;</span> <span class="tok-p">|</span> sudo tee -a /etc/apt/sources.list</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then, after a:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">sudo apt-get update</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">sudo apt-get install nodejs</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Note that Debian installs the executable as nodejs not node, so you will need to provide this alias by issuing the following command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">sudo update-alternatives --install /usr/bin/node nodejs /usr/bin/nodejs 100</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Testing (jessie) also provides an npm package, but npm is not available for Stable (wheezy), not even from wheezy-backports.
+Thus, you will need to install it manually via:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl https://www.npmjs.com/install.sh <span class="tok-p">|</span> sudo sh</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_final_steps">4.3. Final steps</h3>
+<div class="paragraph">
+<p>Having installed all the dependencies, all you have left to do is to run the code itself.</p>
 </div>
 <div class="listingblock">
 <div class="title">Run gulp</div>
@@ -835,7 +913,7 @@ gulp</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Now, you can access to <a href="http://localhost:9001" class="bare">http://localhost:9001</a> port for access to taiga-front.</p>
+<p>Now, you can access <a href="http://localhost:9001" class="bare">http://localhost:9001</a> for access to taiga-front.</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -885,14 +963,14 @@ sudo rabbitmqctl set_permissions -p taiga taiga <span class="tok-s2">&quot;.*&qu
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Update your taiga-back settings to include in your local.py the lines:</div>
+<div class="title">Update your taiga-back settings to include the following lines in your local.py:</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="python"><span class="tok-n">EVENTS_PUSH_BACKEND</span> <span class="tok-o">=</span> <span class="tok-s">&quot;taiga.events.backends.rabbitmq.EventsPushBackend&quot;</span>
 <span class="tok-n">EVENTS_PUSH_BACKEND_OPTIONS</span> <span class="tok-o">=</span> <span class="tok-p">{</span><span class="tok-s">&quot;url&quot;</span><span class="tok-p">:</span> <span class="tok-s">&quot;amqp://taiga:PASSWORD@localhost:5672/taiga&quot;</span><span class="tok-p">}</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>The next step is downloading the code from github and installing their dependencies:</p>
+<p>The next step is downloading the code from GitHub and installing the dependencies:</p>
 </div>
 <div class="listingblock">
 <div class="title">Download the code</div>
@@ -910,13 +988,13 @@ sudo npm install -g coffee-script</code></pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Copy and edit the config.json file you should update your rabbitmq uri and the secret key.</div>
+<div class="title">Copy config.example.json to config.json and edit it to update the values for your rabbitmq uri and secret key.</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="bash">cp config.example.json config.json</code></pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Your config.json should be like:</div>
+<div class="title">Your config.json should look something like:</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
     <span class="tok-nt">&quot;url&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;amqp://taiga:PASSWORD@localhost:5672/taiga&quot;</span><span class="tok-p">,</span>
@@ -938,7 +1016,7 @@ sudo npm install -g coffee-script</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-04-08 08:05:00 CEST
+Last updated 2015-04-09 13:55:15 CEST
 </div>
 </div>
 </body>
