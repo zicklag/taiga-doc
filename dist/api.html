@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="js/mlpushmenu.js" type="text/javascript"></script>
+<script src="js/modernizr.custom.js" type="text/javascript"></script>
+<script src="js/classie.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 <meta charset="UTF-8">
-<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.2">
+<!--[if IE]>
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<![endif]-->
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="Asciidoctor 1.5.2" name="generator">
 <title>Taiga REST API</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
-<style>
-/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
+<style>/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 /* Remove the comments around the @import statement below when using this as a custom stylesheet */
 /*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400";*/
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
@@ -406,10 +410,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .hide-on-print{display:none!important}
 .print-only{display:block!important}
 .hide-for-print{display:none!important}
-.show-for-print{display:inherit!important}}
-</style>
-<style>
-.listingblock .pygments .hll { background-color: #ffffcc }
+.show-for-print{display:inherit!important}}</style>
+<style>.listingblock .pygments .hll { background-color: #ffffcc }
 .listingblock .pygments  { background: #f0f0f0; }
 .listingblock .pygments .tok-c { color: #60a0b0; font-style: italic } /* Comment */
 .listingblock .pygments .tok-err { border: 1px solid #FF0000 } /* Error */
@@ -471,449 +473,1180 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .listingblock .pygments .tok-vc { color: #bb60d5 } /* Name.Variable.Class */
 .listingblock .pygments .tok-vg { color: #bb60d5 } /* Name.Variable.Global */
 .listingblock .pygments .tok-vi { color: #bb60d5 } /* Name.Variable.Instance */
-.listingblock .pygments .tok-il { color: #40a070 } /* Literal.Number.Integer.Long */
-</style>
+.listingblock .pygments .tok-il { color: #40a070 } /* Literal.Number.Integer.Long */</style>
 </head>
-<body class="article toc2 toc-left">
-<div id="header">
-<h1>Taiga REST API</h1>
-<div id="toc" class="toc2">
+<link href="css/menu.css" rel="stylesheet">
+<link href="css/icons.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+<body class="article toc2 toc-left"></body>
+</html>
+<div class="container">
+<a class="menu-trigger" id="trigger"></a>
+<div class="mp-pusher" id="mp-pusher">
+<div class="toc2" id="toc">
+<div class="mp-level">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_general_notes">1. General notes</a>
+<li>
+<a href="#_general_notes">1. General notes</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
 <ul class="sectlevel2">
-<li><a href="#_authentication">1.1. Authentication</a></li>
-<li><a href="#_occ_optimistic_concurrency_control">1.2. OCC - Optimistic concurrency control</a></li>
-<li><a href="#_pagination">1.3. Pagination</a></li>
-<li><a href="#_throttling">1.4. Throttling</a></li>
-</ul>
+<li>
+<a href="#_authentication">1.1. Authentication</a>
 </li>
-<li><a href="#_endpoints_summary">2. Endpoints Summary</a>
-<ul class="sectlevel2">
-<li><a href="#_auth">2.1. Auth</a></li>
-<li><a href="#_resolver">2.2. Resolver</a></li>
-<li><a href="#_searches">2.3. Searches</a></li>
-<li><a href="#_user_storage">2.4. User storage</a></li>
-<li><a href="#_project_templates">2.5. Project templates</a></li>
-<li><a href="#_projects">2.6. Projects</a></li>
-<li><a href="#_memberships_invitations">2.7. Memberships/Invitations</a></li>
-<li><a href="#_milestones">2.8. Milestones</a></li>
-<li><a href="#_user_stories">2.9. User stories</a></li>
-<li><a href="#_user_story_status">2.10. User story status</a></li>
-<li><a href="#_points">2.11. Points</a></li>
-<li><a href="#_user_story_custom_attribute">2.12. User story custom attribute</a></li>
-<li><a href="#_user_story_custom_attributes_values">2.13. User story custom attributes values</a></li>
-<li><a href="#_tasks">2.14. Tasks</a></li>
-<li><a href="#_task_status">2.15. Task status</a></li>
-<li><a href="#_task_custom_attribute">2.16. Task custom attribute</a></li>
-<li><a href="#_task_custom_attributes_values">2.17. Task custom attributes values</a></li>
-<li><a href="#_issues">2.18. Issues</a></li>
-<li><a href="#_issue_status">2.19. Issue status</a></li>
-<li><a href="#_issue_types">2.20. Issue types</a></li>
-<li><a href="#_priorities">2.21. Priorities</a></li>
-<li><a href="#_severities">2.22. Severities</a></li>
-<li><a href="#_issue_custom_attribute">2.23. Issue custom attribute</a></li>
-<li><a href="#_issue_custom_attributes_values">2.24. Issue custom attributes values</a></li>
-<li><a href="#_wiki_pages">2.25. Wiki pages</a></li>
-<li><a href="#_wiki_links">2.26. Wiki links</a></li>
-<li><a href="#_history">2.27. History</a></li>
-<li><a href="#_users">2.28. Users</a></li>
-<li><a href="#_notify_policies">2.29. Notify policies</a></li>
-<li><a href="#_feedback">2.30. Feedback</a></li>
-<li><a href="#_export_import">2.31. Export/Import</a></li>
-<li><a href="#_webhooks">2.32. Webhooks</a></li>
-</ul>
+<li>
+<a href="#_occ_optimistic_concurrency_control">1.2. OCC - Optimistic concurrency control</a>
 </li>
-<li><a href="#auth">3. Auth</a>
-<ul class="sectlevel2">
-<li><a href="#auth-normal-login">3.1. Normal login</a></li>
-<li><a href="#auth-github-login">3.2. Github login</a></li>
-<li><a href="#auth-public-registry">3.3. Public registry</a></li>
-<li><a href="#auth-private-registry">3.4. Private registry</a></li>
-</ul>
+<li>
+<a href="#_pagination">1.3. Pagination</a>
 </li>
-<li><a href="#resolver">4. Resolver</a>
-<ul class="sectlevel2">
-<li><a href="#resolver-projects">4.1. Projects</a></li>
-<li><a href="#resolver-user-stories">4.2. User stories</a></li>
-<li><a href="#resolver-issues">4.3. Issues</a></li>
-<li><a href="#resolver-tasks">4.4. Tasks</a></li>
-<li><a href="#resolver-milestones">4.5. Milestones</a></li>
-<li><a href="#resolver-wiki-pages">4.6. Wiki pages</a></li>
-<li><a href="#resolver-multiple-resolution">4.7. Multiple resolution</a></li>
-</ul>
+<li>
+<a href="#_throttling">1.4. Throttling</a>
 </li>
-<li><a href="#searches">5. Searches</a>
-<ul class="sectlevel2">
-<li><a href="#searches-search">5.1. Search</a></li>
-</ul>
-</li>
-<li><a href="#user-storage">6. User storage</a>
-<ul class="sectlevel2">
-<li><a href="#user-storage-list">6.1. List</a></li>
-<li><a href="#user-storage-create">6.2. Create</a></li>
-<li><a href="#user-storage-get">6.3. Get</a></li>
-<li><a href="#user-storage-edit">6.4. Edit</a></li>
-<li><a href="#user-storage-delete">6.5. Delete</a></li>
-</ul>
-</li>
-<li><a href="#project-templates">7. Project templates</a>
-<ul class="sectlevel2">
-<li><a href="#project-templates-list">7.1. List</a></li>
-<li><a href="#project-templates-create">7.2. Create</a></li>
-<li><a href="#project-templates-get">7.3. Get</a></li>
-<li><a href="#project-templates-edit">7.4. Edit</a></li>
-<li><a href="#project-templates-delete">7.5. Delete</a></li>
-</ul>
-</li>
-<li><a href="#projects">8. Projects</a>
-<ul class="sectlevel2">
-<li><a href="#projects-list">8.1. List</a></li>
-<li><a href="#projects-create">8.2. Create</a></li>
-<li><a href="#projects-get">8.3. Get</a></li>
-<li><a href="#projects-get-by-slug">8.4. Get by slug</a></li>
-<li><a href="#projects-edit">8.5. Edit</a></li>
-<li><a href="#projects-delete">8.6. Delete</a></li>
-<li><a href="#projects-get-modules">8.7. Get modules</a></li>
-<li><a href="#projects-edit-modules">8.8. Edit modules</a></li>
-<li><a href="#projects-stats">8.9. Stats</a></li>
-<li><a href="#projects-issue-stats">8.10. Issue stats</a></li>
-<li><a href="#projects-issue-filters-data">8.11. Issue filters data</a></li>
-<li><a href="#projects-tag-colors">8.12. Tag colors</a></li>
-<li><a href="#projects-star">8.13. Star</a></li>
-<li><a href="#projects-unstar">8.14. Unstar</a></li>
-<li><a href="#projects-fans">8.15. Fans</a></li>
-<li><a href="#projects-create-template">8.16. Create template</a></li>
-<li><a href="#projects-leave">8.17. Leave</a></li>
-</ul>
-</li>
-<li><a href="#memberships">9. Memberships/Invitations</a>
-<ul class="sectlevel2">
-<li><a href="#memberships-list">9.1. List</a></li>
-<li><a href="#memberships-create">9.2. Create</a></li>
-<li><a href="#memberships-bulk-create">9.3. Bulk creation</a></li>
-<li><a href="#memberships-get">9.4. Get</a></li>
-<li><a href="#memberships-edit">9.5. Edit</a></li>
-<li><a href="#memberships-delete">9.6. Delete</a></li>
-<li><a href="#memberships-resend-invitation">9.7. Resend invitation</a></li>
-<li><a href="#memberships-invitations">9.8. Get Invitation (by token)</a></li>
-</ul>
-</li>
-<li><a href="#milestones">10. Milestones</a>
-<ul class="sectlevel2">
-<li><a href="#milestones-list">10.1. List</a></li>
-<li><a href="#milestones-create">10.2. Create</a></li>
-<li><a href="#milestones-get">10.3. Get</a></li>
-<li><a href="#milestones-edit">10.4. Edit</a></li>
-<li><a href="#milestones-delete">10.5. Delete</a></li>
-<li><a href="#milestones-stats">10.6. Stats</a></li>
-</ul>
-</li>
-<li><a href="#user-stories">11. User stories</a>
-<ul class="sectlevel2">
-<li><a href="#user-stories-list">11.1. List</a></li>
-<li><a href="#user-stories-create">11.2. Create</a></li>
-<li><a href="#user-stories-get">11.3. Get</a></li>
-<li><a href="#user-stories-get-by-ref">11.4. Get by ref</a></li>
-<li><a href="#user-stories-edit">11.5. Edit</a></li>
-<li><a href="#user-stories-delete">11.6. Delete</a></li>
-<li><a href="#user-stories-bulk-create">11.7. Bulk creation</a></li>
-<li><a href="#user-stories-bulk-update-backlog-order">11.8. Bulk update backlog order</a></li>
-<li><a href="#user-stories-bulk-update-kanban-order">11.9. Bulk update kanban order</a></li>
-<li><a href="#user-stories-bulk-update-sprint-order">11.10. Bulk update sprint order</a></li>
-<li><a href="#user-stories-list-attachments">11.11. List attachments</a></li>
-<li><a href="#user-stories-create-attachment">11.12. Create attachment</a></li>
-<li><a href="#user-stories-get-attachment">11.13. Get attachment</a></li>
-<li><a href="#user-stories-edit-attachment">11.14. Edit attachment</a></li>
-<li><a href="#user-stories-delete-attachment">11.15. Delete attachment</a></li>
-</ul>
-</li>
-<li><a href="#user-story-statuses">12. User story status</a>
-<ul class="sectlevel2">
-<li><a href="#user-story-statuses-list">12.1. List</a></li>
-<li><a href="#user-story-statuses-create">12.2. Create</a></li>
-<li><a href="#user-story-statuses-get">12.3. Get</a></li>
-<li><a href="#user-story-statuses-edit">12.4. Edit</a></li>
-<li><a href="#user-story-statuses-delete">12.5. Delete</a></li>
-<li><a href="#user-story-statuses-bulk-update-order">12.6. Bulk update order</a></li>
-</ul>
-</li>
-<li><a href="#points">13. Points</a>
-<ul class="sectlevel2">
-<li><a href="#points-list">13.1. List</a></li>
-<li><a href="#points-create">13.2. Create</a></li>
-<li><a href="#points-get">13.3. Get</a></li>
-<li><a href="#points-edit">13.4. Edit</a></li>
-<li><a href="#points-delete">13.5. Delete</a></li>
-<li><a href="#points-bulk-update-order">13.6. Bulk update order</a></li>
-</ul>
-</li>
-<li><a href="#user-story-custom-attributes">14. User story custom attribute</a>
-<ul class="sectlevel2">
-<li><a href="#user-story-custom-attributes-list">14.1. List</a></li>
-<li><a href="#user-story-custom-attributes-create">14.2. Create</a></li>
-<li><a href="#user-story-custom-attributes-get">14.3. Get</a></li>
-<li><a href="#user-story-custom-attributes-edit">14.4. Edit</a></li>
-<li><a href="#user-story-custom-attributes-delete">14.5. Delete</a></li>
-<li><a href="#user-story-custom-attributes-bulk-update-order">14.6. Bulk update order</a></li>
-</ul>
-</li>
-<li><a href="#user-story-custom-attributes-values">15. User story custom attributes values</a>
-<ul class="sectlevel2">
-<li><a href="#user-story-custom-attributes-values-get">15.1. Get</a></li>
-<li><a href="#user-story-custom-attributes-values-edit">15.2. Edit</a></li>
-</ul>
-</li>
-<li><a href="#tasks">16. Tasks</a>
-<ul class="sectlevel2">
-<li><a href="#tasks-list">16.1. List</a></li>
-<li><a href="#tasks-create">16.2. Create</a></li>
-<li><a href="#tasks-get">16.3. Get</a></li>
-<li><a href="#tasks-get-by-ref">16.4. Get by ref</a></li>
-<li><a href="#tasks-edit">16.5. Edit</a></li>
-<li><a href="#tasks-delete">16.6. Delete</a></li>
-<li><a href="#tasks-bulk-create">16.7. Bulk creation</a></li>
-<li><a href="#tasks-list-attachments">16.8. List attachments</a></li>
-<li><a href="#tasks-create-attachment">16.9. Create attachment</a></li>
-<li><a href="#tasks-get-attachment">16.10. Get attachment</a></li>
-<li><a href="#tasks-edit-attachment">16.11. Edit attachment</a></li>
-<li><a href="#tasks-delete-attachment">16.12. Delete attachment</a></li>
-</ul>
-</li>
-<li><a href="#task-statuses">17. Task status</a>
-<ul class="sectlevel2">
-<li><a href="#task-statuses-list">17.1. List</a></li>
-<li><a href="#task-statuses-create">17.2. Create</a></li>
-<li><a href="#task-statuses-get">17.3. Get</a></li>
-<li><a href="#task-statuses-edit">17.4. Edit</a></li>
-<li><a href="#task-statuses-delete">17.5. Delete</a></li>
-<li><a href="#task-statuses-bulk-update-order">17.6. Bulk update order</a></li>
-</ul>
-</li>
-<li><a href="#task-custom-attributes">18. Task custom attribute</a>
-<ul class="sectlevel2">
-<li><a href="#task-custom-attributes-list">18.1. List</a></li>
-<li><a href="#task-custom-attributes-create">18.2. Create</a></li>
-<li><a href="#task-custom-attributes-get">18.3. Get</a></li>
-<li><a href="#task-custom-attributes-edit">18.4. Edit</a></li>
-<li><a href="#task-custom-attributes-delete">18.5. Delete</a></li>
-<li><a href="#task-custom-attributes-bulk-update-order">18.6. Bulk update order</a></li>
-</ul>
-</li>
-<li><a href="#task-custom-attributes-values">19. Task custom attributes values</a>
-<ul class="sectlevel2">
-<li><a href="#task-custom-attributes-values-get">19.1. Get</a></li>
-<li><a href="#task-custom-attributes-values-edit">19.2. Edit</a></li>
-</ul>
-</li>
-<li><a href="#issues">20. Issues</a>
-<ul class="sectlevel2">
-<li><a href="#issues-list">20.1. List</a></li>
-<li><a href="#issues-create">20.2. Create</a></li>
-<li><a href="#issues-get">20.3. Get</a></li>
-<li><a href="#issues-get-by-ref">20.4. Get by ref</a></li>
-<li><a href="#issues-edit">20.5. Edit</a></li>
-<li><a href="#issues-delete">20.6. Delete</a></li>
-<li><a href="#issues-upvote">20.7. Vote to an issue</a></li>
-<li><a href="#issues-downvote">20.8. Remove vote to an issue</a></li>
-<li><a href="#issues-voters">20.9. Get issue voters list</a></li>
-<li><a href="#issues-list-attachments">20.10. List attachments</a></li>
-<li><a href="#issues-create-attachment">20.11. Create attachment</a></li>
-<li><a href="#issues-get-attachment">20.12. Get attachment</a></li>
-<li><a href="#issues-edit-attachment">20.13. Edit attachment</a></li>
-<li><a href="#issues-delete-attachment">20.14. Delete attachment</a></li>
-</ul>
-</li>
-<li><a href="#issue-statuses">21. Issue status</a>
-<ul class="sectlevel2">
-<li><a href="#issue-statuses-list">21.1. List</a></li>
-<li><a href="#issue-statuses-create">21.2. Create</a></li>
-<li><a href="#issue-statuses-get">21.3. Get</a></li>
-<li><a href="#issue-statuses-edit">21.4. Edit</a></li>
-<li><a href="#issue-statuses-delete">21.5. Delete</a></li>
-<li><a href="#issue-statuses-bulk-update-order">21.6. Bulk update order</a></li>
-</ul>
-</li>
-<li><a href="#issue-types">22. Issue types</a>
-<ul class="sectlevel2">
-<li><a href="#issue-types-list">22.1. List</a></li>
-<li><a href="#issue-types-create">22.2. Create</a></li>
-<li><a href="#issue-types-get">22.3. Get</a></li>
-<li><a href="#issue-types-edit">22.4. Edit</a></li>
-<li><a href="#issue-types-delete">22.5. Delete</a></li>
-<li><a href="#issue-types-bulk-update-order">22.6. Bulk update order</a></li>
-</ul>
-</li>
-<li><a href="#priorities">23. Priorities</a>
-<ul class="sectlevel2">
-<li><a href="#priorities-list">23.1. List</a></li>
-<li><a href="#priorities-create">23.2. Create</a></li>
-<li><a href="#priorities-get">23.3. Get</a></li>
-<li><a href="#priorities-edit">23.4. Edit</a></li>
-<li><a href="#priorities-delete">23.5. Delete</a></li>
-<li><a href="#priorities-bulk-update-order">23.6. Bulk update order</a></li>
-</ul>
-</li>
-<li><a href="#severities">24. Severities</a>
-<ul class="sectlevel2">
-<li><a href="#severities-list">24.1. List</a></li>
-<li><a href="#severities-create">24.2. Create</a></li>
-<li><a href="#severities-get">24.3. Get</a></li>
-<li><a href="#severities-edit">24.4. Edit</a></li>
-<li><a href="#severities-delete">24.5. Delete</a></li>
-<li><a href="#severities-bulk-update-order">24.6. Bulk update order</a></li>
-</ul>
-</li>
-<li><a href="#issue-custom-attributes">25. Issue custom attribute</a>
-<ul class="sectlevel2">
-<li><a href="#issue-custom-attributes-list">25.1. List</a></li>
-<li><a href="#issue-custom-attributes-create">25.2. Create</a></li>
-<li><a href="#issue-custom-attributes-get">25.3. Get</a></li>
-<li><a href="#issue-custom-attributes-edit">25.4. Edit</a></li>
-<li><a href="#issue-custom-attributes-delete">25.5. Delete</a></li>
-<li><a href="#issue-custom-attributes-bulk-update-order">25.6. Bulk update order</a></li>
-</ul>
-</li>
-<li><a href="#issue-custom-attributes-values">26. Issue custom attributes values</a>
-<ul class="sectlevel2">
-<li><a href="#issue-custom-attributes-values-get">26.1. Get</a></li>
-<li><a href="#issue-custom-attributes-values-edit">26.2. Edit</a></li>
-</ul>
-</li>
-<li><a href="#wiki">27. Wiki pages</a>
-<ul class="sectlevel2">
-<li><a href="#wiki-list">27.1. List</a></li>
-<li><a href="#wiki-create">27.2. Create</a></li>
-<li><a href="#wiki-get">27.3. Get</a></li>
-<li><a href="#wiki-get-by-slug">27.4. Get by slug</a></li>
-<li><a href="#wiki-edit">27.5. Edit</a></li>
-<li><a href="#wiki-delete">27.6. Delete</a></li>
-<li><a href="#wiki-list-attachments">27.7. List attachments</a></li>
-<li><a href="#wiki-create-attachment">27.8. Create attachment</a></li>
-<li><a href="#wiki-get-attachment">27.9. Get attachment</a></li>
-<li><a href="#wiki-edit-attachment">27.10. Edit attachment</a></li>
-<li><a href="#wiki-delete-attachment">27.11. Delete attachment</a></li>
-</ul>
-</li>
-<li><a href="#wikilinks">28. Wiki links</a>
-<ul class="sectlevel2">
-<li><a href="#wikilinks-list">28.1. List</a></li>
-<li><a href="#wikilinks-create">28.2. Create</a></li>
-<li><a href="#wikilinks-get">28.3. Get</a></li>
-<li><a href="#wikilinks-edit">28.4. Edit</a></li>
-<li><a href="#wikilinks-delete">28.5. Delete</a></li>
-</ul>
-</li>
-<li><a href="#history">29. History</a>
-<ul class="sectlevel2">
-<li><a href="#history-get">29.1. Get user story, task, issue or wiki page history</a></li>
-<li><a href="#history-delete-comment">29.2. Delete comment</a></li>
-<li><a href="#history-undelete-comment">29.3. Undelete comment</a></li>
-</ul>
-</li>
-<li><a href="#users">30. Users</a>
-<ul class="sectlevel2">
-<li><a href="#users-list">30.1. List</a></li>
-<li><a href="#users-get">30.2. Get</a></li>
-<li><a href="#users-me">30.3. Me</a></li>
-<li><a href="#users-starred">30.4. Get starred projects</a></li>
-<li><a href="#users-edit">30.5. Edit</a></li>
-<li><a href="#users-delete">30.6. Delete</a></li>
-<li><a href="#users-cancel">30.7. Cancel</a></li>
-<li><a href="#users-change-avatar">30.8. Change avatar</a></li>
-<li><a href="#users-remove-avatar">30.9. Remove avatar</a></li>
-<li><a href="#users-change-email">30.10. Change email</a></li>
-<li><a href="#users-change-password">30.11. Change password</a></li>
-<li><a href="#users-password-recovery">30.12. Password recovery</a></li>
-<li><a href="#users-change-password-from-recovery">30.13. Change password from recovery</a></li>
-</ul>
-</li>
-<li><a href="#notify-policies">31. Notify policies</a>
-<ul class="sectlevel2">
-<li><a href="#notify-policies-list">31.1. List</a></li>
-<li><a href="#notify-policies-get">31.2. Get</a></li>
-<li><a href="#notify-policies-edit">31.3. Edit</a></li>
-</ul>
-</li>
-<li><a href="#feedback">32. Feedback</a>
-<ul class="sectlevel2">
-<li><a href="#feedback-create">32.1. Create</a></li>
-</ul>
-</li>
-<li><a href="#export-import">33. Export/Import</a>
-<ul class="sectlevel2">
-<li><a href="#export-import-export-dump">33.1. Export</a></li>
-<li><a href="#export-import-import-dump">33.2. Import</a></li>
-</ul>
-</li>
-<li><a href="#webhooks">34. Webhooks</a>
-<ul class="sectlevel2">
-<li><a href="#webhooks-list">34.1. List</a></li>
-<li><a href="#webhooks-create">34.2. Create</a></li>
-<li><a href="#webhooks-get">34.3. Get</a></li>
-<li><a href="#webhooks-edit">34.4. Edit</a></li>
-<li><a href="#webhooks-delete">34.5. Delete</a></li>
-<li><a href="#webhooks-test">34.6. Test</a></li>
-<li><a href="#webhooklogs-list">34.7. Logs list</a></li>
-<li><a href="#webhooklogs-get">34.8. Log get</a></li>
-<li><a href="#webhooklogs-resend">34.9. Resend request</a></li>
-</ul>
-</li>
-<li><a href="#_objects_summary">35. Objects Summary</a>
-<ul class="sectlevel2">
-<li><a href="#object-attachment-detail">35.1. Attachment</a></li>
-<li><a href="#object-user-detail">35.2. User detail</a></li>
-<li><a href="#object-auth-user-detail">35.3. User authentication-detail</a></li>
-<li><a href="#object-search-results-detail">35.4. Search results detail</a></li>
-<li><a href="#object-user-storage-detail">35.5. User storage data</a></li>
-</ul>
-</li>
-<li><a href="#object-project-template-detail">36. Project templates detail</a>
-<ul class="sectlevel2">
-<li><a href="#object-project-list-entry">36.1. Project list entry</a></li>
-<li><a href="#object-project-detail">36.2. Project detail</a></li>
-<li><a href="#object-project-modules-detail">36.3. Project modules detail</a></li>
-<li><a href="#object-project-stats-detail">36.4. Project stats detail</a></li>
-<li><a href="#object-project-issue-stats-detail">36.5. Project issue stats detail</a></li>
-<li><a href="#object-project-issue-filters-data-detail">36.6. Project issue filters data detail</a></li>
-<li><a href="#object-project-tags-colors-detail">36.7. Project tag colors data detail</a></li>
-<li><a href="#object-project-voter-detail">36.8. Project voter detail</a></li>
-<li><a href="#object-project-template-detail">36.9. Project template detail</a></li>
-<li><a href="#object-membership-detail">36.10. Membership detail</a></li>
-<li><a href="#object-milestone-detail">36.11. Milestone detail</a></li>
-<li><a href="#object-milestone-stats-detail">36.12. Milestone stats detail</a></li>
-<li><a href="#object-userstory-detail">36.13. User story detail</a></li>
-<li><a href="#object-userstory-status-detail">36.14. User story status detail</a></li>
-<li><a href="#object-point-detail">36.15. Point detail</a></li>
-<li><a href="#object-userstory-custom-attribute-detail">36.16. User story custom attribute detail</a></li>
-<li><a href="#object-userstory-custom-attributes-values-detail">36.17. User story custom attributes values detail</a></li>
-<li><a href="#object-task-detail">36.18. Task detail</a></li>
-<li><a href="#object-task-status-detail">36.19. Task status detail</a></li>
-<li><a href="#object-task-custom-attribute-detail">36.20. Task custom attribute detail</a></li>
-<li><a href="#object-task-custom-attributes-values-detail">36.21. Task custom attributes values detail</a></li>
-<li><a href="#object-issue-detail">36.22. Issue detail</a></li>
-<li><a href="#object-issue-voters-detail">36.23. Issue voters detail</a></li>
-<li><a href="#object-issue-status-detail">36.24. Issue status detail</a></li>
-<li><a href="#object-issue-type-detail">36.25. Issue type detail</a></li>
-<li><a href="#object-priority-detail">36.26. Priority detail</a></li>
-<li><a href="#object-severity-detail">36.27. Severity detail</a></li>
-<li><a href="#object-issue-custom-attribute-detail">36.28. Issue custom attribute detail</a></li>
-<li><a href="#object-issue-custom-attributes-values-detail">36.29. Issue custom attributes values detail</a></li>
-<li><a href="#object-wiki-detail">36.30. Wiki page</a></li>
-<li><a href="#object-wiki-link-detail">36.31. Wiki link</a></li>
-<li><a href="#object-history-entry-detail">36.32. History entry</a></li>
-<li><a href="#object-notify-policy-detail">36.33. Notify policy</a></li>
-<li><a href="#object-feedback-detail">36.34. Feedback</a></li>
-<li><a href="#object-export-synch">36.35. Export detail for synch mode</a></li>
-<li><a href="#object-export-accepted">36.36. Export accepted response</a></li>
-<li><a href="#object-import-accepted">36.37. Import accepted response</a></li>
-<li><a href="#object-webhook-detail">36.38. Webhook</a></li>
-<li><a href="#object-webhook-log-detail">36.39. Webhook log</a></li>
-</ul>
-</li>
-<li><a href="#_contrib_plugins">37. Contrib plugins</a></li>
 </ul>
 </div>
+</li>
+<li>
+<a href="#_endpoints_summary">2. Endpoints Summary</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#_auth">2.1. Auth</a>
+</li>
+<li>
+<a href="#_resolver">2.2. Resolver</a>
+</li>
+<li>
+<a href="#_searches">2.3. Searches</a>
+</li>
+<li>
+<a href="#_user_storage">2.4. User storage</a>
+</li>
+<li>
+<a href="#_project_templates">2.5. Project templates</a>
+</li>
+<li>
+<a href="#_projects">2.6. Projects</a>
+</li>
+<li>
+<a href="#_memberships_invitations">2.7. Memberships/Invitations</a>
+</li>
+<li>
+<a href="#_milestones">2.8. Milestones</a>
+</li>
+<li>
+<a href="#_user_stories">2.9. User stories</a>
+</li>
+<li>
+<a href="#_user_story_status">2.10. User story status</a>
+</li>
+<li>
+<a href="#_points">2.11. Points</a>
+</li>
+<li>
+<a href="#_user_story_custom_attribute">2.12. User story custom attribute</a>
+</li>
+<li>
+<a href="#_user_story_custom_attributes_values">2.13. User story custom attributes values</a>
+</li>
+<li>
+<a href="#_tasks">2.14. Tasks</a>
+</li>
+<li>
+<a href="#_task_status">2.15. Task status</a>
+</li>
+<li>
+<a href="#_task_custom_attribute">2.16. Task custom attribute</a>
+</li>
+<li>
+<a href="#_task_custom_attributes_values">2.17. Task custom attributes values</a>
+</li>
+<li>
+<a href="#_issues">2.18. Issues</a>
+</li>
+<li>
+<a href="#_issue_status">2.19. Issue status</a>
+</li>
+<li>
+<a href="#_issue_types">2.20. Issue types</a>
+</li>
+<li>
+<a href="#_priorities">2.21. Priorities</a>
+</li>
+<li>
+<a href="#_severities">2.22. Severities</a>
+</li>
+<li>
+<a href="#_issue_custom_attribute">2.23. Issue custom attribute</a>
+</li>
+<li>
+<a href="#_issue_custom_attributes_values">2.24. Issue custom attributes values</a>
+</li>
+<li>
+<a href="#_wiki_pages">2.25. Wiki pages</a>
+</li>
+<li>
+<a href="#_wiki_links">2.26. Wiki links</a>
+</li>
+<li>
+<a href="#_history">2.27. History</a>
+</li>
+<li>
+<a href="#_users">2.28. Users</a>
+</li>
+<li>
+<a href="#_notify_policies">2.29. Notify policies</a>
+</li>
+<li>
+<a href="#_feedback">2.30. Feedback</a>
+</li>
+<li>
+<a href="#_export_import">2.31. Export/Import</a>
+</li>
+<li>
+<a href="#_webhooks">2.32. Webhooks</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#auth">3. Auth</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#auth-normal-login">3.1. Normal login</a>
+</li>
+<li>
+<a href="#auth-github-login">3.2. Github login</a>
+</li>
+<li>
+<a href="#auth-public-registry">3.3. Public registry</a>
+</li>
+<li>
+<a href="#auth-private-registry">3.4. Private registry</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#resolver">4. Resolver</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#resolver-projects">4.1. Projects</a>
+</li>
+<li>
+<a href="#resolver-user-stories">4.2. User stories</a>
+</li>
+<li>
+<a href="#resolver-issues">4.3. Issues</a>
+</li>
+<li>
+<a href="#resolver-tasks">4.4. Tasks</a>
+</li>
+<li>
+<a href="#resolver-milestones">4.5. Milestones</a>
+</li>
+<li>
+<a href="#resolver-wiki-pages">4.6. Wiki pages</a>
+</li>
+<li>
+<a href="#resolver-multiple-resolution">4.7. Multiple resolution</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#searches">5. Searches</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#searches-search">5.1. Search</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#user-storage">6. User storage</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#user-storage-list">6.1. List</a>
+</li>
+<li>
+<a href="#user-storage-create">6.2. Create</a>
+</li>
+<li>
+<a href="#user-storage-get">6.3. Get</a>
+</li>
+<li>
+<a href="#user-storage-edit">6.4. Edit</a>
+</li>
+<li>
+<a href="#user-storage-delete">6.5. Delete</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#project-templates">7. Project templates</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#project-templates-list">7.1. List</a>
+</li>
+<li>
+<a href="#project-templates-create">7.2. Create</a>
+</li>
+<li>
+<a href="#project-templates-get">7.3. Get</a>
+</li>
+<li>
+<a href="#project-templates-edit">7.4. Edit</a>
+</li>
+<li>
+<a href="#project-templates-delete">7.5. Delete</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#projects">8. Projects</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#projects-list">8.1. List</a>
+</li>
+<li>
+<a href="#projects-create">8.2. Create</a>
+</li>
+<li>
+<a href="#projects-get">8.3. Get</a>
+</li>
+<li>
+<a href="#projects-get-by-slug">8.4. Get by slug</a>
+</li>
+<li>
+<a href="#projects-edit">8.5. Edit</a>
+</li>
+<li>
+<a href="#projects-delete">8.6. Delete</a>
+</li>
+<li>
+<a href="#projects-get-modules">8.7. Get modules</a>
+</li>
+<li>
+<a href="#projects-edit-modules">8.8. Edit modules</a>
+</li>
+<li>
+<a href="#projects-stats">8.9. Stats</a>
+</li>
+<li>
+<a href="#projects-issue-stats">8.10. Issue stats</a>
+</li>
+<li>
+<a href="#projects-issue-filters-data">8.11. Issue filters data</a>
+</li>
+<li>
+<a href="#projects-tag-colors">8.12. Tag colors</a>
+</li>
+<li>
+<a href="#projects-star">8.13. Star</a>
+</li>
+<li>
+<a href="#projects-unstar">8.14. Unstar</a>
+</li>
+<li>
+<a href="#projects-fans">8.15. Fans</a>
+</li>
+<li>
+<a href="#projects-create-template">8.16. Create template</a>
+</li>
+<li>
+<a href="#projects-leave">8.17. Leave</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#memberships">9. Memberships/Invitations</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#memberships-list">9.1. List</a>
+</li>
+<li>
+<a href="#memberships-create">9.2. Create</a>
+</li>
+<li>
+<a href="#memberships-bulk-create">9.3. Bulk creation</a>
+</li>
+<li>
+<a href="#memberships-get">9.4. Get</a>
+</li>
+<li>
+<a href="#memberships-edit">9.5. Edit</a>
+</li>
+<li>
+<a href="#memberships-delete">9.6. Delete</a>
+</li>
+<li>
+<a href="#memberships-resend-invitation">9.7. Resend invitation</a>
+</li>
+<li>
+<a href="#memberships-invitations">9.8. Get Invitation (by token)</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#milestones">10. Milestones</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#milestones-list">10.1. List</a>
+</li>
+<li>
+<a href="#milestones-create">10.2. Create</a>
+</li>
+<li>
+<a href="#milestones-get">10.3. Get</a>
+</li>
+<li>
+<a href="#milestones-edit">10.4. Edit</a>
+</li>
+<li>
+<a href="#milestones-delete">10.5. Delete</a>
+</li>
+<li>
+<a href="#milestones-stats">10.6. Stats</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#user-stories">11. User stories</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#user-stories-list">11.1. List</a>
+</li>
+<li>
+<a href="#user-stories-create">11.2. Create</a>
+</li>
+<li>
+<a href="#user-stories-get">11.3. Get</a>
+</li>
+<li>
+<a href="#user-stories-get-by-ref">11.4. Get by ref</a>
+</li>
+<li>
+<a href="#user-stories-edit">11.5. Edit</a>
+</li>
+<li>
+<a href="#user-stories-delete">11.6. Delete</a>
+</li>
+<li>
+<a href="#user-stories-bulk-create">11.7. Bulk creation</a>
+</li>
+<li>
+<a href="#user-stories-bulk-update-backlog-order">11.8. Bulk update backlog order</a>
+</li>
+<li>
+<a href="#user-stories-bulk-update-kanban-order">11.9. Bulk update kanban order</a>
+</li>
+<li>
+<a href="#user-stories-bulk-update-sprint-order">11.10. Bulk update sprint order</a>
+</li>
+<li>
+<a href="#user-stories-list-attachments">11.11. List attachments</a>
+</li>
+<li>
+<a href="#user-stories-create-attachment">11.12. Create attachment</a>
+</li>
+<li>
+<a href="#user-stories-get-attachment">11.13. Get attachment</a>
+</li>
+<li>
+<a href="#user-stories-edit-attachment">11.14. Edit attachment</a>
+</li>
+<li>
+<a href="#user-stories-delete-attachment">11.15. Delete attachment</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#user-story-statuses">12. User story status</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#user-story-statuses-list">12.1. List</a>
+</li>
+<li>
+<a href="#user-story-statuses-create">12.2. Create</a>
+</li>
+<li>
+<a href="#user-story-statuses-get">12.3. Get</a>
+</li>
+<li>
+<a href="#user-story-statuses-edit">12.4. Edit</a>
+</li>
+<li>
+<a href="#user-story-statuses-delete">12.5. Delete</a>
+</li>
+<li>
+<a href="#user-story-statuses-bulk-update-order">12.6. Bulk update order</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#points">13. Points</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#points-list">13.1. List</a>
+</li>
+<li>
+<a href="#points-create">13.2. Create</a>
+</li>
+<li>
+<a href="#points-get">13.3. Get</a>
+</li>
+<li>
+<a href="#points-edit">13.4. Edit</a>
+</li>
+<li>
+<a href="#points-delete">13.5. Delete</a>
+</li>
+<li>
+<a href="#points-bulk-update-order">13.6. Bulk update order</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#user-story-custom-attributes">14. User story custom attribute</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#user-story-custom-attributes-list">14.1. List</a>
+</li>
+<li>
+<a href="#user-story-custom-attributes-create">14.2. Create</a>
+</li>
+<li>
+<a href="#user-story-custom-attributes-get">14.3. Get</a>
+</li>
+<li>
+<a href="#user-story-custom-attributes-edit">14.4. Edit</a>
+</li>
+<li>
+<a href="#user-story-custom-attributes-delete">14.5. Delete</a>
+</li>
+<li>
+<a href="#user-story-custom-attributes-bulk-update-order">14.6. Bulk update order</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#user-story-custom-attributes-values">15. User story custom attributes values</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#user-story-custom-attributes-values-get">15.1. Get</a>
+</li>
+<li>
+<a href="#user-story-custom-attributes-values-edit">15.2. Edit</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#tasks">16. Tasks</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#tasks-list">16.1. List</a>
+</li>
+<li>
+<a href="#tasks-create">16.2. Create</a>
+</li>
+<li>
+<a href="#tasks-get">16.3. Get</a>
+</li>
+<li>
+<a href="#tasks-get-by-ref">16.4. Get by ref</a>
+</li>
+<li>
+<a href="#tasks-edit">16.5. Edit</a>
+</li>
+<li>
+<a href="#tasks-delete">16.6. Delete</a>
+</li>
+<li>
+<a href="#tasks-bulk-create">16.7. Bulk creation</a>
+</li>
+<li>
+<a href="#tasks-list-attachments">16.8. List attachments</a>
+</li>
+<li>
+<a href="#tasks-create-attachment">16.9. Create attachment</a>
+</li>
+<li>
+<a href="#tasks-get-attachment">16.10. Get attachment</a>
+</li>
+<li>
+<a href="#tasks-edit-attachment">16.11. Edit attachment</a>
+</li>
+<li>
+<a href="#tasks-delete-attachment">16.12. Delete attachment</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#task-statuses">17. Task status</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#task-statuses-list">17.1. List</a>
+</li>
+<li>
+<a href="#task-statuses-create">17.2. Create</a>
+</li>
+<li>
+<a href="#task-statuses-get">17.3. Get</a>
+</li>
+<li>
+<a href="#task-statuses-edit">17.4. Edit</a>
+</li>
+<li>
+<a href="#task-statuses-delete">17.5. Delete</a>
+</li>
+<li>
+<a href="#task-statuses-bulk-update-order">17.6. Bulk update order</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#task-custom-attributes">18. Task custom attribute</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#task-custom-attributes-list">18.1. List</a>
+</li>
+<li>
+<a href="#task-custom-attributes-create">18.2. Create</a>
+</li>
+<li>
+<a href="#task-custom-attributes-get">18.3. Get</a>
+</li>
+<li>
+<a href="#task-custom-attributes-edit">18.4. Edit</a>
+</li>
+<li>
+<a href="#task-custom-attributes-delete">18.5. Delete</a>
+</li>
+<li>
+<a href="#task-custom-attributes-bulk-update-order">18.6. Bulk update order</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#task-custom-attributes-values">19. Task custom attributes values</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#task-custom-attributes-values-get">19.1. Get</a>
+</li>
+<li>
+<a href="#task-custom-attributes-values-edit">19.2. Edit</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#issues">20. Issues</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#issues-list">20.1. List</a>
+</li>
+<li>
+<a href="#issues-create">20.2. Create</a>
+</li>
+<li>
+<a href="#issues-get">20.3. Get</a>
+</li>
+<li>
+<a href="#issues-get-by-ref">20.4. Get by ref</a>
+</li>
+<li>
+<a href="#issues-edit">20.5. Edit</a>
+</li>
+<li>
+<a href="#issues-delete">20.6. Delete</a>
+</li>
+<li>
+<a href="#issues-upvote">20.7. Vote to an issue</a>
+</li>
+<li>
+<a href="#issues-downvote">20.8. Remove vote to an issue</a>
+</li>
+<li>
+<a href="#issues-voters">20.9. Get issue voters list</a>
+</li>
+<li>
+<a href="#issues-list-attachments">20.10. List attachments</a>
+</li>
+<li>
+<a href="#issues-create-attachment">20.11. Create attachment</a>
+</li>
+<li>
+<a href="#issues-get-attachment">20.12. Get attachment</a>
+</li>
+<li>
+<a href="#issues-edit-attachment">20.13. Edit attachment</a>
+</li>
+<li>
+<a href="#issues-delete-attachment">20.14. Delete attachment</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#issue-statuses">21. Issue status</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#issue-statuses-list">21.1. List</a>
+</li>
+<li>
+<a href="#issue-statuses-create">21.2. Create</a>
+</li>
+<li>
+<a href="#issue-statuses-get">21.3. Get</a>
+</li>
+<li>
+<a href="#issue-statuses-edit">21.4. Edit</a>
+</li>
+<li>
+<a href="#issue-statuses-delete">21.5. Delete</a>
+</li>
+<li>
+<a href="#issue-statuses-bulk-update-order">21.6. Bulk update order</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#issue-types">22. Issue types</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#issue-types-list">22.1. List</a>
+</li>
+<li>
+<a href="#issue-types-create">22.2. Create</a>
+</li>
+<li>
+<a href="#issue-types-get">22.3. Get</a>
+</li>
+<li>
+<a href="#issue-types-edit">22.4. Edit</a>
+</li>
+<li>
+<a href="#issue-types-delete">22.5. Delete</a>
+</li>
+<li>
+<a href="#issue-types-bulk-update-order">22.6. Bulk update order</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#priorities">23. Priorities</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#priorities-list">23.1. List</a>
+</li>
+<li>
+<a href="#priorities-create">23.2. Create</a>
+</li>
+<li>
+<a href="#priorities-get">23.3. Get</a>
+</li>
+<li>
+<a href="#priorities-edit">23.4. Edit</a>
+</li>
+<li>
+<a href="#priorities-delete">23.5. Delete</a>
+</li>
+<li>
+<a href="#priorities-bulk-update-order">23.6. Bulk update order</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#severities">24. Severities</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#severities-list">24.1. List</a>
+</li>
+<li>
+<a href="#severities-create">24.2. Create</a>
+</li>
+<li>
+<a href="#severities-get">24.3. Get</a>
+</li>
+<li>
+<a href="#severities-edit">24.4. Edit</a>
+</li>
+<li>
+<a href="#severities-delete">24.5. Delete</a>
+</li>
+<li>
+<a href="#severities-bulk-update-order">24.6. Bulk update order</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#issue-custom-attributes">25. Issue custom attribute</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#issue-custom-attributes-list">25.1. List</a>
+</li>
+<li>
+<a href="#issue-custom-attributes-create">25.2. Create</a>
+</li>
+<li>
+<a href="#issue-custom-attributes-get">25.3. Get</a>
+</li>
+<li>
+<a href="#issue-custom-attributes-edit">25.4. Edit</a>
+</li>
+<li>
+<a href="#issue-custom-attributes-delete">25.5. Delete</a>
+</li>
+<li>
+<a href="#issue-custom-attributes-bulk-update-order">25.6. Bulk update order</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#issue-custom-attributes-values">26. Issue custom attributes values</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#issue-custom-attributes-values-get">26.1. Get</a>
+</li>
+<li>
+<a href="#issue-custom-attributes-values-edit">26.2. Edit</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#wiki">27. Wiki pages</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#wiki-list">27.1. List</a>
+</li>
+<li>
+<a href="#wiki-create">27.2. Create</a>
+</li>
+<li>
+<a href="#wiki-get">27.3. Get</a>
+</li>
+<li>
+<a href="#wiki-get-by-slug">27.4. Get by slug</a>
+</li>
+<li>
+<a href="#wiki-edit">27.5. Edit</a>
+</li>
+<li>
+<a href="#wiki-delete">27.6. Delete</a>
+</li>
+<li>
+<a href="#wiki-list-attachments">27.7. List attachments</a>
+</li>
+<li>
+<a href="#wiki-create-attachment">27.8. Create attachment</a>
+</li>
+<li>
+<a href="#wiki-get-attachment">27.9. Get attachment</a>
+</li>
+<li>
+<a href="#wiki-edit-attachment">27.10. Edit attachment</a>
+</li>
+<li>
+<a href="#wiki-delete-attachment">27.11. Delete attachment</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#wikilinks">28. Wiki links</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#wikilinks-list">28.1. List</a>
+</li>
+<li>
+<a href="#wikilinks-create">28.2. Create</a>
+</li>
+<li>
+<a href="#wikilinks-get">28.3. Get</a>
+</li>
+<li>
+<a href="#wikilinks-edit">28.4. Edit</a>
+</li>
+<li>
+<a href="#wikilinks-delete">28.5. Delete</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#history">29. History</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#history-get">29.1. Get user story, task, issue or wiki page history</a>
+</li>
+<li>
+<a href="#history-delete-comment">29.2. Delete comment</a>
+</li>
+<li>
+<a href="#history-undelete-comment">29.3. Undelete comment</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#users">30. Users</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#users-list">30.1. List</a>
+</li>
+<li>
+<a href="#users-get">30.2. Get</a>
+</li>
+<li>
+<a href="#users-me">30.3. Me</a>
+</li>
+<li>
+<a href="#users-starred">30.4. Get starred projects</a>
+</li>
+<li>
+<a href="#users-edit">30.5. Edit</a>
+</li>
+<li>
+<a href="#users-delete">30.6. Delete</a>
+</li>
+<li>
+<a href="#users-cancel">30.7. Cancel</a>
+</li>
+<li>
+<a href="#users-change-avatar">30.8. Change avatar</a>
+</li>
+<li>
+<a href="#users-remove-avatar">30.9. Remove avatar</a>
+</li>
+<li>
+<a href="#users-change-email">30.10. Change email</a>
+</li>
+<li>
+<a href="#users-change-password">30.11. Change password</a>
+</li>
+<li>
+<a href="#users-password-recovery">30.12. Password recovery</a>
+</li>
+<li>
+<a href="#users-change-password-from-recovery">30.13. Change password from recovery</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#notify-policies">31. Notify policies</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#notify-policies-list">31.1. List</a>
+</li>
+<li>
+<a href="#notify-policies-get">31.2. Get</a>
+</li>
+<li>
+<a href="#notify-policies-edit">31.3. Edit</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#feedback">32. Feedback</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#feedback-create">32.1. Create</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#export-import">33. Export/Import</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#export-import-export-dump">33.1. Export</a>
+</li>
+<li>
+<a href="#export-import-import-dump">33.2. Import</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#webhooks">34. Webhooks</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#webhooks-list">34.1. List</a>
+</li>
+<li>
+<a href="#webhooks-create">34.2. Create</a>
+</li>
+<li>
+<a href="#webhooks-get">34.3. Get</a>
+</li>
+<li>
+<a href="#webhooks-edit">34.4. Edit</a>
+</li>
+<li>
+<a href="#webhooks-delete">34.5. Delete</a>
+</li>
+<li>
+<a href="#webhooks-test">34.6. Test</a>
+</li>
+<li>
+<a href="#webhooklogs-list">34.7. Logs list</a>
+</li>
+<li>
+<a href="#webhooklogs-get">34.8. Log get</a>
+</li>
+<li>
+<a href="#webhooklogs-resend">34.9. Resend request</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#_objects_summary">35. Objects Summary</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#object-attachment-detail">35.1. Attachment</a>
+</li>
+<li>
+<a href="#object-user-detail">35.2. User detail</a>
+</li>
+<li>
+<a href="#object-auth-user-detail">35.3. User authentication-detail</a>
+</li>
+<li>
+<a href="#object-search-results-detail">35.4. Search results detail</a>
+</li>
+<li>
+<a href="#object-user-storage-detail">35.5. User storage data</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#object-project-template-detail">36. Project templates detail</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#object-project-list-entry">36.1. Project list entry</a>
+</li>
+<li>
+<a href="#object-project-detail">36.2. Project detail</a>
+</li>
+<li>
+<a href="#object-project-modules-detail">36.3. Project modules detail</a>
+</li>
+<li>
+<a href="#object-project-stats-detail">36.4. Project stats detail</a>
+</li>
+<li>
+<a href="#object-project-issue-stats-detail">36.5. Project issue stats detail</a>
+</li>
+<li>
+<a href="#object-project-issue-filters-data-detail">36.6. Project issue filters data detail</a>
+</li>
+<li>
+<a href="#object-project-tags-colors-detail">36.7. Project tag colors data detail</a>
+</li>
+<li>
+<a href="#object-project-voter-detail">36.8. Project voter detail</a>
+</li>
+<li>
+<a href="#object-project-template-detail">36.9. Project template detail</a>
+</li>
+<li>
+<a href="#object-membership-detail">36.10. Membership detail</a>
+</li>
+<li>
+<a href="#object-milestone-detail">36.11. Milestone detail</a>
+</li>
+<li>
+<a href="#object-milestone-stats-detail">36.12. Milestone stats detail</a>
+</li>
+<li>
+<a href="#object-userstory-detail">36.13. User story detail</a>
+</li>
+<li>
+<a href="#object-userstory-status-detail">36.14. User story status detail</a>
+</li>
+<li>
+<a href="#object-point-detail">36.15. Point detail</a>
+</li>
+<li>
+<a href="#object-userstory-custom-attribute-detail">36.16. User story custom attribute detail</a>
+</li>
+<li>
+<a href="#object-userstory-custom-attributes-values-detail">36.17. User story custom attributes values detail</a>
+</li>
+<li>
+<a href="#object-task-detail">36.18. Task detail</a>
+</li>
+<li>
+<a href="#object-task-status-detail">36.19. Task status detail</a>
+</li>
+<li>
+<a href="#object-task-custom-attribute-detail">36.20. Task custom attribute detail</a>
+</li>
+<li>
+<a href="#object-task-custom-attributes-values-detail">36.21. Task custom attributes values detail</a>
+</li>
+<li>
+<a href="#object-issue-detail">36.22. Issue detail</a>
+</li>
+<li>
+<a href="#object-issue-voters-detail">36.23. Issue voters detail</a>
+</li>
+<li>
+<a href="#object-issue-status-detail">36.24. Issue status detail</a>
+</li>
+<li>
+<a href="#object-issue-type-detail">36.25. Issue type detail</a>
+</li>
+<li>
+<a href="#object-priority-detail">36.26. Priority detail</a>
+</li>
+<li>
+<a href="#object-severity-detail">36.27. Severity detail</a>
+</li>
+<li>
+<a href="#object-issue-custom-attribute-detail">36.28. Issue custom attribute detail</a>
+</li>
+<li>
+<a href="#object-issue-custom-attributes-values-detail">36.29. Issue custom attributes values detail</a>
+</li>
+<li>
+<a href="#object-wiki-detail">36.30. Wiki page</a>
+</li>
+<li>
+<a href="#object-wiki-link-detail">36.31. Wiki link</a>
+</li>
+<li>
+<a href="#object-history-entry-detail">36.32. History entry</a>
+</li>
+<li>
+<a href="#object-notify-policy-detail">36.33. Notify policy</a>
+</li>
+<li>
+<a href="#object-feedback-detail">36.34. Feedback</a>
+</li>
+<li>
+<a href="#object-export-synch">36.35. Export detail for synch mode</a>
+</li>
+<li>
+<a href="#object-export-accepted">36.36. Export accepted response</a>
+</li>
+<li>
+<a href="#object-import-accepted">36.37. Import accepted response</a>
+</li>
+<li>
+<a href="#object-webhook-detail">36.38. Webhook</a>
+</li>
+<li>
+<a href="#object-webhook-log-detail">36.39. Webhook log</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#_contrib_plugins">37. Contrib plugins</a>
+
+</li>
+</ul>
+</div>
+</div>
+<div class="scroller">
+<div id="header">
+<h1>Taiga REST API</h1>
 </div>
 <div id="content">
 <div class="sect1">
@@ -933,7 +1666,7 @@ instance remember to change the url.</p>
 </div>
 <div class="paragraph">
 <p>For example, if you have installed Taiga on your own PC, you must perform the tests using
-<em><a href="http://localhost:8000/api/v1" class="bare">http://localhost:8000/api/v1</a></em> instead of <em><a href="https://taiga.io/api/v1" class="bare">https://taiga.io/api/v1</a></em>.</p>
+<em><a class="bare" href="http://localhost:8000/api/v1">http://localhost:8000/api/v1</a></em> instead of <em><a class="bare" href="https://taiga.io/api/v1">https://taiga.io/api/v1</a></em>.</p>
 </div>
 </td>
 </tr>
@@ -13096,8 +13829,13 @@ API endpoints, and has its own documentation.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-04-09 11:09:34 CEST
+Last updated 2015-04-14 06:59:15 CEST
 </div>
 </div>
-</body>
-</html>
+</div>
+</div>
+</div>
+<script>
+  new mlPushMenu( document.getElementById( 'toc' ), document.getElementById( 'trigger' ), {type : 'cover'} );
+  $( ".mp-level[data-level!=1]" ).each( function() {$(this).parents("li").addClass('icon icon-arrow-left'); } );
+</script>

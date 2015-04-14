@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="js/mlpushmenu.js" type="text/javascript"></script>
+<script src="js/modernizr.custom.js" type="text/javascript"></script>
+<script src="js/classie.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 <meta charset="UTF-8">
-<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.2">
+<!--[if IE]>
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<![endif]-->
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="Asciidoctor 1.5.2" name="generator">
 <title>Taiga Documentation</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
-<style>
-/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
+<style>/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 /* Remove the comments around the @import statement below when using this as a custom stylesheet */
 /*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400";*/
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
@@ -406,38 +410,89 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .hide-on-print{display:none!important}
 .print-only{display:block!important}
 .hide-for-print{display:none!important}
-.show-for-print{display:inherit!important}}
-</style>
+.show-for-print{display:inherit!important}}</style>
 </head>
-<body class="article toc2 toc-left">
-<div id="header">
-<h1>Taiga Documentation</h1>
-<div id="toc" class="toc2">
+<link href="css/menu.css" rel="stylesheet">
+<link href="css/icons.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+<body class="article toc2 toc-left"></body>
+</html>
+<div class="container">
+<a class="menu-trigger" id="trigger"></a>
+<div class="mp-pusher" id="mp-pusher">
+<div class="toc2" id="toc">
+<div class="mp-level">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_introduction">1. Introduction</a></li>
-<li><a href="#_project_maturity">2. Project Maturity</a></li>
-<li><a href="#_api">3. API</a></li>
-<li><a href="#_how_it_works">4. How it Works</a></li>
-<li><a href="#_requirements">5. Requirements</a></li>
-<li><a href="#_installation_guide">6. Installation Guide</a>
-<ul class="sectlevel2">
-<li><a href="#_setup_production_environment">6.1. Setup Production Environment</a></li>
-<li><a href="#_setup_development_environment">6.2. Setup Development Environment</a></li>
-<li><a href="#_other_ways_to_setup_an_initial_environment">6.3. Other Ways to Setup an Initial Environment</a></li>
-</ul>
+<li>
+<a href="#_introduction">1. Introduction</a>
+
 </li>
-<li><a href="#_how_to_contribute">7. How to Contribute</a>
-<ul class="sectlevel2">
-<li><a href="#_reporting_bugs">7.1. Reporting Bugs</a></li>
-<li><a href="#_community">7.2. Community</a></li>
-<li><a href="#_donations">7.3. Donations</a></li>
-</ul>
+<li>
+<a href="#_project_maturity">2. Project Maturity</a>
+
 </li>
-<li><a href="#contrib-plugins">8. Contrib Plugins</a></li>
-<li><a href="#_license">9. License</a></li>
+<li>
+<a href="#_api">3. API</a>
+
+</li>
+<li>
+<a href="#_how_it_works">4. How it Works</a>
+
+</li>
+<li>
+<a href="#_requirements">5. Requirements</a>
+
+</li>
+<li>
+<a href="#_installation_guide">6. Installation Guide</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#_setup_production_environment">6.1. Setup Production Environment</a>
+</li>
+<li>
+<a href="#_setup_development_environment">6.2. Setup Development Environment</a>
+</li>
+<li>
+<a href="#_other_ways_to_setup_an_initial_environment">6.3. Other Ways to Setup an Initial Environment</a>
+</li>
 </ul>
 </div>
+</li>
+<li>
+<a href="#_how_to_contribute">7. How to Contribute</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#_reporting_bugs">7.1. Reporting Bugs</a>
+</li>
+<li>
+<a href="#_community">7.2. Community</a>
+</li>
+<li>
+<a href="#_donations">7.3. Donations</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#contrib-plugins">8. Contrib Plugins</a>
+
+</li>
+<li>
+<a href="#_license">9. License</a>
+
+</li>
+</ul>
+</div>
+</div>
+<div class="scroller">
+<div id="header">
+<h1>Taiga Documentation</h1>
 </div>
 <div id="content">
 <div class="sect1">
@@ -699,8 +754,13 @@ do not include any code which cannot be licensed under AGPL v3.0.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-04-09 11:09:34 CEST
+Last updated 2015-04-14 06:59:13 CEST
 </div>
 </div>
-</body>
-</html>
+</div>
+</div>
+</div>
+<script>
+  new mlPushMenu( document.getElementById( 'toc' ), document.getElementById( 'trigger' ), {type : 'cover'} );
+  $( ".mp-level[data-level!=1]" ).each( function() {$(this).parents("li").addClass('icon icon-arrow-left'); } );
+</script>

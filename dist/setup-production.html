@@ -1,14 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+<script src="js/mlpushmenu.js" type="text/javascript"></script>
+<script src="js/modernizr.custom.js" type="text/javascript"></script>
+<script src="js/classie.js" type="text/javascript"></script>
+<script src="https://code.jquery.com/jquery-1.11.2.min.js"></script>
 <meta charset="UTF-8">
-<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.2">
+<!--[if IE]>
+<meta content="IE=edge" http-equiv="X-UA-Compatible">
+<![endif]-->
+<meta content="width=device-width, initial-scale=1.0" name="viewport">
+<meta content="Asciidoctor 1.5.2" name="generator">
 <title>Setup production environment</title>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400">
-<style>
-/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
+<style>/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 /* Remove the comments around the @import statement below when using this as a custom stylesheet */
 /*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400";*/
 article,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block}
@@ -406,10 +410,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .hide-on-print{display:none!important}
 .print-only{display:block!important}
 .hide-for-print{display:none!important}
-.show-for-print{display:inherit!important}}
-</style>
-<style>
-.listingblock .pygments .hll { background-color: #ffffcc }
+.show-for-print{display:inherit!important}}</style>
+<style>.listingblock .pygments .hll { background-color: #ffffcc }
 .listingblock .pygments  { background: #f0f0f0; }
 .listingblock .pygments .tok-c { color: #60a0b0; font-style: italic } /* Comment */
 .listingblock .pygments .tok-err { border: 1px solid #FF0000 } /* Error */
@@ -471,44 +473,100 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .listingblock .pygments .tok-vc { color: #bb60d5 } /* Name.Variable.Class */
 .listingblock .pygments .tok-vg { color: #bb60d5 } /* Name.Variable.Global */
 .listingblock .pygments .tok-vi { color: #bb60d5 } /* Name.Variable.Instance */
-.listingblock .pygments .tok-il { color: #40a070 } /* Literal.Number.Integer.Long */
-</style>
+.listingblock .pygments .tok-il { color: #40a070 } /* Literal.Number.Integer.Long */</style>
 </head>
-<body class="article toc2 toc-left">
-<div id="header">
-<h1>Setup production environment</h1>
-<div id="toc" class="toc2">
+<link href="css/menu.css" rel="stylesheet">
+<link href="css/icons.css" rel="stylesheet">
+<link href="css/main.css" rel="stylesheet">
+<link href="css/styles.css" rel="stylesheet">
+<body class="article toc2 toc-left"></body>
+</html>
+<div class="container">
+<a class="menu-trigger" id="trigger"></a>
+<div class="mp-pusher" id="mp-pusher">
+<div class="toc2" id="toc">
+<div class="mp-level">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_introduction">1. Introduction</a></li>
-<li><a href="#_before_starting">2. Before starting</a></li>
-<li><a href="#_backend_installation">3. Backend installation</a>
-<ul class="sectlevel2">
-<li><a href="#_install_dependencies">3.1. Install dependencies</a></li>
-<li><a href="#_setup_a_database">3.2. Setup a database</a></li>
-<li><a href="#_setup_python_environment">3.3. Setup python environment</a></li>
-<li><a href="#_verification">3.4. Verification</a></li>
-<li><a href="#_async_tasks_optional">3.5. Async tasks (Optional)</a></li>
-</ul>
+<li>
+<a href="#_introduction">1. Introduction</a>
+
 </li>
-<li><a href="#_frontend_installation">4. Frontend installation</a></li>
-<li><a href="#_events_installation">5. Events installation</a></li>
-<li><a href="#_final_steps">6. Final steps</a>
-<ul class="sectlevel2">
-<li><a href="#circus-and-gunicorn">6.1. Circus and gunicorn</a></li>
-<li><a href="#_nginx">6.2. Nginx</a></li>
-</ul>
+<li>
+<a href="#_before_starting">2. Before starting</a>
+
 </li>
-<li><a href="#_faq">7. FAQ</a>
+<li>
+<a href="#_backend_installation">3. Backend installation</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
 <ul class="sectlevel2">
-<li><a href="#faq-change-domain">7.1. How can I change the domain name?</a></li>
-<li><a href="#_how_can_i_restart_the_backend_application">7.2. How can I restart the backend application?</a></li>
-<li><a href="#faq-maintain-update">7.3. How I can keep my app up to date with the most recent Taiga version?</a></li>
-<li><a href="#faq-add-extra-functionality">7.4. How I can add extra functionality to Taiga?</a></li>
-</ul>
+<li>
+<a href="#_install_dependencies">3.1. Install dependencies</a>
+</li>
+<li>
+<a href="#_setup_a_database">3.2. Setup a database</a>
+</li>
+<li>
+<a href="#_setup_python_environment">3.3. Setup python environment</a>
+</li>
+<li>
+<a href="#_verification">3.4. Verification</a>
+</li>
+<li>
+<a href="#_async_tasks_optional">3.5. Async tasks (Optional)</a>
 </li>
 </ul>
 </div>
+</li>
+<li>
+<a href="#_frontend_installation">4. Frontend installation</a>
+
+</li>
+<li>
+<a href="#_events_installation">5. Events installation</a>
+
+</li>
+<li>
+<a href="#_final_steps">6. Final steps</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#circus-and-gunicorn">6.1. Circus and gunicorn</a>
+</li>
+<li>
+<a href="#_nginx">6.2. Nginx</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#_faq">7. FAQ</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#faq-change-domain">7.1. How can I change the domain name?</a>
+</li>
+<li>
+<a href="#_how_can_i_restart_the_backend_application">7.2. How can I restart the backend application?</a>
+</li>
+<li>
+<a href="#faq-maintain-update">7.3. How I can keep my app up to date with the most recent Taiga version?</a>
+</li>
+<li>
+<a href="#faq-add-extra-functionality">7.4. How I can add extra functionality to Taiga?</a>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+</div>
+<div class="scroller">
+<div id="header">
+<h1>Setup production environment</h1>
 </div>
 <div id="content">
 <div class="sect1">
@@ -746,7 +804,7 @@ python manage.py runserver</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Then you must be able to see a json representing the list of endpoints in the url <a href="http://localhost:8000/api/v1/" class="bare">http://localhost:8000/api/v1/</a> .</p>
+<p>Then you must be able to see a json representing the list of endpoints in the url <a class="bare" href="http://localhost:8000/api/v1/">http://localhost:8000/api/v1/</a> .</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -792,7 +850,7 @@ this, you have to configure and install the celery service requirements.</p>
 </div>
 <div class="paragraph">
 <p>You can configure other broker or results backend. If you need more info about it you can check the celery documentation web page:
-<a href="http://docs.celeryproject.org/en/latest/index.html" class="bare">http://docs.celeryproject.org/en/latest/index.html</a></p>
+<a class="bare" href="http://docs.celeryproject.org/en/latest/index.html">http://docs.celeryproject.org/en/latest/index.html</a></p>
 </div>
 <div class="paragraph">
 <p>Once you have configured celery on Taiga, you have to add celery to circus configuration. See <a href="#circus-and-gunicorn">Circus and gunicorn</a> section.</p>
@@ -1440,8 +1498,13 @@ repository.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-04-09 11:09:34 CEST
+Last updated 2015-04-14 06:59:13 CEST
 </div>
 </div>
-</body>
-</html>
+</div>
+</div>
+</div>
+<script>
+  new mlPushMenu( document.getElementById( 'toc' ), document.getElementById( 'trigger' ), {type : 'cover'} );
+  $( ".mp-level[data-level!=1]" ).each( function() {$(this).parents("li").addClass('icon icon-arrow-left'); } );
+</script>
