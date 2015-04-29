@@ -742,37 +742,40 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <a href="#projects-delete">8.6. Delete</a>
 </li>
 <li>
-<a href="#projects-get-modules">8.7. Get modules</a>
+<a href="#projects-bulk-update-order">8.7. Bulk update order</a>
 </li>
 <li>
-<a href="#projects-edit-modules">8.8. Edit modules</a>
+<a href="#projects-get-modules">8.8. Get modules</a>
 </li>
 <li>
-<a href="#projects-stats">8.9. Stats</a>
+<a href="#projects-edit-modules">8.9. Edit modules</a>
 </li>
 <li>
-<a href="#projects-issue-stats">8.10. Issue stats</a>
+<a href="#projects-stats">8.10. Stats</a>
 </li>
 <li>
-<a href="#projects-issue-filters-data">8.11. Issue filters data</a>
+<a href="#projects-issue-stats">8.11. Issue stats</a>
 </li>
 <li>
-<a href="#projects-tag-colors">8.12. Tag colors</a>
+<a href="#projects-issue-filters-data">8.12. Issue filters data</a>
 </li>
 <li>
-<a href="#projects-star">8.13. Star</a>
+<a href="#projects-tag-colors">8.13. Tag colors</a>
 </li>
 <li>
-<a href="#projects-unstar">8.14. Unstar</a>
+<a href="#projects-star">8.14. Star</a>
 </li>
 <li>
-<a href="#projects-fans">8.15. Fans</a>
+<a href="#projects-unstar">8.15. Unstar</a>
 </li>
 <li>
-<a href="#projects-create-template">8.16. Create template</a>
+<a href="#projects-fans">8.16. Fans</a>
 </li>
 <li>
-<a href="#projects-leave">8.17. Leave</a>
+<a href="#projects-create-template">8.17. Create template</a>
+</li>
+<li>
+<a href="#projects-leave">8.18. Leave</a>
 </li>
 </ul>
 </div>
@@ -1389,25 +1392,28 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <a href="#users-delete">30.6. Delete</a>
 </li>
 <li>
-<a href="#users-cancel">30.7. Cancel</a>
+<a href="#users-get-contacts">30.7. Get contacts</a>
 </li>
 <li>
-<a href="#users-change-avatar">30.8. Change avatar</a>
+<a href="#users-cancel">30.8. Cancel</a>
 </li>
 <li>
-<a href="#users-remove-avatar">30.9. Remove avatar</a>
+<a href="#users-change-avatar">30.9. Change avatar</a>
 </li>
 <li>
-<a href="#users-change-email">30.10. Change email</a>
+<a href="#users-remove-avatar">30.10. Remove avatar</a>
 </li>
 <li>
-<a href="#users-change-password">30.11. Change password</a>
+<a href="#users-change-email">30.11. Change email</a>
 </li>
 <li>
-<a href="#users-password-recovery">30.12. Password recovery</a>
+<a href="#users-change-password">30.12. Change password</a>
 </li>
 <li>
-<a href="#users-change-password-from-recovery">30.13. Change password from recovery</a>
+<a href="#users-password-recovery">30.13. Password recovery</a>
+</li>
+<li>
+<a href="#users-change-password-from-recovery">30.14. Change password from recovery</a>
 </li>
 </ul>
 </div>
@@ -1501,13 +1507,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <a href="#object-user-detail">35.2. User detail</a>
 </li>
 <li>
-<a href="#object-auth-user-detail">35.3. User authentication-detail</a>
+<a href="#object-contact-detail">35.3. User contact detail</a>
 </li>
 <li>
-<a href="#object-search-results-detail">35.4. Search results detail</a>
+<a href="#object-auth-user-detail">35.4. User authentication-detail</a>
 </li>
 <li>
-<a href="#object-user-storage-detail">35.5. User storage data</a>
+<a href="#object-search-results-detail">35.5. Search results detail</a>
+</li>
+<li>
+<a href="#object-user-storage-detail">35.6. User storage data</a>
 </li>
 </ul>
 </div>
@@ -2044,6 +2053,11 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/{projectId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#projects-delete">Delete a project</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/bulk_update_order</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#projects-bulk-update-order">Update projects order for logged in user</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/projects/{projectId}/modules</p></td>
@@ -3422,6 +3436,11 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/users/{userId}</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">DELETE</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#users-delete">Delete a user</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/users/{userId}/contacts</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#users-get-contacts">Get user contacts</a></p></td>
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/users/cancel</p></td>
@@ -4881,6 +4900,45 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <div class="paragraph">
 <p>The HTTP response is a 200 OK and the response body is a JSON list of <a href="#object-project-list-entry">project list entry objects</a></p>
 </div>
+<div class="paragraph">
+<p>The results can be filtered using the following parameters:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>member</strong>: member id</p>
+</li>
+<li>
+<p><strong>members</strong>: member ids</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/projects?member<span class="tok-o">=</span>1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The results can be ordered using the order_by parameter with the values:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>memberships__user_order</strong>: the project order specified by the user</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/projects?member<span class="tok-o">=</span>1<span class="tok-p">&amp;</span><span class="tok-nv">order_by</span><span class="tok-o">=</span>memberships__user_order</code></pre>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="projects-create">8.2. Create</h3>
@@ -5048,7 +5106,34 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-get-modules">8.7. Get modules</h3>
+<h3 id="projects-bulk-update-order">8.7. Bulk update order</h3>
+<div class="paragraph">
+<p>To update the projects order for the logged in user send a POST request with a json list where each element is a json object with two attributes, the project id and the new order</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X POST <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  -d <span class="tok-s1">&#39;[</span>
+<span class="tok-s1">          {</span>
+<span class="tok-s1">              &quot;project_id&quot;: 123,</span>
+<span class="tok-s1">              &quot;order&quot;: 2</span>
+<span class="tok-s1">          },</span>
+<span class="tok-s1">          {</span>
+<span class="tok-s1">              &quot;project_id&quot;: 456,</span>
+<span class="tok-s1">              &quot;order&quot;: 2</span>
+<span class="tok-s1">          }</span>
+<span class="tok-s1">      ]&#39;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/projects/bulk_update_order</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>When the update is successful, the HTTP response is a 200 OK and the response body is empty</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="projects-get-modules">8.8. Get modules</h3>
 <div class="paragraph">
 <p>To get a project modules configuration send a GET request specifying the project id in the url</p>
 </div>
@@ -5065,7 +5150,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-edit-modules">8.8. Edit modules</h3>
+<h3 id="projects-edit-modules">8.9. Edit modules</h3>
 <div class="paragraph">
 <p>To edit a project modules send a PATCH specifying the project id in the url.</p>
 </div>
@@ -5087,7 +5172,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-stats">8.9. Stats</h3>
+<h3 id="projects-stats">8.10. Stats</h3>
 <div class="paragraph">
 <p>To get a project stats send a GET request specifying the project id in the url</p>
 </div>
@@ -5104,7 +5189,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-issue-stats">8.10. Issue stats</h3>
+<h3 id="projects-issue-stats">8.11. Issue stats</h3>
 <div class="paragraph">
 <p>To get a project issue stats send a GET request specifying the project id in the url</p>
 </div>
@@ -5121,7 +5206,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-issue-filters-data">8.11. Issue filters data</h3>
+<h3 id="projects-issue-filters-data">8.12. Issue filters data</h3>
 <div class="paragraph">
 <p>To get a project issue filters data send a GET request specifying the project id in the url</p>
 </div>
@@ -5138,7 +5223,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-tag-colors">8.12. Tag colors</h3>
+<h3 id="projects-tag-colors">8.13. Tag colors</h3>
 <div class="paragraph">
 <p>To get a project tag colors stats send a GET request specifying the project id in the url</p>
 </div>
@@ -5155,7 +5240,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-star">8.13. Star</h3>
+<h3 id="projects-star">8.14. Star</h3>
 <div class="paragraph">
 <p>To add a star to a project send a POST request specifying the project id in the url</p>
 </div>
@@ -5171,7 +5256,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-unstar">8.14. Unstar</h3>
+<h3 id="projects-unstar">8.15. Unstar</h3>
 <div class="paragraph">
 <p>To add a star to a project send a POST request specifying the project id in the url</p>
 </div>
@@ -5187,7 +5272,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-fans">8.15. Fans</h3>
+<h3 id="projects-fans">8.16. Fans</h3>
 <div class="paragraph">
 <p>To get the list of fans from a project send a GET request specifying the project id in the url</p>
 </div>
@@ -5204,7 +5289,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-create-template">8.16. Create template</h3>
+<h3 id="projects-create-template">8.17. Create template</h3>
 <div class="paragraph">
 <p>To create a template from a selected project send a POST request specifying the project id in the url with the following parameters:</p>
 </div>
@@ -5235,7 +5320,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-leave">8.17. Leave</h3>
+<h3 id="projects-leave">8.18. Leave</h3>
 <div class="paragraph">
 <p>To leave a project send a POST request specifying the project id in the url</p>
 </div>
@@ -5683,6 +5768,15 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </li>
 <li>
 <p><strong>is_archived</strong>: (true|false)</p>
+</li>
+<li>
+<p><strong>watchers</strong>: watching user id</p>
+</li>
+<li>
+<p><strong>assigned_to</strong>: assigned to user id</p>
+</li>
+<li>
+<p><strong>status__is_closed</strong>: (true|false)</p>
 </li>
 </ul>
 </div>
@@ -6771,6 +6865,15 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <li>
 <p><strong>milestone</strong>: milestone id</p>
 </li>
+<li>
+<p><strong>watchers</strong>: watching user id</p>
+</li>
+<li>
+<p><strong>assigned_to</strong>: assigned to user id</p>
+</li>
+<li>
+<p><strong>status__is_closed</strong>: (true|false)</p>
+</li>
 </ul>
 </div>
 <div class="listingblock">
@@ -7555,6 +7658,12 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </li>
 <li>
 <p><strong>type</strong>: issue type id</p>
+</li>
+<li>
+<p><strong>watchers</strong>: watching user id</p>
+</li>
+<li>
+<p><strong>status__is_closed</strong>: (true|false)</p>
 </li>
 </ul>
 </div>
@@ -9476,7 +9585,24 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-cancel">30.7. Cancel</h3>
+<h3 id="users-get-contacts">30.7. Get contacts</h3>
+<div class="paragraph">
+<p>To get a user contacts send a GET request specifying the user id in the url</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/users/1/contacts</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The HTTP response is a 200 OK and the response body is a list of JSON <a href="#object-contact-detail">contact detail object</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="users-cancel">30.8. Cancel</h3>
 <div class="paragraph">
 <p>To cancel a user account send a POST with the following data</p>
 </div>
@@ -9495,7 +9621,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-change-avatar">30.8. Change avatar</h3>
+<h3 id="users-change-avatar">30.9. Change avatar</h3>
 <div class="paragraph">
 <p>To change your user avatar send a POST with the following data</p>
 </div>
@@ -9512,7 +9638,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-remove-avatar">30.9. Remove avatar</h3>
+<h3 id="users-remove-avatar">30.10. Remove avatar</h3>
 <div class="paragraph">
 <p>To remove your user avatar send a POST with the following data</p>
 </div>
@@ -9528,7 +9654,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-change-email">30.10. Change email</h3>
+<h3 id="users-change-email">30.11. Change email</h3>
 <div class="paragraph">
 <p>To change your user email send a POST with the following data</p>
 </div>
@@ -9548,7 +9674,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-change-password">30.11. Change password</h3>
+<h3 id="users-change-password">30.12. Change password</h3>
 <div class="paragraph">
 <p>To change your user password send a POST with the following data</p>
 </div>
@@ -9568,7 +9694,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-password-recovery">30.12. Password recovery</h3>
+<h3 id="users-password-recovery">30.13. Password recovery</h3>
 <div class="paragraph">
 <p>To request a user password recovery send a POST with the following data</p>
 </div>
@@ -9594,7 +9720,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="users-change-password-from-recovery">30.13. Change password from recovery</h3>
+<h3 id="users-change-password-from-recovery">30.14. Change password from recovery</h3>
 <div class="paragraph">
 <p>To change a user password from a request recovery send a POST with the following data</p>
 </div>
@@ -10022,8 +10148,8 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
-    <span class="tok-nt">&quot;big_photo&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;//www.gravatar.com/avatar/4648b6d514c3ecece1b87136ceeda1d1?size=80&quot;</span>
-    <span class="tok-s2">&quot;bio&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;big_photo&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;//www.gravatar.com/avatar/4648b6d514c3ecece1b87136ceeda1d1?size=80&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;bio&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;black&quot;</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;lang&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;timezone&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
@@ -10040,7 +10166,31 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-auth-user-detail">35.3. User authentication-detail</h3>
+<h3 id="object-contact-detail">35.3. User contact detail</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
+    <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">32090</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;username&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;beta.tester&quot;</span>
+    <span class="tok-s2">&quot;full_name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Beta testing&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;full_name_display&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Beta testing&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#2c3e58&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;bio&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;lang&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;timezone&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;is_active&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;photo&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;http//www.gravatar.com/avatar/4648b6d514c3ecece1b87136ceeda1d1?size=80&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;big_photo&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;http//www.gravatar.com/avatar/4648b6d514c3ecece1b87136ceeda1d1?size=80&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;roles&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+        <span class="tok-s2">&quot;Product Owner&quot;</span>
+    <span class="tok-p">],</span>
+    <span class="tok-nt">&quot;projects_with_me&quot;</span><span class="tok-p">:</span> <span class="tok-p">[]</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="object-auth-user-detail">35.4. User authentication-detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -10063,7 +10213,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-search-results-detail">35.4. Search results detail</h3>
+<h3 id="object-search-results-detail">35.5. Search results detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -10077,7 +10227,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-user-storage-detail">35.5. User storage data</h3>
+<h3 id="object-user-storage-detail">35.6. User storage data</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13303,9 +13453,31 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
     <span class="tok-nt">&quot;team_requirement&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;total_points&quot;</span><span class="tok-p">:</span> <span class="tok-mf">1.0</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;version&quot;</span><span class="tok-p">:</span> <span class="tok-mi">8</span><span class="tok-p">,</span>
-    <span class="tok-nt">&quot;watchers&quot;</span><span class="tok-p">:</span> <span class="tok-p">[]</span>
+    <span class="tok-nt">&quot;watchers&quot;</span><span class="tok-p">:</span> <span class="tok-p">[],</span>
+    <span class="tok-nt">&quot;status_extra_info&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;In progress&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#5E8C6A&quot;</span>
+    <span class="tok-p">},</span>
+    <span class="tok-nt">&quot;assigned_to_extra_info&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;username&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;beta.tester&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;full_name_display&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Beta testing&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;photo&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;//www.gravatar.com/avatar/4648b6d514c3ecece1b87136ceeda1d1?size=80&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;big_photo&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;//www.gravatar.com/avatar/4648b6d514c3ecece1b87136ceeda1d1?size=80&quot;</span><span class="tok-err">&quot;</span>
+    <span class="tok-p">}</span>
 <span class="tok-p">}</span></code></pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+us_extra_info and assigned_to_extra_info are read only fields
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -13413,9 +13585,31 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
             <span class="tok-nt">&quot;ref&quot;</span><span class="tok-p">:</span> <span class="tok-mi">77</span><span class="tok-p">,</span>
             <span class="tok-nt">&quot;subject&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Feature/improved image admin&quot;</span>
         <span class="tok-p">}</span>
+    <span class="tok-p">},</span>
+    <span class="tok-nt">&quot;status_extra_info&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;In progress&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#5E8C6A&quot;</span>
+    <span class="tok-p">},</span>
+    <span class="tok-nt">&quot;assigned_to_extra_info&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;username&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;beta.tester&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;full_name_display&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Beta testing&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;photo&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;//www.gravatar.com/avatar/4648b6d514c3ecece1b87136ceeda1d1?size=80&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;big_photo&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;//www.gravatar.com/avatar/4648b6d514c3ecece1b87136ceeda1d1?size=80&quot;</span><span class="tok-err">&quot;</span>
     <span class="tok-p">}</span>
 <span class="tok-p">}</span></code></pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+us_extra_info and assigned_to_extra_info are read only fields
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -13504,9 +13698,31 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
             <span class="tok-nt">&quot;subject&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Support for bulk actions&quot;</span>
         <span class="tok-p">},</span>
         <span class="tok-nt">&quot;previous&quot;</span><span class="tok-p">:</span> <span class="tok-p">{}</span>
+    <span class="tok-p">},</span>
+    <span class="tok-nt">&quot;status_extra_info&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;In progress&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#5E8C6A&quot;</span>
+    <span class="tok-p">},</span>
+    <span class="tok-nt">&quot;assigned_to_extra_info&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;username&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;beta.tester&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;full_name_display&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Beta testing&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;photo&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;//www.gravatar.com/avatar/4648b6d514c3ecece1b87136ceeda1d1?size=80&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;big_photo&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;//www.gravatar.com/avatar/4648b6d514c3ecece1b87136ceeda1d1?size=80&quot;</span><span class="tok-err">&quot;</span>
     <span class="tok-p">}</span>
 <span class="tok-p">}</span></code></pre>
 </div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+us_extra_info and assigned_to_extra_info are read only fields
+</td>
+</tr>
+</table>
 </div>
 </div>
 <div class="sect2">
@@ -13829,7 +14045,7 @@ API endpoints, and has its own documentation.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-04-14 06:59:15 CEST
+Last updated 2015-04-29 13:48:36 CEST
 </div>
 </div>
 </div>
