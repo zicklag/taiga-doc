@@ -503,7 +503,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <a href="#_pagination">1.3. Pagination</a>
 </li>
 <li>
-<a href="#_throttling">1.4. Throttling</a>
+<a href="#_internationalization">1.4. Internationalization</a>
+</li>
+<li>
+<a href="#_throttling">1.5. Throttling</a>
 </li>
 </ul>
 </div>
@@ -608,6 +611,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </li>
 <li>
 <a href="#_webhooks">2.32. Webhooks</a>
+</li>
+<li>
+<a href="#_timelines">2.33. Timelines</a>
+</li>
+<li>
+<a href="#_locales">2.34. Locales</a>
 </li>
 </ul>
 </div>
@@ -1496,158 +1505,192 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </li>
 <li>
-<a href="#_objects_summary">35. Objects Summary</a>
+<a href="#timelines">35. Timelines</a>
 <div class="mp-level">
 <a class="mp-back" href="#">back</a>
 <ul class="sectlevel2">
 <li>
-<a href="#object-attachment-detail">35.1. Attachment</a>
+<a href="#timeline-user-list">35.1. List user timeline</a>
 </li>
 <li>
-<a href="#object-user-detail">35.2. User detail</a>
+<a href="#timeline-profile-list">35.2. List profile timeline</a>
 </li>
 <li>
-<a href="#object-contact-detail">35.3. User contact detail</a>
-</li>
-<li>
-<a href="#object-auth-user-detail">35.4. User authentication-detail</a>
-</li>
-<li>
-<a href="#object-search-results-detail">35.5. Search results detail</a>
-</li>
-<li>
-<a href="#object-user-storage-detail">35.6. User storage data</a>
+<a href="#timeline-project-list">35.3. List project timeline</a>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<a href="#object-project-template-detail">36. Project templates detail</a>
+<a href="#locales">36. Locales</a>
 <div class="mp-level">
 <a class="mp-back" href="#">back</a>
 <ul class="sectlevel2">
 <li>
-<a href="#object-project-list-entry">36.1. Project list entry</a>
-</li>
-<li>
-<a href="#object-project-detail">36.2. Project detail</a>
-</li>
-<li>
-<a href="#object-project-modules-detail">36.3. Project modules detail</a>
-</li>
-<li>
-<a href="#object-project-stats-detail">36.4. Project stats detail</a>
-</li>
-<li>
-<a href="#object-project-issue-stats-detail">36.5. Project issue stats detail</a>
-</li>
-<li>
-<a href="#object-project-issue-filters-data-detail">36.6. Project issue filters data detail</a>
-</li>
-<li>
-<a href="#object-project-tags-colors-detail">36.7. Project tag colors data detail</a>
-</li>
-<li>
-<a href="#object-project-voter-detail">36.8. Project voter detail</a>
-</li>
-<li>
-<a href="#object-project-template-detail">36.9. Project template detail</a>
-</li>
-<li>
-<a href="#object-membership-detail">36.10. Membership detail</a>
-</li>
-<li>
-<a href="#object-milestone-detail">36.11. Milestone detail</a>
-</li>
-<li>
-<a href="#object-milestone-stats-detail">36.12. Milestone stats detail</a>
-</li>
-<li>
-<a href="#object-userstory-detail">36.13. User story detail</a>
-</li>
-<li>
-<a href="#object-userstory-status-detail">36.14. User story status detail</a>
-</li>
-<li>
-<a href="#object-point-detail">36.15. Point detail</a>
-</li>
-<li>
-<a href="#object-userstory-custom-attribute-detail">36.16. User story custom attribute detail</a>
-</li>
-<li>
-<a href="#object-userstory-custom-attributes-values-detail">36.17. User story custom attributes values detail</a>
-</li>
-<li>
-<a href="#object-task-detail">36.18. Task detail</a>
-</li>
-<li>
-<a href="#object-task-status-detail">36.19. Task status detail</a>
-</li>
-<li>
-<a href="#object-task-custom-attribute-detail">36.20. Task custom attribute detail</a>
-</li>
-<li>
-<a href="#object-task-custom-attributes-values-detail">36.21. Task custom attributes values detail</a>
-</li>
-<li>
-<a href="#object-issue-detail">36.22. Issue detail</a>
-</li>
-<li>
-<a href="#object-issue-voters-detail">36.23. Issue voters detail</a>
-</li>
-<li>
-<a href="#object-issue-status-detail">36.24. Issue status detail</a>
-</li>
-<li>
-<a href="#object-issue-type-detail">36.25. Issue type detail</a>
-</li>
-<li>
-<a href="#object-priority-detail">36.26. Priority detail</a>
-</li>
-<li>
-<a href="#object-severity-detail">36.27. Severity detail</a>
-</li>
-<li>
-<a href="#object-issue-custom-attribute-detail">36.28. Issue custom attribute detail</a>
-</li>
-<li>
-<a href="#object-issue-custom-attributes-values-detail">36.29. Issue custom attributes values detail</a>
-</li>
-<li>
-<a href="#object-wiki-detail">36.30. Wiki page</a>
-</li>
-<li>
-<a href="#object-wiki-link-detail">36.31. Wiki link</a>
-</li>
-<li>
-<a href="#object-history-entry-detail">36.32. History entry</a>
-</li>
-<li>
-<a href="#object-notify-policy-detail">36.33. Notify policy</a>
-</li>
-<li>
-<a href="#object-feedback-detail">36.34. Feedback</a>
-</li>
-<li>
-<a href="#object-export-synch">36.35. Export detail for synch mode</a>
-</li>
-<li>
-<a href="#object-export-accepted">36.36. Export accepted response</a>
-</li>
-<li>
-<a href="#object-import-accepted">36.37. Import accepted response</a>
-</li>
-<li>
-<a href="#object-webhook-detail">36.38. Webhook</a>
-</li>
-<li>
-<a href="#object-webhook-log-detail">36.39. Webhook log</a>
+<a href="#locales-list">36.1. List</a>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<a href="#_contrib_plugins">37. Contrib plugins</a>
+<a href="#_objects_summary">37. Objects Summary</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#object-attachment-detail">37.1. Attachment</a>
+</li>
+<li>
+<a href="#object-user-detail">37.2. User detail</a>
+</li>
+<li>
+<a href="#object-contact-detail">37.3. User contact detail</a>
+</li>
+<li>
+<a href="#object-auth-user-detail">37.4. User authentication-detail</a>
+</li>
+<li>
+<a href="#object-search-results-detail">37.5. Search results detail</a>
+</li>
+<li>
+<a href="#object-user-storage-detail">37.6. User storage data</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#object-project-template-detail">38. Project templates detail</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#object-project-list-entry">38.1. Project list entry</a>
+</li>
+<li>
+<a href="#object-project-detail">38.2. Project detail</a>
+</li>
+<li>
+<a href="#object-project-modules-detail">38.3. Project modules detail</a>
+</li>
+<li>
+<a href="#object-project-stats-detail">38.4. Project stats detail</a>
+</li>
+<li>
+<a href="#object-project-issue-stats-detail">38.5. Project issue stats detail</a>
+</li>
+<li>
+<a href="#object-project-issue-filters-data-detail">38.6. Project issue filters data detail</a>
+</li>
+<li>
+<a href="#object-project-tags-colors-detail">38.7. Project tag colors data detail</a>
+</li>
+<li>
+<a href="#object-project-voter-detail">38.8. Project voter detail</a>
+</li>
+<li>
+<a href="#object-project-template-detail">38.9. Project template detail</a>
+</li>
+<li>
+<a href="#object-membership-detail">38.10. Membership detail</a>
+</li>
+<li>
+<a href="#object-milestone-detail">38.11. Milestone detail</a>
+</li>
+<li>
+<a href="#object-milestone-stats-detail">38.12. Milestone stats detail</a>
+</li>
+<li>
+<a href="#object-userstory-detail">38.13. User story detail</a>
+</li>
+<li>
+<a href="#object-userstory-status-detail">38.14. User story status detail</a>
+</li>
+<li>
+<a href="#object-point-detail">38.15. Point detail</a>
+</li>
+<li>
+<a href="#object-userstory-custom-attribute-detail">38.16. User story custom attribute detail</a>
+</li>
+<li>
+<a href="#object-userstory-custom-attributes-values-detail">38.17. User story custom attributes values detail</a>
+</li>
+<li>
+<a href="#object-task-detail">38.18. Task detail</a>
+</li>
+<li>
+<a href="#object-task-status-detail">38.19. Task status detail</a>
+</li>
+<li>
+<a href="#object-task-custom-attribute-detail">38.20. Task custom attribute detail</a>
+</li>
+<li>
+<a href="#object-task-custom-attributes-values-detail">38.21. Task custom attributes values detail</a>
+</li>
+<li>
+<a href="#object-issue-detail">38.22. Issue detail</a>
+</li>
+<li>
+<a href="#object-issue-voters-detail">38.23. Issue voters detail</a>
+</li>
+<li>
+<a href="#object-issue-status-detail">38.24. Issue status detail</a>
+</li>
+<li>
+<a href="#object-issue-type-detail">38.25. Issue type detail</a>
+</li>
+<li>
+<a href="#object-priority-detail">38.26. Priority detail</a>
+</li>
+<li>
+<a href="#object-severity-detail">38.27. Severity detail</a>
+</li>
+<li>
+<a href="#object-issue-custom-attribute-detail">38.28. Issue custom attribute detail</a>
+</li>
+<li>
+<a href="#object-issue-custom-attributes-values-detail">38.29. Issue custom attributes values detail</a>
+</li>
+<li>
+<a href="#object-wiki-detail">38.30. Wiki page</a>
+</li>
+<li>
+<a href="#object-wiki-link-detail">38.31. Wiki link</a>
+</li>
+<li>
+<a href="#object-history-entry-detail">38.32. History entry</a>
+</li>
+<li>
+<a href="#object-notify-policy-detail">38.33. Notify policy</a>
+</li>
+<li>
+<a href="#object-feedback-detail">38.34. Feedback</a>
+</li>
+<li>
+<a href="#object-export-synch">38.35. Export detail for synch mode</a>
+</li>
+<li>
+<a href="#object-export-accepted">38.36. Export accepted response</a>
+</li>
+<li>
+<a href="#object-import-accepted">38.37. Import accepted response</a>
+</li>
+<li>
+<a href="#object-webhook-detail">38.38. Webhook</a>
+</li>
+<li>
+<a href="#object-webhook-log-detail">38.39. Webhook log</a>
+</li>
+<li>
+<a href="#object-timeline-detail">38.40. Timeline entry detail</a>
+</li>
+<li>
+<a href="#object-locale-detail">38.41. Locale</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#_contrib_plugins">39. Contrib plugins</a>
 
 </li>
 </ul>
@@ -1816,7 +1859,21 @@ instance remember to change the url.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_throttling">1.4. Throttling</h3>
+<h3 id="_internationalization">1.4. Internationalization</h3>
+<div class="paragraph">
+<p>The API returns some content translated, you can specify the language with an extra http header:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code>Accept-Language: {LanguageId}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The LanguageId can be chosen from the value list of available languages. You can get them using the <a href="#locales">locales API</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_throttling">1.5. Throttling</h3>
 <div class="paragraph">
 <p>If the api is configured with throttling you have to take care on responses
 with 429 (Too many requests) status code, that mean you reach the throttling
@@ -3637,6 +3694,64 @@ limit.</p>
 <td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/webhooklogs/{webhookLogId}/resend</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">POST</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#webhooklogs-resend">Resend webhook log request</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_timelines">2.33. Timelines</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">URL</th>
+<th class="tableblock halign-left valign-top">Method</th>
+<th class="tableblock halign-left valign-top">Functionality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/timeline/user/{userId}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#timeline-user-list">List user timeline</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/timeline/profile/{userId}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#timeline-profile-list">List profile timeline</a></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/timeline/project/{projectId}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#timeline-project-list">List project timeline</a></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_locales">2.34. Locales</h3>
+<table class="tableblock frame-all grid-all spread">
+<colgroup>
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">URL</th>
+<th class="tableblock halign-left valign-top">Method</th>
+<th class="tableblock halign-left valign-top">Functionality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">/api/v1/locales</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">GET</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#locales-list">List locales</a></p></td>
 </tr>
 </tbody>
 </table>
@@ -10119,10 +10234,97 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="_objects_summary">35. Objects Summary</h2>
+<h2 id="timelines">35. Timelines</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="object-attachment-detail">35.1. Attachment</h3>
+<h3 id="timeline-user-list">35.1. List user timeline</h3>
+<div class="paragraph">
+<p>To list a user timeline send a GET request with the following parameters:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/timeline/user/1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This API call returns only actions directly executed by the specified user.</p>
+</div>
+<div class="paragraph">
+<p>The HTTP response is a 200 OK and the response body is a JSON list of <a href="#object-timeline-detail">timeline entry detail</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="timeline-profile-list">35.2. List profile timeline</h3>
+<div class="paragraph">
+<p>To list a profile timeline send a GET request with the following parameters:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/timeline/profile/1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This API call returns actions executed by the specified user and related to them, watching objects, actions by related team members, belonging to projects&#8230;&#8203;</p>
+</div>
+<div class="paragraph">
+<p>The HTTP response is a 200 OK and the response body is a JSON list of <a href="#object-timeline-detail">timeline entry detail</a></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="timeline-project-list">35.3. List project timeline</h3>
+<div class="paragraph">
+<p>To list a project timeline send a GET request with the following parameters:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/timeline/project/1</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>This API call returns actions executed by different users related to the specified project.</p>
+</div>
+<div class="paragraph">
+<p>The HTTP response is a 200 OK and the response body is a JSON list of <a href="#object-timeline-detail">timeline entry detail</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="locales">36. Locales</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="locales-list">36.1. List</h3>
+<div class="paragraph">
+<p>To list the available locales send a GET request with the following parameters:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X GET <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/locales</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The HTTP response is a 200 OK and the response body is a JSON list of <a href="#object-locale-detail">locale objects</a></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_objects_summary">37. Objects Summary</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="object-attachment-detail">37.1. Attachment</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -10144,7 +10346,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-user-detail">35.2. User detail</h3>
+<h3 id="object-user-detail">37.2. User detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -10166,7 +10368,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-contact-detail">35.3. User contact detail</h3>
+<h3 id="object-contact-detail">37.3. User contact detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -10190,7 +10392,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-auth-user-detail">35.4. User authentication-detail</h3>
+<h3 id="object-auth-user-detail">37.4. User authentication-detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -10213,7 +10415,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-search-results-detail">35.5. Search results detail</h3>
+<h3 id="object-search-results-detail">37.5. Search results detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -10227,7 +10429,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-user-storage-detail">35.6. User storage data</h3>
+<h3 id="object-user-storage-detail">37.6. User storage data</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -10242,7 +10444,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect1">
-<h2 id="object-project-template-detail">36. Project templates detail</h2>
+<h2 id="object-project-template-detail">38. Project templates detail</h2>
 <div class="sectionbody">
 <div class="listingblock">
 <div class="content">
@@ -10615,7 +10817,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-list-entry">36.1. Project list entry</h3>
+<h3 id="object-project-list-entry">38.1. Project list entry</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -10721,7 +10923,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-detail">36.2. Project detail</h3>
+<h3 id="object-project-detail">38.2. Project detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11236,7 +11438,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-modules-detail">36.3. Project modules detail</h3>
+<h3 id="object-project-modules-detail">38.3. Project modules detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11249,7 +11451,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-stats-detail">36.4. Project stats detail</h3>
+<h3 id="object-project-stats-detail">38.4. Project stats detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -11452,7 +11654,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-issue-stats-detail">36.5. Project issue stats detail</h3>
+<h3 id="object-project-issue-stats-detail">38.5. Project issue stats detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -12116,7 +12318,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-issue-filters-data-detail">36.6. Project issue filters data detail</h3>
+<h3 id="object-project-issue-filters-data-detail">38.6. Project issue filters data detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -12741,7 +12943,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-tags-colors-detail">36.7. Project tag colors data detail</h3>
+<h3 id="object-project-tags-colors-detail">38.7. Project tag colors data detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -12857,7 +13059,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-voter-detail">36.8. Project voter detail</h3>
+<h3 id="object-project-voter-detail">38.8. Project voter detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -12869,7 +13071,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-project-template-detail">36.9. Project template detail</h3>
+<h3 id="object-project-template-detail">38.9. Project template detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13319,7 +13521,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-membership-detail">36.10. Membership detail</h3>
+<h3 id="object-membership-detail">38.10. Membership detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13344,7 +13546,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-milestone-detail">36.11. Milestone detail</h3>
+<h3 id="object-milestone-detail">38.11. Milestone detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13371,7 +13573,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-milestone-stats-detail">36.12. Milestone stats detail</h3>
+<h3 id="object-milestone-stats-detail">38.12. Milestone stats detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13409,7 +13611,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-userstory-detail">36.13. User story detail</h3>
+<h3 id="object-userstory-detail">38.13. User story detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13481,7 +13683,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-userstory-status-detail">36.14. User story status detail</h3>
+<h3 id="object-userstory-status-detail">38.14. User story status detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13497,7 +13699,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-point-detail">36.15. Point detail</h3>
+<h3 id="object-point-detail">38.15. Point detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13512,7 +13714,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-userstory-custom-attribute-detail">36.16. User story custom attribute detail</h3>
+<h3 id="object-userstory-custom-attribute-detail">38.16. User story custom attribute detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13526,7 +13728,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-userstory-custom-attributes-values-detail">36.17. User story custom attributes values detail</h3>
+<h3 id="object-userstory-custom-attributes-values-detail">38.17. User story custom attributes values detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13540,7 +13742,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-task-detail">36.18. Task detail</h3>
+<h3 id="object-task-detail">38.18. Task detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13613,7 +13815,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-task-status-detail">36.19. Task status detail</h3>
+<h3 id="object-task-status-detail">38.19. Task status detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13628,7 +13830,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-task-custom-attribute-detail">36.20. Task custom attribute detail</h3>
+<h3 id="object-task-custom-attribute-detail">38.20. Task custom attribute detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13642,7 +13844,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-task-custom-attributes-values-detail">36.21. Task custom attributes values detail</h3>
+<h3 id="object-task-custom-attributes-values-detail">38.21. Task custom attributes values detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13656,7 +13858,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-issue-detail">36.22. Issue detail</h3>
+<h3 id="object-issue-detail">38.22. Issue detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13726,7 +13928,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-issue-voters-detail">36.23. Issue voters detail</h3>
+<h3 id="object-issue-voters-detail">38.23. Issue voters detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">[</span>
@@ -13745,7 +13947,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-issue-status-detail">36.24. Issue status detail</h3>
+<h3 id="object-issue-status-detail">38.24. Issue status detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13760,7 +13962,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-issue-type-detail">36.25. Issue type detail</h3>
+<h3 id="object-issue-type-detail">38.25. Issue type detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13774,7 +13976,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-priority-detail">36.26. Priority detail</h3>
+<h3 id="object-priority-detail">38.26. Priority detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13788,7 +13990,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-severity-detail">36.27. Severity detail</h3>
+<h3 id="object-severity-detail">38.27. Severity detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13802,7 +14004,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-issue-custom-attribute-detail">36.28. Issue custom attribute detail</h3>
+<h3 id="object-issue-custom-attribute-detail">38.28. Issue custom attribute detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13816,7 +14018,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-issue-custom-attributes-values-detail">36.29. Issue custom attributes values detail</h3>
+<h3 id="object-issue-custom-attributes-values-detail">38.29. Issue custom attributes values detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13830,7 +14032,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-wiki-detail">36.30. Wiki page</h3>
+<h3 id="object-wiki-detail">38.30. Wiki page</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13851,7 +14053,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-wiki-link-detail">36.31. Wiki link</h3>
+<h3 id="object-wiki-link-detail">38.31. Wiki link</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13865,7 +14067,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-history-entry-detail">36.32. History entry</h3>
+<h3 id="object-history-entry-detail">38.32. History entry</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13918,7 +14120,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-notify-policy-detail">36.33. Notify policy</h3>
+<h3 id="object-notify-policy-detail">38.33. Notify policy</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13931,7 +14133,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-feedback-detail">36.34. Feedback</h3>
+<h3 id="object-feedback-detail">38.34. Feedback</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13945,7 +14147,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-export-synch">36.35. Export detail for synch mode</h3>
+<h3 id="object-export-synch">38.35. Export detail for synch mode</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13955,7 +14157,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-export-accepted">36.36. Export accepted response</h3>
+<h3 id="object-export-accepted">38.36. Export accepted response</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13965,7 +14167,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-import-accepted">36.37. Import accepted response</h3>
+<h3 id="object-import-accepted">38.37. Import accepted response</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13975,7 +14177,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-webhook-detail">36.38. Webhook</h3>
+<h3 id="object-webhook-detail">38.38. Webhook</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13990,7 +14192,7 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-webhook-log-detail">36.39. Webhook log</h3>
+<h3 id="object-webhook-log-detail">38.39. Webhook log</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -14016,10 +14218,66 @@ us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 </div>
+<div class="sect2">
+<h3 id="object-timeline-detail">38.40. Timeline entry detail</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
+    <span class="tok-nt">&quot;data&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;comment_html&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&lt;p&gt;Hic cum voluptatibus et quaerat suscipit incidunt, quasi enim porro corrupti, accusantium accusamus quam odit deserunt ducimus, atque libero inventore fuga numquam aspernatur dolorem pariatur fugiat cumque quas ad? Incidunt rem ut dolore quidem sequi non neque esse quos sunt ea, quisquam non officia quidem minima a est eaque dolorem esse impedit, minus deserunt repellendus. Quae dolores obcaecati iste voluptatum facilis delectus quod aperiam totam possimus eum, totam voluptas quis temporibus sint debitis aliquid in quae nulla, aspernatur voluptate velit amet, incidunt recusandae repudiandae, culpa iure commodi corrupti modi excepturi? Omnis voluptas et assumenda, ex nostrum qui iste commodi adipisci laborum, quaerat quasi enim, corporis laborum aliquid eum.&lt;/p&gt;&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;values_diff&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;status&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+                <span class="tok-s2">&quot;Rejected&quot;</span><span class="tok-p">,</span>
+                <span class="tok-s2">&quot;New&quot;</span>
+            <span class="tok-p">]</span>
+        <span class="tok-p">},</span>
+        <span class="tok-nt">&quot;comment&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Hic cum voluptatibus et quaerat suscipit incidunt, quasi enim porro corrupti, accusantium accusamus quam odit deserunt ducimus, atque libero inventore fuga numquam aspernatur dolorem pariatur fugiat cumque quas ad? Incidunt rem ut dolore quidem sequi non neque esse quos sunt ea, quisquam non officia quidem minima a est eaque dolorem esse impedit, minus deserunt repellendus. Quae dolores obcaecati iste voluptatum facilis delectus quod aperiam totam possimus eum, totam voluptas quis temporibus sint debitis aliquid in quae nulla, aspernatur voluptate velit amet, incidunt recusandae repudiandae, culpa iure commodi corrupti modi excepturi? Omnis voluptas et assumenda, ex nostrum qui iste commodi adipisci laborum, quaerat quasi enim, corporis laborum aliquid eum.&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;user&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">7</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;photo&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;//www.gravatar.com/avatar/aed1e43be0f69f07ce6f34a907bc6328?size=80&amp;default=https%3A%2F%2Fstatic.taiga.io%2Fimg%2Fuser-noimage.png&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;big_photo&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;//www.gravatar.com/avatar/aed1e43be0f69f07ce6f34a907bc6328?default=https%3A%2F%2Fstatic.taiga.io%2Fimg%2Fuser-noimage.png&amp;size=80&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Purificacion Montero&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;username&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;user1&quot;</span>
+        <span class="tok-p">},</span>
+        <span class="tok-nt">&quot;project&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;description&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Project example 3 description&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">4</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;user9-project-example-3&quot;</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Project Example 3&quot;</span>
+        <span class="tok-p">},</span>
+        <span class="tok-nt">&quot;issue&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+            <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">83</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;ref&quot;</span><span class="tok-p">:</span> <span class="tok-mi">106</span><span class="tok-p">,</span>
+            <span class="tok-nt">&quot;subject&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Added file copying and processing of images (resizing)&quot;</span>
+        <span class="tok-p">}</span>
+    <span class="tok-p">},</span>
+    <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">4336</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;content_type&quot;</span><span class="tok-p">:</span> <span class="tok-mi">3</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;object_id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">7</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;namespace&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;user:7&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;event_type&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;issues.issue.change&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;project&quot;</span><span class="tok-p">:</span> <span class="tok-mi">4</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;data_content_type&quot;</span><span class="tok-p">:</span> <span class="tok-mi">39</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;created&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;2015-04-16T06:57:21+0000&quot;</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="object-locale-detail">38.41. Locale</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
+    <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Español&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;code&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;es&quot;</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_contrib_plugins">37. Contrib plugins</h2>
+<h2 id="_contrib_plugins">39. Contrib plugins</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Taiga allows adding features through contrib plugins, each plugin can add new
@@ -14045,7 +14303,7 @@ API endpoints, and has its own documentation.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-04-29 13:48:36 CEST
+Last updated 2015-04-30 07:48:48 CEST
 </div>
 </div>
 </div>

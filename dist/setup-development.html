@@ -622,12 +622,14 @@ sudo apt-get install -y postgresql-doc-9.3 postgresql-server-dev-9.3</code></pre
 </div>
 </div>
 <div class="paragraph">
-<p>And setup the initial user and database:</p>
+<p>And setup the initial user, database, and permissions:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash">sudo -u postgres createuser taiga
-sudo -u postgres createdb taiga -O taiga</code></pre>
+<pre class="pygments highlight"><code data-lang="bash">sudo -u postgres psql -c <span class="tok-s2">&quot;CREATE ROLE taiga LOGIN PASSWORD &#39;changeme&#39;;&quot;</span>
+sudo -u postgres createdb taiga -O taiga
+<span class="tok-nb">echo</span> <span class="tok-s1">&#39;local all taiga peer&#39;</span> <span class="tok-p">|</span> sudo -u postgres tee -a /etc/postgresql/9.3/main/pg_hba.conf &gt; /dev/null
+sudo service postgresql reload</code></pre>
 </div>
 </div>
 </div>
@@ -684,6 +686,25 @@ git checkout stable</code></pre>
 <pre class="pygments highlight"><code data-lang="bash">pip install -r requirements.txt</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<div class="title">Adjust Django Configuration</div>
+<p>You can tune your own environment configuration by editing a <code>settings/local.py</code>
+configuration file to overwrite any setting in <code>settings/common.py</code>.</p>
+</div>
+<div class="paragraph">
+<p>For a basic configuration that works with these instructions, simply copy
+settings/local.py.example to settings/local.py.</p>
+</div>
+<div class="paragraph">
+<p>Otherwise, just put this in your own ~/taiga-back/settings/local.py</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span class="tok-kn">from</span> <span class="tok-nn">.common</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
+
+<span class="tok-c"># YOUR OWN CONFIGURATION HERE</span></code></pre>
+</div>
+</div>
 <div class="listingblock">
 <div class="title">Populate the database with initial basic data</div>
 <div class="content">
@@ -697,18 +718,6 @@ python manage.py sample_data</code></pre>
 </div>
 <div class="paragraph">
 <p>This creates a new user <strong>admin</strong> with password <strong>123123</strong> and some sample data.</p>
-</div>
-<div class="paragraph">
-<p>You can tune your own environment configuration by editing the <code>settings/local.py</code>
-configuration file to overwrite any setting in <code>settings/common.py</code>.</p>
-</div>
-<div class="listingblock">
-<div class="title">Put this in ~/taiga-back/settings/local.py</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="python"><span class="tok-kn">from</span> <span class="tok-nn">.common</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>
-
-<span class="tok-c"># YOUR OWN CONFIGURATION HERE</span></code></pre>
-</div>
 </div>
 </div>
 <div class="sect2">
@@ -1063,7 +1072,7 @@ sudo npm install -g coffee-script</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-04-29 13:48:35 CEST
+Last updated 2015-04-30 07:48:47 CEST
 </div>
 </div>
 </div>
