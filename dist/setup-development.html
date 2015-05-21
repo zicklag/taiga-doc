@@ -603,7 +603,7 @@ C compiler and development headers.</p>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="bash">sudo apt-get install -y build-essential binutils-doc autoconf flex bison libjpeg-dev
 sudo apt-get install -y libfreetype6-dev zlib1g-dev libzmq3-dev libgdbm-dev libncurses5-dev
-sudo apt-get install -y automake libtool libffi-dev curl git tmux</code></pre>
+sudo apt-get install -y automake libtool libffi-dev curl git tmux gettext</code></pre>
 </div>
 </div>
 </div>
@@ -712,6 +712,7 @@ settings/local.py.example to settings/local.py.</p>
 python manage.py loaddata initial_user
 python manage.py loaddata initial_project_templates
 python manage.py loaddata initial_role
+python manage.py compilemessages
 python manage.py collectstatic --noinput
 python manage.py sample_data</code></pre>
 </div>
@@ -1072,7 +1073,7 @@ sudo npm install -g coffee-script</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-05-04 13:57:57 CEST
+Last updated 2015-05-21 19:01:41 CEST
 </div>
 </div>
 </div>

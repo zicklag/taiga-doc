@@ -649,7 +649,7 @@ C compiller and development headers.</p>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="bash">sudo apt-get install -y build-essential binutils-doc autoconf flex bison libjpeg-dev
 sudo apt-get install -y libfreetype6-dev zlib1g-dev libzmq3-dev libgdbm-dev libncurses5-dev
-sudo apt-get install -y automake libtool libffi-dev curl git tmux</code></pre>
+sudo apt-get install -y automake libtool libffi-dev curl git tmux gettext</code></pre>
 </div>
 </div>
 </div>
@@ -737,6 +737,7 @@ git checkout stable</code></pre>
 python manage.py loaddata initial_user
 python manage.py loaddata initial_project_templates
 python manage.py loaddata initial_role
+python manage.py compilemessages
 python manage.py collectstatic --noinput</code></pre>
 </div>
 </div>
@@ -1254,7 +1255,10 @@ exec /usr/local/bin/circusd /home/taiga/circus.ini</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>And finally, restart nginx with <code>sudo service nginx restart</code></p>
+<p>And finally, restart nginx with <code>sudo service nginx restart</code>.</p>
+</div>
+<div class="paragraph">
+<p>You can verify the nginx configuration with the following command to track any error preventing the service to start with <code>sudo nginx -t</code>.</p>
 </div>
 <div class="paragraph">
 <p><strong>Now you should have the service up and running on <code>http://example.com/</code></strong></p>
@@ -1464,6 +1468,7 @@ workon taiga
 git pull
 pip install --upgrade -r requirements.txt
 python manage.py migrate --noinput
+python manage.py compilemessages
 python manage.py collectstatic --noinput
 circusctl reload taiga</pre>
 </div>
@@ -1498,7 +1503,7 @@ repository.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-05-04 13:57:57 CEST
+Last updated 2015-05-21 19:01:40 CEST
 </div>
 </div>
 </div>
