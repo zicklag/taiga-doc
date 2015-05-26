@@ -583,7 +583,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sectionbody">
 <div class="paragraph">
 <p>This tutorial assumes that you are using a clean, recently updated, <strong>ubuntu 14.04</strong> image.
-Notes for a Debian stable (wheezy) install are included at the end of the appropriate sections.</p>
+Notes for Debian installations are included at the end of the appropriate sections.</p>
 </div>
 </div>
 </div>
@@ -782,8 +782,11 @@ celery -A taiga worker -l info -E</code></pre>
 <div class="sect2">
 <h3 id="_debian_installation_notes">3.6. Debian installation notes</h3>
 <div class="paragraph">
-<p>The latest Python available from Stable/Wheezy&#8217;s apt repositories is only 3.1, which is not sufficient for taiga-back.
-Python 3.4 is available from Debian Testing (jessie) if you are comfortable using mixed versions in your apt sources.
+<p>Debian stable (Jessie) provides all needed requirements, but old-stable (Wheezy) does not.</p>
+</div>
+<div class="paragraph">
+<p>The latest Python available from Wheezy&#8217;s apt repositories is only 3.1 and insufficient for taiga-back.
+Python 3.4 is available from stable (Jessie) if you are comfortable using mixed versions in your apt sources.
 Otherwise, you must build Python 3.4 from source (see <a class="bare" href="https://www.python.org/downloads/source/">https://www.python.org/downloads/source/</a> for links).
 When building from source, if the bz2 development libraries are not already present on your system, then you must first:</p>
 </div>
@@ -796,7 +799,7 @@ When building from source, if the bz2 development libraries are not already pres
 <p>Or else Python will build without the bz2 module necessary for some pip installed requirements.</p>
 </div>
 <div class="paragraph">
-<p>The latest Postgresql available for Stable/Wheezy is 9.1, but a fully Wheezy-compatible 9.3 build is available from
+<p>The latest Postgresql available for Wheezy is 9.1, but a fully Wheezy-compatible 9.3 build is available from
 the official Postgresql apt repositories, however:</p>
 </div>
 <div class="listingblock">
@@ -915,7 +918,7 @@ bower install</code></pre>
 <div class="sect2">
 <h3 id="_debian_installation_notes_2">4.2. Debian installation notes</h3>
 <div class="paragraph">
-<p>While Debian Testing (jessie), provides a nodejs package out of the box, Debian Stable (wheezy) does not.
+<p>While Debian stable (Jessie), provides a nodejs package out of the box, old-stable (Wheezy) does not.
 You can access one via the wheezy-backports apt repository, however, which can be added to your system as follows:</p>
 </div>
 <div class="listingblock">
@@ -948,7 +951,7 @@ You can access one via the wheezy-backports apt repository, however, which can b
 </div>
 </div>
 <div class="paragraph">
-<p>Testing (jessie) also provides an npm package, but npm is not available for Stable (wheezy), not even from wheezy-backports.
+<p>Stable (Jessie) also provides an npm package, but npm is not available for old-stable (Wheezy), not even from wheezy-backports.
 Thus, you will need to install it manually via:</p>
 </div>
 <div class="listingblock">
@@ -1073,7 +1076,7 @@ sudo npm install -g coffee-script</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-05-26 09:22:59 CEST
+Last updated 2015-05-26 09:50:02 CEST
 </div>
 </div>
 </div>
