@@ -1273,6 +1273,15 @@ exec /usr/local/bin/circusd /home/taiga/circus.ini</code></pre>
 the original configuration for port 80 so that users are redirected to the HTTPS
 version automatically.</p>
 </div>
+<div class="paragraph">
+<p>Second we need to generate a stronger GHE parameter</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="nginx"><span class="tok-k">cd</span> <span class="tok-s">/etc/ssl</span>
+<span class="tok-s">openssl</span> <span class="tok-s">dhparam</span> <span class="tok-s">-out</span> <span class="tok-s">dhparam.pem</span> <span class="tok-mi">4096</span></code></pre>
+</div>
+</div>
 <div class="listingblock">
 <div class="title">New configuration in /etc/nginx/sites-available/taiga</div>
 <div class="content">
@@ -1329,16 +1338,20 @@ version automatically.</p>
         <span class="tok-kn">alias</span> <span class="tok-s">/home/taiga/taiga-back/media</span><span class="tok-p">;</span>
     <span class="tok-p">}</span>
 
+    <span class="tok-kn">add_header</span> <span class="tok-s">Strict-Transport-Security</span> <span class="tok-s">&quot;max-age=63072000</span><span class="tok-p">;</span> <span class="tok-kn">includeSubdomains</span><span class="tok-p">;</span> <span class="tok-kn">preload&quot;</span><span class="tok-p">;</span>
+    <span class="tok-kn">add_header</span> <span class="tok-s">Public-Key-Pins</span> <span class="tok-s">&#39;pin-sha256=&quot;klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=&quot;</span><span class="tok-p">;</span> <span class="tok-kn">pin-sha256=&quot;633lt352PKRXbOwf4xSEa1M517scpD3l5f79xMD9r9Q=&quot;</span><span class="tok-p">;</span> <span class="tok-kn">max-age=2592000</span><span class="tok-p">;</span> <span class="tok-kn">includeSubDomains&#39;</span><span class="tok-p">;</span>
 
     <span class="tok-kn">ssl</span> <span class="tok-no">on</span><span class="tok-p">;</span>
-    <span class="tok-kn">ssl_certificate</span> <span class="tok-s">/etc/nginx/ssl/example.com.crt</span><span class="tok-p">;</span>
-    <span class="tok-kn">ssl_certificate_key</span> <span class="tok-s">/etc/nginx/ssl/example.com.key</span><span class="tok-p">;</span>
-
+    <span class="tok-kn">ssl_certificate</span> <span class="tok-s">/etc/nginx/ssl/example.com/ssl-bundle.crt</span><span class="tok-p">;</span>
+    <span class="tok-kn">ssl_certificate_key</span> <span class="tok-s">/etc/nginx/ssl/example.com/example_com.key</span><span class="tok-p">;</span>
     <span class="tok-kn">ssl_session_timeout</span> <span class="tok-mi">5m</span><span class="tok-p">;</span>
-
     <span class="tok-kn">ssl_protocols</span> <span class="tok-s">TLSv1</span> <span class="tok-s">TLSv1.1</span> <span class="tok-s">TLSv1.2</span><span class="tok-p">;</span>
-    <span class="tok-kn">ssl_ciphers</span> <span class="tok-s">&quot;HIGH:!aNULL:!MD5</span> <span class="tok-s">or</span> <span class="tok-s">HIGH:!aNULL:!MD5:!3DES&quot;</span><span class="tok-p">;</span>
     <span class="tok-kn">ssl_prefer_server_ciphers</span> <span class="tok-no">on</span><span class="tok-p">;</span>
+    <span class="tok-kn">ssl_ciphers</span> <span class="tok-s">&#39;ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!3DES:!MD5:!PSK&#39;</span><span class="tok-p">;</span>
+    <span class="tok-kn">ssl_session_cache</span> <span class="tok-s">shared:SSL:10m</span><span class="tok-p">;</span>
+    <span class="tok-kn">ssl_dhparam</span> <span class="tok-s">/etc/ssl/dhparam.pem</span><span class="tok-p">;</span>
+    <span class="tok-kn">ssl_stapling</span> <span class="tok-no">on</span><span class="tok-p">;</span>
+    <span class="tok-kn">ssl_stapling_verify</span> <span class="tok-no">on</span><span class="tok-p">;</span>
 
 <span class="tok-p">}</span></code></pre>
 </div>
@@ -1508,7 +1521,7 @@ repository.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-06-24 08:28:42 CEST
+Last updated 2015-07-31 07:25:17 CEST
 </div>
 </div>
 </div>
