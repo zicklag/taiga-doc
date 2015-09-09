@@ -1612,94 +1612,103 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <a href="#object-userstory-detail-get">38.14. User story detail (GET)</a>
 </li>
 <li>
-<a href="#object-userstory-status-detail">38.15. User story status detail</a>
+<a href="#object-userstory-detail-list">38.15. User story detail (LIST)</a>
 </li>
 <li>
-<a href="#object-point-detail">38.16. Point detail</a>
+<a href="#object-userstory-status-detail">38.16. User story status detail</a>
 </li>
 <li>
-<a href="#object-userstory-custom-attribute-detail">38.17. User story custom attribute detail</a>
+<a href="#object-point-detail">38.17. Point detail</a>
 </li>
 <li>
-<a href="#object-userstory-custom-attributes-values-detail">38.18. User story custom attributes values detail</a>
+<a href="#object-userstory-custom-attribute-detail">38.18. User story custom attribute detail</a>
 </li>
 <li>
-<a href="#object-task-detail">38.19. Task detail</a>
+<a href="#object-userstory-custom-attributes-values-detail">38.19. User story custom attributes values detail</a>
 </li>
 <li>
-<a href="#object-task-detail-get">38.20. Task detail (GET)</a>
+<a href="#object-task-detail">38.20. Task detail</a>
 </li>
 <li>
-<a href="#object-task-status-detail">38.21. Task status detail</a>
+<a href="#object-task-detail-get">38.21. Task detail (GET)</a>
 </li>
 <li>
-<a href="#object-task-custom-attribute-detail">38.22. Task custom attribute detail</a>
+<a href="#object-task-detail-list">38.22. Task detail (LIST)</a>
 </li>
 <li>
-<a href="#object-task-custom-attributes-values-detail">38.23. Task custom attributes values detail</a>
+<a href="#object-task-status-detail">38.23. Task status detail</a>
 </li>
 <li>
-<a href="#object-issue-detail">38.24. Issue detail</a>
+<a href="#object-task-custom-attribute-detail">38.24. Task custom attribute detail</a>
 </li>
 <li>
-<a href="#object-issue-detail-get">38.25. Issue detail (GET)</a>
+<a href="#object-task-custom-attributes-values-detail">38.25. Task custom attributes values detail</a>
 </li>
 <li>
-<a href="#object-issue-voters-detail">38.26. Issue voters detail</a>
+<a href="#object-issue-detail">38.26. Issue detail</a>
 </li>
 <li>
-<a href="#object-issue-status-detail">38.27. Issue status detail</a>
+<a href="#object-issue-detail-get">38.27. Issue detail (GET)</a>
 </li>
 <li>
-<a href="#object-issue-type-detail">38.28. Issue type detail</a>
+<a href="#object-issue-detail-list">38.28. Issue detail (LIST)</a>
 </li>
 <li>
-<a href="#object-priority-detail">38.29. Priority detail</a>
+<a href="#object-issue-voters-detail">38.29. Issue voters detail</a>
 </li>
 <li>
-<a href="#object-severity-detail">38.30. Severity detail</a>
+<a href="#object-issue-status-detail">38.30. Issue status detail</a>
 </li>
 <li>
-<a href="#object-issue-custom-attribute-detail">38.31. Issue custom attribute detail</a>
+<a href="#object-issue-type-detail">38.31. Issue type detail</a>
 </li>
 <li>
-<a href="#object-issue-custom-attributes-values-detail">38.32. Issue custom attributes values detail</a>
+<a href="#object-priority-detail">38.32. Priority detail</a>
 </li>
 <li>
-<a href="#object-wiki-detail">38.33. Wiki page</a>
+<a href="#object-severity-detail">38.33. Severity detail</a>
 </li>
 <li>
-<a href="#object-wiki-link-detail">38.34. Wiki link</a>
+<a href="#object-issue-custom-attribute-detail">38.34. Issue custom attribute detail</a>
 </li>
 <li>
-<a href="#object-history-entry-detail">38.35. History entry</a>
+<a href="#object-issue-custom-attributes-values-detail">38.35. Issue custom attributes values detail</a>
 </li>
 <li>
-<a href="#object-notify-policy-detail">38.36. Notify policy</a>
+<a href="#object-wiki-detail">38.36. Wiki page</a>
 </li>
 <li>
-<a href="#object-feedback-detail">38.37. Feedback</a>
+<a href="#object-wiki-link-detail">38.37. Wiki link</a>
 </li>
 <li>
-<a href="#object-export-synch">38.38. Export detail for synch mode</a>
+<a href="#object-history-entry-detail">38.38. History entry</a>
 </li>
 <li>
-<a href="#object-export-accepted">38.39. Export accepted response</a>
+<a href="#object-notify-policy-detail">38.39. Notify policy</a>
 </li>
 <li>
-<a href="#object-import-accepted">38.40. Import accepted response</a>
+<a href="#object-feedback-detail">38.40. Feedback</a>
 </li>
 <li>
-<a href="#object-webhook-detail">38.41. Webhook</a>
+<a href="#object-export-synch">38.41. Export detail for synch mode</a>
 </li>
 <li>
-<a href="#object-webhook-log-detail">38.42. Webhook log</a>
+<a href="#object-export-accepted">38.42. Export accepted response</a>
 </li>
 <li>
-<a href="#object-timeline-detail">38.43. Timeline entry detail</a>
+<a href="#object-import-accepted">38.43. Import accepted response</a>
 </li>
 <li>
-<a href="#object-locale-detail">38.44. Locale</a>
+<a href="#object-webhook-detail">38.44. Webhook</a>
+</li>
+<li>
+<a href="#object-webhook-log-detail">38.45. Webhook log</a>
+</li>
+<li>
+<a href="#object-timeline-detail">38.46. Timeline entry detail</a>
+</li>
+<li>
+<a href="#object-locale-detail">38.47. Locale</a>
 </li>
 </ul>
 </div>
@@ -5882,7 +5891,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="paragraph">
-<p>The HTTP response is a 200 OK and the response body is a JSON list of <a href="#object-userstory-detail">user story detail objects</a></p>
+<p>The HTTP response is a 200 OK and the response body is a JSON list of <a href="#object-userstory-detail-list">user story list objects</a></p>
 </div>
 <div class="paragraph">
 <p>The results can be filtered using the following parameters:</p>
@@ -6984,7 +6993,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="paragraph">
-<p>The HTTP response is a 200 OK and the response body is a JSON list of <a href="#object-task-detail">task detail objects</a></p>
+<p>The HTTP response is a 200 OK and the response body is a JSON list of <a href="#object-task-detail-list">task list objects</a></p>
 </div>
 <div class="paragraph">
 <p>The results can be filtered using the following parameters:</p>
@@ -7763,7 +7772,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="paragraph">
-<p>The HTTP response is a 200 OK and the response body is a JSON list of <a href="#object-issue-detail">issue detail objects</a></p>
+<p>The HTTP response is a 200 OK and the response body is a JSON list of <a href="#object-issue-detail-list">issue detail list objects</a></p>
 </div>
 <div class="paragraph">
 <p>The results can be filtered using the following parameters:</p>
@@ -13802,7 +13811,77 @@ neighbors, status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-userstory-status-detail">38.15. User story status detail</h3>
+<h3 id="object-userstory-detail-list">38.15. User story detail (LIST)</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
+    <span class="tok-nt">&quot;assigned_to&quot;</span><span class="tok-p">:</span> <span class="tok-mi">19</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;backlog_order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">2</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;blocked_note&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;blocked_note_html&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;client_requirement&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;comment&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;created_date&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;2014-07-29T07:15:50+0000&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;finish_date&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;2014-09-16T17:17:16+0000&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;generated_from_issue&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1149</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;is_archived&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;is_blocked&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;kanban_order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">37</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;milestone&quot;</span><span class="tok-p">:</span> <span class="tok-mi">98</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;milestone_name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Sprint 03&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;milestone_slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;sprint-03&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;modified_date&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;2014-10-10T12:07:13+0000&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;origin_issue&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;owner&quot;</span><span class="tok-p">:</span> <span class="tok-mi">19</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;points&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;129&quot;</span><span class="tok-p">:</span> <span class="tok-mi">361</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;130&quot;</span><span class="tok-p">:</span> <span class="tok-mi">361</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;131&quot;</span><span class="tok-p">:</span> <span class="tok-mi">361</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;132&quot;</span><span class="tok-p">:</span> <span class="tok-mi">364</span>
+    <span class="tok-p">},</span>
+    <span class="tok-nt">&quot;project&quot;</span><span class="tok-p">:</span> <span class="tok-mi">31</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;ref&quot;</span><span class="tok-p">:</span> <span class="tok-mi">31</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;sprint_order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">2</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;status&quot;</span><span class="tok-p">:</span> <span class="tok-mi">83</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;subject&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Customer personal data&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;tags&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+        <span class="tok-s2">&quot;service catalog&quot;</span><span class="tok-p">,</span>
+        <span class="tok-s2">&quot;customer&quot;</span>
+    <span class="tok-p">],</span>
+    <span class="tok-nt">&quot;team_requirement&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;total_points&quot;</span><span class="tok-p">:</span> <span class="tok-mf">1.0</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;version&quot;</span><span class="tok-p">:</span> <span class="tok-mi">8</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;watchers&quot;</span><span class="tok-p">:</span> <span class="tok-p">[],</span>
+    <span class="tok-nt">&quot;status_extra_info&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;In progress&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#5E8C6A&quot;</span>
+    <span class="tok-p">},</span>
+    <span class="tok-nt">&quot;assigned_to_extra_info&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;username&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;beta.tester&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;full_name_display&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Beta testing&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;photo&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;//www.gravatar.com/avatar/4648b6d514c3ecece1b87136ceeda1d1?size=80&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;big_photo&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;//www.gravatar.com/avatar/4648b6d514c3ecece1b87136ceeda1d1?size=80&quot;</span><span class="tok-err">&quot;</span>
+    <span class="tok-p">}</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+status_extra_info and assigned_to_extra_info are read only fields
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="object-userstory-status-detail">38.16. User story status detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13818,7 +13897,7 @@ neighbors, status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-point-detail">38.16. Point detail</h3>
+<h3 id="object-point-detail">38.17. Point detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13833,7 +13912,7 @@ neighbors, status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-userstory-custom-attribute-detail">38.17. User story custom attribute detail</h3>
+<h3 id="object-userstory-custom-attribute-detail">38.18. User story custom attribute detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13847,7 +13926,7 @@ neighbors, status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-userstory-custom-attributes-values-detail">38.18. User story custom attributes values detail</h3>
+<h3 id="object-userstory-custom-attributes-values-detail">38.19. User story custom attributes values detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13861,7 +13940,7 @@ neighbors, status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-task-detail">38.19. Task detail</h3>
+<h3 id="object-task-detail">38.20. Task detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13922,7 +14001,7 @@ status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-task-detail-get">38.20. Task detail (GET)</h3>
+<h3 id="object-task-detail-get">38.21. Task detail (GET)</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -13995,7 +14074,66 @@ neighbors, us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-task-status-detail">38.21. Task status detail</h3>
+<h3 id="object-task-detail-list">38.22. Task detail (LIST)</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
+    <span class="tok-nt">&quot;assigned_to&quot;</span><span class="tok-p">:</span> <span class="tok-mi">19</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;blocked_note&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;blocked_note_html&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;comment&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;milestone_slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;sprint-2014-11-1&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;created_date&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;2014-07-29T07:15:50+0000&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1149</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;is_blocked&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;milestone&quot;</span><span class="tok-p">:</span> <span class="tok-mi">98</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;modified_date&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;2014-10-10T12:07:13+0000&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;finished_date&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;owner&quot;</span><span class="tok-p">:</span> <span class="tok-mi">19</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;project&quot;</span><span class="tok-p">:</span> <span class="tok-mi">31</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;user_story&quot;</span><span class="tok-p">:</span> <span class="tok-mi">17</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;ref&quot;</span><span class="tok-p">:</span> <span class="tok-mi">31</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;status&quot;</span><span class="tok-p">:</span> <span class="tok-mi">83</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;subject&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Customer personal data&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;tags&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+        <span class="tok-s2">&quot;service catalog&quot;</span><span class="tok-p">,</span>
+        <span class="tok-s2">&quot;customer&quot;</span>
+    <span class="tok-p">],</span>
+    <span class="tok-nt">&quot;us_order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;taskboard_order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;version&quot;</span><span class="tok-p">:</span> <span class="tok-mi">8</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;is_iocaine&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;external_reference&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;watchers&quot;</span><span class="tok-p">:</span> <span class="tok-p">[],</span>
+    <span class="tok-nt">&quot;status_extra_info&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;In progress&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#5E8C6A&quot;</span>
+    <span class="tok-p">},</span>
+    <span class="tok-nt">&quot;assigned_to_extra_info&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;username&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;beta.tester&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;full_name_display&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Beta testing&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;photo&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;//www.gravatar.com/avatar/4648b6d514c3ecece1b87136ceeda1d1?size=80&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;big_photo&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;//www.gravatar.com/avatar/4648b6d514c3ecece1b87136ceeda1d1?size=80&quot;</span><span class="tok-err">&quot;</span>
+    <span class="tok-p">}</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+status_extra_info and assigned_to_extra_info are read only fields
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="object-task-status-detail">38.23. Task status detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -14010,7 +14148,7 @@ neighbors, us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-task-custom-attribute-detail">38.22. Task custom attribute detail</h3>
+<h3 id="object-task-custom-attribute-detail">38.24. Task custom attribute detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -14024,7 +14162,7 @@ neighbors, us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-task-custom-attributes-values-detail">38.23. Task custom attributes values detail</h3>
+<h3 id="object-task-custom-attributes-values-detail">38.25. Task custom attributes values detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -14038,7 +14176,7 @@ neighbors, us_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-issue-detail">38.24. Issue detail</h3>
+<h3 id="object-issue-detail">38.26. Issue detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -14100,7 +14238,7 @@ status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-issue-detail-get">38.25. Issue detail (GET)</h3>
+<h3 id="object-issue-detail-get">38.27. Issue detail (GET)</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -14170,7 +14308,67 @@ neighbors, status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-issue-voters-detail">38.26. Issue voters detail</h3>
+<h3 id="object-issue-detail-list">38.28. Issue detail (LIST)</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
+    <span class="tok-nt">&quot;assigned_to&quot;</span><span class="tok-p">:</span> <span class="tok-mi">19</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;blocked_note&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;blocked_note_html&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;comment&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;created_date&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;2014-07-29T07:15:50+0000&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;finish_date&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;2014-09-16T17:17:16+0000&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1149</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;is_blocked&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;is_closed&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;milestone&quot;</span><span class="tok-p">:</span> <span class="tok-mi">98</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;modified_date&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;2014-10-10T12:07:13+0000&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;finished_date&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;owner&quot;</span><span class="tok-p">:</span> <span class="tok-mi">19</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;project&quot;</span><span class="tok-p">:</span> <span class="tok-mi">31</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;ref&quot;</span><span class="tok-p">:</span> <span class="tok-mi">31</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;status&quot;</span><span class="tok-p">:</span> <span class="tok-mi">83</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;severity&quot;</span><span class="tok-p">:</span> <span class="tok-mi">2</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;priority&quot;</span><span class="tok-p">:</span> <span class="tok-mi">3</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;type&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;subject&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Customer personal data&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;tags&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+        <span class="tok-s2">&quot;service catalog&quot;</span><span class="tok-p">,</span>
+        <span class="tok-s2">&quot;customer&quot;</span>
+    <span class="tok-p">],</span>
+    <span class="tok-nt">&quot;version&quot;</span><span class="tok-p">:</span> <span class="tok-mi">8</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;watchers&quot;</span><span class="tok-p">:</span> <span class="tok-p">[],</span>
+    <span class="tok-nt">&quot;generated_user_stories&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+    <span class="tok-p">],</span>
+    <span class="tok-nt">&quot;votes&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;status_extra_info&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;In progress&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;color&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;#5E8C6A&quot;</span>
+    <span class="tok-p">},</span>
+    <span class="tok-nt">&quot;assigned_to_extra_info&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;username&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;beta.tester&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;full_name_display&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Beta testing&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;photo&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;//www.gravatar.com/avatar/4648b6d514c3ecece1b87136ceeda1d1?size=80&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;big_photo&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;//www.gravatar.com/avatar/4648b6d514c3ecece1b87136ceeda1d1?size=80&quot;</span><span class="tok-err">&quot;</span>
+    <span class="tok-p">}</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Note</div>
+</td>
+<td class="content">
+status_extra_info and assigned_to_extra_info are read only fields
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="object-issue-voters-detail">38.29. Issue voters detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">[</span>
@@ -14189,7 +14387,7 @@ neighbors, status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-issue-status-detail">38.27. Issue status detail</h3>
+<h3 id="object-issue-status-detail">38.30. Issue status detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -14204,7 +14402,7 @@ neighbors, status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-issue-type-detail">38.28. Issue type detail</h3>
+<h3 id="object-issue-type-detail">38.31. Issue type detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -14218,7 +14416,7 @@ neighbors, status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-priority-detail">38.29. Priority detail</h3>
+<h3 id="object-priority-detail">38.32. Priority detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -14232,7 +14430,7 @@ neighbors, status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-severity-detail">38.30. Severity detail</h3>
+<h3 id="object-severity-detail">38.33. Severity detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -14246,7 +14444,7 @@ neighbors, status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-issue-custom-attribute-detail">38.31. Issue custom attribute detail</h3>
+<h3 id="object-issue-custom-attribute-detail">38.34. Issue custom attribute detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -14260,7 +14458,7 @@ neighbors, status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-issue-custom-attributes-values-detail">38.32. Issue custom attributes values detail</h3>
+<h3 id="object-issue-custom-attributes-values-detail">38.35. Issue custom attributes values detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -14274,7 +14472,7 @@ neighbors, status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-wiki-detail">38.33. Wiki page</h3>
+<h3 id="object-wiki-detail">38.36. Wiki page</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -14295,7 +14493,7 @@ neighbors, status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-wiki-link-detail">38.34. Wiki link</h3>
+<h3 id="object-wiki-link-detail">38.37. Wiki link</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -14309,7 +14507,7 @@ neighbors, status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-history-entry-detail">38.35. History entry</h3>
+<h3 id="object-history-entry-detail">38.38. History entry</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -14362,7 +14560,7 @@ neighbors, status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-notify-policy-detail">38.36. Notify policy</h3>
+<h3 id="object-notify-policy-detail">38.39. Notify policy</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -14375,7 +14573,7 @@ neighbors, status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-feedback-detail">38.37. Feedback</h3>
+<h3 id="object-feedback-detail">38.40. Feedback</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -14389,7 +14587,7 @@ neighbors, status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-export-synch">38.38. Export detail for synch mode</h3>
+<h3 id="object-export-synch">38.41. Export detail for synch mode</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -14399,7 +14597,7 @@ neighbors, status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-export-accepted">38.39. Export accepted response</h3>
+<h3 id="object-export-accepted">38.42. Export accepted response</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -14409,7 +14607,7 @@ neighbors, status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-import-accepted">38.40. Import accepted response</h3>
+<h3 id="object-import-accepted">38.43. Import accepted response</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -14419,7 +14617,7 @@ neighbors, status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-webhook-detail">38.41. Webhook</h3>
+<h3 id="object-webhook-detail">38.44. Webhook</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -14434,7 +14632,7 @@ neighbors, status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-webhook-log-detail">38.42. Webhook log</h3>
+<h3 id="object-webhook-log-detail">38.45. Webhook log</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -14461,7 +14659,7 @@ neighbors, status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-timeline-detail">38.43. Timeline entry detail</h3>
+<h3 id="object-timeline-detail">38.46. Timeline entry detail</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -14506,7 +14704,7 @@ neighbors, status_extra_info and assigned_to_extra_info are read only fields
 </div>
 </div>
 <div class="sect2">
-<h3 id="object-locale-detail">38.44. Locale</h3>
+<h3 id="object-locale-detail">38.47. Locale</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
@@ -14545,7 +14743,7 @@ API endpoints, and has its own documentation.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-08-26 10:20:15 CEST
+Last updated 2015-09-09 08:31:52 CEST
 </div>
 </div>
 </div>
