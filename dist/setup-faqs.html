@@ -11,7 +11,7 @@
 <![endif]-->
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
 <meta content="Asciidoctor 1.5.2" name="generator">
-<title>Taiga Documentation</title>
+<title>Setup FAQs and commom bugs</title>
 <style>/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 /* Remove the comments around the @import statement below when using this as a custom stylesheet */
 /*@import "https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400";*/
@@ -411,6 +411,69 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .print-only{display:block!important}
 .hide-for-print{display:none!important}
 .show-for-print{display:inherit!important}}</style>
+<style>.listingblock .pygments .hll { background-color: #ffffcc }
+.listingblock .pygments  { background: #f0f0f0; }
+.listingblock .pygments .tok-c { color: #60a0b0; font-style: italic } /* Comment */
+.listingblock .pygments .tok-err { border: 1px solid #FF0000 } /* Error */
+.listingblock .pygments .tok-k { color: #007020; font-weight: bold } /* Keyword */
+.listingblock .pygments .tok-o { color: #666666 } /* Operator */
+.listingblock .pygments .tok-cm { color: #60a0b0; font-style: italic } /* Comment.Multiline */
+.listingblock .pygments .tok-cp { color: #007020 } /* Comment.Preproc */
+.listingblock .pygments .tok-c1 { color: #60a0b0; font-style: italic } /* Comment.Single */
+.listingblock .pygments .tok-cs { color: #60a0b0; background-color: #fff0f0 } /* Comment.Special */
+.listingblock .pygments .tok-gd { color: #A00000 } /* Generic.Deleted */
+.listingblock .pygments .tok-ge { font-style: italic } /* Generic.Emph */
+.listingblock .pygments .tok-gr { color: #FF0000 } /* Generic.Error */
+.listingblock .pygments .tok-gh { color: #000080; font-weight: bold } /* Generic.Heading */
+.listingblock .pygments .tok-gi { color: #00A000 } /* Generic.Inserted */
+.listingblock .pygments .tok-go { color: #888888 } /* Generic.Output */
+.listingblock .pygments .tok-gp { color: #c65d09; font-weight: bold } /* Generic.Prompt */
+.listingblock .pygments .tok-gs { font-weight: bold } /* Generic.Strong */
+.listingblock .pygments .tok-gu { color: #800080; font-weight: bold } /* Generic.Subheading */
+.listingblock .pygments .tok-gt { color: #0044DD } /* Generic.Traceback */
+.listingblock .pygments .tok-kc { color: #007020; font-weight: bold } /* Keyword.Constant */
+.listingblock .pygments .tok-kd { color: #007020; font-weight: bold } /* Keyword.Declaration */
+.listingblock .pygments .tok-kn { color: #007020; font-weight: bold } /* Keyword.Namespace */
+.listingblock .pygments .tok-kp { color: #007020 } /* Keyword.Pseudo */
+.listingblock .pygments .tok-kr { color: #007020; font-weight: bold } /* Keyword.Reserved */
+.listingblock .pygments .tok-kt { color: #902000 } /* Keyword.Type */
+.listingblock .pygments .tok-m { color: #40a070 } /* Literal.Number */
+.listingblock .pygments .tok-s { color: #4070a0 } /* Literal.String */
+.listingblock .pygments .tok-na { color: #4070a0 } /* Name.Attribute */
+.listingblock .pygments .tok-nb { color: #007020 } /* Name.Builtin */
+.listingblock .pygments .tok-nc { color: #0e84b5; font-weight: bold } /* Name.Class */
+.listingblock .pygments .tok-no { color: #60add5 } /* Name.Constant */
+.listingblock .pygments .tok-nd { color: #555555; font-weight: bold } /* Name.Decorator */
+.listingblock .pygments .tok-ni { color: #d55537; font-weight: bold } /* Name.Entity */
+.listingblock .pygments .tok-ne { color: #007020 } /* Name.Exception */
+.listingblock .pygments .tok-nf { color: #06287e } /* Name.Function */
+.listingblock .pygments .tok-nl { color: #002070; font-weight: bold } /* Name.Label */
+.listingblock .pygments .tok-nn { color: #0e84b5; font-weight: bold } /* Name.Namespace */
+.listingblock .pygments .tok-nt { color: #062873; font-weight: bold } /* Name.Tag */
+.listingblock .pygments .tok-nv { color: #bb60d5 } /* Name.Variable */
+.listingblock .pygments .tok-ow { color: #007020; font-weight: bold } /* Operator.Word */
+.listingblock .pygments .tok-w { color: #bbbbbb } /* Text.Whitespace */
+.listingblock .pygments .tok-mb { color: #40a070 } /* Literal.Number.Bin */
+.listingblock .pygments .tok-mf { color: #40a070 } /* Literal.Number.Float */
+.listingblock .pygments .tok-mh { color: #40a070 } /* Literal.Number.Hex */
+.listingblock .pygments .tok-mi { color: #40a070 } /* Literal.Number.Integer */
+.listingblock .pygments .tok-mo { color: #40a070 } /* Literal.Number.Oct */
+.listingblock .pygments .tok-sb { color: #4070a0 } /* Literal.String.Backtick */
+.listingblock .pygments .tok-sc { color: #4070a0 } /* Literal.String.Char */
+.listingblock .pygments .tok-sd { color: #4070a0; font-style: italic } /* Literal.String.Doc */
+.listingblock .pygments .tok-s2 { color: #4070a0 } /* Literal.String.Double */
+.listingblock .pygments .tok-se { color: #4070a0; font-weight: bold } /* Literal.String.Escape */
+.listingblock .pygments .tok-sh { color: #4070a0 } /* Literal.String.Heredoc */
+.listingblock .pygments .tok-si { color: #70a0d0; font-style: italic } /* Literal.String.Interpol */
+.listingblock .pygments .tok-sx { color: #c65d09 } /* Literal.String.Other */
+.listingblock .pygments .tok-sr { color: #235388 } /* Literal.String.Regex */
+.listingblock .pygments .tok-s1 { color: #4070a0 } /* Literal.String.Single */
+.listingblock .pygments .tok-ss { color: #517918 } /* Literal.String.Symbol */
+.listingblock .pygments .tok-bp { color: #007020 } /* Name.Builtin.Pseudo */
+.listingblock .pygments .tok-vc { color: #bb60d5 } /* Name.Variable.Class */
+.listingblock .pygments .tok-vg { color: #bb60d5 } /* Name.Variable.Global */
+.listingblock .pygments .tok-vi { color: #bb60d5 } /* Name.Variable.Instance */
+.listingblock .pygments .tok-il { color: #40a070 } /* Literal.Number.Integer.Long */</style>
 </head>
 <link href="css/menu.css" rel="stylesheet">
 <link href="css/icons.css" rel="stylesheet">
@@ -426,314 +489,116 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li>
-<a href="#_introduction">1. Introduction</a>
-
-</li>
-<li>
-<a href="#_project_maturity">2. Project Maturity</a>
-
-</li>
-<li>
-<a href="#_api">3. API</a>
-
-</li>
-<li>
-<a href="#_how_it_works">4. How it Works</a>
-
-</li>
-<li>
-<a href="#_requirements">5. Requirements</a>
-
-</li>
-<li>
-<a href="#_installation_guide">6. Installation Guide</a>
+<a href="#_faqs">1. FAQs</a>
 <div class="mp-level">
 <a class="mp-back" href="#">back</a>
 <ul class="sectlevel2">
 <li>
-<a href="#_setup_production_environment">6.1. Setup Production Environment</a>
+<a href="#faq-change-domain">1.1. How can I change the domain name?</a>
 </li>
 <li>
-<a href="#_setup_development_environment">6.2. Setup Development Environment</a>
+<a href="#faq-restart-backend">1.2. How can I restart the backend application?</a>
 </li>
 <li>
-<a href="#_other_ways_to_setup_an_initial_environment">6.3. Other Ways to Setup an Initial Environment</a>
+<a href="#faq-maintain-update">1.3. How I can keep my app up to date with the most recent Taiga version?</a>
 </li>
 <li>
-<a href="#_setup_faqs_and_common_bugs">6.4. Setup FAQs and common Bugs</a>
+<a href="#faq-add-extra-functionality">1.4. How I can add extra functionality to Taiga?</a>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<a href="#_how_to_contribute">7. How to Contribute</a>
+<a href="#_common_bugs">2. Common Bugs</a>
 <div class="mp-level">
 <a class="mp-back" href="#">back</a>
 <ul class="sectlevel2">
 <li>
-<a href="#_reporting_bugs">7.1. Reporting Bugs</a>
-</li>
-<li>
-<a href="#_community">7.2. Community</a>
-</li>
-<li>
-<a href="#_donations">7.3. Donations</a>
+<a href="#bug-unicodeencodeerror">2.1. UnicodeEncodeError</a>
 </li>
 </ul>
 </div>
-</li>
-<li>
-<a href="#contrib-plugins">8. Contrib Plugins</a>
-
-</li>
-<li>
-<a href="#_license">9. License</a>
-
 </li>
 </ul>
 </div>
 </div>
 <div class="scroller">
 <div id="header">
-<h1>Taiga Documentation</h1>
+<h1>Setup FAQs and commom bugs</h1>
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_introduction">1. Introduction</h2>
+<h2 id="_faqs">1. FAQs</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>Free. Open Source. Powerful. <em>Taiga</em> is a project management platform for startups
-and agile developers &amp; designers who want a simple, beautiful tool that makes work
-truly enjoyable.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_project_maturity">2. Project Maturity</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Because <em>Taiga</em> is still a young project we currently consider it to be in a beta state.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_api">3. API</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><em>Taiga</em> has a complete REST API (the one used by the web app), check the full API
-documentation <a href="api.html">here</a>.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_how_it_works">4. How it Works</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><em>Taiga</em> is made up of two components: <a href="https://github.com/taigaio/taiga-front">taiga-front</a>
-and <a href="https://github.com/taigaio/taiga-back">taiga-back</a></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>taiga-front</strong> has the frontend related code built with <strong>angularjs</strong> and <strong>coffescript</strong>.
-It can run on any static file server like nginx.</p>
-</li>
-<li>
-<p><strong>taiga-back</strong> has the backend related code consisting of an API, built using <strong>django</strong>
-and <strong>python3</strong>.</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p><em>Taiga</em> has some other modules, but they are optional and documented in other sections.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_requirements">5. Requirements</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This is a list of major <em>Taiga</em> dependencies:</p>
-</div>
-<div class="paragraph">
-<p>Runtime:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Python 3.4</p>
-</li>
-<li>
-<p>PostgreSQL &gt;= 9.3</p>
-</li>
-<li>
-<p>RabbitMQ (optional as long as you don&#8217;t want async notifications)</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Compile time:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>GCC &amp; Development Headers</p>
-</li>
-<li>
-<p>Ruby 2.1 (only for compiling sass)</p>
-</li>
-<li>
-<p>NodeJS 0.10 (with npm, gulp and bower for downloading dependencies and compiling coffeescript)</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Hardware</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>The main Taiga hardware restriction is having <strong>at least 0.75 GB of RAM memory</strong>. When installing
-the python requirements the package lxml will use gcc for building it and fail if not enough memory.</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_installation_guide">6. Installation Guide</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This section details everything you need to know to get <em>Taiga</em> up and running
-in both development and production environments.</p>
-</div>
 <div class="sect2">
-<h3 id="_setup_production_environment">6.1. Setup Production Environment</h3>
+<h3 id="faq-change-domain">1.1. How can I change the domain name?</h3>
 <div class="paragraph">
-<p><a href="setup-production.html">This document contains the complete, step by step tutorial</a> of how
-to properly setup <em>Taiga</em> for a low traffic production environment.</p>
+<p>The domain name mainly affects the frontend application, because it needs to comunicate with the
+backend through the domain/public-ip.</p>
+</div>
+<div class="paragraph">
+<p>To do this you should update the <code>url</code> value on frontend config file (conf/main.json) and rebuild frontend with
+<code>gulp deploy</code>. Also you should update the domain related configuration on the backend
+settings file: <code>settings/local.py</code>.</p>
+</div>
+<div class="paragraph">
+<p>And finally reload the backend config with: <code>circusctl reload taiga</code></p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_setup_development_environment">6.2. Setup Development Environment</h3>
+<h3 id="faq-restart-backend">1.2. How can I restart the backend application?</h3>
 <div class="paragraph">
-<p>You can view the complete documentation on how to <a href="setup-development.html">setup a proper
-development environment</a>.</p>
+<p>The Backend application is running under circus. To restart any application running
+with circus use the <code>circusctl</code> command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">circusctl restart taiga</code></pre>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_other_ways_to_setup_an_initial_environment">6.3. Other Ways to Setup an Initial Environment</h3>
+<h3 id="faq-maintain-update">1.3. How I can keep my app up to date with the most recent Taiga version?</h3>
 <div class="paragraph">
-<p>In addition to the traditional step-by-step manuals, <em>Taiga</em> comes with a
-collection of provisioning scripts and Vagrant support, and
-<a href="setup-alternatives.html">complete documentation of how to use them</a>.</p>
+<p>The Taiga platform is developed on github. For consistences you should alway maintain the same version
+in time with the <strong>stable</strong> branch of git or use the last major version of each component.</p>
+</div>
+<div class="paragraph">
+<p><strong>No packaged version of Taiga is available at this moment.</strong></p>
+</div>
+<div class="listingblock">
+<div class="title">Frontend application</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span class="tok-nb">cd</span> ~/taiga-front-dist
+git checkout stable
+git pull</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Backend application</div>
+<div class="content">
+<pre>As user "taiga" or whatever user you use, do not run this code as "root" to avoid errors.
+cd ~/taiga-back
+git checkout stable
+workon taiga
+git pull
+pip install --upgrade -r requirements.txt
+python manage.py migrate --noinput
+python manage.py compilemessages
+python manage.py collectstatic --noinput
+circusctl reload taiga</pre>
+</div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_setup_faqs_and_common_bugs">6.4. Setup FAQs and common Bugs</h3>
+<h3 id="faq-add-extra-functionality">1.4. How I can add extra functionality to Taiga?</h3>
 <div class="paragraph">
-<p>You can view a list of common FAQs and bugs related to the setup process <a href="setup-faqs.html">FAQs
-and common bugs</a>.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_how_to_contribute">7. How to Contribute</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Because <em>Taiga</em> is an open source project, we gratefully accept contributions in various forms.</p>
+<p>Taiga allows adding functionality through contrib plugins. The installation of each
+plugin depends on the plugin itself and must be documented in the plugin
+repository.</p>
 </div>
 <div class="paragraph">
-<p>Examples of contributions include:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Code patches</p>
-</li>
-<li>
-<p><a href="#contrib-plugins">Code contrib plugins</a></p>
-</li>
-<li>
-<p>Improvements</p>
-</li>
-<li>
-<p>Bug reports</p>
-</li>
-<li>
-<p>Patch reviews</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Before starting to develop a big feature (intended to be included on the <em>Taiga</em> code base), it is
-strongly recommended that you reach out to us on the <a href="http://groups.google.com/d/forum/taigaio">mailing list</a>.</p>
-</div>
-<div class="sect2">
-<h3 id="_reporting_bugs">7.1. Reporting Bugs</h3>
-<div class="paragraph">
-<p>Before reporting a bug or requesting a new feature, please consider these general points:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Check that someone hasn&#8217;t already filed the bug or feature request by searching, or running custom
-queries in, the ticket tracker.</p>
-</li>
-<li>
-<p>Check the right repository to use for reporting an issue: bugs related to UI should go to <strong>taiga-front</strong>,
-but if something is broken on the backend, an issue should be opened on the <strong>taiga-back</strong> repository.</p>
-</li>
-<li>
-<p>Ask on the <a href="http://groups.google.com/d/forum/taigaio">mailing list</a> first if you&#8217;re not sure if
-what you&#8217;re seeing is a bug.</p>
-</li>
-<li>
-<p>Don&#8217;t use the GitHub issues system to ask support questions. Use the
-<a href="http://groups.google.com/d/forum/taigaio">mailing list</a> for that.</p>
-</li>
-<li>
-<p>Don’t use GitHub issues for lengthy discussions, because they&#8217;re likely to get lost. If a particular
-ticket is controversial, please move the discussion to the
-<a href="http://groups.google.com/d/forum/taigaio">mailing list</a>.</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_community">7.2. Community</h3>
-<div class="paragraph">
-<p><a href="http://groups.google.com/d/forum/taigaio">Taiga has a mailing list</a>. Feel free to join it
-and ask any questions you may have.</p>
-</div>
-<div class="paragraph">
-<p>To subscribe for announcements of releases, important changes and so on, please follow
-<a href="https://twitter.com/taigaio">@taigaio</a> on Twitter or read our <a href="https://blog.taiga.io">blog</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_donations">7.3. Donations</h3>
-<div class="paragraph">
-<p>We are grateful for your emails volunteering donations to <em>Taiga</em>. We feel comfortable accepting them under
-these conditions: the first is that we will only do so while we are in the current beta/pre-revenue stage,
-and the second is that whatever money is donated will go towards a bounty fund. Starting Q2 2015 we will be
-engaging much more actively with our community to help further the development of Taiga, and we will use
-these donations to reward people working alongside us.</p>
-</div>
-<div class="paragraph">
-<p>If you wish to make a donation to this Taiga fund, you can do so via <a href="http://www.paypal.com">PayPal</a>
-using the email: <a href="mailto:eposner@taiga.io">eposner@taiga.io</a></p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="contrib-plugins">8. Contrib Plugins</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Taiga supports the inclusion of contrib plugins, each plugin has its own
-documentation and repository. The currently supported plugins are:</p>
+<p>The current supported plugins are:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -750,22 +615,63 @@ documentation and repository. The currently supported plugins are:</p>
 </div>
 </div>
 </div>
+</div>
 <div class="sect1">
-<h2 id="_license">9. License</h2>
+<h2 id="_common_bugs">2. Common Bugs</h2>
 <div class="sectionbody">
+<div class="sect2">
+<h3 id="bug-unicodeencodeerror">2.1. UnicodeEncodeError</h3>
 <div class="paragraph">
-<p>Every code patch accepted in the Taiga codebase is accepted under the AGPL v3.0 license. It is important
-that you do not include any code which cannot be licensed under AGPL v3.0.</p>
+<p>If you have some error like this:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>  File "/home/taiga/taiga-back/taiga/projects/services/invitations.py", line 17, in send_invitation
+    email.send()
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/mail/message.py", line 286, in send
+    return self.get_connection(fail_silently).send_messages([self])
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/mail/backends/console.py", line 36, in send_messages
+    self.write_message(message)
+  File "/home/taiga/.virtualenvs/taiga/lib/python3.4/site-packages/django/core/mail/backends/console.py", line 23, in write_message
+    self.stream.write('%s\n' % msg_data)
+UnicodeEncodeError: 'ascii' codec can't encode character '\xfc' in position 487: ordinal not in range(128)</pre>
+</div>
 </div>
 <div class="paragraph">
-<p>You can see the complete license in the <code>LICENSE</code> file in the root of repository.</p>
+<p>You have to change the locale of your system to someone that support UTF8 characters. To fix it
+add to the taiga user <code>.bashrc</code> file this lines:</p>
+</div>
+<div class="paragraph">
+<p>if you have a German Linux machine, you can fix the problem by exporting the locale to <code>de_DE.UTF-8</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span class="tok-nb">export </span><span class="tok-nv">LANG</span><span class="tok-o">=</span>de_DE.UTF-8
+<span class="tok-nb">export </span><span class="tok-nv">LC_ALL</span><span class="tok-o">=</span>de_DE.UTF-8
+<span class="tok-nb">export </span><span class="tok-nv">LC_TYPE</span><span class="tok-o">=</span>de_DE.UTF-8</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you are on a US machine, en_US.utf-8 is the encoding of choice. On some newer Linux systems,
+you could also try <code>en_US.UTF-8</code> as the locale:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span class="tok-nb">export </span><span class="tok-nv">LANG</span><span class="tok-o">=</span>en_US.UTF-8
+<span class="tok-nb">export </span><span class="tok-nv">LC_ALL</span><span class="tok-o">=</span>en_US.UTF-8
+<span class="tok-nb">export </span><span class="tok-nv">LC_TYPE</span><span class="tok-o">=</span>en_US.UTF-8</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Restart the shell, or the machine, and try again.</p>
+</div>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-10-28 20:21:46 CET
+Last updated 2015-10-28 20:21:48 CET
 </div>
 </div>
 </div>
