@@ -426,27 +426,27 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
 <li>
-<a href="#_introduction">1. Introduction</a>
+<a href="#introduction">1. Introduction</a>
 
 </li>
 <li>
-<a href="#_project_maturity">2. Project Maturity</a>
+<a href="#project-maturity">2. Project Maturity</a>
 
 </li>
 <li>
-<a href="#_api">3. API</a>
+<a href="#api">3. API</a>
 
 </li>
 <li>
-<a href="#_how_it_works">4. How it Works</a>
+<a href="#how-it-works">4. How it Works</a>
 
 </li>
 <li>
-<a href="#_requirements">5. Requirements</a>
+<a href="#requirements">5. Requirements</a>
 
 </li>
 <li>
-<a href="#_installation_guide">6. Installation Guide</a>
+<a href="#installation-guide">6. Installation Guide</a>
 <div class="mp-level">
 <a class="mp-back" href="#">back</a>
 <ul class="sectlevel2">
@@ -466,18 +466,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </li>
 <li>
-<a href="#_how_to_contribute">7. How to Contribute</a>
+<a href="#how-to-contribute">7. How to Contribute</a>
 <div class="mp-level">
 <a class="mp-back" href="#">back</a>
 <ul class="sectlevel2">
 <li>
-<a href="#_reporting_bugs">7.1. Reporting Bugs</a>
-</li>
-<li>
-<a href="#_community">7.2. Community</a>
-</li>
-<li>
-<a href="#_donations">7.3. Donations</a>
+<a href="#reporting-bugs">7.1. Reporting Bugs</a>
 </li>
 </ul>
 </div>
@@ -487,11 +481,21 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 
 </li>
 <li>
-<a href="#_themes">9. Themes</a>
-
+<a href="#themes">9. Themes</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#community">9.1. Community</a>
 </li>
 <li>
-<a href="#_license">10. License</a>
+<a href="#donations">9.2. Donations</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#license">10. License</a>
 
 </li>
 </ul>
@@ -503,7 +507,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 <div id="content">
 <div class="sect1">
-<h2 id="_introduction">1. Introduction</h2>
+<h2 id="introduction">1. Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Free. Open Source. Powerful. <em>Taiga</em> is a project management platform for startups
@@ -513,7 +517,7 @@ truly enjoyable.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_project_maturity">2. Project Maturity</h2>
+<h2 id="project-maturity">2. Project Maturity</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Because <em>Taiga</em> is still a young project we currently consider it to be in a beta state.</p>
@@ -521,7 +525,7 @@ truly enjoyable.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_api">3. API</h2>
+<h2 id="api">3. API</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><em>Taiga</em> has a complete REST API (the one used by the web app), check the full API
@@ -530,7 +534,7 @@ documentation <a href="api.html">here</a>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_how_it_works">4. How it Works</h2>
+<h2 id="how-it-works">4. How it Works</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><em>Taiga</em> is made up of two components: <a href="https://github.com/taigaio/taiga-front">taiga-front</a>
@@ -554,7 +558,7 @@ and <strong>python3</strong>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_requirements">5. Requirements</h2>
+<h2 id="requirements">5. Requirements</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This is a list of major <em>Taiga</em> dependencies:</p>
@@ -605,7 +609,7 @@ the python requirements the package lxml will use gcc for building it and fail i
 </div>
 </div>
 <div class="sect1">
-<h2 id="_installation_guide">6. Installation Guide</h2>
+<h2 id="installation-guide">6. Installation Guide</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section details everything you need to know to get <em>Taiga</em> up and running
@@ -643,7 +647,7 @@ and common bugs</a>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_how_to_contribute">7. How to Contribute</h2>
+<h2 id="how-to-contribute">7. How to Contribute</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Because <em>Taiga</em> is an open source project, we gratefully accept contributions in various forms.</p>
@@ -654,19 +658,25 @@ and common bugs</a>.</p>
 <div class="ulist">
 <ul>
 <li>
-<p>Code patches</p>
+<p><a href="#reporting-bugs">Bug reports</a></p>
 </li>
 <li>
-<p><a href="#contrib-plugins">Code contrib plugins</a></p>
+<p>Code patches</p>
 </li>
 <li>
 <p>Improvements</p>
 </li>
 <li>
-<p>Bug reports</p>
+<p>Patch reviews</p>
 </li>
 <li>
-<p>Patch reviews</p>
+<p><a href="#translate">Translate</a></p>
+</li>
+<li>
+<p><a href="#themes">Create a theme</a></p>
+</li>
+<li>
+<p><a href="#contrib-plugins">Code contrib plugins</a></p>
 </li>
 </ul>
 </div>
@@ -675,7 +685,7 @@ and common bugs</a>.</p>
 strongly recommended that you reach out to us on the <a href="http://groups.google.com/d/forum/taigaio">mailing list</a>.</p>
 </div>
 <div class="sect2">
-<h3 id="_reporting_bugs">7.1. Reporting Bugs</h3>
+<h3 id="reporting-bugs">7.1. Reporting Bugs</h3>
 <div class="paragraph">
 <p>Before reporting a bug or requesting a new feature, please consider these general points:</p>
 </div>
@@ -705,31 +715,6 @@ ticket is controversial, please move the discussion to the
 </ul>
 </div>
 </div>
-<div class="sect2">
-<h3 id="_community">7.2. Community</h3>
-<div class="paragraph">
-<p><a href="http://groups.google.com/d/forum/taigaio">Taiga has a mailing list</a>. Feel free to join it
-and ask any questions you may have.</p>
-</div>
-<div class="paragraph">
-<p>To subscribe for announcements of releases, important changes and so on, please follow
-<a href="https://twitter.com/taigaio">@taigaio</a> on Twitter or read our <a href="https://blog.taiga.io">blog</a>.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_donations">7.3. Donations</h3>
-<div class="paragraph">
-<p>We are grateful for your emails volunteering donations to <em>Taiga</em>. We feel comfortable accepting them under
-these conditions: the first is that we will only do so while we are in the current beta/pre-revenue stage,
-and the second is that whatever money is donated will go towards a bounty fund. Starting Q2 2015 we will be
-engaging much more actively with our community to help further the development of Taiga, and we will use
-these donations to reward people working alongside us.</p>
-</div>
-<div class="paragraph">
-<p>If you wish to make a donation to this Taiga fund, you can do so via <a href="http://www.paypal.com">PayPal</a>
-using the email: <a href="mailto:eposner@taiga.io">eposner@taiga.io</a></p>
-</div>
-</div>
 </div>
 </div>
 <div class="sect1">
@@ -742,20 +727,26 @@ documentation and repository. The currently supported plugins are:</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="http://github.com/taigaio/taiga-contrib-gogs">taiga-contrib-gogs</a>: Gogs integration</p>
+<p><a href="http://github.com/taigaio/taiga-contrib-github-auth">github-auth</a>: GitHub Auth plugin</p>
 </li>
 <li>
-<p><a href="http://github.com/taigaio/taiga-contrib-slack">taiga-contrib-slack</a>: Slack integration</p>
+<p><a href="http://github.com/taigaio/taiga-contrib-gogs">taiga-contrib-gogs</a>: Gogs integration plugin</p>
 </li>
 <li>
-<p><a href="http://github.com/taigaio/taiga-contrib-hall">taiga-contrib-hall</a>: Hall.com integration</p>
+<p><a href="http://github.com/taigaio/taiga-contrib-hipchat">taiga-contrib-hipchat</a>: HipChat integration plugin</p>
+</li>
+<li>
+<p><a href="http://github.com/taigaio/taiga-contrib-letschat">taiga-contrib-letschat</a>: Lets Chat integration plugin</p>
+</li>
+<li>
+<p><a href="http://github.com/taigaio/taiga-contrib-slack">taiga-contrib-slack</a>: Slack integration plugin</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_themes">9. Themes</h2>
+<h2 id="themes">9. Themes</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>You can create custom themes in Taiga.</p>
@@ -798,10 +789,35 @@ documentation and repository. The currently supported plugins are:</p>
 <pre class="highlight"><code>gulp compile-themes</code></pre>
 </div>
 </div>
+<div class="sect2">
+<h3 id="community">9.1. Community</h3>
+<div class="paragraph">
+<p><a href="http://groups.google.com/d/forum/taigaio">Taiga has a mailing list</a>. Feel free to join it
+and ask any questions you may have.</p>
+</div>
+<div class="paragraph">
+<p>To subscribe for announcements of releases, important changes and so on, please follow
+<a href="https://twitter.com/taigaio">@taigaio</a> on Twitter or read our <a href="https://blog.taiga.io">blog</a>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="donations">9.2. Donations</h3>
+<div class="paragraph">
+<p>We are grateful for your emails volunteering donations to <em>Taiga</em>. We feel comfortable accepting them under
+these conditions: the first is that we will only do so while we are in the current beta/pre-revenue stage,
+and the second is that whatever money is donated will go towards a bounty fund. Starting Q2 2015 we will be
+engaging much more actively with our community to help further the development of Taiga, and we will use
+these donations to reward people working alongside us.</p>
+</div>
+<div class="paragraph">
+<p>If you wish to make a donation to this Taiga fund, you can do so via <a href="http://www.paypal.com">PayPal</a>
+using the email: <a href="mailto:eposner@taiga.io">eposner@taiga.io</a></p>
+</div>
+</div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_license">10. License</h2>
+<h2 id="license">10. License</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Every code patch accepted in the Taiga codebase is accepted under the AGPL v3.0 license. It is important
@@ -815,7 +831,7 @@ that you do not include any code which cannot be licensed under AGPL v3.0.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-11-02 09:56:44 CET
+Last updated 2015-11-02 10:13:46 CET
 </div>
 </div>
 </div>
