@@ -487,7 +487,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 
 </li>
 <li>
-<a href="#_license">9. License</a>
+<a href="#_themes">9. Themes</a>
+
+</li>
+<li>
+<a href="#_license">10. License</a>
 
 </li>
 </ul>
@@ -751,7 +755,53 @@ documentation and repository. The currently supported plugins are:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_license">9. License</h2>
+<h2 id="_themes">9. Themes</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can create custom themes in Taiga.</p>
+</div>
+<div class="paragraph">
+<p>To create a theme you have to create a new folder in <code>/app/themes/</code> with your theme name, or duplicate a previous one. If you create a new folder, then create two files inside.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>variables.scss</code> - to override sass variables, fonts, mixins helpers..etc.</p>
+</li>
+<li>
+<p><code>custom.scss</code> - to override any defined Taiga style for any module or layout.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Remember, the file <code>variables.scss</code> should only contain sass declarations that do not generate code by themselves (like variables or mixins).</p>
+</div>
+<div class="paragraph">
+<p>If you need to override a style and generate some new CSS, you should do it in <code>custom.scss</code>.</p>
+</div>
+<div class="paragraph">
+<p>Please, check the default Taiga theme to understand how this files work properly.</p>
+</div>
+<div class="paragraph">
+<p>When the files are created you have to run gulp with the theme name. This is the same as <code>gulp default</code> but uses your theme instead of the default taiga theme.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>gulp --theme themeName</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you want to compile all themes you should run.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code>gulp compile-themes</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_license">10. License</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Every code patch accepted in the Taiga codebase is accepted under the AGPL v3.0 license. It is important
@@ -765,7 +815,7 @@ that you do not include any code which cannot be licensed under AGPL v3.0.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-10-30 09:45:52 CET
+Last updated 2015-11-02 09:56:44 CET
 </div>
 </div>
 </div>
