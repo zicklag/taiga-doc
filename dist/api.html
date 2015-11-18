@@ -1964,7 +1964,7 @@ instance remember to change the url.</p>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="bash"><span class="tok-c">#!/bin/bash</span>
 <span class="tok-c"># Request username and password for connecting to Taiga</span>
-<span class="tok-nb">read</span> -p <span class="tok-s2">&quot;Username: &quot;</span> USERNAME
+<span class="tok-nb">read</span> -p <span class="tok-s2">&quot;Username or email: &quot;</span> USERNAME
 <span class="tok-nb">read</span> -s -p <span class="tok-s2">&quot;Password: &quot;</span> PASSWORD
 
 <span class="tok-c"># Get AUTH_TOKEN</span>
@@ -4371,7 +4371,7 @@ limit.</p>
 <p><strong>type</strong> with value "normal"</p>
 </li>
 <li>
-<p><strong>username</strong> (required)</p>
+<p><strong>username</strong> (required): this field also supports the user email</p>
 </li>
 <li>
 <p><strong>password</strong> (required)</p>
@@ -11151,7 +11151,14 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <div class="sect2">
 <h3 id="users-password-recovery">32.16. Password recovery</h3>
 <div class="paragraph">
-<p>To request a user password recovery send a POST with the following data</p>
+<p>To request a user password recovery send a POST with the following data:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>username</strong> (required): this field also supports the user email</p>
+</li>
+</ul>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -16766,7 +16773,7 @@ API endpoints, and has its own documentation.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-10-27 18:08:42 CET
+Last updated 2015-11-18 11:04:01 CET
 </div>
 </div>
 </div>
