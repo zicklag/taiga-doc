@@ -556,6 +556,14 @@ with circus use the <code>circusctl</code> command:</p>
 <pre class="pygments highlight"><code data-lang="bash">circusctl restart taiga</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>In case taiga-celery is configured restart it too:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">circusctl restart taiga-celery</code></pre>
+</div>
+</div>
 </div>
 <div class="sect2">
 <h3 id="faq-maintain-update">1.3. How I can keep my app up to date with the most recent Taiga version?</h3>
@@ -587,6 +595,14 @@ python manage.py migrate --noinput
 python manage.py compilemessages
 python manage.py collectstatic --noinput
 circusctl reload taiga</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>In case taiga-celery is configured reload it too:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">circusctl reload taiga-celery</code></pre>
 </div>
 </div>
 </div>
@@ -671,7 +687,7 @@ you could also try <code>en_US.UTF-8</code> as the locale:</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-11-24 09:52:23 CET
+Last updated 2015-11-26 07:40:17 CET
 </div>
 </div>
 </div>
