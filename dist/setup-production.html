@@ -933,6 +933,9 @@ explained in the final section of this tutorial.</p>
 <p><strong>This step is completelly optional and can be skipped</strong></p>
 </div>
 <div class="paragraph">
+<p>Taiga-events is the Taiga websocket server, it allows taiga-front showing realtime changes in backlog, taskboard, kanban and issues listing.</p>
+</div>
+<div class="paragraph">
 <p>Taiga events needs rabbitmq (the message broker) to be installed</p>
 </div>
 <div class="listingblock">
@@ -970,7 +973,7 @@ git clone https://github.com/taigaio/taiga-events.git taiga-events
 <div class="listingblock">
 <div class="title">Install all the javascript dependencies needed</div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash">sudo apt-get install -y nodejs npm
+<pre class="pygments highlight"><code data-lang="bash">sudo apt-get install -y nodejs nodejs-legacy npm
 npm install
 sudo npm install -g coffee-script</code></pre>
 </div>
@@ -1001,7 +1004,7 @@ sudo npm install -g coffee-script</code></pre>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="ini"><span class="tok-k">[watcher:taiga-events]</span>
 <span class="tok-na">working_dir</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/taiga-events</span>
-<span class="tok-na">cmd</span> <span class="tok-o">=</span> <span class="tok-s">/usr/lib/node_modules/coffee-script/bin/coffee</span>
+<span class="tok-na">cmd</span> <span class="tok-o">=</span> <span class="tok-s">/usr/local/bin/coffee</span>
 <span class="tok-na">args</span> <span class="tok-o">=</span> <span class="tok-s">index.coffee</span>
 <span class="tok-na">uid</span> <span class="tok-o">=</span> <span class="tok-s">taiga</span>
 <span class="tok-na">numprocesses</span> <span class="tok-o">=</span> <span class="tok-s">1</span>
@@ -1413,7 +1416,7 @@ change the scheme from <code>http</code> to <code>https</code>.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-12-07 16:19:55 CET
+Last updated 2015-12-28 14:08:46 CET
 </div>
 </div>
 </div>
