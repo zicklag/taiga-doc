@@ -840,7 +840,7 @@ this, you have to configure and install the celery service requirements.</p>
 <p>Once you have configured celery on Taiga, you have to add celery to circus configuration. See <a href="#circus-and-gunicorn">Circus and gunicorn</a> section.</p>
 </div>
 <div class="listingblock">
-<div class="title">Taiga celery configuration block for circus on ~/circus.ini</div>
+<div class="title">Taiga celery configuration block for circus on ~/conf/circus.ini</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="ini"><span class="tok-k">[watcher:taiga-celery]</span>
 <span class="tok-na">working_dir</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/taiga-back</span>
@@ -1000,7 +1000,7 @@ sudo npm install -g coffee-script</code></pre>
 <p>Now you have to add taiga-events to circus configuration. See <a href="#circus-and-gunicorn">Circus and gunicorn</a> section.</p>
 </div>
 <div class="listingblock">
-<div class="title">Taiga taiga-events configuration block for circus on ~/circus.ini</div>
+<div class="title">Taiga taiga-events configuration block for circus on ~/conf/circus.ini</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="ini"><span class="tok-k">[watcher:taiga-events]</span>
 <span class="tok-na">working_dir</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/taiga-events</span>
@@ -1086,7 +1086,13 @@ restarting processes if something goes wrong, and starting processes on system b
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Initial configuration for circus on ~/circus.ini</div>
+<div class="title">Create conf folder if it doesn&#8217;t exist</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">mkdir -p ~/conf/</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Initial configuration for circus on ~/conf/circus.ini</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="ini"><span class="tok-k">[circus]</span>
 <span class="tok-na">check_delay</span> <span class="tok-o">=</span> <span class="tok-s">5</span>
@@ -1147,7 +1153,7 @@ created.</p>
 stop on runlevel [016]
 
 respawn
-exec /usr/local/bin/circusd /home/taiga/circus.ini</code></pre>
+exec /usr/local/bin/circusd /home/taiga/conf/circus.ini</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1416,7 +1422,7 @@ change the scheme from <code>http</code> to <code>https</code>.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2015-12-28 14:08:46 CET
+Last updated 2015-12-29 08:08:30 CET
 </div>
 </div>
 </div>
