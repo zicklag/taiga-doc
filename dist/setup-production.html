@@ -10,7 +10,7 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <![endif]-->
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta content="Asciidoctor 1.5.3" name="generator">
+<meta content="Asciidoctor 1.5.4" name="generator">
 <title>Taiga: Setup production environment</title>
 <style>/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 /* Remove comment around @import statement below when using as a custom stylesheet */
@@ -908,7 +908,7 @@ git checkout stable</code></pre>
 </div>
 <div class="paragraph">
 <p>And now, you can configure it copying the
-<code>taiga-front-dist/dist/conf.example.json</code> to <code>taiga-front-dist/dist/conf.json</code>
+<code>~/taiga-front-dist/dist/conf.example.json</code> to <code>~/taiga-front-dist/dist/conf.json</code>
 and editing it.</p>
 </div>
 <div class="listingblock">
@@ -1277,7 +1277,7 @@ version automatically.</p>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="nginx"><span class="tok-k">cd</span> <span class="tok-s">/etc/ssl</span>
-<span class="tok-s">openssl</span> <span class="tok-s">dhparam</span> <span class="tok-s">-out</span> <span class="tok-s">dhparam.pem</span> <span class="tok-mi">4096</span></code></pre>
+<span class="tok-s">sudo</span> <span class="tok-s">openssl</span> <span class="tok-s">dhparam</span> <span class="tok-s">-out</span> <span class="tok-s">dhparam.pem</span> <span class="tok-mi">4096</span></code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -1430,7 +1430,7 @@ change the scheme from <code>http</code> to <code>https</code>.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-01-29 12:44:05 CET
+Last updated 2016-02-11 09:30:46 CET
 </div>
 </div>
 </div>

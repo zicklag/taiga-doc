@@ -10,7 +10,7 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <![endif]-->
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta content="Asciidoctor 1.5.3" name="generator">
+<meta content="Asciidoctor 1.5.4" name="generator">
 <title>Taiga: Setup development environment</title>
 <style>/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 /* Remove comment around @import statement below when using as a custom stylesheet */
@@ -917,6 +917,34 @@ git clone https://github.com/taigaio/taiga-front.git taiga-front
 git checkout stable</code></pre>
 </div>
 </div>
+<div class="paragraph">
+<p>And now, you can configure it copying the
+<code>dist/conf.example.json</code> to <code>dist/conf.json</code>
+and editing it.</p>
+</div>
+<div class="listingblock">
+<div class="title">Copy and edit initial configuration on ~/taiga-front/dist/conf.json</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
+    <span class="tok-nt">&quot;api&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;http://localhost:8000/api/v1/&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;eventsUrl&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;eventsMaxMissedHeartbeats&quot;</span><span class="tok-p">:</span> <span class="tok-mi">5</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;eventsHeartbeatIntervalTime&quot;</span><span class="tok-p">:</span> <span class="tok-mi">60000</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;debug&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;debugInfo&quot;</span><span class="tok-p">:</span> <span class="tok-kc">false</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;defaultLanguage&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;en&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;themes&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span><span class="tok-s2">&quot;taiga&quot;</span><span class="tok-p">],</span>
+    <span class="tok-nt">&quot;defaultTheme&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;taiga&quot;</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;publicRegisterEnabled&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;feedbackEnabled&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;privacyPolicyUrl&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;termsOfServiceUrl&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;maxUploadFileSize&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>
+    <span class="tok-nt">&quot;contribPlugins&quot;</span><span class="tok-p">:</span> <span class="tok-p">[]</span>
+
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
 <div class="listingblock">
 <div class="title">Install all dependencies needed to run gulp and compile taiga-front</div>
 <div class="content">
@@ -1087,7 +1115,7 @@ sudo npm install -g coffee-script</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-01-29 12:44:06 CET
+Last updated 2016-02-11 09:30:46 CET
 </div>
 </div>
 </div>
