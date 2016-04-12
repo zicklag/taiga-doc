@@ -821,6 +821,11 @@ can be completely asynchronous (for example webhooks or import/export). To do
 this, you have to configure and install the celery service requirements.</p>
 </div>
 <div class="paragraph">
+<p>There is just an exception related to exported files, if your instance works in asynchronous mode the exported project files will be
+automatically removed from the storage after 24 hours, if not those media files won&#8217;t be automatically removed (taiga-back doesn&#8217;t really know anything about
+the existance of those files).</p>
+</div>
+<div class="paragraph">
 <p>Install <code>rabbitmq-server</code> and <code>redis-server</code>:</p>
 </div>
 <div class="listingblock">
@@ -1143,6 +1148,9 @@ restarting processes if something goes wrong, and starting processes on system b
 </td>
 <td class="content">
 <div class="paragraph">
+<p>Circus stats can generate a high cpu usage without any load you can set statsd to false if you don&#8217;t need them.</p>
+</div>
+<div class="paragraph">
 <p>Taiga stores logs on the user home, making them available and immediately accessible when
 you enter a machine. To make everything work, make sure you have the logs directory
 created.</p>
@@ -1430,7 +1438,7 @@ change the scheme from <code>http</code> to <code>https</code>.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-04-01 11:47:03 CEST
+Last updated 2016-04-12 08:13:25 CEST
 </div>
 </div>
 </div>
