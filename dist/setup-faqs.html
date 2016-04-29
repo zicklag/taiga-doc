@@ -10,7 +10,7 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <![endif]-->
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta content="Asciidoctor 1.5.4" name="generator">
+<meta content="Asciidoctor 1.5.3" name="generator">
 <title>Taiga: Setup FAQs and common bugs</title>
 <style>/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 /* Remove comment around @import statement below when using as a custom stylesheet */
@@ -545,9 +545,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 backend through the domain/public-ip.</p>
 </div>
 <div class="paragraph">
-<p>To do this you should update the <code>url</code> value on frontend config file (conf/main.json) and rebuild frontend with
-<code>gulp deploy</code>. Also you should update the domain related configuration on the backend
-settings file: <code>settings/local.py</code>.</p>
+<p>To do this you should update the url value <code>api</code> on frontend config file <code>dist/conf/conf.json</code>.
+Also you should update the domain related configuration on the backend settings file:
+<code>settings/local.py</code>.</p>
 </div>
 <div class="paragraph">
 <p>And finally reload the backend config with: <code>circusctl reload taiga</code></p>
@@ -592,13 +592,22 @@ repository.</p>
 <div class="ulist">
 <ul>
 <li>
-<p><a href="http://github.com/taigaio/taiga-contrib-gogs">taiga-contrib-gogs</a>: Gogs integration</p>
+<p><a href="https://github.com/taigaio/taiga-contrib-cookie-warning">taiga-contrib-cookie-warning</a> A funny cookie warning message</p>
 </li>
 <li>
-<p><a href="http://github.com/taigaio/taiga-contrib-slack">taiga-contrib-slack</a>: Slack integration</p>
+<p><a href="https://github.com/taigaio/taiga-contrib-github-auth">taiga-contrib-github-auth</a>: GitHub Authentication</p>
 </li>
 <li>
-<p><a href="http://github.com/taigaio/taiga-contrib-hall">taiga-contrib-hall</a>: Hall.com integration</p>
+<p><a href="https://github.com/taigaio/taiga-contrib-gogs">taiga-contrib-gogs</a>: Gogs integration</p>
+</li>
+<li>
+<p><a href="https://github.com/taigaio/taiga-contrib-hipchat">taiga-contrib-hipchat</a>: HipChat integration</p>
+</li>
+<li>
+<p><a href="https://github.com/taigaio/taiga-contrib-letschat">taiga-contrib-letschat</a>: Let&#8217;s Chat integration</p>
+</li>
+<li>
+<p><a href="https://github.com/taigaio/taiga-contrib-slack">taiga-contrib-slack</a>: Slack integration</p>
 </li>
 </ul>
 </div>
@@ -660,7 +669,7 @@ you could also try <code>en_US.UTF-8</code> as the locale:</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-04-12 08:13:26 CEST
+Last updated 2016-04-29 13:38:21 CEST
 </div>
 </div>
 </div>

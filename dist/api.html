@@ -10,7 +10,7 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <![endif]-->
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta content="Asciidoctor 1.5.4" name="generator">
+<meta content="Asciidoctor 1.5.3" name="generator">
 <title>Taiga REST API</title>
 <style>/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 /* Remove comment around @import statement below when using as a custom stylesheet */
@@ -859,19 +859,16 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <a href="#projects-remove-logo">10.23. Remove logo</a>
 </li>
 <li>
-<a href="#projects-validate-token">10.24. Transfer validate token</a>
+<a href="#projects-transfer-request">10.24. Transfer request</a>
 </li>
 <li>
-<a href="#projects-transfer-request">10.25. Transfer request</a>
+<a href="#projects-transfer-start">10.25. Transfer start</a>
 </li>
 <li>
-<a href="#projects-transfer-start">10.26. Transfer start</a>
+<a href="#projects-transfer-accept">10.26. Transfer accept</a>
 </li>
 <li>
-<a href="#projects-transfer-accept">10.27. Transfer accept</a>
-</li>
-<li>
-<a href="#projects-transfer-reject">10.28. Transfer reject</a>
+<a href="#projects-transfer-reject">10.27. Transfer reject</a>
 </li>
 </ul>
 </div>
@@ -2332,9 +2329,9 @@ limit.</p>
 <h3 id="_auth">2.1. Auth</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -2361,9 +2358,9 @@ limit.</p>
 <h3 id="_applications">2.2. Applications</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -2390,9 +2387,9 @@ limit.</p>
 <h3 id="_application_tokens">2.3. Application Tokens</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -2434,9 +2431,9 @@ limit.</p>
 <h3 id="_resolver">2.4. Resolver</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -2458,9 +2455,9 @@ limit.</p>
 <h3 id="_searches">2.5. Searches</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -2482,9 +2479,9 @@ limit.</p>
 <h3 id="_user_storage">2.6. User storage</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -2531,9 +2528,9 @@ limit.</p>
 <h3 id="_project_templates">2.7. Project templates</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -2580,9 +2577,9 @@ limit.</p>
 <h3 id="_projects">2.8. Projects</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -2744,9 +2741,9 @@ limit.</p>
 <h3 id="_memberships_invitations">2.9. Memberships/Invitations</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -2808,9 +2805,9 @@ limit.</p>
 <h3 id="_milestones">2.10. Milestones</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -2877,9 +2874,9 @@ limit.</p>
 <h3 id="_user_stories">2.11. User stories</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -3011,9 +3008,9 @@ limit.</p>
 <h3 id="_user_story_status">2.12. User story status</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -3065,9 +3062,9 @@ limit.</p>
 <h3 id="_points">2.13. Points</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -3119,9 +3116,9 @@ limit.</p>
 <h3 id="_user_story_custom_attribute">2.14. User story custom attribute</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -3173,9 +3170,9 @@ limit.</p>
 <h3 id="_user_story_custom_attributes_values">2.15. User story custom attributes values</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -3207,9 +3204,9 @@ limit.</p>
 <h3 id="_tasks">2.16. Tasks</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -3326,9 +3323,9 @@ limit.</p>
 <h3 id="_task_status">2.17. Task status</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -3380,9 +3377,9 @@ limit.</p>
 <h3 id="_task_custom_attribute">2.18. Task custom attribute</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -3434,9 +3431,9 @@ limit.</p>
 <h3 id="_task_custom_attributes_values">2.19. Task custom attributes values</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -3468,9 +3465,9 @@ limit.</p>
 <h3 id="_issues">2.20. Issues</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -3587,9 +3584,9 @@ limit.</p>
 <h3 id="_issue_status">2.21. Issue status</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -3641,9 +3638,9 @@ limit.</p>
 <h3 id="_issue_types">2.22. Issue types</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -3695,9 +3692,9 @@ limit.</p>
 <h3 id="_priorities">2.23. Priorities</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -3749,9 +3746,9 @@ limit.</p>
 <h3 id="_severities">2.24. Severities</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -3803,9 +3800,9 @@ limit.</p>
 <h3 id="_issue_custom_attribute">2.25. Issue custom attribute</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -3857,9 +3854,9 @@ limit.</p>
 <h3 id="_issue_custom_attributes_values">2.26. Issue custom attributes values</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -3891,9 +3888,9 @@ limit.</p>
 <h3 id="_wiki_pages">2.27. Wiki pages</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -3990,9 +3987,9 @@ limit.</p>
 <h3 id="_wiki_links">2.28. Wiki links</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -4039,9 +4036,9 @@ limit.</p>
 <h3 id="_history">2.29. History</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -4118,9 +4115,9 @@ limit.</p>
 <h3 id="_users">2.30. Users</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -4227,9 +4224,9 @@ limit.</p>
 <h3 id="_notify_policies">2.31. Notify policies</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -4266,9 +4263,9 @@ limit.</p>
 <h3 id="_feedback">2.32. Feedback</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -4290,9 +4287,9 @@ limit.</p>
 <h3 id="_export_import">2.33. Export/Import</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -4319,9 +4316,9 @@ limit.</p>
 <h3 id="_webhooks">2.34. Webhooks</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -4388,9 +4385,9 @@ limit.</p>
 <h3 id="_timelines">2.35. Timelines</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -4422,9 +4419,9 @@ limit.</p>
 <h3 id="_locales">2.36. Locales</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -4446,9 +4443,9 @@ limit.</p>
 <h3 id="_stats">2.37. Stats</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33.3333%;">
-<col style="width: 33.3333%;">
-<col style="width: 33.3334%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
+<col style="width: 33%;">
 </colgroup>
 <thead>
 <tr>
@@ -6489,33 +6486,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-validate-token">10.24. Transfer validate token</h3>
-<div class="paragraph">
-<p>To check if a transfer token for one project is valid for your user send a POST request specifying the project id in the url and containing the following data:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>token</strong>: valid transfer token received by email.</p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash">curl -X POST <span class="tok-se">\</span>
-  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
-  -d <span class="tok-s1">&#39;{</span>
-<span class="tok-s1">          &quot;token&quot;: &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">TRANSFER_TOKEN</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;,</span>
-<span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
-  https://api.taiga.io/api/v1/projects/1/transfer_validate_token</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The HTTP response is a 200 OK with an empty body response</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="projects-transfer-request">10.25. Transfer request</h3>
+<h3 id="projects-transfer-request">10.24. Transfer request</h3>
 <div class="paragraph">
 <p>To request to the owner the transfer of a project send a POST request specifying the project id in the url</p>
 </div>
@@ -6531,7 +6502,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-transfer-start">10.26. Transfer start</h3>
+<h3 id="projects-transfer-start">10.25. Transfer start</h3>
 <div class="paragraph">
 <p>To start the transfer of one of your projects to another user send a POST request specifying the project id in the url and containing the following data:</p>
 </div>
@@ -6557,7 +6528,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-transfer-accept">10.27. Transfer accept</h3>
+<h3 id="projects-transfer-accept">10.26. Transfer accept</h3>
 <div class="paragraph">
 <p>To accept the transfer of one project to your user send a POST request specifying the project id in the url and containing the following data:</p>
 </div>
@@ -6587,7 +6558,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-transfer-reject">10.28. Transfer reject</h3>
+<h3 id="projects-transfer-reject">10.27. Transfer reject</h3>
 <div class="paragraph">
 <p>To reject the transfer of one project to your user send a POST request specifying the project id in the url and containing the following data:</p>
 </div>
@@ -11625,10 +11596,10 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 <div class="ulist">
 <ul>
 <li>
-<p>A 202 Accepted and as response body a JSON of <a href="#object-export-accepted">export request accepted</a>.</p>
+<p>If taiga is working in synchronous mode the json file is directly generated, the result is a 200 OK and as response body a JSON of <a href="#object-export-synch">export detail for synch mode</a>.</p>
 </li>
 <li>
-<p>A 200 OK and as response body a JSON of <a href="#object-export-synch">export detail for synch mode</a>.</p>
+<p>If taiga is working in asynchronous mode the result is a 202 Accepted and as response body a JSON of <a href="#object-export-accepted">export request accepted</a>. The export_id can be used to build the URL to download the exported file when the file generation is complete, those urls look like: MEDIA_URL/exports/PROJECT_ID/PROJECT_SLUG-export_id.json.</p>
 </li>
 </ul>
 </div>
@@ -12049,7 +12020,7 @@ This API will only work if your instance has system stats enabled
     <span class="tok-nt">&quot;object_id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">81</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;order&quot;</span><span class="tok-p">:</span> <span class="tok-mi">0</span><span class="tok-p">,</span>
     <span class="tok-nt">&quot;sha1&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;da2631d805f12a1b533738a0912e9b9c2261dbef&quot;</span><span class="tok-p">,</span>
-    <span class="tok-err">thumbnail_card_url:</span> <span class="tok-nt">&quot;https://media.taiga.io/8/1/6/e/68a8e4edb4ba422d201d65406b161be03e052d9b63e265aaa826179497c8/img_20141102_214512.300x200_q85_crop.jpg&quot;</span>
+    <span class="tok-nt">&quot;thumbnail_card_url&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;https://media.taiga.io/8/1/6/e/68a8e4edb4ba422d201d65406b161be03e052d9b63e265aaa826179497c8/img_20141102_214512.300x200_q85_crop.jpg&quot;</span>
 <span class="tok-p">}</span></code></pre>
 </div>
 </div>
@@ -12220,10 +12191,46 @@ The attributes: email, max_private_projects, max_public_projects, max_membership
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="json"><span class="tok-p">{</span>
-    <span class="tok-nt">&quot;wikipages&quot;</span><span class="tok-p">:</span> <span class="tok-p">[{</span><span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;wiki-page&quot;</span><span class="tok-p">,</span> <span class="tok-nt">&quot;content&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;wiki content&quot;</span><span class="tok-p">},</span> <span class="tok-err">...</span><span class="tok-p">],</span>
-    <span class="tok-nt">&quot;userstories&quot;</span><span class="tok-p">:</span>  <span class="tok-p">[{</span><span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-nt">&quot;ref&quot;</span><span class="tok-p">:</span> <span class="tok-mi">10</span><span class="tok-p">,</span> <span class="tok-nt">&quot;subject&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;User story subject&quot;</span><span class="tok-p">,</span> <span class="tok-nt">&quot;status&quot;</span><span class="tok-p">:</span> <span class="tok-mi">23</span><span class="tok-p">,</span> <span class="tok-nt">&quot;total_points&quot;</span><span class="tok-p">:</span> <span class="tok-mf">12.5</span><span class="tok-p">},</span> <span class="tok-err">...</span><span class="tok-p">],</span>
-    <span class="tok-nt">&quot;issues&quot;</span><span class="tok-p">:</span>  <span class="tok-p">[{</span><span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-nt">&quot;ref&quot;</span><span class="tok-p">:</span> <span class="tok-mi">20</span><span class="tok-p">,</span> <span class="tok-nt">&quot;subject&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Issue subject&quot;</span><span class="tok-p">,</span> <span class="tok-nt">&quot;status&quot;</span><span class="tok-p">:</span> <span class="tok-mi">10</span><span class="tok-p">,</span> <span class="tok-nt">&quot;assigned_to&quot;</span><span class="tok-p">:</span> <span class="tok-mi">12</span><span class="tok-p">},</span> <span class="tok-err">...</span><span class="tok-p">],</span>
-    <span class="tok-nt">&quot;tasks&quot;</span><span class="tok-p">:</span>  <span class="tok-p">[{</span><span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span> <span class="tok-nt">&quot;ref&quot;</span><span class="tok-p">:</span> <span class="tok-mi">30</span><span class="tok-p">,</span> <span class="tok-nt">&quot;subject&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Task  subject&quot;</span><span class="tok-p">,</span> <span class="tok-nt">&quot;status&quot;</span><span class="tok-p">:</span> <span class="tok-mi">15</span><span class="tok-p">,</span> <span class="tok-nt">&quot;assigned_to&quot;</span><span class="tok-p">:</span> <span class="tok-mi">54</span><span class="tok-p">},</span> <span class="tok-err">...</span><span class="tok-p">],</span>
+    <span class="tok-nt">&quot;wikipages&quot;</span><span class="tok-p">:</span> <span class="tok-p">[</span>
+      <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;wiki-page&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;content&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;wiki content&quot;</span>
+      <span class="tok-p">},</span>
+      <span class="tok-err">...</span>
+    <span class="tok-p">],</span>
+    <span class="tok-nt">&quot;userstories&quot;</span><span class="tok-p">:</span>  <span class="tok-p">[</span>
+      <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;ref&quot;</span><span class="tok-p">:</span> <span class="tok-mi">10</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;subject&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;User story subject&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;status&quot;</span><span class="tok-p">:</span> <span class="tok-mi">23</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;total_points&quot;</span><span class="tok-p">:</span> <span class="tok-mf">12.5</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;milestone_name&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Sprint name&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;milestone_slug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;sprint-name&quot;</span>
+      <span class="tok-p">},</span>
+      <span class="tok-err">...</span>
+    <span class="tok-p">],</span>
+    <span class="tok-nt">&quot;issues&quot;</span><span class="tok-p">:</span>  <span class="tok-p">[</span>
+      <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;ref&quot;</span><span class="tok-p">:</span> <span class="tok-mi">20</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;subject&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Issue subject&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;status&quot;</span><span class="tok-p">:</span> <span class="tok-mi">10</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;assigned_to&quot;</span><span class="tok-p">:</span> <span class="tok-mi">12</span>
+      <span class="tok-p">},</span>
+      <span class="tok-err">...</span>
+    <span class="tok-p">],</span>
+    <span class="tok-nt">&quot;tasks&quot;</span><span class="tok-p">:</span>  <span class="tok-p">[</span>
+      <span class="tok-p">{</span>
+        <span class="tok-nt">&quot;id&quot;</span><span class="tok-p">:</span> <span class="tok-mi">1</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;ref&quot;</span><span class="tok-p">:</span> <span class="tok-mi">30</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;subject&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;Task  subject&quot;</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;status&quot;</span><span class="tok-p">:</span> <span class="tok-mi">15</span><span class="tok-p">,</span>
+        <span class="tok-nt">&quot;assigned_to&quot;</span><span class="tok-p">:</span> <span class="tok-mi">54</span>
+      <span class="tok-p">},</span>
+      <span class="tok-err">...</span>
+    <span class="tok-p">],</span>
     <span class="tok-nt">&quot;count&quot;</span><span class="tok-p">:</span> <span class="tok-mi">8</span>
 <span class="tok-p">}</span></code></pre>
 </div>
@@ -17727,7 +17734,7 @@ API endpoints, and has its own documentation.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-04-12 08:13:27 CEST
+Last updated 2016-04-29 13:38:22 CEST
 </div>
 </div>
 </div>

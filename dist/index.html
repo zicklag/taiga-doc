@@ -10,7 +10,7 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <![endif]-->
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta content="Asciidoctor 1.5.4" name="generator">
+<meta content="Asciidoctor 1.5.3" name="generator">
 <title>Taiga Documentation</title>
 <style>/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 /* Remove comment around @import statement below when using as a custom stylesheet */
@@ -446,65 +446,69 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 
 </li>
 <li>
-<a href="#how-it-works">4. How it Works</a>
+<a href="#webhooks">4. Webhooks</a>
 
 </li>
 <li>
-<a href="#requirements">5. Requirements</a>
+<a href="#how-it-works">5. How it Works</a>
 
 </li>
 <li>
-<a href="#installation-guide">6. Installation Guide</a>
+<a href="#requirements">6. Requirements</a>
+
+</li>
+<li>
+<a href="#installation-guide">7. Installation Guide</a>
 <div class="mp-level">
 <a class="mp-back" href="#">back</a>
 <ul class="sectlevel2">
 <li>
-<a href="#_setup_production_environment">6.1. Setup Production Environment</a>
+<a href="#_setup_production_environment">7.1. Setup Production Environment</a>
 </li>
 <li>
-<a href="#_setup_development_environment">6.2. Setup Development Environment</a>
+<a href="#_setup_development_environment">7.2. Setup Development Environment</a>
 </li>
 <li>
-<a href="#_other_ways_to_setup_an_initial_environment">6.3. Other Ways to Setup an Initial Environment</a>
+<a href="#_other_ways_to_setup_an_initial_environment">7.3. Other Ways to Setup an Initial Environment</a>
 </li>
 <li>
-<a href="#_setup_faqs_and_common_bugs">6.4. Setup FAQs and common Bugs</a>
+<a href="#_setup_faqs_and_common_bugs">7.4. Setup FAQs and common Bugs</a>
 </li>
 <li>
-<a href="#_upgrades">6.5. Upgrades</a>
+<a href="#_upgrades">7.5. Upgrades</a>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<a href="#how-to-contribute">7. How to Contribute</a>
+<a href="#how-to-contribute">8. How to Contribute</a>
 <div class="mp-level">
 <a class="mp-back" href="#">back</a>
 <ul class="sectlevel2">
 <li>
-<a href="#reporting-bugs">7.1. Reporting Bugs</a>
+<a href="#reporting-bugs">8.1. Reporting Bugs</a>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<a href="#contrib-plugins">8. Contrib Plugins</a>
+<a href="#contrib-plugins">9. Contrib Plugins</a>
 
 </li>
 <li>
-<a href="#themes">9. Themes</a>
+<a href="#themes">10. Themes</a>
 
 </li>
 <li>
-<a href="#community">10. Community</a>
+<a href="#community">11. Community</a>
 
 </li>
 <li>
-<a href="#donations">11. Donations</a>
+<a href="#donations">12. Donations</a>
 
 </li>
 <li>
-<a href="#license">12. License</a>
+<a href="#license">13. License</a>
 
 </li>
 </ul>
@@ -543,7 +547,15 @@ documentation <a href="api.html">here</a>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="how-it-works">4. How it Works</h2>
+<h2 id="webhooks">4. Webhooks</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><em>Taiga</em> has a webhooks notification system, check the full documentation <a href="webhooks.html">here</a>.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="how-it-works">5. How it Works</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><em>Taiga</em> is made up of two components: <a href="https://github.com/taigaio/taiga-front">taiga-front</a>
@@ -567,7 +579,7 @@ and <strong>python3</strong>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="requirements">5. Requirements</h2>
+<h2 id="requirements">6. Requirements</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This is a list of major <em>Taiga</em> dependencies:</p>
@@ -618,28 +630,28 @@ the python requirements, the package lxml will use gcc for building itself and f
 </div>
 </div>
 <div class="sect1">
-<h2 id="installation-guide">6. Installation Guide</h2>
+<h2 id="installation-guide">7. Installation Guide</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>This section details everything you need to know to get <em>Taiga</em> up and running
 in both development and production environments.</p>
 </div>
 <div class="sect2">
-<h3 id="_setup_production_environment">6.1. Setup Production Environment</h3>
+<h3 id="_setup_production_environment">7.1. Setup Production Environment</h3>
 <div class="paragraph">
 <p><a href="setup-production.html">This document contains the complete, step by step tutorial</a> of how
 to properly setup <em>Taiga</em> for a low traffic production environment.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_setup_development_environment">6.2. Setup Development Environment</h3>
+<h3 id="_setup_development_environment">7.2. Setup Development Environment</h3>
 <div class="paragraph">
 <p>You can view the complete documentation on how to <a href="setup-development.html">setup a proper
 development environment</a>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_other_ways_to_setup_an_initial_environment">6.3. Other Ways to Setup an Initial Environment</h3>
+<h3 id="_other_ways_to_setup_an_initial_environment">7.3. Other Ways to Setup an Initial Environment</h3>
 <div class="paragraph">
 <p>In addition to the traditional step-by-step manuals, <em>Taiga</em> comes with a
 collection of provisioning scripts and Vagrant support, and
@@ -647,14 +659,14 @@ collection of provisioning scripts and Vagrant support, and
 </div>
 </div>
 <div class="sect2">
-<h3 id="_setup_faqs_and_common_bugs">6.4. Setup FAQs and common Bugs</h3>
+<h3 id="_setup_faqs_and_common_bugs">7.4. Setup FAQs and common Bugs</h3>
 <div class="paragraph">
 <p>You can view a list of common FAQs and bugs related to the setup process <a href="setup-faqs.html">FAQs
 and common bugs</a>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_upgrades">6.5. Upgrades</h3>
+<h3 id="_upgrades">7.5. Upgrades</h3>
 <div class="paragraph">
 <p>Instructions on <a href="upgrades.html">how to upgrade your Tainga instance</a>.</p>
 </div>
@@ -662,7 +674,7 @@ and common bugs</a>.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="how-to-contribute">7. How to Contribute</h2>
+<h2 id="how-to-contribute">8. How to Contribute</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Because <em>Taiga</em> is an open source project, we gratefully accept contributions in various forms.</p>
@@ -700,7 +712,7 @@ and common bugs</a>.</p>
 strongly recommended that you reach out to us on the <a href="http://groups.google.com/d/forum/taigaio">mailing list</a>.</p>
 </div>
 <div class="sect2">
-<h3 id="reporting-bugs">7.1. Reporting Bugs</h3>
+<h3 id="reporting-bugs">8.1. Reporting Bugs</h3>
 <div class="paragraph">
 <p>Before reporting a bug or requesting a new feature, please consider these general points:</p>
 </div>
@@ -733,7 +745,7 @@ ticket is controversial, please move the discussion to the
 </div>
 </div>
 <div class="sect1">
-<h2 id="contrib-plugins">8. Contrib Plugins</h2>
+<h2 id="contrib-plugins">9. Contrib Plugins</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Taiga supports the inclusion of contrib plugins, each plugin has its own
@@ -761,7 +773,7 @@ documentation and repository. The currently supported plugins are:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="themes">9. Themes</h2>
+<h2 id="themes">10. Themes</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>You can create custom themes in Taiga.</p>
@@ -807,7 +819,7 @@ documentation and repository. The currently supported plugins are:</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="community">10. Community</h2>
+<h2 id="community">11. Community</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><a href="http://groups.google.com/d/forum/taigaio">Taiga has a mailing list</a>. Feel free to join it
@@ -820,7 +832,7 @@ and ask any questions you may have.</p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="donations">11. Donations</h2>
+<h2 id="donations">12. Donations</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>We are grateful for your emails volunteering donations to <em>Taiga</em>. We feel comfortable accepting them under
@@ -836,7 +848,7 @@ using the email: <a href="mailto:eposner@taiga.io">eposner@taiga.io</a></p>
 </div>
 </div>
 <div class="sect1">
-<h2 id="license">12. License</h2>
+<h2 id="license">13. License</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p>Every code patch accepted in the Taiga codebase is accepted under the AGPL v3.0 license. It is important
@@ -850,7 +862,7 @@ that you do not include any code which cannot be licensed under AGPL v3.0.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-04-12 08:13:25 CEST
+Last updated 2016-04-29 13:38:20 CEST
 </div>
 </div>
 </div>
