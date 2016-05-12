@@ -10,7 +10,7 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <![endif]-->
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta content="Asciidoctor 1.5.3" name="generator">
+<meta content="Asciidoctor 1.5.4" name="generator">
 <title>Taiga REST API</title>
 <style>/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 /* Remove comment around @import statement below when using as a custom stylesheet */
@@ -859,16 +859,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <a href="#projects-remove-logo">10.23. Remove logo</a>
 </li>
 <li>
-<a href="#projects-transfer-request">10.24. Transfer request</a>
+<a href="#projects-transfer-validate-token">10.24. Transfer validate-token</a>
 </li>
 <li>
-<a href="#projects-transfer-start">10.25. Transfer start</a>
+<a href="#projects-transfer-request">10.25. Transfer request</a>
 </li>
 <li>
-<a href="#projects-transfer-accept">10.26. Transfer accept</a>
+<a href="#projects-transfer-start">10.26. Transfer start</a>
 </li>
 <li>
-<a href="#projects-transfer-reject">10.27. Transfer reject</a>
+<a href="#projects-transfer-accept">10.27. Transfer accept</a>
+</li>
+<li>
+<a href="#projects-transfer-reject">10.28. Transfer reject</a>
 </li>
 </ul>
 </div>
@@ -2014,16 +2017,17 @@ instance remember to change the url.</p>
 <pre class="pygments highlight"><code data-lang="bash"><span class="tok-c">#!/bin/bash</span>
 <span class="tok-c"># Request username and password for connecting to Taiga</span>
 <span class="tok-nb">read</span> -p <span class="tok-s2">&quot;Username or email: &quot;</span> USERNAME
-<span class="tok-nb">read</span> -s -p <span class="tok-s2">&quot;Password: &quot;</span> PASSWORD
+<span class="tok-nb">read</span> -r -s -p <span class="tok-s2">&quot;Password: &quot;</span> PASSWORD
+
+<span class="tok-nv">DATA</span><span class="tok-o">=</span><span class="tok-k">$(</span>jq --null-input <span class="tok-se">\</span>
+        --arg username <span class="tok-s2">&quot;$USERNAME&quot;</span> <span class="tok-se">\</span>
+        --arg password <span class="tok-s2">&quot;$PASSWORD&quot;</span> <span class="tok-se">\</span>
+        <span class="tok-s1">&#39;{ type: &quot;normal&quot;, username: $username, password: $password }&#39;</span><span class="tok-k">)</span>
 
 <span class="tok-c"># Get AUTH_TOKEN</span>
 <span class="tok-nv">USER_AUTH_DETAIL</span><span class="tok-o">=</span><span class="tok-k">$(</span> curl -X POST <span class="tok-se">\</span>
   -H <span class="tok-s2">&quot;Content-Type: application/json&quot;</span> <span class="tok-se">\</span>
-  -d <span class="tok-s1">&#39;{</span>
-<span class="tok-s1">          &quot;type&quot;: &quot;normal&quot;,</span>
-<span class="tok-s1">          &quot;username&quot;: &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">USERNAME</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;,</span>
-<span class="tok-s1">          &quot;password&quot;: &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">PASSWORD</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;</span>
-<span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
+  -d <span class="tok-s2">&quot;$DATA&quot;</span> <span class="tok-se">\</span>
   https://api.taiga.io/api/v1/auth 2&gt;/dev/null <span class="tok-k">)</span>
 
 <span class="tok-nv">AUTH_TOKEN</span><span class="tok-o">=</span><span class="tok-k">$(</span> <span class="tok-nb">echo</span> <span class="tok-k">${</span><span class="tok-nv">USER_AUTH_DETAIL</span><span class="tok-k">}</span> <span class="tok-p">|</span> jq -r <span class="tok-s1">&#39;.auth_token&#39;</span> <span class="tok-k">)</span>
@@ -2329,9 +2333,9 @@ limit.</p>
 <h3 id="_auth">2.1. Auth</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -2358,9 +2362,9 @@ limit.</p>
 <h3 id="_applications">2.2. Applications</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -2387,9 +2391,9 @@ limit.</p>
 <h3 id="_application_tokens">2.3. Application Tokens</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -2431,9 +2435,9 @@ limit.</p>
 <h3 id="_resolver">2.4. Resolver</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -2455,9 +2459,9 @@ limit.</p>
 <h3 id="_searches">2.5. Searches</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -2479,9 +2483,9 @@ limit.</p>
 <h3 id="_user_storage">2.6. User storage</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -2528,9 +2532,9 @@ limit.</p>
 <h3 id="_project_templates">2.7. Project templates</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -2577,9 +2581,9 @@ limit.</p>
 <h3 id="_projects">2.8. Projects</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -2741,9 +2745,9 @@ limit.</p>
 <h3 id="_memberships_invitations">2.9. Memberships/Invitations</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -2805,9 +2809,9 @@ limit.</p>
 <h3 id="_milestones">2.10. Milestones</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -2874,9 +2878,9 @@ limit.</p>
 <h3 id="_user_stories">2.11. User stories</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -3008,9 +3012,9 @@ limit.</p>
 <h3 id="_user_story_status">2.12. User story status</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -3062,9 +3066,9 @@ limit.</p>
 <h3 id="_points">2.13. Points</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -3116,9 +3120,9 @@ limit.</p>
 <h3 id="_user_story_custom_attribute">2.14. User story custom attribute</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -3170,9 +3174,9 @@ limit.</p>
 <h3 id="_user_story_custom_attributes_values">2.15. User story custom attributes values</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -3204,9 +3208,9 @@ limit.</p>
 <h3 id="_tasks">2.16. Tasks</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -3323,9 +3327,9 @@ limit.</p>
 <h3 id="_task_status">2.17. Task status</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -3377,9 +3381,9 @@ limit.</p>
 <h3 id="_task_custom_attribute">2.18. Task custom attribute</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -3431,9 +3435,9 @@ limit.</p>
 <h3 id="_task_custom_attributes_values">2.19. Task custom attributes values</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -3465,9 +3469,9 @@ limit.</p>
 <h3 id="_issues">2.20. Issues</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -3584,9 +3588,9 @@ limit.</p>
 <h3 id="_issue_status">2.21. Issue status</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -3638,9 +3642,9 @@ limit.</p>
 <h3 id="_issue_types">2.22. Issue types</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -3692,9 +3696,9 @@ limit.</p>
 <h3 id="_priorities">2.23. Priorities</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -3746,9 +3750,9 @@ limit.</p>
 <h3 id="_severities">2.24. Severities</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -3800,9 +3804,9 @@ limit.</p>
 <h3 id="_issue_custom_attribute">2.25. Issue custom attribute</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -3854,9 +3858,9 @@ limit.</p>
 <h3 id="_issue_custom_attributes_values">2.26. Issue custom attributes values</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -3888,9 +3892,9 @@ limit.</p>
 <h3 id="_wiki_pages">2.27. Wiki pages</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -3987,9 +3991,9 @@ limit.</p>
 <h3 id="_wiki_links">2.28. Wiki links</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -4036,9 +4040,9 @@ limit.</p>
 <h3 id="_history">2.29. History</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -4115,9 +4119,9 @@ limit.</p>
 <h3 id="_users">2.30. Users</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -4224,9 +4228,9 @@ limit.</p>
 <h3 id="_notify_policies">2.31. Notify policies</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -4263,9 +4267,9 @@ limit.</p>
 <h3 id="_feedback">2.32. Feedback</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -4287,9 +4291,9 @@ limit.</p>
 <h3 id="_export_import">2.33. Export/Import</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -4316,9 +4320,9 @@ limit.</p>
 <h3 id="_webhooks">2.34. Webhooks</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -4385,9 +4389,9 @@ limit.</p>
 <h3 id="_timelines">2.35. Timelines</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -4419,9 +4423,9 @@ limit.</p>
 <h3 id="_locales">2.36. Locales</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -4443,9 +4447,9 @@ limit.</p>
 <h3 id="_stats">2.37. Stats</h3>
 <table class="tableblock frame-all grid-all spread">
 <colgroup>
-<col style="width: 33%;">
-<col style="width: 33%;">
-<col style="width: 33%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3333%;">
+<col style="width: 33.3334%;">
 </colgroup>
 <thead>
 <tr>
@@ -6486,7 +6490,33 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-transfer-request">10.24. Transfer request</h3>
+<h3 id="projects-transfer-validate-token">10.24. Transfer validate-token</h3>
+<div class="paragraph">
+<p>To check if a transfer token for one project is valid for your user send a POST request specifying the project id in the url and containing the following data:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>token</strong>: valid transfer token received by email.</p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">curl -X POST <span class="tok-se">\</span>
+  -H <span class="tok-s2">&quot;Authorization: Bearer ${AUTH_TOKEN}&quot;</span> <span class="tok-se">\</span>
+  -d <span class="tok-s1">&#39;{</span>
+<span class="tok-s1">          &quot;token&quot;: &quot;&#39;</span><span class="tok-k">${</span><span class="tok-nv">TRANSFER_TOKEN</span><span class="tok-k">}</span><span class="tok-s1">&#39;&quot;,</span>
+<span class="tok-s1">      }&#39;</span> <span class="tok-se">\</span>
+  https://api.taiga.io/api/v1/projects/1/transfer_validate_token</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The HTTP response is a 200 OK with an empty body response</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="projects-transfer-request">10.25. Transfer request</h3>
 <div class="paragraph">
 <p>To request to the owner the transfer of a project send a POST request specifying the project id in the url</p>
 </div>
@@ -6502,7 +6532,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-transfer-start">10.25. Transfer start</h3>
+<h3 id="projects-transfer-start">10.26. Transfer start</h3>
 <div class="paragraph">
 <p>To start the transfer of one of your projects to another user send a POST request specifying the project id in the url and containing the following data:</p>
 </div>
@@ -6528,7 +6558,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-transfer-accept">10.26. Transfer accept</h3>
+<h3 id="projects-transfer-accept">10.27. Transfer accept</h3>
 <div class="paragraph">
 <p>To accept the transfer of one project to your user send a POST request specifying the project id in the url and containing the following data:</p>
 </div>
@@ -6558,7 +6588,7 @@ In a PATCH request you just need to send the modified data, in a PUT one the who
 </div>
 </div>
 <div class="sect2">
-<h3 id="projects-transfer-reject">10.27. Transfer reject</h3>
+<h3 id="projects-transfer-reject">10.28. Transfer reject</h3>
 <div class="paragraph">
 <p>To reject the transfer of one project to your user send a POST request specifying the project id in the url and containing the following data:</p>
 </div>
@@ -17734,7 +17764,7 @@ API endpoints, and has its own documentation.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-04-29 13:38:22 CEST
+Last updated 2016-05-12 07:39:59 CEST
 </div>
 </div>
 </div>
