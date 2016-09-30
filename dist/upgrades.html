@@ -450,6 +450,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li>
 <a href="#_2_0_0_2_1_0">2.0.0 &gt; 2.1.0</a>
 </li>
+<li>
+<a href="#_2_1_0_3_0_0_extra_step_for_instances_with_gogs_plugin_installed">2.1.0 &gt; 3.0.0 (extra step for instances with gogs plugin installed)</a>
+</li>
+<li>
+<a href="#_2_1_0_3_0_0_all_installations">2.1.0 &gt; 3.0.0 (all installations)</a>
+</li>
 </ul>
 </div>
 </li>
@@ -566,12 +572,60 @@ DATABASES = {
 <p>Follow the default process.</p>
 </div>
 </div>
+<div class="sect2">
+<h3 id="_2_1_0_3_0_0_extra_step_for_instances_with_gogs_plugin_installed">2.1.0 &gt; 3.0.0 (extra step for instances with gogs plugin installed)</h3>
+<div class="paragraph">
+<p>Taiga contrib gogs plugin has been moved to taiga core so in case you installed the plugin you must uninstall it:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>In <code>taiga-back/settings/local.py</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p>Remove <code>taiga_contrib_gogs</code> from your <code>INSTALLED_APPS</code></p>
+</li>
+<li>
+<p>Remove the <code>PROJECT_MODULES_CONFIGURATORS["gogs"]</code> setting added</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>In <code>taiga-front/dist/conf.json</code> remove <code>/plugins/gogs/gogs.json</code> from the <code>contribPlugins</code> section</p>
+</li>
+<li>
+<p>In <code>taiga-front/dist/plugins</code> remove the folder <code>gogs</code></p>
+</li>
+</ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_2_1_0_3_0_0_all_installations">2.1.0 &gt; 3.0.0 (all installations)</h3>
+<div class="paragraph">
+<p>Follow the default process.</p>
+</div>
+<div class="paragraph">
+<p>The migration could take a long time if you have a large database: now a new permissions has been included to allow to add comments instead of use the <em>modify object permission</em> for this purpose.</p>
+</div>
+<div class="paragraph">
+<p>Now project templates can be sorted and a new permission has been added to allow users to add comments. The fixtures must reloaded using:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cd taiga-back
+workon taiga
+python manage.py loaddata initial_project_templates --traceback</pre>
+</div>
+</div>
+</div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-05-22 19:41:20 CEST
+Last updated 2016-09-30 19:46:30 CEST
 </div>
 </div>
 </div>

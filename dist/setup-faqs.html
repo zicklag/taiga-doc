@@ -505,13 +505,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <a href="#faq-change-domain">1.1. How can I change the domain name?</a>
 </li>
 <li>
-<a href="#faq-restart-backend">1.2. How can I restart the backend application?</a>
+<a href="#restrict-emails-to-domain">1.2. How can I restrict registration to a concrete domain?</a>
 </li>
 <li>
-<a href="#faq-maintain-update">1.3. How I can keep my app up to date with the most recent Taiga version?</a>
+<a href="#faq-restart-backend">1.3. How can I restart the backend application?</a>
 </li>
 <li>
-<a href="#faq-add-extra-functionality">1.4. How I can add extra functionality to Taiga?</a>
+<a href="#faq-maintain-update">1.4. How I can keep my app up to date with the most recent Taiga version?</a>
+</li>
+<li>
+<a href="#faq-add-extra-functionality">1.5. How I can add extra functionality to Taiga?</a>
+</li>
+<li>
+<a href="#faq-backup">1.6. How I can make a backup of the data? And then restore them?</a>
 </li>
 </ul>
 </div>
@@ -554,7 +560,29 @@ Also you should update the domain related configuration on the backend settings 
 </div>
 </div>
 <div class="sect2">
-<h3 id="faq-restart-backend">1.2. How can I restart the backend application?</h3>
+<h3 id="restrict-emails-to-domain">1.2. How can I restrict registration to a concrete domain?</h3>
+<div class="paragraph">
+<p>You can restrict the usage of the platform to a set of valid email domains, so
+this allows you to restrict the registration to users that have a valid company
+email account.</p>
+</div>
+<div class="paragraph">
+<p>To do this you should update the <code>USER_EMAIL_ALLOWED_DOMAINS</code> on your
+<code>settings/local.py</code> and add the list of valid domains, for example, if you want
+to allow registrations only from <code>mycompany.com</code> and <code>mycustomer.com</code>, y can
+set it as:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span class="tok-n">USER_EMAIL_ALLOWED_DOMAINS</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-s">&quot;mycompany.com&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;mycustomer.com&quot;</span><span class="tok-p">]</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And finally reload the backend config with: <code>circusctl reload taiga</code></p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="faq-restart-backend">1.3. How can I restart the backend application?</h3>
 <div class="paragraph">
 <p>The Backend application is running under circus. To restart any application running
 with circus use the <code>circusctl</code> command:</p>
@@ -574,13 +602,13 @@ with circus use the <code>circusctl</code> command:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="faq-maintain-update">1.3. How I can keep my app up to date with the most recent Taiga version?</h3>
+<h3 id="faq-maintain-update">1.4. How I can keep my app up to date with the most recent Taiga version?</h3>
 <div class="paragraph">
 <p><a href="upgrades.html">Check the upgrades instructions</a>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="faq-add-extra-functionality">1.4. How I can add extra functionality to Taiga?</h3>
+<h3 id="faq-add-extra-functionality">1.5. How I can add extra functionality to Taiga?</h3>
 <div class="paragraph">
 <p>Taiga allows adding functionality through contrib plugins. The installation of each
 plugin depends on the plugin itself and must be documented in the plugin
@@ -610,6 +638,42 @@ repository.</p>
 <p><a href="https://github.com/taigaio/taiga-contrib-slack">taiga-contrib-slack</a>: Slack integration</p>
 </li>
 </ul>
+</div>
+</div>
+<div class="sect2">
+<h3 id="faq-backup">1.6. How I can make a backup of the data? And then restore them?</h3>
+<div class="paragraph">
+<p>To backup data from your server you just need to store a copy of the database and attachments files. That is, You just need to make a dump of the database and a copy of <code>taiga-back/media directory</code>.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>Create dump:</p>
+</li>
+</ol>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">pg_dump taiga &gt; taiga.sql</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>2.C opy media to a <code>&lt;dest&gt;</code>:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">cp -r taiga-back/media &lt;dest&gt;</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then You can restore the backup creating a new database to load the dump and copying the media directory:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">createdb taiga
+psql taiga &lt; taiga.sql
+cp -r &lt;dest&gt; taiga-back/media</code></pre>
+</div>
 </div>
 </div>
 </div>
@@ -669,7 +733,7 @@ you could also try <code>en_US.UTF-8</code> as the locale:</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-05-22 19:41:19 CEST
+Last updated 2016-09-30 19:46:30 CEST
 </div>
 </div>
 </div>
