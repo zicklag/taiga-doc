@@ -451,10 +451,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <a href="#_2_0_0_2_1_0">2.0.0 &gt; 2.1.0</a>
 </li>
 <li>
-<a href="#_2_1_0_3_0_0_extra_step_for_instances_with_gogs_plugin_installed">2.1.0 &gt; 3.0.0 (extra step for instances with gogs plugin installed)</a>
-</li>
-<li>
-<a href="#_2_1_0_3_0_0_all_installations">2.1.0 &gt; 3.0.0 (all installations)</a>
+<a href="#_2_1_0_3_0_0">2.1.0 &gt; 3.0.0</a>
 </li>
 </ul>
 </div>
@@ -589,9 +586,17 @@ DATABASES = {
 </div>
 </div>
 <div class="sect2">
-<h3 id="_2_1_0_3_0_0_extra_step_for_instances_with_gogs_plugin_installed">2.1.0 &gt; 3.0.0 (extra step for instances with gogs plugin installed)</h3>
+<h3 id="_2_1_0_3_0_0">2.1.0 &gt; 3.0.0</h3>
+<div class="admonitionblock important">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Important</div>
+</td>
+<td class="content">
+<div class="title">Extra step for instances with gogs plugin installed</div>
 <div class="paragraph">
-<p>Taiga contrib gogs plugin has been moved to taiga core so in case you installed the plugin you must uninstall it:</p>
+<p>Taiga contrib gogs plugin has been moved to taiga core so in case you installed the plugin you must uninstall it first:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -616,9 +621,10 @@ DATABASES = {
 </li>
 </ul>
 </div>
+</td>
+</tr>
+</table>
 </div>
-<div class="sect2">
-<h3 id="_2_1_0_3_0_0_all_installations">2.1.0 &gt; 3.0.0 (all installations)</h3>
 <div class="paragraph">
 <p>Follow the default process.</p>
 </div>
@@ -641,7 +647,7 @@ python manage.py loaddata initial_project_templates --traceback</pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-10-03 11:05:46 CEST
+Last updated 2016-10-03 21:08:23 CEST
 </div>
 </div>
 </div>
