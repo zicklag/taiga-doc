@@ -590,7 +590,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_before_starting">2. Before starting</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This tutorial assumes that you are using a clean, recently updated, <strong>ubuntu 14.04</strong> image.
+<p>This tutorial assumes that you are using a clean, recently updated, <strong>ubuntu 16.04</strong> image.
 Notes for Debian installations are included at the end of the appropriate sections.</p>
 </div>
 <div class="paragraph">
@@ -628,8 +628,8 @@ sudo apt-get install -y automake libtool libffi-dev curl git tmux gettext</code>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash">sudo apt-get install -y postgresql-9.3 postgresql-contrib-9.3
-sudo apt-get install -y postgresql-doc-9.3 postgresql-server-dev-9.3</code></pre>
+<pre class="pygments highlight"><code data-lang="bash">sudo apt-get install -y postgresql-9.5 postgresql-contrib-9.5
+sudo apt-get install -y postgresql-doc-9.5 postgresql-server-dev-9.5</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -639,7 +639,7 @@ sudo apt-get install -y postgresql-doc-9.3 postgresql-server-dev-9.3</code></pre
 <div class="content">
 <pre class="pygments highlight"><code data-lang="bash">sudo -u postgres psql -c <span class="tok-s2">&quot;CREATE ROLE taiga LOGIN PASSWORD &#39;changeme&#39;;&quot;</span>
 sudo -u postgres createdb taiga -O taiga
-<span class="tok-nb">echo</span> <span class="tok-s1">&#39;local all taiga peer&#39;</span> <span class="tok-p">|</span> sudo -u postgres tee -a /etc/postgresql/9.3/main/pg_hba.conf &gt; /dev/null
+<span class="tok-nb">echo</span> <span class="tok-s1">&#39;local all taiga peer&#39;</span> <span class="tok-p">|</span> sudo -u postgres tee -a /etc/postgresql/9.5/main/pg_hba.conf &gt; /dev/null
 sudo service postgresql reload</code></pre>
 </div>
 </div>
@@ -688,7 +688,7 @@ git checkout stable</code></pre>
 <div class="listingblock">
 <div class="title">Create a new virtualenv named <strong>taiga</strong></div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash">mkvirtualenv -p /usr/bin/python3.4 taiga</code></pre>
+<pre class="pygments highlight"><code data-lang="bash">mkvirtualenv -p /usr/bin/python3.5 taiga</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -1115,7 +1115,7 @@ sudo npm install -g coffee-script</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-10-03 21:08:21 CEST
+Last updated 2016-10-14 13:02:42 CEST
 </div>
 </div>
 </div>

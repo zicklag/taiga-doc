@@ -453,6 +453,9 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li>
 <a href="#_setup_development_like_environment">1.5. Setup development-like environment</a>
 </li>
+<li>
+<a href="#_upgrade_from_ubuntu_16_04_taiga_installation_to_ubuntu_16_04">1.6. Upgrade from Ubuntu 16.04 taiga installation to Ubuntu 16.04</a>
+</li>
 </ul>
 </div>
 </li>
@@ -535,7 +538,7 @@ something goes wrong in the process, you should try to fix it by following the m
 <div class="ulist">
 <ul>
 <li>
-<p>Freshly installed and updated Ubuntu 14.04</p>
+<p>Freshly installed and updated Ubuntu 16.04</p>
 </li>
 <li>
 <p>Bash shell</p>
@@ -549,7 +552,7 @@ something goes wrong in the process, you should try to fix it by following the m
 <div class="sect2">
 <h3 id="_setup_server_like_environment">1.4. Setup server-like environment</h3>
 <div class="paragraph">
-<p>Make sure you have a fresh and updated Ubuntu 14.04 machine or virtual image:</p>
+<p>Make sure you have a fresh and updated Ubuntu 16.04 machine or virtual image:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -575,13 +578,66 @@ $ bash setup-server.sh</code></pre>
 </ul>
 </div>
 <div class="paragraph">
-<p>Make sure you have a fresh and updated Ubuntu 14.04 machine or virtual image:</p>
+<p>Make sure you have a fresh and updated Ubuntu 16.04 machine or virtual image:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-txt" data-lang="txt">$ git clone https://github.com/taigaio/taiga-scripts.git
 $ cd taiga-scripts
 $ bash setup-devel.sh</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_upgrade_from_ubuntu_16_04_taiga_installation_to_ubuntu_16_04">1.6. Upgrade from Ubuntu 16.04 taiga installation to Ubuntu 16.04</h3>
+<div class="paragraph">
+<p>To upgrade from 14.04 to 16.04 you have to follow the official Ubuntu process:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-txt" data-lang="txt">$ sudo apt-get install update-manager-core
+$ sudo do-release-upgrade -p</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then you have to upgrade to the new postgres version maintaining the old data:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-txt" data-lang="txt">$ sudo apt-get install -y postgresql-9.5 postgresql-contrib-9.5
+$ sudo apt-get install -y postgresql-doc-9.5 postgresql-server-dev-9.5
+$ sudo pg_dropcluster 9.5 main --stop
+$ sudo pg_upgradecluster 9.3 main
+$ sudo reboot</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then you have to use the circus service from ubuntu.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-txt" data-lang="txt">$ pip uninstall circus pyzmq
+$ apt-get install circus
+$ cp ~/conf/circus.ini /etc/circus/circusd.conf</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Rebuild your virtualenv</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-txt" data-lang="txt">$ rmvirtualenv taiga
+$ mkvirtualenv taiga -p /usr/bin/python3.5
+$ cd ~/taiga-back
+$ pip install -r requirements.txt</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Reboot the system</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-txt" data-lang="txt">$ sudo reboot</code></pre>
 </div>
 </div>
 </div>
@@ -629,6 +685,7 @@ virtual machine. <strong>taiga-vagrant</strong> uses <strong>taiga-scripts</stro
 <div class="content">
 <pre class="highlight"><code class="language-bash" data-lang="bash">git clone https://github.com/taigaio/taiga-vagrant.git
 cd taiga-vagrant
+vagrant plugin install vagrant-vbguest
 vagrant up</code></pre>
 </div>
 </div>
@@ -678,7 +735,7 @@ has been developed by <a href="https://github.com/benhutchins">Benjamin Hutchins
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-10-03 21:08:22 CEST
+Last updated 2016-10-14 13:02:42 CEST
 </div>
 </div>
 </div>

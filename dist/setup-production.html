@@ -593,7 +593,7 @@ for small/medium production environments.</p>
 <h2 id="_before_starting">2. Before starting</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This tutorial assumes that you are using a clean, recently updated, <strong>ubuntu 14.04</strong> image.</p>
+<p>This tutorial assumes that you are using a clean, recently updated, <strong>ubuntu 16.04</strong> image.</p>
 </div>
 <div class="paragraph">
 <p>Due the nature of frontend application, you should know that this service will be used
@@ -647,15 +647,15 @@ sudo apt-get install -y automake libtool libffi-dev curl git tmux gettext</code>
 <div class="sect2">
 <h3 id="_setup_a_database">3.2. Setup a database</h3>
 <div class="paragraph">
-<p><strong>taiga-back</strong> also requires postgresql (&gt;= 9.3) as a database</p>
+<p><strong>taiga-back</strong> also requires postgresql (&gt;= 9.4) as a database</p>
 </div>
 <div class="paragraph">
 <p>Install postgresql:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash">sudo apt-get install -y postgresql-9.3 postgresql-contrib-9.3
-sudo apt-get install -y postgresql-doc-9.3 postgresql-server-dev-9.3</code></pre>
+<pre class="pygments highlight"><code data-lang="bash">sudo apt-get install -y postgresql-9.5 postgresql-contrib-9.5
+sudo apt-get install -y postgresql-doc-9.5 postgresql-server-dev-9.5</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -712,7 +712,7 @@ git checkout stable</code></pre>
 <div class="listingblock">
 <div class="title">Create new virtualenv named <strong>taiga</strong></div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash">mkvirtualenv -p /usr/bin/python3.4 taiga</code></pre>
+<pre class="pygments highlight"><code data-lang="bash">mkvirtualenv -p /usr/bin/python3.5 taiga</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -853,7 +853,7 @@ the existance of those files).</p>
 <p>Once you have configured celery on Taiga, you have to add celery to circus configuration. See <a href="#circus-and-gunicorn">Circus and gunicorn</a> section.</p>
 </div>
 <div class="listingblock">
-<div class="title">Taiga celery configuration block for circus on ~/conf/circus.ini</div>
+<div class="title">Taiga celery configuration block for circus on /etc/circus/conf.d/taiga-celery.ini</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="ini"><span class="tok-k">[watcher:taiga-celery]</span>
 <span class="tok-na">working_dir</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/taiga-back</span>
@@ -1016,7 +1016,7 @@ sudo npm install -g coffee-script</code></pre>
 <p>Now you have to add taiga-events to circus configuration. See <a href="#circus-and-gunicorn">Circus and gunicorn</a> section.</p>
 </div>
 <div class="listingblock">
-<div class="title">Taiga taiga-events configuration block for circus on ~/conf/circus.ini</div>
+<div class="title">Taiga taiga-events configuration block for circus on /etc/circus/conf.d/taiga-events.ini</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="ini"><span class="tok-k">[watcher:taiga-events]</span>
 <span class="tok-na">working_dir</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/taiga-events</span>
@@ -1098,25 +1098,13 @@ restarting processes if something goes wrong, and starting processes on system b
 <div class="listingblock">
 <div class="title">Install circus</div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash">sudo pip2 install circus</code></pre>
+<pre class="pygments highlight"><code data-lang="bash">sudo apt-get install circus</code></pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Create conf folder if it doesn&#8217;t exist</div>
+<div class="title">Initial taiga configuration for circus on /etc/circus/conf.d/taiga.ini</div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash">mkdir -p ~/conf/</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Initial configuration for circus on ~/conf/circus.ini</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="ini"><span class="tok-k">[circus]</span>
-<span class="tok-na">check_delay</span> <span class="tok-o">=</span> <span class="tok-s">5</span>
-<span class="tok-na">endpoint</span> <span class="tok-o">=</span> <span class="tok-s">tcp://127.0.0.1:5555</span>
-<span class="tok-na">pubsub_endpoint</span> <span class="tok-o">=</span> <span class="tok-s">tcp://127.0.0.1:5556</span>
-<span class="tok-na">statsd</span> <span class="tok-o">=</span> <span class="tok-s">true</span>
-
-<span class="tok-k">[watcher:taiga]</span>
+<pre class="pygments highlight"><code data-lang="ini"><span class="tok-k">[watcher:taiga]</span>
 <span class="tok-na">working_dir</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/taiga-back</span>
 <span class="tok-na">cmd</span> <span class="tok-o">=</span> <span class="tok-s">gunicorn</span>
 <span class="tok-na">args</span> <span class="tok-o">=</span> <span class="tok-s">-w 3 -t 60 --pythonpath=. -b 127.0.0.1:8001 taiga.wsgi</span>
@@ -1151,7 +1139,8 @@ restarting processes if something goes wrong, and starting processes on system b
 </td>
 <td class="content">
 <div class="paragraph">
-<p>Circus stats can generate a high cpu usage without any load you can set statsd to false if you don&#8217;t need them.</p>
+<p>Circus stats can generate a high cpu usage without any load you can set statsd
+in /etc/circus/circusd.conf to false if you don&#8217;t need them.</p>
 </div>
 <div class="paragraph">
 <p>Taiga stores logs on the user home, making them available and immediately accessible when
@@ -1165,22 +1154,12 @@ created.</p>
 </tr>
 </table>
 </div>
-<div class="listingblock">
-<div class="title">Setup circus for start on boot putting this on <code>/etc/init/circus.conf</code></div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="text">start on filesystem and net-device-up IFACE=lo
-stop on runlevel [016]
-
-respawn
-exec /usr/local/bin/circusd /home/taiga/conf/circus.ini</code></pre>
-</div>
-</div>
 <div class="paragraph">
-<p>And finally start circus:</p>
+<p>And finally restart circus:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash">sudo service circus start</code></pre>
+<pre class="pygments highlight"><code data-lang="bash">sudo service circus restart</code></pre>
 </div>
 </div>
 </div>
@@ -1407,7 +1386,7 @@ change the scheme from <code>http</code> to <code>https</code>.</p>
 <div class="listingblock">
 <div class="title">Restart circus after updating the configuration</div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash">sudo service circus restart</code></pre>
+<pre class="pygments highlight"><code data-lang="bash">sudo service circusd restart</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -1441,7 +1420,7 @@ change the scheme from <code>http</code> to <code>https</code>.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-10-03 21:08:21 CEST
+Last updated 2016-10-14 13:02:41 CEST
 </div>
 </div>
 </div>
