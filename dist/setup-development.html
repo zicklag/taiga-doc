@@ -607,7 +607,7 @@ Notes for Debian installations are included at the end of the appropriate sectio
 <div class="sect2">
 <h3 id="_install_dependencies">3.1. Install dependencies</h3>
 <div class="paragraph">
-<p>The backend is written mainly in python (3.4) but for some third party libraries we need to install a
+<p>The backend is written mainly in python (3.5) but for some third party libraries we need to install a
 C compiler and development headers.</p>
 </div>
 <div class="listingblock">
@@ -647,7 +647,7 @@ sudo service postgresql reload</code></pre>
 <div class="sect2">
 <h3 id="_setup_python_environment">3.3. Setup python environment</h3>
 <div class="paragraph">
-<p>To run <strong>taiga-back</strong> you should have python (3.4) installed along with some other third party
+<p>To run <strong>taiga-back</strong> you should have python (3.5) installed along with some other third party
 libraries. As a first step, start installing python and virtualenvwrapper:</p>
 </div>
 <div class="listingblock">
@@ -797,8 +797,8 @@ celery -A taiga worker -l info -E</code></pre>
 </div>
 <div class="paragraph">
 <p>The latest Python available from Wheezy&#8217;s apt repositories is only 3.1 and insufficient for taiga-back.
-Python 3.4 is available from stable (Jessie) if you are comfortable using mixed versions in your apt sources.
-Otherwise, you must build Python 3.4 from source (see <a class="bare" href="https://www.python.org/downloads/source/">https://www.python.org/downloads/source/</a> for links).
+Python 3.5 is available from stable (Jessie) if you are comfortable using mixed versions in your apt sources.
+Otherwise, you must build Python 3.5 from source (see <a class="bare" href="https://www.python.org/downloads/source/">https://www.python.org/downloads/source/</a> for links).
 When building from source, if the bz2 development libraries are not already present on your system, then you must first:</p>
 </div>
 <div class="listingblock">
@@ -856,7 +856,7 @@ is only in development environments.</p>
 <div class="listingblock">
 <div class="title">Make gems' scripts available from your path by putting this in your <strong>~/.bashrc</strong></div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span class="tok-nb">export </span><span class="tok-nv">PATH</span><span class="tok-o">=</span>~/.gem/ruby/1.9.1/bin:<span class="tok-nv">$PATH</span></code></pre>
+<pre class="pygments highlight"><code data-lang="bash"><span class="tok-nb">export </span><span class="tok-nv">PATH</span><span class="tok-o">=</span>~/.gem/ruby/2.3.0/bin:<span class="tok-nv">$PATH</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -1115,7 +1115,7 @@ sudo npm install -g coffee-script</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-10-14 13:02:42 CEST
+Last updated 2016-10-14 13:18:13 CEST
 </div>
 </div>
 </div>
