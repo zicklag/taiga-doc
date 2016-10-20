@@ -485,15 +485,26 @@ git checkout stable
 git pull</code></pre>
 </div>
 </div>
-<div class="listingblock">
+<div class="admonitionblock warning">
+<table>
+<tr>
+<td class="icon">
+<div class="title">Warning</div>
+</td>
+<td class="content">
 <div class="title">Backend application</div>
+As user "taiga" or whatever user you use, do not run this code as "root" to avoid errors.
+</td>
+</tr>
+</table>
+</div>
+<div class="listingblock">
 <div class="content">
-<pre>As user "taiga" or whatever user you use, do not run this code as "root" to avoid errors.
-cd ~/taiga-back
+<pre class="highlight"><code class="language-bash" data-lang="bash">cd ~/taiga-back
 git checkout stable
 workon taiga
 git pull
-pip install --upgrade -r requirements.txt</pre>
+pip install --upgrade -r requirements.txt</code></pre>
 </div>
 </div>
 <div class="admonitionblock warning">
@@ -510,10 +521,10 @@ If you have some pcontrib plugin installed you should to upgrade then before the
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>python manage.py migrate --noinput
+<pre class="highlight"><code class="language-bash" data-lang="bash">python manage.py migrate --noinput
 python manage.py compilemessages
 python manage.py collectstatic --noinput
-circusctl reload taiga</pre>
+circusctl reload taiga</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -706,7 +717,7 @@ $ pip install -r requirements.txt</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-10-14 13:51:34 CEST
+Last updated 2016-10-20 11:25:17 CEST
 </div>
 </div>
 </div>
