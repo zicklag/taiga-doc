@@ -1,8 +1,8 @@
 [source,json]
 ----
 {
-    "full_name": "Silvia Soto",
-    "id": 6,
-    "username": "user6532909695705815086"
+    "full_name": "GitLab",
+    "id": 3,
+    "username": "gitlab-6f9f4275d1d040e8bb1a6ff5ef219dc4"
 }
 ----

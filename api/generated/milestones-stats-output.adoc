@@ -2,122 +2,122 @@
 ----
 {
     "completed_points": [
-        20.0,
-        1.0,
-        1.0,
-        20.0
+        8.0,
+        2.0,
+        13.0,
+        0.5
     ],
-    "completed_tasks": 7,
+    "completed_tasks": 9,
     "completed_userstories": 1,
     "days": [
         {
-            "day": "2016-08-20",
-            "name": 20,
-            "open_points": 184.0,
-            "optimal_points": 184.0
-        },
-        {
-            "day": "2016-08-21",
-            "name": 21,
-            "open_points": 184.0,
-            "optimal_points": 171.73333333333332
-        },
-        {
-            "day": "2016-08-22",
-            "name": 22,
-            "open_points": 184.0,
-            "optimal_points": 159.46666666666664
-        },
-        {
-            "day": "2016-08-23",
-            "name": 23,
-            "open_points": 184.0,
-            "optimal_points": 147.19999999999996
-        },
-        {
-            "day": "2016-08-24",
-            "name": 24,
-            "open_points": 181.25,
-            "optimal_points": 134.93333333333328
-        },
-        {
-            "day": "2016-08-25",
-            "name": 25,
-            "open_points": 181.25,
-            "optimal_points": 122.66666666666661
-        },
-        {
-            "day": "2016-08-26",
-            "name": 26,
-            "open_points": 181.25,
-            "optimal_points": 110.39999999999995
-        },
-        {
-            "day": "2016-08-27",
-            "name": 27,
-            "open_points": 181.25,
-            "optimal_points": 98.13333333333328
-        },
-        {
-            "day": "2016-08-28",
-            "name": 28,
-            "open_points": 159.2,
-            "optimal_points": 85.86666666666662
-        },
-        {
-            "day": "2016-08-29",
-            "name": 29,
-            "open_points": 154.86666666666667,
-            "optimal_points": 73.59999999999995
-        },
-        {
-            "day": "2016-08-30",
-            "name": 30,
-            "open_points": 154.86666666666667,
-            "optimal_points": 61.333333333333286
-        },
-        {
-            "day": "2016-08-31",
-            "name": 31,
-            "open_points": 154.86666666666667,
-            "optimal_points": 49.06666666666662
-        },
-        {
-            "day": "2016-09-01",
-            "name": 1,
-            "open_points": 112.86666666666667,
-            "optimal_points": 36.799999999999955
-        },
-        {
-            "day": "2016-09-02",
+            "day": "2016-12-02",
             "name": 2,
-            "open_points": 103.96666666666667,
-            "optimal_points": 24.53333333333329
+            "open_points": 319.5,
+            "optimal_points": 319.5
         },
         {
-            "day": "2016-09-03",
+            "day": "2016-12-03",
             "name": 3,
-            "open_points": 103.96666666666667,
-            "optimal_points": 12.266666666666621
+            "open_points": 302.9,
+            "optimal_points": 298.2
         },
         {
-            "day": "2016-09-04",
+            "day": "2016-12-04",
             "name": 4,
-            "open_points": 103.96666666666667,
-            "optimal_points": -4.618527782440651e-14
+            "open_points": 264.6333333333333,
+            "optimal_points": 276.9
+        },
+        {
+            "day": "2016-12-05",
+            "name": 5,
+            "open_points": 248.03333333333333,
+            "optimal_points": 255.59999999999997
+        },
+        {
+            "day": "2016-12-06",
+            "name": 6,
+            "open_points": 248.03333333333333,
+            "optimal_points": 234.29999999999995
+        },
+        {
+            "day": "2016-12-07",
+            "name": 7,
+            "open_points": 236.78333333333333,
+            "optimal_points": 212.99999999999994
+        },
+        {
+            "day": "2016-12-08",
+            "name": 8,
+            "open_points": 213.28333333333333,
+            "optimal_points": 191.69999999999993
+        },
+        {
+            "day": "2016-12-09",
+            "name": 9,
+            "open_points": 213.28333333333333,
+            "optimal_points": 170.39999999999992
+        },
+        {
+            "day": "2016-12-10",
+            "name": 10,
+            "open_points": 192.11666666666667,
+            "optimal_points": 149.0999999999999
+        },
+        {
+            "day": "2016-12-11",
+            "name": 11,
+            "open_points": 192.11666666666667,
+            "optimal_points": 127.79999999999991
+        },
+        {
+            "day": "2016-12-12",
+            "name": 12,
+            "open_points": 192.11666666666667,
+            "optimal_points": 106.49999999999991
+        },
+        {
+            "day": "2016-12-13",
+            "name": 13,
+            "open_points": 175.51666666666665,
+            "optimal_points": 85.19999999999992
+        },
+        {
+            "day": "2016-12-14",
+            "name": 14,
+            "open_points": 175.51666666666665,
+            "optimal_points": 63.89999999999992
+        },
+        {
+            "day": "2016-12-15",
+            "name": 15,
+            "open_points": 175.51666666666665,
+            "optimal_points": 42.59999999999992
+        },
+        {
+            "day": "2016-12-16",
+            "name": 16,
+            "open_points": 154.35,
+            "optimal_points": 21.299999999999923
+        },
+        {
+            "day": "2016-12-17",
+            "name": 17,
+            "open_points": 154.35,
+            "optimal_points": -7.815970093361102e-14
         }
     ],
-    "estimated_finish": "2016-09-04",
-    "estimated_start": "2016-08-20",
+    "estimated_finish": "2016-12-17",
+    "estimated_start": "2016-12-02",
     "iocaine_doses": 0,
-    "name": "Sprint 2016-8-20",
+    "name": "Sprint 2016-12-2",
     "total_points": {
-        "1": 88.0,
-        "2": 7.5,
-        "3": 44.5,
-        "4": 44.0
+        "1": 73.5,
+        "2": 97.0,
+        "3": 116.0,
+        "4": 33.0
     },
-    "total_tasks": 24,
+    "total_tasks": 21,
     "total_userstories": 6
 }
 ----

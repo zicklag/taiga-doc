@@ -1,13 +1,13 @@
 [source,json]
 ----
 {
-    "created_date": "2016-10-14T09:03:28.476Z",
-    "description": "nulla laborum autem impedit deserunt delectus",
+    "created_date": "2017-01-26T10:31:59.337Z",
+    "description": "nesciunt molestias cum deserunt corporis officiis natus",
     "id": 5,
-    "modified_date": "2016-10-14T09:20:38.934Z",
+    "modified_date": "2017-01-26T10:41:52.388Z",
     "name": "Duration 1",
     "order": 1,
     "project": 1,
-    "type": "url"
+    "type": "multiline"
 }
 ----

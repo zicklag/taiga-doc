@@ -2,72 +2,72 @@
 ----
 [
     {
-        "created_date": "2016-10-14T09:03:28.485Z",
-        "description": "corrupti id voluptas officiis voluptates iure",
-        "id": 1,
-        "modified_date": "2016-10-14T09:03:28.485Z",
-        "name": "cupiditate dolore",
-        "order": 1,
-        "project": 1,
-        "type": "date"
-    },
-    {
-        "created_date": "2016-10-14T09:03:28.498Z",
-        "description": "nisi cumque magni sint repellat quo sequi distinctio architecto quis laborum suscipit",
+        "created_date": "2017-01-26T10:31:59.346Z",
+        "description": "facere corrupti ipsa odit mollitia saepe officiis",
         "id": 3,
-        "modified_date": "2016-10-14T09:03:28.498Z",
-        "name": "libero aut",
+        "modified_date": "2017-01-26T10:31:59.346Z",
+        "name": "doloribus ducimus nulla",
         "order": 1,
-        "project": 1,
-        "type": "multiline"
-    },
-    {
-        "created_date": "2016-10-14T09:03:28.489Z",
-        "description": "odio neque rerum eum recusandae facilis",
-        "id": 2,
-        "modified_date": "2016-10-14T09:03:28.489Z",
-        "name": "quo at",
-        "order": 1,
-        "project": 1,
-        "type": "multiline"
-    },
-    {
-        "created_date": "2016-10-14T09:03:28.502Z",
-        "description": "omnis maiores earum",
-        "id": 4,
-        "modified_date": "2016-10-14T09:03:28.502Z",
-        "name": "ipsa animi",
-        "order": 5,
         "project": 1,
         "type": "url"
     },
     {
-        "created_date": "2016-10-14T09:20:33.140Z",
+        "created_date": "2017-01-26T10:31:59.351Z",
+        "description": "rem perspiciatis ipsum repellat quia quidem officia",
+        "id": 5,
+        "modified_date": "2017-01-26T10:31:59.351Z",
+        "name": "fugiat optio consequuntur",
+        "order": 1,
+        "project": 1,
+        "type": "text"
+    },
+    {
+        "created_date": "2017-01-26T10:31:59.340Z",
+        "description": "officiis repudiandae dignissimos similique consequatur mollitia at enim ad molestias praesentium",
+        "id": 1,
+        "modified_date": "2017-01-26T10:31:59.340Z",
+        "name": "minima",
+        "order": 1,
+        "project": 1,
+        "type": "richtext"
+    },
+    {
+        "created_date": "2017-01-26T10:31:59.343Z",
+        "description": "minus quibusdam neque eveniet repellendus ex dolorum optio ullam vitae",
+        "id": 2,
+        "modified_date": "2017-01-26T10:31:59.343Z",
+        "name": "exercitationem",
+        "order": 5,
+        "project": 1,
+        "type": "date"
+    },
+    {
+        "created_date": "2017-01-26T10:41:45.269Z",
         "description": "Duration in minutes",
         "id": 31,
-        "modified_date": "2016-10-14T09:20:33.149Z",
+        "modified_date": "2017-01-26T10:41:45.277Z",
         "name": "Duration 2",
         "order": 8,
         "project": 1,
         "type": "text"
     },
     {
-        "created_date": "2016-10-14T09:03:28.505Z",
-        "description": "ad temporibus maiores",
-        "id": 5,
-        "modified_date": "2016-10-14T09:20:33.085Z",
+        "created_date": "2017-01-26T10:31:59.348Z",
+        "description": "aliquid fugiat porro officia deleniti quidem ipsam cum",
+        "id": 4,
+        "modified_date": "2017-01-26T10:41:45.232Z",
         "name": "Duration 1",
         "order": 10,
         "project": 1,
-        "type": "url"
+        "type": "text"
     },
     {
-        "created_date": "2016-10-14T09:20:33.188Z",
+        "created_date": "2017-01-26T10:41:45.317Z",
         "description": "",
         "id": 32,
-        "modified_date": "2016-10-14T09:20:33.195Z",
+        "modified_date": "2017-01-26T10:41:45.324Z",
         "name": "Duration 3",
-        "order": 1476436833179,
+        "order": 1485427305311,
         "project": 1,
         "type": "text"
     }

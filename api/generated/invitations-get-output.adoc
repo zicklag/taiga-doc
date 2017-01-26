@@ -2,19 +2,19 @@
 ----
 {
     "color": null,
-    "created_at": "2016-10-14T09:19:51.477Z",
+    "created_at": "2017-01-26T10:41:04.004Z",
     "full_name": null,
     "gravatar_id": null,
     "id": 92,
     "invitation_extra_text": "",
     "invited_by": {
-        "big_photo": "http://localhost:8000/media/user/c/2/a/9/f9ce09fbd778e87ac8148ab24a949dac289a11222ee4f1944ab7af41d2ba/logo.png.300x300_q85_crop.png",
+        "big_photo": "http://localhost:8000/media/user/8/7/5/b/7e8e766ee74dc2162ba47451f8ff8f42c4926b1635e756c8f2f8196698b6/logo.png.300x300_q85_crop.png",
         "full_name_display": "BitBucket",
-        "gravatar_id": "2d5f18f4c3693a143fc3e54167d7c7f5",
+        "gravatar_id": "bf398f904e8d6e6b8bca156dd2aa06e2",
         "id": 1,
         "is_active": false,
-        "photo": "http://localhost:8000/media/user/c/2/a/9/f9ce09fbd778e87ac8148ab24a949dac289a11222ee4f1944ab7af41d2ba/logo.png.80x80_q85_crop.png",
-        "username": "bitbucket-cdb384d9c6224987963271283bddd11b"
+        "photo": "http://localhost:8000/media/user/8/7/5/b/7e8e766ee74dc2162ba47451f8ff8f42c4926b1635e756c8f2f8196698b6/logo.png.80x80_q85_crop.png",
+        "username": "bitbucket-e4221fcb336d4bc0a9debf61f1d7317c"
     },
     "is_admin": false,
     "is_owner": null,

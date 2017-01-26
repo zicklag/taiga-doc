@@ -1,94 +1,99 @@
 [source,json]
 ----
 {
-    "assigned_to": 13,
+    "assigned_to": 10,
     "assigned_to_extra_info": {
         "big_photo": null,
-        "full_name_display": "Alvaro Molina",
-        "gravatar_id": "6d7e702bd6c6fc568fca7577f9ca8c55",
-        "id": 13,
+        "full_name_display": "Enrique Crespo",
+        "gravatar_id": "f31e0063c7cd6da19b6467bc48d2b14b",
+        "id": 10,
         "is_active": true,
         "photo": null,
-        "username": "user7"
+        "username": "user4"
     },
     "blocked_note": "",
     "blocked_note_html": "",
     "comment": "",
-    "created_date": "2016-10-14T09:04:20.431Z",
-    "description": "Ipsa id modi, a illo voluptates tenetur et placeat repudiandae nisi fugiat debitis officiis, nulla aliquid dolor quaerat saepe ut quasi quas aspernatur fuga labore, a porro sit, aliquid ut laboriosam a quisquam dolore. Aut similique excepturi pariatur repudiandae. Delectus magnam eligendi voluptatibus cumque doloremque tempora dolor dignissimos doloribus expedita, nisi cum labore ex officiis nesciunt nihil ipsam odit assumenda suscipit sint, numquam expedita nam repellat nihil eum ipsam, animi tempora excepturi laborum mollitia beatae officia quod voluptas soluta sit. Excepturi rerum corporis, saepe voluptates ratione reprehenderit aut voluptatem ducimus ipsum distinctio.",
-    "description_html": "<p>Ipsa id modi, a illo voluptates tenetur et placeat repudiandae nisi fugiat debitis officiis, nulla aliquid dolor quaerat saepe ut quasi quas aspernatur fuga labore, a porro sit, aliquid ut laboriosam a quisquam dolore. Aut similique excepturi pariatur repudiandae. Delectus magnam eligendi voluptatibus cumque doloremque tempora dolor dignissimos doloribus expedita, nisi cum labore ex officiis nesciunt nihil ipsam odit assumenda suscipit sint, numquam expedita nam repellat nihil eum ipsam, animi tempora excepturi laborum mollitia beatae officia quod voluptas soluta sit. Excepturi rerum corporis, saepe voluptates ratione reprehenderit aut voluptatem ducimus ipsum distinctio.</p>",
+    "created_date": "2017-01-26T10:32:26.855Z",
+    "description": "Necessitatibus officiis dolorum, suscipit numquam cumque unde ullam dolorem, expedita recusandae corporis qui quaerat doloremque molestiae debitis excepturi eos eius doloribus, non quo hic facilis neque, alias commodi mollitia aspernatur dolorum cum recusandae architecto iusto. Aliquam fugiat nemo in harum minima aperiam. Commodi mollitia animi atque exercitationem nesciunt dolorum consectetur accusamus amet. Quos alias odit minima impedit quod natus perspiciatis ipsa temporibus ullam, illo ducimus sed quibusdam atque est enim repellat tempora voluptas aliquam cupiditate, minus porro sunt eos officiis totam architecto quis esse, quasi quidem excepturi tempore et placeat magnam animi dignissimos in, cumque voluptatum iusto excepturi nesciunt.",
+    "description_html": "<p>Necessitatibus officiis dolorum, suscipit numquam cumque unde ullam dolorem, expedita recusandae corporis qui quaerat doloremque molestiae debitis excepturi eos eius doloribus, non quo hic facilis neque, alias commodi mollitia aspernatur dolorum cum recusandae architecto iusto. Aliquam fugiat nemo in harum minima aperiam. Commodi mollitia animi atque exercitationem nesciunt dolorum consectetur accusamus amet. Quos alias odit minima impedit quod natus perspiciatis ipsa temporibus ullam, illo ducimus sed quibusdam atque est enim repellat tempora voluptas aliquam cupiditate, minus porro sunt eos officiis totam architecto quis esse, quasi quidem excepturi tempore et placeat magnam animi dignissimos in, cumque voluptatum iusto excepturi nesciunt.</p>",
     "external_reference": null,
     "finished_date": null,
     "generated_user_stories": null,
-    "id": 23,
+    "id": 25,
     "is_blocked": false,
     "is_closed": false,
     "is_voter": false,
-    "is_watcher": false,
+    "is_watcher": true,
     "milestone": null,
-    "modified_date": "2016-10-14T09:04:20.563Z",
+    "modified_date": "2017-01-26T10:32:26.930Z",
     "neighbors": {
         "next": {
-            "id": 22,
-            "ref": 118,
-            "subject": "Create testsuite with matrix builds"
+            "id": 24,
+            "ref": 111,
+            "subject": "Create the user model"
         },
         "previous": {
-            "id": 139,
-            "ref": 137,
+            "id": 125,
+            "ref": 130,
             "subject": "Issue 1"
         }
     },
-    "owner": 6,
+    "owner": 15,
     "owner_extra_info": {
         "big_photo": null,
-        "full_name_display": "Silvia Soto",
-        "gravatar_id": "ece2f7a2dec5f21b2858fecabdcacacc",
-        "id": 6,
+        "full_name_display": "Virginia Castro",
+        "gravatar_id": "69b60d39a450e863609ae3546b12b360",
+        "id": 15,
         "is_active": true,
         "photo": null,
-        "username": "user6532909695705815086"
+        "username": "user9"
     },
     "priority": 1,
     "project": 1,
-    "ref": 119,
-    "severity": 5,
-    "status": 5,
-    "status_extra_info": {
-        "color": "#89BAB4",
-        "is_closed": false,
-        "name": "Necesita informaci\u00f3n"
+    "project_extra_info": {
+        "id": 1,
+        "logo_small_url": null,
+        "name": "Project Example 0",
+        "slug": "project-0"
     },
-    "subject": "Migrate to Python 3 and milk a beautiful cow",
+    "ref": 112,
+    "severity": 3,
+    "status": 7,
+    "status_extra_info": {
+        "color": "#666666",
+        "is_closed": false,
+        "name": "Postponed"
+    },
+    "subject": "Fixing templates for Django 1.6.",
     "tags": [
         [
-            "earum",
+            "natus",
             null
         ],
         [
-            "ab",
+            "cupiditate",
             null
         ],
         [
-            "modi",
-            "#494e30"
+            "perferendis",
+            null
         ],
         [
-            "fuga",
-            "#e86797"
-        ],
-        [
-            "quod",
-            "#0e5b24"
+            "consequuntur",
+            null
         ]
     ],
-    "total_voters": 8,
-    "total_watchers": 2,
-    "type": 1,
+    "total_voters": 4,
+    "total_watchers": 5,
+    "type": 3,
     "version": 1,
     "watchers": [
-        10,
-        15
+        6,
+        11,
+        3,
+        15,
+        10
     ]
 }
 ----

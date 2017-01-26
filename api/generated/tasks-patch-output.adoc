@@ -1,25 +1,25 @@
 [source,json]
 ----
 {
-    "assigned_to": 15,
+    "assigned_to": 10,
     "assigned_to_extra_info": {
         "big_photo": null,
-        "full_name_display": "Catalina Roman",
-        "gravatar_id": "69b60d39a450e863609ae3546b12b360",
-        "id": 15,
+        "full_name_display": "Enrique Crespo",
+        "gravatar_id": "f31e0063c7cd6da19b6467bc48d2b14b",
+        "id": 10,
         "is_active": true,
         "photo": null,
-        "username": "user9"
+        "username": "user4"
     },
     "attachments": [],
     "blocked_note": "",
     "blocked_note_html": "",
     "comment": "",
-    "created_date": "2016-10-14T09:03:29.043Z",
-    "description": "Perspiciatis ipsum repellat quia quidem officia, totam accusamus laboriosam, quas expedita quos dolore adipisci animi harum hic?",
-    "description_html": "<p>Perspiciatis ipsum repellat quia quidem officia, totam accusamus laboriosam, quas expedita quos dolore adipisci animi harum hic?</p>",
+    "created_date": "2017-01-26T10:31:59.719Z",
+    "description": "Facere sequi consequuntur saepe accusantium suscipit, quos dolor deserunt voluptatum, sed incidunt sequi at veniam nulla cupiditate nesciunt rem quam aliquid, ipsum vitae fuga perferendis totam nobis.",
+    "description_html": "<p>Facere sequi consequuntur saepe accusantium suscipit, quos dolor deserunt voluptatum, sed incidunt sequi at veniam nulla cupiditate nesciunt rem quam aliquid, ipsum vitae fuga perferendis totam nobis.</p>",
     "external_reference": null,
-    "finished_date": "2016-08-29T23:17:07.508Z",
+    "finished_date": "2016-12-08T13:15:06.354Z",
     "id": 1,
     "is_blocked": false,
     "is_closed": true,
@@ -27,61 +27,48 @@
     "is_voter": true,
     "is_watcher": false,
     "milestone": 1,
-    "milestone_slug": "sprint-2016-8-20",
-    "modified_date": "2016-10-14T09:20:35.510Z",
-    "owner": 12,
+    "milestone_slug": "sprint-2016-12-2",
+    "modified_date": "2017-01-26T10:41:48.090Z",
+    "owner": 14,
     "owner_extra_info": {
         "big_photo": null,
-        "full_name_display": "Pilar Herrera",
-        "gravatar_id": "74cb769a5e64d445b8550789e1553502",
-        "id": 12,
+        "full_name_display": "Miguel Molina",
+        "gravatar_id": "dce0e8ed702cd85d5132e523121e619b",
+        "id": 14,
         "is_active": true,
         "photo": null,
-        "username": "user6"
+        "username": "user8"
     },
     "project": 1,
+    "project_extra_info": {
+        "id": 1,
+        "logo_small_url": null,
+        "name": "Beta project patch",
+        "slug": "project-0"
+    },
     "ref": 2,
-    "status": 4,
+    "status": 3,
     "status_extra_info": {
-        "color": "#669900",
+        "color": "#ffcc00",
         "is_closed": true,
-        "name": "Cerrada"
+        "name": "Ready for test"
     },
     "subject": "Patching subject",
     "tags": [
         [
-            "iste",
+            "possimus",
             null
         ],
         [
-            "obcaecati",
-            null
-        ],
-        [
-            "vel",
-            null
-        ],
-        [
-            "totam",
-            null
-        ],
-        [
-            "modi",
-            null
-        ],
-        [
-            "eos",
-            null
-        ],
-        [
-            "deleniti",
+            "voluptate",
             null
         ]
     ],
-    "taskboard_order": 1476435809043,
-    "total_voters": 7,
-    "total_watchers": 0,
-    "us_order": 1476435809043,
+    "taskboard_order": 1485426719719,
+    "total_comments": 1,
+    "total_voters": 6,
+    "total_watchers": 2,
+    "us_order": 1485426719719,
     "user_story": 1,
     "user_story_extra_info": {
         "epics": null,
@@ -90,6 +77,9 @@
         "subject": "Patching subject"
     },
     "version": 2,
-    "watchers": []
+    "watchers": [
+        15,
+        3
+    ]
 }
 ----

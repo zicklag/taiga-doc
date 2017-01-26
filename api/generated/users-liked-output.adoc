@@ -4,7 +4,7 @@
     {
         "assigned_to": null,
         "assigned_to_extra_info": null,
-        "created_date": "2016-10-14T09:20:29.623Z",
+        "created_date": "2017-01-26T10:41:41.271Z",
         "description": "Beta description",
         "id": 1,
         "is_fan": true,
@@ -23,14 +23,14 @@
         "status_color": null,
         "subject": null,
         "tags_colors": [],
-        "total_fans": 7,
+        "total_fans": 9,
         "total_watchers": 15,
         "type": "project"
     },
     {
         "assigned_to": null,
         "assigned_to_extra_info": null,
-        "created_date": "2016-10-14T09:07:04.287Z",
+        "created_date": "2017-01-26T10:34:05.485Z",
         "description": "Project example 5 description",
         "id": 6,
         "is_fan": true,
@@ -49,14 +49,14 @@
         "status_color": null,
         "subject": null,
         "tags_colors": [],
-        "total_fans": 11,
-        "total_watchers": 12,
+        "total_fans": 10,
+        "total_watchers": 11,
         "type": "project"
     },
     {
         "assigned_to": null,
         "assigned_to_extra_info": null,
-        "created_date": "2016-10-14T09:07:03.338Z",
+        "created_date": "2017-01-26T10:34:04.143Z",
         "description": "Project example 4 description",
         "id": 5,
         "is_fan": true,
@@ -75,8 +75,8 @@
         "status_color": null,
         "subject": null,
         "tags_colors": [],
-        "total_fans": 9,
-        "total_watchers": 12,
+        "total_fans": 10,
+        "total_watchers": 13,
         "type": "project"
     }
 ]

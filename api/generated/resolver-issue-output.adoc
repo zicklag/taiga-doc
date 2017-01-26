@@ -1,7 +1,7 @@
 [source,json]
 ----
 {
-    "issue": 23,
+    "issue": 25,
     "project": 1
 }
 ----
