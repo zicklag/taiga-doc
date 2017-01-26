@@ -174,8 +174,8 @@ reqs = OrderedDict([
         "body": {
             "project_id": 1,
             "bulk_memberships": [
-                {"role_id": 3, "email": "test@test.com"},
-                {"role_id": 4, "email": "john@doe.com"}
+                {"role_id": 3, "username": "test@test.com"},
+                {"role_id": 4, "username": "john@doe.com"}
             ]
         }
     }),
@@ -189,7 +189,7 @@ reqs = OrderedDict([
         "body": {
             "project": 1,
             "role": 3,
-            "email": "test-user@test.com"
+            "username": "test-user@test.com"
         }
     }),
     ("memberships-get", {
