@@ -10,7 +10,7 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <![endif]-->
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta content="Asciidoctor 1.5.3" name="generator">
+<meta content="Asciidoctor 1.5.5" name="generator">
 <title>Taiga: Setup FAQs and common bugs</title>
 <style>/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 /* Remove comment around @import statement below when using as a custom stylesheet */
@@ -21,7 +21,6 @@ audio:not([controls]){display:none;height:0}
 [hidden],template{display:none}
 script{display:none!important}
 html{font-family:sans-serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%}
-body{margin:0}
 a{background:transparent}
 a:focus{outline:thin dotted}
 a:active,a:hover{outline:0}
@@ -56,7 +55,7 @@ textarea{overflow:auto;vertical-align:top}
 table{border-collapse:collapse;border-spacing:0}
 *,*:before,*:after{-moz-box-sizing:border-box;-webkit-box-sizing:border-box;box-sizing:border-box}
 html,body{font-size:100%}
-body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto}
+body{background:#fff;color:rgba(0,0,0,.8);padding:0;margin:0;font-family:"Noto Serif","DejaVu Serif",serif;font-weight:400;font-style:normal;line-height:1;position:relative;cursor:auto;tab-size:4;-moz-osx-font-smoothing:grayscale;-webkit-font-smoothing:antialiased}
 a:hover{cursor:pointer}
 img,object,embed{max-width:100%;height:auto}
 object,embed{height:100%}
@@ -68,7 +67,6 @@ img{-ms-interpolation-mode:bicubic}
 .text-center{text-align:center!important}
 .text-justify{text-align:justify!important}
 .hide{display:none}
-body{-webkit-font-smoothing:antialiased}
 img,object,svg{display:inline-block;vertical-align:middle}
 textarea{height:auto;min-height:50px}
 select{width:100%}
@@ -123,13 +121,16 @@ table thead tr th,table thead tr td,table tfoot tr th,table tfoot tr td{padding:
 table tr th,table tr td{padding:.5625em .625em;font-size:inherit;color:rgba(0,0,0,.8)}
 table tr.even,table tr.alt,table tr:nth-of-type(even){background:#f8f8f7}
 table thead tr th,table tfoot tr th,table tbody tr td,table tr td,table tfoot tr td{display:table-cell;line-height:1.6}
-body{tab-size:4}
 h1,h2,h3,#toctitle,.sidebarblock>.content>.title,h4,h5,h6{line-height:1.2;word-spacing:-.05em}
 h1 strong,h2 strong,h3 strong,#toctitle strong,.sidebarblock>.content>.title strong,h4 strong,h5 strong,h6 strong{font-weight:400}
 .clearfix:before,.clearfix:after,.float-group:before,.float-group:after{content:" ";display:table}
 .clearfix:after,.float-group:after{clear:both}
-*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed}
+*:not(pre)>code{font-size:.9375em;font-style:normal!important;letter-spacing:0;padding:.1em .5ex;word-spacing:-.15em;background-color:#f7f7f8;-webkit-border-radius:4px;border-radius:4px;line-height:1.45;text-rendering:optimizeSpeed;word-wrap:break-word}
+*:not(pre)>code.nobreak{word-wrap:normal}
+*:not(pre)>code.nowrap{white-space:nowrap}
 pre,pre>code{line-height:1.45;color:rgba(0,0,0,.9);font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;font-weight:400;text-rendering:optimizeSpeed}
+em em{font-style:normal}
+strong strong{font-weight:400}
 .keyseq{color:rgba(51,51,51,.8)}
 kbd{font-family:"Droid Sans Mono","DejaVu Sans Mono",monospace;display:inline-block;color:rgba(0,0,0,.8);font-size:.65em;line-height:1.45;background-color:#f7f7f7;border:1px solid #ccc;-webkit-border-radius:3px;border-radius:3px;-webkit-box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em white inset;box-shadow:0 1px 0 rgba(0,0,0,.2),0 0 0 .1em #fff inset;margin:0 .15em;padding:.2em .5em;vertical-align:middle;position:relative;top:-.1em;white-space:nowrap}
 .keyseq kbd:first-child{margin-left:0}
@@ -420,13 +421,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .hide-for-print{display:none!important}
 .show-for-print{display:inherit!important}}</style>
 <style>.listingblock .pygments .hll { background-color: #ffffcc }
-.listingblock .pygments  { background: #f0f0f0; }
+.listingblock .pygments, .listingblock .pygments code { background: #f0f0f0; }
 .listingblock .pygments .tok-c { color: #60a0b0; font-style: italic } /* Comment */
 .listingblock .pygments .tok-err { border: 1px solid #FF0000 } /* Error */
 .listingblock .pygments .tok-k { color: #007020; font-weight: bold } /* Keyword */
 .listingblock .pygments .tok-o { color: #666666 } /* Operator */
+.listingblock .pygments .tok-ch { color: #60a0b0; font-style: italic } /* Comment.Hashbang */
 .listingblock .pygments .tok-cm { color: #60a0b0; font-style: italic } /* Comment.Multiline */
 .listingblock .pygments .tok-cp { color: #007020 } /* Comment.Preproc */
+.listingblock .pygments .tok-cpf { color: #60a0b0; font-style: italic } /* Comment.PreprocFile */
 .listingblock .pygments .tok-c1 { color: #60a0b0; font-style: italic } /* Comment.Single */
 .listingblock .pygments .tok-cs { color: #60a0b0; background-color: #fff0f0 } /* Comment.Special */
 .listingblock .pygments .tok-gd { color: #A00000 } /* Generic.Deleted */
@@ -466,8 +469,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .listingblock .pygments .tok-mh { color: #40a070 } /* Literal.Number.Hex */
 .listingblock .pygments .tok-mi { color: #40a070 } /* Literal.Number.Integer */
 .listingblock .pygments .tok-mo { color: #40a070 } /* Literal.Number.Oct */
+.listingblock .pygments .tok-sa { color: #4070a0 } /* Literal.String.Affix */
 .listingblock .pygments .tok-sb { color: #4070a0 } /* Literal.String.Backtick */
 .listingblock .pygments .tok-sc { color: #4070a0 } /* Literal.String.Char */
+.listingblock .pygments .tok-dl { color: #4070a0 } /* Literal.String.Delimiter */
 .listingblock .pygments .tok-sd { color: #4070a0; font-style: italic } /* Literal.String.Doc */
 .listingblock .pygments .tok-s2 { color: #4070a0 } /* Literal.String.Double */
 .listingblock .pygments .tok-se { color: #4070a0; font-weight: bold } /* Literal.String.Escape */
@@ -478,9 +483,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 .listingblock .pygments .tok-s1 { color: #4070a0 } /* Literal.String.Single */
 .listingblock .pygments .tok-ss { color: #517918 } /* Literal.String.Symbol */
 .listingblock .pygments .tok-bp { color: #007020 } /* Name.Builtin.Pseudo */
+.listingblock .pygments .tok-fm { color: #06287e } /* Name.Function.Magic */
 .listingblock .pygments .tok-vc { color: #bb60d5 } /* Name.Variable.Class */
 .listingblock .pygments .tok-vg { color: #bb60d5 } /* Name.Variable.Global */
 .listingblock .pygments .tok-vi { color: #bb60d5 } /* Name.Variable.Instance */
+.listingblock .pygments .tok-vm { color: #bb60d5 } /* Name.Variable.Magic */
 .listingblock .pygments .tok-il { color: #40a070 } /* Literal.Number.Integer.Long */</style>
 </head>
 <link href="css/menu.css" rel="stylesheet">
@@ -505,19 +512,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <a href="#faq-change-domain">1.1. How can I change the domain name?</a>
 </li>
 <li>
-<a href="#restrict-emails-to-domain">1.2. How can I restrict registration to a concrete domain?</a>
+<a href="#disable-registration">1.2. How can I disable registration?</a>
 </li>
 <li>
-<a href="#faq-restart-backend">1.3. How can I restart the backend application?</a>
+<a href="#restrict-emails-to-domain">1.3. How can I restrict registration to a concrete domain?</a>
 </li>
 <li>
-<a href="#faq-maintain-update">1.4. How I can keep my app up to date with the most recent Taiga version?</a>
+<a href="#faq-restart-backend">1.4. How can I restart the backend application?</a>
 </li>
 <li>
-<a href="#faq-add-extra-functionality">1.5. How I can add extra functionality to Taiga?</a>
+<a href="#faq-maintain-update">1.5. How I can keep my app up to date with the most recent Taiga version?</a>
 </li>
 <li>
-<a href="#faq-backup">1.6. How I can make a backup of the data? And then restore them?</a>
+<a href="#faq-add-extra-functionality">1.6. How I can add extra functionality to Taiga?</a>
+</li>
+<li>
+<a href="#faq-backup">1.7. How I can make a backup of the data? And then restore them?</a>
 </li>
 </ul>
 </div>
@@ -529,6 +539,26 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel2">
 <li>
 <a href="#bug-unicodeencodeerror">2.1. UnicodeEncodeError</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#faq-configure-importers">3. Importers</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#_how_can_i_configure_trello_importers_in_my_own_instance">3.1. How can I configure Trello importers in my own instance?</a>
+</li>
+<li>
+<a href="#_how_can_i_configure_github_importers_in_my_own_instance">3.2. How can I configure Github importers in my own instance?</a>
+</li>
+<li>
+<a href="#_how_can_i_configure_asana_importers_in_my_own_instance">3.3. How can I configure Asana importers in my own instance?</a>
+</li>
+<li>
+<a href="#_how_can_i_configure_jira_importers_in_my_own_instance">3.4. How can I configure Jira importers in my own instance?</a>
 </li>
 </ul>
 </div>
@@ -560,7 +590,32 @@ Also you should update the domain related configuration on the backend settings 
 </div>
 </div>
 <div class="sect2">
-<h3 id="restrict-emails-to-domain">1.2. How can I restrict registration to a concrete domain?</h3>
+<h3 id="disable-registration">1.2. How can I disable registration?</h3>
+<div class="paragraph">
+<p>You can disableid public registration for external user. To do this you should set
+<code> to <code>False</code> in <code>settings/local.py</code> and disable too in front, in <code>dist/conf.json</code> set
+</code> ro <code>false</code>.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span class="tok-n">PUBLIC_REGISTER_ENABLED</span> <span class="tok-o">=</span> <span class="tok-bp">False</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="javascript"><span class="tok-p">{</span>
+    <span class="tok-p">(...)</span>
+    <span class="tok-s2">&quot;publicRegisterEnabled&quot;</span><span class="tok-o">:</span> <span class="tok-kc">false</span><span class="tok-p">,</span>
+    <span class="tok-p">(...)</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>If you disable it, only invited users can create accounts in the instance.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="restrict-emails-to-domain">1.3. How can I restrict registration to a concrete domain?</h3>
 <div class="paragraph">
 <p>You can restrict the usage of the platform to a set of valid email domains, so
 this allows you to restrict the registration to users that have a valid company
@@ -574,7 +629,7 @@ set it as:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="python"><span class="tok-n">USER_EMAIL_ALLOWED_DOMAINS</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-s">&quot;mycompany.com&quot;</span><span class="tok-p">,</span> <span class="tok-s">&quot;mycustomer.com&quot;</span><span class="tok-p">]</span></code></pre>
+<pre class="pygments highlight"><code data-lang="python"><span class="tok-n">USER_EMAIL_ALLOWED_DOMAINS</span> <span class="tok-o">=</span> <span class="tok-p">[</span><span class="tok-s2">&quot;mycompany.com&quot;</span><span class="tok-p">,</span> <span class="tok-s2">&quot;mycustomer.com&quot;</span><span class="tok-p">]</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -582,7 +637,7 @@ set it as:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="faq-restart-backend">1.3. How can I restart the backend application?</h3>
+<h3 id="faq-restart-backend">1.4. How can I restart the backend application?</h3>
 <div class="paragraph">
 <p>The Backend application is running under circus. To restart any application running
 with circus use the <code>circusctl</code> command:</p>
@@ -602,13 +657,13 @@ with circus use the <code>circusctl</code> command:</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="faq-maintain-update">1.4. How I can keep my app up to date with the most recent Taiga version?</h3>
+<h3 id="faq-maintain-update">1.5. How I can keep my app up to date with the most recent Taiga version?</h3>
 <div class="paragraph">
 <p><a href="upgrades.html">Check the upgrades instructions</a>.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="faq-add-extra-functionality">1.5. How I can add extra functionality to Taiga?</h3>
+<h3 id="faq-add-extra-functionality">1.6. How I can add extra functionality to Taiga?</h3>
 <div class="paragraph">
 <p>Taiga allows adding functionality through contrib plugins. The installation of each
 plugin depends on the plugin itself and must be documented in the plugin
@@ -641,7 +696,7 @@ repository.</p>
 </div>
 </div>
 <div class="sect2">
-<h3 id="faq-backup">1.6. How I can make a backup of the data? And then restore them?</h3>
+<h3 id="faq-backup">1.7. How I can make a backup of the data? And then restore them?</h3>
 <div class="paragraph">
 <p>To backup data from your server you just need to store a copy of the database and attachments files. That is, You just need to make a dump of the database and a copy of <code>taiga-back/media directory</code>.</p>
 </div>
@@ -708,9 +763,9 @@ add to the taiga user <code>.bashrc</code> file this lines:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span class="tok-nb">export </span><span class="tok-nv">LANG</span><span class="tok-o">=</span>de_DE.UTF-8
-<span class="tok-nb">export </span><span class="tok-nv">LC_ALL</span><span class="tok-o">=</span>de_DE.UTF-8
-<span class="tok-nb">export </span><span class="tok-nv">LC_TYPE</span><span class="tok-o">=</span>de_DE.UTF-8</code></pre>
+<pre class="pygments highlight"><code data-lang="bash"><span class="tok-nb">export</span> <span class="tok-nv">LANG</span><span class="tok-o">=</span>de_DE.UTF-8
+<span class="tok-nb">export</span> <span class="tok-nv">LC_ALL</span><span class="tok-o">=</span>de_DE.UTF-8
+<span class="tok-nb">export</span> <span class="tok-nv">LC_TYPE</span><span class="tok-o">=</span>de_DE.UTF-8</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -719,9 +774,9 @@ you could also try <code>en_US.UTF-8</code> as the locale:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span class="tok-nb">export </span><span class="tok-nv">LANG</span><span class="tok-o">=</span>en_US.UTF-8
-<span class="tok-nb">export </span><span class="tok-nv">LC_ALL</span><span class="tok-o">=</span>en_US.UTF-8
-<span class="tok-nb">export </span><span class="tok-nv">LC_TYPE</span><span class="tok-o">=</span>en_US.UTF-8</code></pre>
+<pre class="pygments highlight"><code data-lang="bash"><span class="tok-nb">export</span> <span class="tok-nv">LANG</span><span class="tok-o">=</span>en_US.UTF-8
+<span class="tok-nb">export</span> <span class="tok-nv">LC_ALL</span><span class="tok-o">=</span>en_US.UTF-8
+<span class="tok-nb">export</span> <span class="tok-nv">LC_TYPE</span><span class="tok-o">=</span>en_US.UTF-8</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -730,10 +785,153 @@ you could also try <code>en_US.UTF-8</code> as the locale:</p>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="faq-configure-importers">3. Importers</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>You can configure importers for Jira, Github, Asana and Trello in your own instance.</p>
+</div>
+<div class="sect2">
+<h3 id="_how_can_i_configure_trello_importers_in_my_own_instance">3.1. How can I configure Trello importers in my own instance?</h3>
+<div class="paragraph">
+<p>For configure Trello, you have to go to <a class="bare" href="https://trello.com/app-key">https://trello.com/app-key</a> and obtaing
+your API key and your oauth secret, and then, configure it in your settings/local.py:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span class="tok-n">IMPORTERS</span><span class="tok-p">[</span><span class="tok-s2">&quot;trello&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">{</span>
+    <span class="tok-s2">&quot;active&quot;</span><span class="tok-p">:</span> <span class="tok-bp">True</span><span class="tok-p">,</span>
+    <span class="tok-s2">&quot;api_key&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;your-trello-api-key&quot;</span><span class="tok-p">,</span>
+    <span class="tok-s2">&quot;secret_key&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;your-trello-oauth-secret&quot;</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And you have to enable in your dist/conf.json in taiga-front adding it to importers list:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="js"><span class="tok-p">{</span>
+    <span class="tok-p">...</span>
+    <span class="tok-nx">importers</span><span class="tok-o">:</span> <span class="tok-p">[</span><span class="tok-s2">&quot;trello&quot;</span><span class="tok-p">,</span> <span class="tok-p">...]</span>
+    <span class="tok-p">...</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_can_i_configure_github_importers_in_my_own_instance">3.2. How can I configure Github importers in my own instance?</h3>
+<div class="paragraph">
+<p>For configure Github, you have to go to <a class="bare" href="https://github.com/settings/developers">https://github.com/settings/developers</a>,
+register a new application and obtaing a client id and a client secret, and
+then, configure it in your settings/local.py:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span class="tok-n">IMPORTERS</span><span class="tok-p">[</span><span class="tok-s2">&quot;github&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">{</span>
+    <span class="tok-s2">&quot;active&quot;</span><span class="tok-p">:</span> <span class="tok-bp">True</span><span class="tok-p">,</span>
+    <span class="tok-s2">&quot;client_id&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;your-github-client-id&quot;</span><span class="tok-p">,</span>
+    <span class="tok-s2">&quot;client_secret&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;your-github-client-secret&quot;</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And you have to enable in your dist/conf.json in taiga-front adding it to importers list:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="js"><span class="tok-p">{</span>
+    <span class="tok-p">...</span>
+    <span class="tok-nx">importers</span><span class="tok-o">:</span> <span class="tok-p">[</span><span class="tok-s2">&quot;github&quot;</span><span class="tok-p">,</span> <span class="tok-p">...]</span>
+    <span class="tok-p">...</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_can_i_configure_asana_importers_in_my_own_instance">3.3. How can I configure Asana importers in my own instance?</h3>
+<div class="paragraph">
+<p>For configure Asana, you have to go to your asana account settings, in Apps
+section, and click on "Manage Developer Apps", then you have to "Add new
+application", ensure that the callback url match with your settings, and the
+url of your service with the path /project/new/import/asana.
+After that, you can get your client id and your client secret and configure it
+in your settings/local.py:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span class="tok-n">IMPORTERS</span><span class="tok-p">[</span><span class="tok-s2">&quot;asana&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">{</span>
+    <span class="tok-s2">&quot;active&quot;</span><span class="tok-p">:</span> <span class="tok-bp">True</span><span class="tok-p">,</span>
+    <span class="tok-s2">&quot;callback_url&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;{}://{}/project/new/import/asana&quot;</span><span class="tok-o">.</span><span class="tok-n">format</span><span class="tok-p">(</span><span class="tok-n">SITES</span><span class="tok-p">[</span><span class="tok-s2">&quot;front&quot;</span><span class="tok-p">][</span><span class="tok-s2">&quot;scheme&quot;</span><span class="tok-p">],</span>
+                                                              <span class="tok-n">SITES</span><span class="tok-p">[</span><span class="tok-s2">&quot;front&quot;</span><span class="tok-p">][</span><span class="tok-s2">&quot;domain&quot;</span><span class="tok-p">]),</span>
+    <span class="tok-s2">&quot;app_id&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;your-asana-client-id&quot;</span><span class="tok-p">,</span>
+    <span class="tok-s2">&quot;app_secret&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;your-asana-client-secret&quot;</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And you have to enable in your dist/conf.json in taiga-front adding it to importers list:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="js"><span class="tok-p">{</span>
+    <span class="tok-p">...</span>
+    <span class="tok-nx">importers</span><span class="tok-o">:</span> <span class="tok-p">[</span><span class="tok-s2">&quot;asana&quot;</span><span class="tok-p">,</span> <span class="tok-p">...]</span>
+    <span class="tok-p">...</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_how_can_i_configure_jira_importers_in_my_own_instance">3.4. How can I configure Jira importers in my own instance?</h3>
+<div class="paragraph">
+<p>For configure Jira, you have to go to generate a public of private/public keys
+pair. To do this, you can run the next command:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash">openssl genpkey -algorithm RSA -out private_key.pem -pkeyopt rsa_keygen_bits:2048
+openssl rsa -pubout -in private_key.pem -out public_key.pem</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Once you have the public and private key, you can configure it in your
+settings/local.py:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="python"><span class="tok-n">IMPORTERS</span><span class="tok-p">[</span><span class="tok-s2">&quot;jira&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-p">{</span>
+    <span class="tok-s2">&quot;active&quot;</span><span class="tok-p">:</span> <span class="tok-bp">True</span><span class="tok-p">,</span>
+    <span class="tok-s2">&quot;consumer_key&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;one-key-at-your-election&quot;</span><span class="tok-p">,</span>
+    <span class="tok-s2">&quot;cert&quot;</span><span class="tok-p">:</span> <span class="tok-nb">file</span><span class="tok-p">(</span><span class="tok-s1">&#39;private_key.pem&#39;</span><span class="tok-p">)</span><span class="tok-o">.</span><span class="tok-n">read</span><span class="tok-p">(),</span>  <span class="tok-c1"># You can directly copy and paste the content here</span>
+    <span class="tok-s2">&quot;pub_cert&quot;</span><span class="tok-p">:</span> <span class="tok-nb">file</span><span class="tok-p">(</span><span class="tok-s1">&#39;public_key.pem&#39;</span><span class="tok-p">)</span><span class="tok-o">.</span><span class="tok-n">read</span><span class="tok-p">(),</span>  <span class="tok-c1"># You can directly copy and paste the content here</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>And you have to enable in your dist/conf.json in taiga-front adding it to importers list:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="js"><span class="tok-p">{</span>
+    <span class="tok-p">...</span>
+    <span class="tok-nx">importers</span><span class="tok-o">:</span> <span class="tok-p">[</span><span class="tok-s2">&quot;jira&quot;</span><span class="tok-p">,</span> <span class="tok-p">...]</span>
+    <span class="tok-p">...</span>
+<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>After that, you have to configure your Jira instance to allow to connect using
+this certificates, you can get more information about it in
+<a class="bare" href="https://tree.taiga.io/support/">https://tree.taiga.io/support/</a>.</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2016-10-21 16:53:26 CEST
+Last updated 2017-03-13 20:30:17 CET
 </div>
 </div>
 </div>
