@@ -515,53 +515,77 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 
 </li>
 <li>
-<a href="#_before_starting">2. Before starting</a>
-
-</li>
-<li>
-<a href="#_backend_installation">3. Backend installation</a>
+<a href="#_overview">2. Overview</a>
 <div class="mp-level">
 <a class="mp-back" href="#">back</a>
 <ul class="sectlevel2">
 <li>
-<a href="#_install_dependencies">3.1. Install dependencies</a>
-</li>
-<li>
-<a href="#_setup_a_database">3.2. Setup a database</a>
-</li>
-<li>
-<a href="#_setup_python_environment">3.3. Setup python environment</a>
-</li>
-<li>
-<a href="#_verification">3.4. Verification</a>
-</li>
-<li>
-<a href="#_async_tasks_optional">3.5. Async tasks (Optional)</a>
+<a href="#_system_architecture_description">2.1. System Architecture Description</a>
 </li>
 </ul>
 </div>
 </li>
 <li>
-<a href="#_frontend_installation">4. Frontend installation</a>
-
-</li>
-<li>
-<a href="#_events_installation">5. Events installation</a>
-
-</li>
-<li>
-<a href="#_final_steps">6. Final steps</a>
+<a href="#_prerequisites">3. Prerequisites</a>
 <div class="mp-level">
 <a class="mp-back" href="#">back</a>
 <ul class="sectlevel2">
 <li>
-<a href="#circus-and-gunicorn">6.1. Circus and gunicorn</a>
-</li>
-<li>
-<a href="#_nginx">6.2. Nginx</a>
+<a href="#_configuring_dependencies">3.1. Configuring Dependencies</a>
 </li>
 </ul>
 </div>
+</li>
+<li>
+<a href="#_backend_configuration">4. Backend configuration</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#_verification">4.1. Verification</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#_frontend_installation">5. Frontend installation</a>
+
+</li>
+<li>
+<a href="#taiga-events">6. Events installation</a>
+
+</li>
+<li>
+<a href="#start-and-expose">7. Start and Expose Taiga</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#circus-and-gunicorn">7.1. Circus and gunicorn</a>
+</li>
+<li>
+<a href="#nginx">7.2. Nginx</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#_optional_components_and_settings">8. Optional Components and Settings</a>
+<div class="mp-level">
+<a class="mp-back" href="#">back</a>
+<ul class="sectlevel2">
+<li>
+<a href="#_async_tasks_optional">8.1. Async tasks (Optional)</a>
+</li>
+<li>
+<a href="#_taiga_hardening_https">8.2. Taiga Hardening - HTTPS</a>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<a href="#_troubleshooting">9. Troubleshooting</a>
+
 </li>
 </ul>
 </div>
@@ -575,10 +599,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="_introduction">1. Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This documentation explains how to deploy a Taiga service (each module is part of the Taiga platform).</p>
+<p>This documentation explains how to deploy a full Taiga service (each module is part of the Taiga platform).</p>
 </div>
 <div class="paragraph">
-<p>The Taiga platform consists of three main components:</p>
+<p>The Taiga platform consists of three main components
+and each one has its own dependencies both at compile time and runtime:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -594,31 +619,30 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </div>
 <div class="paragraph">
-<p>And each one has its own dependencies, at compile time and runtime.</p>
+<p>Each component can be either run on one unique machine</p>
 </div>
 <div class="paragraph">
-<p>Each component can run on one unique machine or each can be installed in a different machine. In
-this tutorial we will setup everything in one single machine. This type of setup should suffice
-for small/medium production environments.</p>
+<p>Each component can be run on one unique machine or all of them can be installed to a different machine aswell.
+In this tutorial we will setup everything on one single machine, installing all three Taiga components.
+This type of setup should suffice for small/medium production environments.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_before_starting">2. Before starting</h2>
+<h2 id="_overview">2. Overview</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This tutorial assumes that you are using a clean, recently updated, <strong>ubuntu 16.04</strong> image.</p>
+<p>This tutorial assumes that you are using a clean, recently updated <strong>Ubuntu 16.04</strong> image.</p>
 </div>
 <div class="paragraph">
-<p>Due the nature of frontend application, you should know that this service will be used
-through the domain/public-ip. This is because, the frontend application will run on your browser
-and it should communicate with the backend/api.</p>
+<p>Due to the nature of the frontend, Taiga is used through a domain/public-ip, because the frontend application runs in your browser.
+The frontend must be able to communicate with the backend/API, therefore both the frontend and the backend must be accessible through a domain/public-ip too.</p>
 </div>
 <div class="paragraph">
-<p><strong>Taiga installation must be done with a "normal" user, never with root.</strong></p>
+<p><strong>The installation of Taiga must be done with a "regular" user, never with root.</strong></p>
 </div>
 <div class="paragraph">
-<p>We assume the following:</p>
+<p>During the tutorial, We assume the following details:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -634,57 +658,70 @@ and it should communicate with the backend/api.</p>
 <li>
 <p><strong>system ram</strong> <code>&gt;=1GB</code> (needed for compilation of lxml)</p>
 </li>
+<li>
+<p><strong>working dir</strong> <code>/home/taiga/</code> (default for user <code>taiga</code>)</p>
+</li>
 </ul>
+</div>
+<div class="sect2">
+<h3 id="_system_architecture_description">2.1. System Architecture Description</h3>
+<div class="paragraph">
+<p>This is a short system architecture description to help you understand the way Taiga is built and works.
+Before you go any further in the installation, make sure you read this description to get a high-level overview.</p>
+</div>
+<div class="paragraph">
+<p>Taiga consists of 2 core (mandatory) modules:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>taiga-back</strong></p>
+</li>
+<li>
+<p><strong>taiga-front</strong></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><strong>taiga-back</strong> is written in django, python3 and serves API endpoints for the frontend.</p>
+</div>
+<div class="paragraph">
+<p><strong>taiga-front</strong> is written mostly in angularjs and coffeescript and depends on the backend.</p>
+</div>
+<div class="paragraph">
+<p>The python backend is exposed by gunicorn (port 9001), which is a Python WSGI HTTP server. The process manager is Circus, which runs gunicorn and taiga-back together.
+Technically the backend communicates with the database(postgresql) and through the frontend, it allows the user to use the features of Taiga.
+The communication between the front- and backend is done using APIs.</p>
+</div>
+<div class="paragraph">
+<p>The backend is then publicly exposed by nginx which acts as a reverse-proxy for this case.
+The frontend is located in the <code>dist</code> folder and is exposed publcy by nginx which acts as a static webserver for this case.</p>
+</div>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_backend_installation">3. Backend installation</h2>
+<h2 id="_prerequisites">3. Prerequisites</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This section helps with the installation of the backend (api) Taiga service.</p>
-</div>
-<div class="sect2">
-<h3 id="_install_dependencies">3.1. Install dependencies</h3>
-<div class="paragraph">
-<p>The Backend is written mainly in python (3.5) but for some third party libraries we need to install a
-C compiller and development headers.</p>
+<p>Taiga consists of three modules and each of them require different packages and third-party packages.
+This sections collects the required packages for a successful Taiga installation and configuration.
+In this section we will install all dependencies for all modules, including the optional modules and services.</p>
 </div>
 <div class="listingblock">
+<div class="title">Essential packages:</div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>sudo apt-get install -y build-essential binutils-doc autoconf flex bison libjpeg-dev&#x000A;sudo apt-get install -y libfreetype6-dev zlib1g-dev libzmq3-dev libgdbm-dev libncurses5-dev&#x000A;sudo apt-get install -y automake libtool libffi-dev curl git tmux gettext</code></pre>
+<pre class="pygments highlight"><code data-lang="bash"><span></span>sudo apt-get update&#x000A;sudo apt-get install -y build-essential binutils-doc autoconf flex bison libjpeg-dev&#x000A;sudo apt-get install -y libfreetype6-dev zlib1g-dev libzmq3-dev libgdbm-dev libncurses5-dev&#x000A;sudo apt-get install -y automake libtool libffi-dev curl git tmux gettext&#x000A;sudo apt-get install -y nginx&#x000A;sudo apt-get install -y rabbitmq-server redis-server&#x000A;sudo apt-get install -y circus</code></pre>
 </div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_setup_a_database">3.2. Setup a database</h3>
-<div class="paragraph">
-<p><strong>taiga-back</strong> also requires postgresql (&gt;= 9.4) as a database</p>
-</div>
-<div class="paragraph">
-<p>Install postgresql:</p>
 </div>
 <div class="listingblock">
+<div class="title">The component <code>taiga-back</code> uses postgresql (&gt;= 9.4) as database:</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="bash"><span></span>sudo apt-get install -y postgresql-9.5 postgresql-contrib-9.5&#x000A;sudo apt-get install -y postgresql-doc-9.5 postgresql-server-dev-9.5</code></pre>
 </div>
 </div>
-<div class="paragraph">
-<p>And setup the initial user and database:</p>
-</div>
 <div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>sudo -u postgres createuser taiga&#x000A;sudo -u postgres createdb taiga -O taiga</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_setup_python_environment">3.3. Setup python environment</h3>
-<div class="paragraph">
-<p>For run <strong>taiga-back</strong> you should have python (3.5) installed with some other third party
-libraries. As a first step, start installing python and virtualenvwrapper:</p>
-</div>
-<div class="listingblock">
+<div class="title">Python (3.5) and virtualenvwrapper must be installed along with a few third-party libraries:</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="bash"><span></span>sudo apt-get install -y python3 python3-pip python-dev python3-dev python-pip virtualenvwrapper&#x000A;sudo apt-get install -y libxml2-dev libxslt-dev</code></pre>
 </div>
@@ -696,18 +733,66 @@ libraries. As a first step, start installing python and virtualenvwrapper:</p>
 <div class="title"></div>
 </td>
 <td class="content">
-<strong>virtualenvwrapper</strong> helps maintain the system clean of third party libraries installed
-with language package manager, installing them in isolated virtual environment.
+<strong>virtualenvwrapper</strong> helps keeping the system clean of third party libraries, installed
+with the language package manager by installing these packages in an isolated virtual environment.
 </td>
 </tr>
 </table>
 </div>
 <div class="paragraph">
-<p>Restart the shell or run <code>bash</code> again, to reload the bash environment with virtualenvwrapper
+<p>Restart the shell or run <code>bash</code> to reload the bash environment with the new virtualenvwrapper
 variables and functions.</p>
 </div>
 <div class="paragraph">
-<p>The next step is to download the code from github and install their dependencies:</p>
+<p><strong>This step is mandatory before continuing the installation!</strong></p>
+</div>
+<div class="listingblock">
+<div class="title">Create a user named <code>taiga</code>, and give it root permissions</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>sudo adduser taiga&#x000A;sudo adduser taiga sudo&#x000A;sudo su taiga&#x000A;<span class="tok-nb">cd</span> ~</code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title"></div>
+</td>
+<td class="content">
+Do <strong>not</strong> change to root user.
+The installation must be done with the <code>taiga</code> user.
+</td>
+</tr>
+</table>
+</div>
+<div class="sect2">
+<h3 id="_configuring_dependencies">3.1. Configuring Dependencies</h3>
+<div class="listingblock">
+<div class="title">Configure postgresql with the initial user and database:</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>sudo -u postgres createuser taiga&#x000A;sudo -u postgres createdb taiga -O taiga</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Create a user named <code>taiga</code>, and a virtualhost for RabbitMQ (taiga-events)</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>sudo rabbitmqctl add_user taiga PASSWORD_FOR_EVENTS&#x000A;sudo rabbitmqctl add_vhost taiga&#x000A;sudo rabbitmqctl set_permissions -p taiga taiga <span class="tok-s2">&quot;.*&quot;</span> <span class="tok-s2">&quot;.*&quot;</span> <span class="tok-s2">&quot;.*&quot;</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Create the logs folder (mandatory)</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>mkdir -p ~/logs</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_backend_configuration">4. Backend configuration</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section helps configuring the backend (api) Taiga service and its dependencies.</p>
 </div>
 <div class="listingblock">
 <div class="title">Download the code</div>
@@ -734,11 +819,12 @@ variables and functions.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>This creates a new user <strong>admin</strong> with password <strong>123123</strong>.</p>
+<p>This creates the administrator account. The login credentials are <strong>admin</strong> with password <strong>123123</strong>.</p>
 </div>
 <div class="paragraph">
-<p>If you want some example data, you can execute the following command, which populates the database
-with sample projects and random data; useful for demos:</p>
+<p><strong>OPTIONAL:</strong>
+If you would like to have some example data loaded into Taiga, execute the following command,
+which populates the database with sample projects and random data (useful for demos):</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -746,20 +832,20 @@ with sample projects and random data; useful for demos:</p>
 </div>
 </div>
 <div class="paragraph">
-<p>And as final step for setup <strong>taiga-back</strong>, you should create the intial configuration
-for proper static/media files resolution and optionally, email sending support:</p>
+<p>To finish the setup of <strong>taiga-back</strong>, create the intial configuration file
+for proper static/media file resolution, optionally with email sending support:</p>
 </div>
 <div class="listingblock">
-<div class="title">Put this on ~/taiga-back/settings/local.py</div>
+<div class="title">Copy-paste the following config into <code>~/taiga-back/settings/local.py</code> and update it with your own details:</div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">.common</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>&#x000A;&#x000A;<span class="tok-n">MEDIA_URL</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;http://example.com/media/&quot;</span>&#x000A;<span class="tok-n">STATIC_URL</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;http://example.com/static/&quot;</span>&#x000A;<span class="tok-n">SITES</span><span class="tok-p">[</span><span class="tok-s2">&quot;front&quot;</span><span class="tok-p">][</span><span class="tok-s2">&quot;scheme&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;http&quot;</span>&#x000A;<span class="tok-n">SITES</span><span class="tok-p">[</span><span class="tok-s2">&quot;front&quot;</span><span class="tok-p">][</span><span class="tok-s2">&quot;domain&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;example.com&quot;</span>&#x000A;&#x000A;<span class="tok-n">SECRET_KEY</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;theveryultratopsecretkey&quot;</span>&#x000A;&#x000A;<span class="tok-n">DEBUG</span> <span class="tok-o">=</span> <span class="tok-bp">False</span>&#x000A;<span class="tok-n">PUBLIC_REGISTER_ENABLED</span> <span class="tok-o">=</span> <span class="tok-bp">True</span>&#x000A;&#x000A;<span class="tok-n">DEFAULT_FROM_EMAIL</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;no-reply@example.com&quot;</span>&#x000A;<span class="tok-n">SERVER_EMAIL</span> <span class="tok-o">=</span> <span class="tok-n">DEFAULT_FROM_EMAIL</span>&#x000A;&#x000A;<span class="tok-c1"># Uncomment and populate with proper connection parameters</span>&#x000A;<span class="tok-c1"># for enable email sending. EMAIL_HOST_USER should end by @domain.tld</span>&#x000A;<span class="tok-c1">#EMAIL_BACKEND = &quot;django.core.mail.backends.smtp.EmailBackend&quot;</span>&#x000A;<span class="tok-c1">#EMAIL_USE_TLS = False</span>&#x000A;<span class="tok-c1">#EMAIL_HOST = &quot;localhost&quot;</span>&#x000A;<span class="tok-c1">#EMAIL_HOST_USER = &quot;&quot;</span>&#x000A;<span class="tok-c1">#EMAIL_HOST_PASSWORD = &quot;&quot;</span>&#x000A;<span class="tok-c1">#EMAIL_PORT = 25</span>&#x000A;&#x000A;<span class="tok-c1"># Uncomment and populate with proper connection parameters</span>&#x000A;<span class="tok-c1"># for enable github login/singin.</span>&#x000A;<span class="tok-c1">#GITHUB_API_CLIENT_ID = &quot;yourgithubclientid&quot;</span>&#x000A;<span class="tok-c1">#GITHUB_API_CLIENT_SECRET = &quot;yourgithubclientsecret&quot;</span></code></pre>
-</div>
+<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">.common</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>&#x000A;&#x000A;<span class="tok-n">MEDIA_URL</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;http://example.com/media/&quot;</span>&#x000A;<span class="tok-n">STATIC_URL</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;http://example.com/static/&quot;</span>&#x000A;<span class="tok-n">SITES</span><span class="tok-p">[</span><span class="tok-s2">&quot;front&quot;</span><span class="tok-p">][</span><span class="tok-s2">&quot;scheme&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;http&quot;</span>&#x000A;<span class="tok-n">SITES</span><span class="tok-p">[</span><span class="tok-s2">&quot;front&quot;</span><span class="tok-p">][</span><span class="tok-s2">&quot;domain&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;example.com&quot;</span>&#x000A;&#x000A;<span class="tok-n">SECRET_KEY</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;theveryultratopsecretkey&quot;</span>&#x000A;&#x000A;<span class="tok-n">DEBUG</span> <span class="tok-o">=</span> <span class="tok-bp">False</span>&#x000A;<span class="tok-n">PUBLIC_REGISTER_ENABLED</span> <span class="tok-o">=</span> <span class="tok-bp">True</span>&#x000A;&#x000A;<span class="tok-n">DEFAULT_FROM_EMAIL</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;no-reply@example.com&quot;</span>&#x000A;<span class="tok-n">SERVER_EMAIL</span> <span class="tok-o">=</span> <span class="tok-n">DEFAULT_FROM_EMAIL</span>&#x000A;&#x000A;<span class="tok-c1">#CELERY_ENABLED = True</span>&#x000A;&#x000A;<span class="tok-n">EVENTS_PUSH_BACKEND</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;taiga.events.backends.rabbitmq.EventsPushBackend&quot;</span>&#x000A;<span class="tok-n">EVENTS_PUSH_BACKEND_OPTIONS</span> <span class="tok-o">=</span> <span class="tok-p">{</span><span class="tok-s2">&quot;url&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;amqp://taiga:PASSWORD_FOR_EVENTS@localhost:5672/taiga&quot;</span><span class="tok-p">}</span>&#x000A;&#x000A;<span class="tok-c1"># Uncomment and populate with proper connection parameters</span>&#x000A;<span class="tok-c1"># for enable email sending. EMAIL_HOST_USER should end by @domain.tld</span>&#x000A;<span class="tok-c1">#EMAIL_BACKEND = &quot;django.core.mail.backends.smtp.EmailBackend&quot;</span>&#x000A;<span class="tok-c1">#EMAIL_USE_TLS = False</span>&#x000A;<span class="tok-c1">#EMAIL_HOST = &quot;localhost&quot;</span>&#x000A;<span class="tok-c1">#EMAIL_HOST_USER = &quot;&quot;</span>&#x000A;<span class="tok-c1">#EMAIL_HOST_PASSWORD = &quot;&quot;</span>&#x000A;<span class="tok-c1">#EMAIL_PORT = 25</span>&#x000A;&#x000A;<span class="tok-c1"># Uncomment and populate with proper connection parameters</span>&#x000A;<span class="tok-c1"># for enable github login/singin.</span>&#x000A;<span class="tok-c1">#GITHUB_API_CLIENT_ID = &quot;yourgithubclientid&quot;</span>&#x000A;<span class="tok-c1">#GITHUB_API_CLIENT_SECRET = &quot;yourgithubclientsecret&quot;</span></code></pre>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_verification">3.4. Verification</h3>
+<h3 id="_verification">4.1. Verification</h3>
 <div class="paragraph">
-<p>To make sure everything is working, you can run the backend in development mode with:</p>
+<p>(Optional)
+To make sure that everything works, issue the following command to run the backend in development mode for a test:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -767,7 +853,7 @@ for proper static/media files resolution and optionally, email sending support:<
 </div>
 </div>
 <div class="paragraph">
-<p>Then you must be able to see a json representing the list of endpoints in the url <a class="bare" href="http://localhost:8000/api/v1/">http://localhost:8000/api/v1/</a> .</p>
+<p>Then you must be able to see a json representing the list of endpoints at the url: <a class="bare" href="http://localhost:8000/api/v1/">http://localhost:8000/api/v1/</a> .</p>
 </div>
 <div class="admonitionblock note">
 <table>
@@ -776,20 +862,234 @@ for proper static/media files resolution and optionally, email sending support:<
 <div class="title"></div>
 </td>
 <td class="content">
-At this stage the backend has been installed successfully. But you&#8217;re not done yet. Because python
-in production environments, should run on an application server. The details for this are explained in the final
-section of this document.
+At this stage the backend has been installed successfully, but to run the python backend in production,
+an application server must be configured first. The details for this are explained later in this doc.
 </td>
 </tr>
 </table>
 </div>
 </div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_frontend_installation">5. Frontend installation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Download the code from Github:</p>
+</div>
+<div class="listingblock">
+<div class="title">Download the code</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span><span class="tok-nb">cd</span> ~&#x000A;git clone https://github.com/taigaio/taiga-front-dist.git taiga-front-dist&#x000A;<span class="tok-nb">cd</span> taiga-front-dist&#x000A;git checkout stable</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Copy the example config file:</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>cp ~/taiga-front-dist/dist/conf.example.json ~/taiga-front-dist/dist/conf.json</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Edit the example configuration following the pattern below (replace with your own details):</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>&#x000A;	<span class="tok-nt">&quot;api&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;http://example.com/api/v1/&quot;</span><span class="tok-p">,</span>&#x000A;	<span class="tok-nt">&quot;eventsUrl&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;ws://example.com/events&quot;</span><span class="tok-p">,</span>&#x000A;	<span class="tok-nt">&quot;debug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;true&quot;</span><span class="tok-p">,</span>&#x000A;	<span class="tok-nt">&quot;publicRegisterEnabled&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>&#x000A;	<span class="tok-nt">&quot;feedbackEnabled&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>&#x000A;	<span class="tok-nt">&quot;privacyPolicyUrl&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>&#x000A;	<span class="tok-nt">&quot;termsOfServiceUrl&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>&#x000A;	<span class="tok-nt">&quot;maxUploadFileSize&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>&#x000A;	<span class="tok-nt">&quot;contribPlugins&quot;</span><span class="tok-p">:</span> <span class="tok-p">[]</span>&#x000A;<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title"></div>
+</td>
+<td class="content">
+Be careful using copy-paste from browser to avoid <code>http://</code> duplication.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Having <strong>taiga-front-dist</strong> downloaded and configured is insufficient. The next step is to expose the code
+(in <strong>dist</strong> directory) under a static file web server.
+In this tutorial We use <strong>nginx</strong> as a static file web server and reverse-proxy.
+The configuration of nginx is explained later.</p>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="taiga-events">6. Events installation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><strong>This step is optional and can be skipped</strong></p>
+</div>
+<div class="paragraph">
+<p>Taiga-events is the Taiga websocket server, it allows taiga-front to show realtime changes in the backlog, taskboard, kanban and issues listing.
+Taiga-events use rabbitmq (the message broker).</p>
+</div>
+<div class="paragraph">
+<p>Download taiga-events from Github and install its dependencies:</p>
+</div>
+<div class="listingblock">
+<div class="title">Download the code</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span><span class="tok-nb">cd</span> ~&#x000A;git clone https://github.com/taigaio/taiga-events.git taiga-events&#x000A;<span class="tok-nb">cd</span> taiga-events</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Install nodejs</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>curl -sL https://deb.nodesource.com/setup_6.x <span class="tok-p">|</span> sudo -E bash -&#x000A;sudo apt-get install -y nodejs</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Install the javascript dependencies needed</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>npm install&#x000A;sudo npm install -g coffee-script</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Copy and edit the config.json file. Update with your rabbitmq uri and the secret key.</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>cp config.example.json config.json</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Your config.json should be like:</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>&#x000A;    <span class="tok-nt">&quot;url&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;amqp://taiga:PASSWORD_FOR_EVENTS@localhost:5672/taiga&quot;</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;secret&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;theveryultratopsecretkey&quot;</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;webSocketServer&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>&#x000A;        <span class="tok-nt">&quot;port&quot;</span><span class="tok-p">:</span> <span class="tok-mi">8888</span>&#x000A;    <span class="tok-p">}</span>&#x000A;<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>The 'secret' in <code>config.json</code> must be the same as the "SECRET_KEY" in <code>~/taiga-back/settings/local.py</code></p>
+</div>
+<div class="paragraph">
+<p>Add taiga-events to circus configuration.</p>
+</div>
+<div class="listingblock">
+<div class="title">Copy-paste the code below into <code>/etc/circus/conf.d/taiga-events.ini</code></div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="ini"><span></span><span class="tok-k">[watcher:taiga-events]</span>&#x000A;<span class="tok-na">working_dir</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/taiga-events</span>&#x000A;<span class="tok-na">cmd</span> <span class="tok-o">=</span> <span class="tok-s">/usr/bin/coffee</span>&#x000A;<span class="tok-na">args</span> <span class="tok-o">=</span> <span class="tok-s">index.coffee</span>&#x000A;<span class="tok-na">uid</span> <span class="tok-o">=</span> <span class="tok-s">taiga</span>&#x000A;<span class="tok-na">numprocesses</span> <span class="tok-o">=</span> <span class="tok-s">1</span>&#x000A;<span class="tok-na">autostart</span> <span class="tok-o">=</span> <span class="tok-s">true</span>&#x000A;<span class="tok-na">send_hup</span> <span class="tok-o">=</span> <span class="tok-s">true</span>&#x000A;<span class="tok-na">stdout_stream.class</span> <span class="tok-o">=</span> <span class="tok-s">FileStream</span>&#x000A;<span class="tok-na">stdout_stream.filename</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/logs/taigaevents.stdout.log</span>&#x000A;<span class="tok-na">stdout_stream.max_bytes</span> <span class="tok-o">=</span> <span class="tok-s">10485760</span>&#x000A;<span class="tok-na">stdout_stream.backup_count</span> <span class="tok-o">=</span> <span class="tok-s">12</span>&#x000A;<span class="tok-na">stderr_stream.class</span> <span class="tok-o">=</span> <span class="tok-s">FileStream</span>&#x000A;<span class="tok-na">stderr_stream.filename</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/logs/taigaevents.stderr.log</span>&#x000A;<span class="tok-na">stderr_stream.max_bytes</span> <span class="tok-o">=</span> <span class="tok-s">10485760</span>&#x000A;<span class="tok-na">stderr_stream.backup_count</span> <span class="tok-o">=</span> <span class="tok-s">12</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Reload the circusd configurations:</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>sudo service circusd restart&#x000A;sudo service circusd status</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="start-and-expose">7. Start and Expose Taiga</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Before moving further, make sure you installed  <strong>taiga-back</strong> and <strong>taiga-front-dist</strong>, however, having installed them is insufficient to run Taiga.</p>
+</div>
+<div class="paragraph">
+<p><strong>taiga-back</strong> should run under an application server, which in turn, should be executed and monitored
+by a process manager. For this task we will use <strong>gunicorn</strong> and <strong>circus</strong> respectively.</p>
+</div>
+<div class="paragraph">
+<p>Both <strong>taiga-front-dist</strong> and <strong>taiga-back</strong> must be exposed to the outside using a proxy/static-file
+web server. For this purpose, Taiga uses <strong>nginx</strong>.</p>
+</div>
 <div class="sect2">
-<h3 id="_async_tasks_optional">3.5. Async tasks (Optional)</h3>
+<h3 id="circus-and-gunicorn">7.1. Circus and gunicorn</h3>
+<div class="paragraph">
+<p>Circus is a process manager written by <strong>Mozilla</strong> and Taiga uses it to execute <strong>gunicorn</strong>.
+Circus is not only for executing processes, but it also has utils for monitoring them, collecting logs, and
+restarting processes if something goes wrong, and also for starting processes on system boot.</p>
+</div>
+<div class="listingblock">
+<div class="title">Initial Taiga configuration for circus in /etc/circus/conf.d/taiga.ini</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="ini"><span></span><span class="tok-k">[watcher:taiga]</span>&#x000A;<span class="tok-na">working_dir</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/taiga-back</span>&#x000A;<span class="tok-na">cmd</span> <span class="tok-o">=</span> <span class="tok-s">gunicorn</span>&#x000A;<span class="tok-na">args</span> <span class="tok-o">=</span> <span class="tok-s">-w 3 -t 60 --pythonpath=. -b 127.0.0.1:8001 taiga.wsgi</span>&#x000A;<span class="tok-na">uid</span> <span class="tok-o">=</span> <span class="tok-s">taiga</span>&#x000A;<span class="tok-na">numprocesses</span> <span class="tok-o">=</span> <span class="tok-s">1</span>&#x000A;<span class="tok-na">autostart</span> <span class="tok-o">=</span> <span class="tok-s">true</span>&#x000A;<span class="tok-na">send_hup</span> <span class="tok-o">=</span> <span class="tok-s">true</span>&#x000A;<span class="tok-na">stdout_stream.class</span> <span class="tok-o">=</span> <span class="tok-s">FileStream</span>&#x000A;<span class="tok-na">stdout_stream.filename</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/logs/gunicorn.stdout.log</span>&#x000A;<span class="tok-na">stdout_stream.max_bytes</span> <span class="tok-o">=</span> <span class="tok-s">10485760</span>&#x000A;<span class="tok-na">stdout_stream.backup_count</span> <span class="tok-o">=</span> <span class="tok-s">4</span>&#x000A;<span class="tok-na">stderr_stream.class</span> <span class="tok-o">=</span> <span class="tok-s">FileStream</span>&#x000A;<span class="tok-na">stderr_stream.filename</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/logs/gunicorn.stderr.log</span>&#x000A;<span class="tok-na">stderr_stream.max_bytes</span> <span class="tok-o">=</span> <span class="tok-s">10485760</span>&#x000A;<span class="tok-na">stderr_stream.backup_count</span> <span class="tok-o">=</span> <span class="tok-s">4</span>&#x000A;&#x000A;<span class="tok-k">[env:taiga]</span>&#x000A;<span class="tok-na">PATH</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/.virtualenvs/taiga/bin:$PATH</span>&#x000A;<span class="tok-na">TERM</span><span class="tok-o">=</span><span class="tok-s">rxvt-256color</span>&#x000A;<span class="tok-na">SHELL</span><span class="tok-o">=</span><span class="tok-s">/bin/bash</span>&#x000A;<span class="tok-na">USER</span><span class="tok-o">=</span><span class="tok-s">taiga</span>&#x000A;<span class="tok-na">LANG</span><span class="tok-o">=</span><span class="tok-s">en_US.UTF-8</span>&#x000A;<span class="tok-na">HOME</span><span class="tok-o">=</span><span class="tok-s">/home/taiga</span>&#x000A;<span class="tok-na">PYTHONPATH</span><span class="tok-o">=</span><span class="tok-s">/home/taiga/.virtualenvs/taiga/lib/python3.5/site-packages</span></code></pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title"></div>
+</td>
+<td class="content">
+<div class="paragraph">
+<p>Circus stats can generate a high cpu usage without any load you can set statsd
+in <code>/etc/circus/circusd.conf</code> to false if you don&#8217;t need them.</p>
+</div>
+<div class="paragraph">
+<p>Taiga stores logs on the user home, making them available and immediately accessible when
+you enter a machine. To make everything work, make sure you have the logs directory
+created.</p>
+</div>
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Final step is restarting circus:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>sudo service circusd restart</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">To verify that the services are running, issue:</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>circusctl status</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="nginx">7.2. Nginx</h3>
+<div class="paragraph">
+<p>Nginx is used as a static file web server to serve <strong>taiga-front-dist</strong> and send proxy requests to <strong>taiga-back</strong>.</p>
+</div>
+<div class="listingblock">
+<div class="title">Remove the default nginx config file to avoid collision with Taiga:</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>sudo rm /etc/nginx/sites-enabled/default</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">To create a new nginx virtualhost for Taiga, create and edit the <code>/etc/nginx/conf.d/taiga.conf</code> file, as follows:</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="nginx"><span></span><span class="tok-k">server</span> <span class="tok-p">{</span>&#x000A;    <span class="tok-kn">listen</span> <span class="tok-mi">80</span> <span class="tok-s">default_server</span><span class="tok-p">;</span>&#x000A;    <span class="tok-kn">server_name</span> <span class="tok-s">_</span><span class="tok-p">;</span>&#x000A;&#x000A;    <span class="tok-kn">large_client_header_buffers</span> <span class="tok-mi">4</span> <span class="tok-mi">32k</span><span class="tok-p">;</span>&#x000A;    <span class="tok-kn">client_max_body_size</span> <span class="tok-s">50M</span><span class="tok-p">;</span>&#x000A;    <span class="tok-kn">charset</span> <span class="tok-s">utf-8</span><span class="tok-p">;</span>&#x000A;&#x000A;    <span class="tok-kn">access_log</span> <span class="tok-s">/home/taiga/logs/nginx.access.log</span><span class="tok-p">;</span>&#x000A;    <span class="tok-kn">error_log</span> <span class="tok-s">/home/taiga/logs/nginx.error.log</span><span class="tok-p">;</span>&#x000A;&#x000A;    <span class="tok-c1"># Frontend</span>&#x000A;    <span class="tok-kn">location</span> <span class="tok-s">/</span> <span class="tok-p">{</span>&#x000A;        <span class="tok-kn">root</span> <span class="tok-s">/home/taiga/taiga-front-dist/dist/</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">try_files</span> <span class="tok-nv">$uri</span> <span class="tok-nv">$uri/</span> <span class="tok-s">/index.html</span><span class="tok-p">;</span>&#x000A;    <span class="tok-p">}</span>&#x000A;&#x000A;    <span class="tok-c1"># Backend</span>&#x000A;    <span class="tok-kn">location</span> <span class="tok-s">/api</span> <span class="tok-p">{</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">Host</span> <span class="tok-nv">$http_host</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Real-IP</span> <span class="tok-nv">$remote_addr</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Scheme</span> <span class="tok-nv">$scheme</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Forwarded-Proto</span> <span class="tok-nv">$scheme</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Forwarded-For</span> <span class="tok-nv">$proxy_add_x_forwarded_for</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_pass</span> <span class="tok-s">http://127.0.0.1:8001/api</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_redirect</span> <span class="tok-no">off</span><span class="tok-p">;</span>&#x000A;    <span class="tok-p">}</span>&#x000A;&#x000A;    <span class="tok-c1"># Django admin access (/admin/)</span>&#x000A;    <span class="tok-kn">location</span> <span class="tok-s">/admin</span> <span class="tok-p">{</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">Host</span> <span class="tok-nv">$http_host</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Real-IP</span> <span class="tok-nv">$remote_addr</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Scheme</span> <span class="tok-nv">$scheme</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Forwarded-Proto</span> <span class="tok-nv">$scheme</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Forwarded-For</span> <span class="tok-nv">$proxy_add_x_forwarded_for</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_pass</span> <span class="tok-s">http://127.0.0.1:8001</span><span class="tok-nv">$request_uri</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_redirect</span> <span class="tok-no">off</span><span class="tok-p">;</span>&#x000A;    <span class="tok-p">}</span>&#x000A;&#x000A;    <span class="tok-c1"># Static files</span>&#x000A;    <span class="tok-kn">location</span> <span class="tok-s">/static</span> <span class="tok-p">{</span>&#x000A;        <span class="tok-kn">alias</span> <span class="tok-s">/home/taiga/taiga-back/static</span><span class="tok-p">;</span>&#x000A;    <span class="tok-p">}</span>&#x000A;&#x000A;    <span class="tok-c1"># Media files</span>&#x000A;    <span class="tok-kn">location</span> <span class="tok-s">/media</span> <span class="tok-p">{</span>&#x000A;        <span class="tok-kn">alias</span> <span class="tok-s">/home/taiga/taiga-back/media</span><span class="tok-p">;</span>&#x000A;    <span class="tok-p">}</span>&#x000A;&#x000A;	<span class="tok-c1"># Taiga-events</span>&#x000A;	<span class="tok-kn">location</span> <span class="tok-s">/events</span> <span class="tok-p">{</span>&#x000A;	<span class="tok-kn">proxy_pass</span> <span class="tok-s">http://127.0.0.1:8888/events</span><span class="tok-p">;</span>&#x000A;	<span class="tok-kn">proxy_http_version</span> <span class="tok-mi">1</span><span class="tok-s">.1</span><span class="tok-p">;</span>&#x000A;	<span class="tok-kn">proxy_set_header</span> <span class="tok-s">Upgrade</span> <span class="tok-nv">$http_upgrade</span><span class="tok-p">;</span>&#x000A;	<span class="tok-kn">proxy_set_header</span> <span class="tok-s">Connection</span> <span class="tok-s">&quot;upgrade&quot;</span><span class="tok-p">;</span>&#x000A;	<span class="tok-kn">proxy_connect_timeout</span> <span class="tok-s">7d</span><span class="tok-p">;</span>&#x000A;	<span class="tok-kn">proxy_send_timeout</span> <span class="tok-s">7d</span><span class="tok-p">;</span>&#x000A;	<span class="tok-kn">proxy_read_timeout</span> <span class="tok-s">7d</span><span class="tok-p">;</span>&#x000A;	<span class="tok-p">}</span>&#x000A;<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Issue the following command to verify the nginx configuration and to track any error in the service:</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>sudo nginx -t</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Finally, restart nginx:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>sudo service nginx restart</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p><strong>Now you should have the service up and running on: <code><a class="bare" href="http://example.com/">http://example.com/</a></code></strong></p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_optional_components_and_settings">8. Optional Components and Settings</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following items are completely optional and are up for you to configure them.
+Taiga-events module is also an optional feature, but its installation is part of this tutorial.</p>
+</div>
+<div class="sect2">
+<h3 id="_async_tasks_optional">8.1. Async tasks (Optional)</h3>
 <div class="paragraph">
 <p>The default behavior in Taiga is to do all tasks in a synchronous way, but some of them
-can be completely asynchronous (for example webhooks or import/export). To do
-this, you have to configure and install the celery service requirements.</p>
+can be completely asynchronous (for example webhooks or import/export).
+To do this, you have to configure and install the celery service requirements.</p>
 </div>
 <div class="paragraph">
 <p>There is just an exception related to exported files, if your instance works in asynchronous mode the exported project files will be
@@ -805,7 +1105,7 @@ the existance of those files).</p>
 </div>
 </div>
 <div class="paragraph">
-<p>To run celery with taiga you have to include in your local.py the line:</p>
+<p>To run celery with Taiga, include the following code line in the <code>local.py</code> file:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -813,21 +1113,20 @@ the existance of those files).</p>
 </div>
 </div>
 <div class="paragraph">
-<p>You can configure other broker or results backend. If you need more info about it you can check the celery documentation web page:
+<p>You can configure other broker or results backend. If you need more info about it, check the celery documentation web page:
 <a class="bare" href="http://docs.celeryproject.org/en/latest/index.html">http://docs.celeryproject.org/en/latest/index.html</a></p>
 </div>
 <div class="paragraph">
 <p>Once you have configured celery on Taiga, you have to add celery to circus configuration. See <a href="#circus-and-gunicorn">Circus and gunicorn</a> section.</p>
 </div>
 <div class="listingblock">
-<div class="title">Taiga celery configuration block for circus on /etc/circus/conf.d/taiga-celery.ini</div>
+<div class="title">Taiga celery configuration block for circus on <code>/etc/circus/conf.d/taiga-celery.ini</code></div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="ini"><span></span><span class="tok-k">[watcher:taiga-celery]</span>&#x000A;<span class="tok-na">working_dir</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/taiga-back</span>&#x000A;<span class="tok-na">cmd</span> <span class="tok-o">=</span> <span class="tok-s">celery</span>&#x000A;<span class="tok-na">args</span> <span class="tok-o">=</span> <span class="tok-s">-A taiga worker -c 4</span>&#x000A;<span class="tok-na">uid</span> <span class="tok-o">=</span> <span class="tok-s">taiga</span>&#x000A;<span class="tok-na">numprocesses</span> <span class="tok-o">=</span> <span class="tok-s">1</span>&#x000A;<span class="tok-na">autostart</span> <span class="tok-o">=</span> <span class="tok-s">true</span>&#x000A;<span class="tok-na">send_hup</span> <span class="tok-o">=</span> <span class="tok-s">true</span>&#x000A;<span class="tok-na">stdout_stream.class</span> <span class="tok-o">=</span> <span class="tok-s">FileStream</span>&#x000A;<span class="tok-na">stdout_stream.filename</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/logs/celery.stdout.log</span>&#x000A;<span class="tok-na">stdout_stream.max_bytes</span> <span class="tok-o">=</span> <span class="tok-s">10485760</span>&#x000A;<span class="tok-na">stdout_stream.backup_count</span> <span class="tok-o">=</span> <span class="tok-s">4</span>&#x000A;<span class="tok-na">stderr_stream.class</span> <span class="tok-o">=</span> <span class="tok-s">FileStream</span>&#x000A;<span class="tok-na">stderr_stream.filename</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/logs/celery.stderr.log</span>&#x000A;<span class="tok-na">stderr_stream.max_bytes</span> <span class="tok-o">=</span> <span class="tok-s">10485760</span>&#x000A;<span class="tok-na">stderr_stream.backup_count</span> <span class="tok-o">=</span> <span class="tok-s">4</span>&#x000A;&#x000A;<span class="tok-k">[env:taiga-celery]</span>&#x000A;<span class="tok-na">PATH</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/.virtualenvs/taiga/bin:$PATH</span>&#x000A;<span class="tok-na">TERM</span><span class="tok-o">=</span><span class="tok-s">rxvt-256color</span>&#x000A;<span class="tok-na">SHELL</span><span class="tok-o">=</span><span class="tok-s">/bin/bash</span>&#x000A;<span class="tok-na">USER</span><span class="tok-o">=</span><span class="tok-s">taiga</span>&#x000A;<span class="tok-na">LANG</span><span class="tok-o">=</span><span class="tok-s">en_US.UTF-8</span>&#x000A;<span class="tok-na">HOME</span><span class="tok-o">=</span><span class="tok-s">/home/taiga</span>&#x000A;<span class="tok-na">PYTHONPATH</span><span class="tok-o">=</span><span class="tok-s">/home/taiga/.virtualenvs/taiga/lib/python3.5/site-packages</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Then you have to reload your circus configuration, restart taiga and start
-taiga-celery:</p>
+<p>Reload the circus configuration, restart taiga, then start taiga-celery:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -835,286 +1134,57 @@ taiga-celery:</p>
 </div>
 </div>
 </div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_frontend_installation">4. Frontend installation</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Download the code from github:</p>
-</div>
-<div class="listingblock">
-<div class="title">Download the code</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span><span class="tok-nb">cd</span> ~&#x000A;git clone https://github.com/taigaio/taiga-front-dist.git taiga-front-dist&#x000A;<span class="tok-nb">cd</span> taiga-front-dist&#x000A;git checkout stable</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>And now, you can configure it copying the
-<code>~/taiga-front-dist/dist/conf.example.json</code> to <code>~/taiga-front-dist/dist/conf.json</code>
-and editing it.</p>
-</div>
-<div class="listingblock">
-<div class="title">Copy and edit initial configuration on ~/taiga-front-dist/dist/conf.json</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>&#x000A;    <span class="tok-nt">&quot;api&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;http://example.com/api/v1/&quot;</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;eventsUrl&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;ws://example.com/events&quot;</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;debug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;true&quot;</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;publicRegisterEnabled&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;feedbackEnabled&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;privacyPolicyUrl&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;termsOfServiceUrl&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;maxUploadFileSize&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;contribPlugins&quot;</span><span class="tok-p">:</span> <span class="tok-p">[]</span>&#x000A;<span class="tok-p">}</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Now, having <strong>taiga-front-dist</strong> downloaded and configured, the next step is to expose the code
-(in <strong>dist</strong> directory) under static file web server: we use <strong>nginx</strong>. That process is
-explained in the final section of this tutorial.</p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_events_installation">5. Events installation</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>This step is completelly optional and can be skipped</strong></p>
-</div>
-<div class="paragraph">
-<p>Taiga-events is the Taiga websocket server, it allows taiga-front showing realtime changes in backlog, taskboard, kanban and issues listing.</p>
-</div>
-<div class="paragraph">
-<p>Taiga events needs rabbitmq (the message broker) to be installed</p>
-</div>
-<div class="listingblock">
-<div class="title">Installing rabbitmq</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>sudo  apt-get install rabbitmq-server</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Creating a taiga user and virtualhost for rabbitmq</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>sudo rabbitmqctl add_user taiga PASSWORD&#x000A;sudo rabbitmqctl add_vhost taiga&#x000A;sudo rabbitmqctl set_permissions -p taiga taiga <span class="tok-s2">&quot;.*&quot;</span> <span class="tok-s2">&quot;.*&quot;</span> <span class="tok-s2">&quot;.*&quot;</span></code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Update your taiga-back settings to include in your local.py the lines:</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-n">EVENTS_PUSH_BACKEND</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;taiga.events.backends.rabbitmq.EventsPushBackend&quot;</span>&#x000A;<span class="tok-n">EVENTS_PUSH_BACKEND_OPTIONS</span> <span class="tok-o">=</span> <span class="tok-p">{</span><span class="tok-s2">&quot;url&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;amqp://taiga:PASSWORD@localhost:5672/taiga&quot;</span><span class="tok-p">}</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>The next step is downloading the code from github and installing their dependencies:</p>
-</div>
-<div class="listingblock">
-<div class="title">Download the code</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span><span class="tok-nb">cd</span> ~&#x000A;git clone https://github.com/taigaio/taiga-events.git taiga-events&#x000A;<span class="tok-nb">cd</span> taiga-events</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Install all the javascript dependencies needed</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>sudo apt-get install -y nodejs nodejs-legacy npm&#x000A;npm install&#x000A;sudo npm install -g coffee-script</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Copy and edit the config.json file you should update your rabbitmq uri and the secret key.</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>cp config.example.json config.json</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Your config.json should be like:</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>&#x000A;    <span class="tok-nt">&quot;url&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;amqp://taiga:PASSWORD@localhost:5672/taiga&quot;</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;secret&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;mysecret&quot;</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;webSocketServer&quot;</span><span class="tok-p">:</span> <span class="tok-p">{</span>&#x000A;        <span class="tok-nt">&quot;port&quot;</span><span class="tok-p">:</span> <span class="tok-mi">8888</span>&#x000A;    <span class="tok-p">}</span>&#x000A;<span class="tok-p">}</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Next, your 'secret' in your <code>config.json</code> key should be the same as your "SECRET_KEY" in <code>~/taiga-back/settings/local.py</code></p>
-</div>
-<div class="paragraph">
-<p>Now you have to add taiga-events to circus configuration. See <a href="#circus-and-gunicorn">Circus and gunicorn</a> section.</p>
-</div>
-<div class="listingblock">
-<div class="title">Taiga taiga-events configuration block for circus on /etc/circus/conf.d/taiga-events.ini</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="ini"><span></span><span class="tok-k">[watcher:taiga-events]</span>&#x000A;<span class="tok-na">working_dir</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/taiga-events</span>&#x000A;<span class="tok-na">cmd</span> <span class="tok-o">=</span> <span class="tok-s">/usr/local/bin/coffee</span>&#x000A;<span class="tok-na">args</span> <span class="tok-o">=</span> <span class="tok-s">index.coffee</span>&#x000A;<span class="tok-na">uid</span> <span class="tok-o">=</span> <span class="tok-s">taiga</span>&#x000A;<span class="tok-na">numprocesses</span> <span class="tok-o">=</span> <span class="tok-s">1</span>&#x000A;<span class="tok-na">autostart</span> <span class="tok-o">=</span> <span class="tok-s">true</span>&#x000A;<span class="tok-na">send_hup</span> <span class="tok-o">=</span> <span class="tok-s">true</span>&#x000A;<span class="tok-na">stdout_stream.class</span> <span class="tok-o">=</span> <span class="tok-s">FileStream</span>&#x000A;<span class="tok-na">stdout_stream.filename</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/logs/taigaevents.stdout.log</span>&#x000A;<span class="tok-na">stdout_stream.max_bytes</span> <span class="tok-o">=</span> <span class="tok-s">10485760</span>&#x000A;<span class="tok-na">stdout_stream.backup_count</span> <span class="tok-o">=</span> <span class="tok-s">12</span>&#x000A;<span class="tok-na">stderr_stream.class</span> <span class="tok-o">=</span> <span class="tok-s">FileStream</span>&#x000A;<span class="tok-na">stderr_stream.filename</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/logs/taigaevents.stderr.log</span>&#x000A;<span class="tok-na">stderr_stream.max_bytes</span> <span class="tok-o">=</span> <span class="tok-s">10485760</span>&#x000A;<span class="tok-na">stderr_stream.backup_count</span> <span class="tok-o">=</span> <span class="tok-s">12</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Then you have to reload your circus configuration restart the other services and start taiga-events:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>circusctl reloadconfig&#x000A;circusctl restart taiga&#x000A;circusctl restart taiga-celery&#x000A;circusctl start taiga-events</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>Nginx need extra configuration too for taiga-events</p>
-</div>
-<div class="listingblock">
-<div class="title">Add specific configuration for <strong>taiga-events</strong> on /etc/nginx/sites-available/taiga.</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="nginx"><span></span><span class="tok-k">server</span> <span class="tok-p">{</span>&#x000A;    <span class="tok-kn">...</span>&#x000A;    <span class="tok-s">location</span> <span class="tok-s">/events</span> <span class="tok-p">{</span>&#x000A;       <span class="tok-kn">proxy_pass</span> <span class="tok-s">http://127.0.0.1:8888/events</span><span class="tok-p">;</span>&#x000A;       <span class="tok-kn">proxy_http_version</span> <span class="tok-mi">1</span><span class="tok-s">.1</span><span class="tok-p">;</span>&#x000A;       <span class="tok-kn">proxy_set_header</span> <span class="tok-s">Upgrade</span> <span class="tok-nv">$http_upgrade</span><span class="tok-p">;</span>&#x000A;       <span class="tok-kn">proxy_set_header</span> <span class="tok-s">Connection</span> <span class="tok-s">&quot;upgrade&quot;</span><span class="tok-p">;</span>&#x000A;       <span class="tok-kn">proxy_connect_timeout</span> <span class="tok-s">7d</span><span class="tok-p">;</span>&#x000A;       <span class="tok-kn">proxy_send_timeout</span> <span class="tok-s">7d</span><span class="tok-p">;</span>&#x000A;       <span class="tok-kn">proxy_read_timeout</span> <span class="tok-s">7d</span><span class="tok-p">;</span>&#x000A;    <span class="tok-p">}</span>&#x000A;    <span class="tok-kn">...</span>&#x000A;<span class="tok-err">}</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>And finally, reload nginx with <code>sudo service nginx reload</code></p>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_final_steps">6. Final steps</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>If you are here, it&#8217;s probable that you completed the installation of <strong>taiga-back</strong> and
-<strong>taiga-front-dist</strong>. However, having installed them is insufficient.</p>
-</div>
-<div class="paragraph">
-<p><strong>taiga-back</strong> should run under an application server which in turn should be executed and monitored
-by a process manager. For this task we will use <strong>gunicorn</strong> and <strong>circus</strong> respectivelly.</p>
-</div>
-<div class="paragraph">
-<p><strong>taiga-front-dist</strong> and <strong>taiga-back</strong> should be exposed to the outside, using good proxy/static-file
-web server. For this purpose we&#8217;ll use <strong>nginx</strong>.</p>
-</div>
 <div class="sect2">
-<h3 id="circus-and-gunicorn">6.1. Circus and gunicorn</h3>
+<h3 id="_taiga_hardening_https">8.2. Taiga Hardening - HTTPS</h3>
 <div class="paragraph">
-<p>Circus is a process manager written by <strong>Mozilla</strong> and you will use it to execute <strong>gunicorn</strong>.
-Circus not only serves to execute processes, it also has utils for monitoring them, collecting logs,
-restarting processes if something goes wrong, and starting processes on system boot.</p>
-</div>
-<div class="listingblock">
-<div class="title">Install circus</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>sudo apt-get install circus</code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Initial taiga configuration for circus on /etc/circus/conf.d/taiga.ini</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="ini"><span></span><span class="tok-k">[watcher:taiga]</span>&#x000A;<span class="tok-na">working_dir</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/taiga-back</span>&#x000A;<span class="tok-na">cmd</span> <span class="tok-o">=</span> <span class="tok-s">gunicorn</span>&#x000A;<span class="tok-na">args</span> <span class="tok-o">=</span> <span class="tok-s">-w 3 -t 60 --pythonpath=. -b 127.0.0.1:8001 taiga.wsgi</span>&#x000A;<span class="tok-na">uid</span> <span class="tok-o">=</span> <span class="tok-s">taiga</span>&#x000A;<span class="tok-na">numprocesses</span> <span class="tok-o">=</span> <span class="tok-s">1</span>&#x000A;<span class="tok-na">autostart</span> <span class="tok-o">=</span> <span class="tok-s">true</span>&#x000A;<span class="tok-na">send_hup</span> <span class="tok-o">=</span> <span class="tok-s">true</span>&#x000A;<span class="tok-na">stdout_stream.class</span> <span class="tok-o">=</span> <span class="tok-s">FileStream</span>&#x000A;<span class="tok-na">stdout_stream.filename</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/logs/gunicorn.stdout.log</span>&#x000A;<span class="tok-na">stdout_stream.max_bytes</span> <span class="tok-o">=</span> <span class="tok-s">10485760</span>&#x000A;<span class="tok-na">stdout_stream.backup_count</span> <span class="tok-o">=</span> <span class="tok-s">4</span>&#x000A;<span class="tok-na">stderr_stream.class</span> <span class="tok-o">=</span> <span class="tok-s">FileStream</span>&#x000A;<span class="tok-na">stderr_stream.filename</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/logs/gunicorn.stderr.log</span>&#x000A;<span class="tok-na">stderr_stream.max_bytes</span> <span class="tok-o">=</span> <span class="tok-s">10485760</span>&#x000A;<span class="tok-na">stderr_stream.backup_count</span> <span class="tok-o">=</span> <span class="tok-s">4</span>&#x000A;&#x000A;<span class="tok-k">[env:taiga]</span>&#x000A;<span class="tok-na">PATH</span> <span class="tok-o">=</span> <span class="tok-s">/home/taiga/.virtualenvs/taiga/bin:$PATH</span>&#x000A;<span class="tok-na">TERM</span><span class="tok-o">=</span><span class="tok-s">rxvt-256color</span>&#x000A;<span class="tok-na">SHELL</span><span class="tok-o">=</span><span class="tok-s">/bin/bash</span>&#x000A;<span class="tok-na">USER</span><span class="tok-o">=</span><span class="tok-s">taiga</span>&#x000A;<span class="tok-na">LANG</span><span class="tok-o">=</span><span class="tok-s">en_US.UTF-8</span>&#x000A;<span class="tok-na">HOME</span><span class="tok-o">=</span><span class="tok-s">/home/taiga</span>&#x000A;<span class="tok-na">PYTHONPATH</span><span class="tok-o">=</span><span class="tok-s">/home/taiga/.virtualenvs/taiga/lib/python3.5/site-packages</span></code></pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title"></div>
-</td>
-<td class="content">
-<div class="paragraph">
-<p>Circus stats can generate a high cpu usage without any load you can set statsd
-in /etc/circus/circusd.conf to false if you don&#8217;t need them.</p>
+<p>Follow the instructions in this section to server Taiga under HTTPS.</p>
 </div>
 <div class="paragraph">
-<p>Taiga stores logs on the user home, making them available and immediately accessible when
-you enter a machine. To make everything work, make sure you have the logs directory
-created.</p>
-</div>
-<div class="paragraph">
-<p>You can create it with: <code>mkdir -p ~/logs</code></p>
-</div>
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>And finally restart circus:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>sudo service circusd restart</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_nginx">6.2. Nginx</h3>
-<div class="paragraph">
-<p>Nginx is used as a static file web server to serve <strong>taiga-front-dist</strong> and send proxy requests to <strong>taiga-back</strong>.</p>
-</div>
-<div class="paragraph">
-<p>First install it:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>sudo apt-get install -y nginx</code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>And now let us start configuring it:</p>
-</div>
-<div class="listingblock">
-<div class="title">Add specific configuration for <strong>taiga-front-dist</strong> and <strong>taiga-back</strong> on /etc/nginx/sites-available/taiga.</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="nginx"><span></span><span class="tok-k">server</span> <span class="tok-p">{</span>&#x000A;    <span class="tok-kn">listen</span> <span class="tok-mi">80</span> <span class="tok-s">default_server</span><span class="tok-p">;</span>&#x000A;    <span class="tok-kn">server_name</span> <span class="tok-s">_</span><span class="tok-p">;</span>&#x000A;&#x000A;    <span class="tok-kn">large_client_header_buffers</span> <span class="tok-mi">4</span> <span class="tok-mi">32k</span><span class="tok-p">;</span>&#x000A;    <span class="tok-kn">client_max_body_size</span> <span class="tok-s">50M</span><span class="tok-p">;</span>&#x000A;    <span class="tok-kn">charset</span> <span class="tok-s">utf-8</span><span class="tok-p">;</span>&#x000A;&#x000A;    <span class="tok-kn">access_log</span> <span class="tok-s">/home/taiga/logs/nginx.access.log</span><span class="tok-p">;</span>&#x000A;    <span class="tok-kn">error_log</span> <span class="tok-s">/home/taiga/logs/nginx.error.log</span><span class="tok-p">;</span>&#x000A;&#x000A;    <span class="tok-c1"># Frontend</span>&#x000A;    <span class="tok-kn">location</span> <span class="tok-s">/</span> <span class="tok-p">{</span>&#x000A;        <span class="tok-kn">root</span> <span class="tok-s">/home/taiga/taiga-front-dist/dist/</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">try_files</span> <span class="tok-nv">$uri</span> <span class="tok-nv">$uri/</span> <span class="tok-s">/index.html</span><span class="tok-p">;</span>&#x000A;    <span class="tok-p">}</span>&#x000A;&#x000A;    <span class="tok-c1"># Backend</span>&#x000A;    <span class="tok-kn">location</span> <span class="tok-s">/api</span> <span class="tok-p">{</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">Host</span> <span class="tok-nv">$http_host</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Real-IP</span> <span class="tok-nv">$remote_addr</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Scheme</span> <span class="tok-nv">$scheme</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Forwarded-Proto</span> <span class="tok-nv">$scheme</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Forwarded-For</span> <span class="tok-nv">$proxy_add_x_forwarded_for</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_pass</span> <span class="tok-s">http://127.0.0.1:8001/api</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_redirect</span> <span class="tok-no">off</span><span class="tok-p">;</span>&#x000A;    <span class="tok-p">}</span>&#x000A;&#x000A;    <span class="tok-c1"># Django admin access (/admin/)</span>&#x000A;    <span class="tok-kn">location</span> <span class="tok-s">/admin</span> <span class="tok-p">{</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">Host</span> <span class="tok-nv">$http_host</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Real-IP</span> <span class="tok-nv">$remote_addr</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Scheme</span> <span class="tok-nv">$scheme</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Forwarded-Proto</span> <span class="tok-nv">$scheme</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Forwarded-For</span> <span class="tok-nv">$proxy_add_x_forwarded_for</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_pass</span> <span class="tok-s">http://127.0.0.1:8001</span><span class="tok-nv">$request_uri</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_redirect</span> <span class="tok-no">off</span><span class="tok-p">;</span>&#x000A;    <span class="tok-p">}</span>&#x000A;&#x000A;    <span class="tok-c1"># Static files</span>&#x000A;    <span class="tok-kn">location</span> <span class="tok-s">/static</span> <span class="tok-p">{</span>&#x000A;        <span class="tok-kn">alias</span> <span class="tok-s">/home/taiga/taiga-back/static</span><span class="tok-p">;</span>&#x000A;    <span class="tok-p">}</span>&#x000A;&#x000A;    <span class="tok-c1"># Media files</span>&#x000A;    <span class="tok-kn">location</span> <span class="tok-s">/media</span> <span class="tok-p">{</span>&#x000A;        <span class="tok-kn">alias</span> <span class="tok-s">/home/taiga/taiga-back/media</span><span class="tok-p">;</span>&#x000A;    <span class="tok-p">}</span>&#x000A;<span class="tok-p">}</span></code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Disable the default nginx site (virtualhost)</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="nginx"><span></span><span class="tok-k">sudo</span> <span class="tok-s">rm</span> <span class="tok-s">/etc/nginx/sites-enabled/default</span></code></pre>
-</div>
-</div>
-<div class="listingblock">
-<div class="title">Enable the recently created Taiga site (virtualhost)</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="nginx"><span></span><span class="tok-k">sudo</span> <span class="tok-s">ln</span> <span class="tok-s">-s</span> <span class="tok-s">/etc/nginx/sites-available/taiga</span> <span class="tok-s">/etc/nginx/sites-enabled/taiga</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>You can verify the nginx configuration with the following command to track any error preventing the service to start with <code>sudo nginx -t</code>.</p>
-</div>
-<div class="paragraph">
-<p>Finally, restart nginx with <code>sudo service nginx restart</code>.</p>
-</div>
-<div class="paragraph">
-<p><strong>Now you should have the service up and running on <code><a class="bare" href="http://example.com/">http://example.com/</a></code></strong></p>
-</div>
-<div class="sect3">
-<h4 id="_serving_https">6.2.1. Serving HTTPS</h4>
-<div class="paragraph">
-<p>Place your SSL certificates in <code>/etc/nginx/ssl</code>. It is recommended to replace
-the original configuration for port 80 so that users are redirected to the HTTPS
+<p>Place the SSL certificates in <code>/etc/nginx/ssl</code>. It is recommended to replace
+the original configuration for <code>port 80</code> so that users are redirected to the HTTPS
 version automatically.</p>
 </div>
 <div class="paragraph">
-<p>Second we need to generate a stronger GHE parameter</p>
+<p>Second we need to generate a stronger GHE parameter:</p>
 </div>
 <div class="listingblock">
 <div class="content">
 <pre class="pygments highlight"><code data-lang="nginx"><span></span><span class="tok-k">cd</span> <span class="tok-s">/etc/ssl</span>&#x000A;<span class="tok-s">sudo</span> <span class="tok-s">openssl</span> <span class="tok-s">dhparam</span> <span class="tok-s">-out</span> <span class="tok-s">dhparam.pem</span> <span class="tok-mi">4096</span></code></pre>
 </div>
 </div>
+<div class="paragraph">
+<div class="title">Update the configuration in <code>/etc/nginx/conf.d/taiga.conf</code></div>
+<p>(Taiga-events not included)</p>
+</div>
 <div class="listingblock">
-<div class="title">New configuration in /etc/nginx/sites-available/taiga</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="nginx"><span></span><span class="tok-k">server</span> <span class="tok-p">{</span>&#x000A;    <span class="tok-kn">listen</span> <span class="tok-mi">80</span> <span class="tok-s">default_server</span><span class="tok-p">;</span>&#x000A;    <span class="tok-kn">server_name</span> <span class="tok-s">_</span><span class="tok-p">;</span>&#x000A;    <span class="tok-kn">return</span> <span class="tok-mi">301</span> <span class="tok-s">https://</span><span class="tok-nv">$server_name$request_uri</span><span class="tok-p">;</span>&#x000A;<span class="tok-p">}</span>&#x000A;&#x000A;<span class="tok-k">server</span> <span class="tok-p">{</span>&#x000A;    <span class="tok-kn">listen</span> <span class="tok-mi">443</span> <span class="tok-s">ssl</span> <span class="tok-s">default_server</span><span class="tok-p">;</span>&#x000A;    <span class="tok-kn">server_name</span> <span class="tok-s">_</span><span class="tok-p">;</span>&#x000A;&#x000A;    <span class="tok-kn">large_client_header_buffers</span> <span class="tok-mi">4</span> <span class="tok-mi">32k</span><span class="tok-p">;</span>&#x000A;    <span class="tok-kn">client_max_body_size</span> <span class="tok-s">50M</span><span class="tok-p">;</span>&#x000A;    <span class="tok-kn">charset</span> <span class="tok-s">utf-8</span><span class="tok-p">;</span>&#x000A;&#x000A;    <span class="tok-kn">index</span> <span class="tok-s">index.html</span><span class="tok-p">;</span>&#x000A;&#x000A;    <span class="tok-c1"># Frontend</span>&#x000A;    <span class="tok-kn">location</span> <span class="tok-s">/</span> <span class="tok-p">{</span>&#x000A;        <span class="tok-kn">root</span> <span class="tok-s">/home/taiga/taiga-front-dist/dist/</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">try_files</span> <span class="tok-nv">$uri</span> <span class="tok-nv">$uri/</span> <span class="tok-s">/index.html</span><span class="tok-p">;</span>&#x000A;    <span class="tok-p">}</span>&#x000A;&#x000A;    <span class="tok-c1"># Backend</span>&#x000A;    <span class="tok-kn">location</span> <span class="tok-s">/api</span> <span class="tok-p">{</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">Host</span> <span class="tok-nv">$http_host</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Real-IP</span> <span class="tok-nv">$remote_addr</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Scheme</span> <span class="tok-nv">$scheme</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Forwarded-Proto</span> <span class="tok-nv">$scheme</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Forwarded-For</span> <span class="tok-nv">$proxy_add_x_forwarded_for</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_pass</span> <span class="tok-s">http://127.0.0.1:8001/api</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_redirect</span> <span class="tok-no">off</span><span class="tok-p">;</span>&#x000A;    <span class="tok-p">}</span>&#x000A;&#x000A;    <span class="tok-kn">location</span> <span class="tok-s">/admin</span> <span class="tok-p">{</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">Host</span> <span class="tok-nv">$http_host</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Real-IP</span> <span class="tok-nv">$remote_addr</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Scheme</span> <span class="tok-nv">$scheme</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Forwarded-Proto</span> <span class="tok-nv">$scheme</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_set_header</span> <span class="tok-s">X-Forwarded-For</span> <span class="tok-nv">$proxy_add_x_forwarded_for</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_pass</span> <span class="tok-s">http://127.0.0.1:8001</span><span class="tok-nv">$request_uri</span><span class="tok-p">;</span>&#x000A;        <span class="tok-kn">proxy_redirect</span> <span class="tok-no">off</span><span class="tok-p">;</span>&#x000A;    <span class="tok-p">}</span>&#x000A;&#x000A;    <span class="tok-c1"># Static files</span>&#x000A;    <span class="tok-kn">location</span> <span class="tok-s">/static</span> <span class="tok-p">{</span>&#x000A;        <span class="tok-kn">alias</span> <span class="tok-s">/home/taiga/taiga-back/static</span><span class="tok-p">;</span>&#x000A;    <span class="tok-p">}</span>&#x000A;&#x000A;    <span class="tok-c1"># Media files</span>&#x000A;    <span class="tok-kn">location</span> <span class="tok-s">/media</span> <span class="tok-p">{</span>&#x000A;        <span class="tok-kn">alias</span> <span class="tok-s">/home/taiga/taiga-back/media</span><span class="tok-p">;</span>&#x000A;    <span class="tok-p">}</span>&#x000A;&#x000A;    <span class="tok-kn">add_header</span> <span class="tok-s">Strict-Transport-Security</span> <span class="tok-s">&quot;max-age=63072000</span><span class="tok-p">;</span> <span class="tok-kn">includeSubdomains</span><span class="tok-p">;</span> <span class="tok-kn">preload&quot;</span><span class="tok-p">;</span>&#x000A;    <span class="tok-kn">add_header</span> <span class="tok-s">Public-Key-Pins</span> <span class="tok-s">&#39;pin-sha256=&quot;klO23nT2ehFDXCfx3eHTDRESMz3asj1muO+4aIdjiuY=&quot;</span><span class="tok-p">;</span> <span class="tok-kn">pin-sha256=&quot;633lt352PKRXbOwf4xSEa1M517scpD3l5f79xMD9r9Q=&quot;</span><span class="tok-p">;</span> <span class="tok-kn">max-age=2592000</span><span class="tok-p">;</span> <span class="tok-kn">includeSubDomains&#39;</span><span class="tok-p">;</span>&#x000A;&#x000A;    <span class="tok-kn">ssl</span> <span class="tok-no">on</span><span class="tok-p">;</span>&#x000A;    <span class="tok-kn">ssl_certificate</span> <span class="tok-s">/etc/nginx/ssl/example.com/ssl-bundle.crt</span><span class="tok-p">;</span>&#x000A;    <span class="tok-kn">ssl_certificate_key</span> <span class="tok-s">/etc/nginx/ssl/example.com/example_com.key</span><span class="tok-p">;</span>&#x000A;    <span class="tok-kn">ssl_session_timeout</span> <span class="tok-mi">5m</span><span class="tok-p">;</span>&#x000A;    <span class="tok-kn">ssl_protocols</span> <span class="tok-s">TLSv1</span> <span class="tok-s">TLSv1.1</span> <span class="tok-s">TLSv1.2</span><span class="tok-p">;</span>&#x000A;    <span class="tok-kn">ssl_prefer_server_ciphers</span> <span class="tok-no">on</span><span class="tok-p">;</span>&#x000A;    <span class="tok-kn">ssl_ciphers</span> <span class="tok-s">&#39;ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-DSS-AES128-GCM-SHA256:kEDH+AESGCM:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA384:ECDHE-RSA-AES256-SHA:ECDHE-ECDSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-DSS-AES128-SHA256:DHE-RSA-AES256-SHA256:DHE-DSS-AES256-SHA:DHE-RSA-AES256-SHA:!aNULL:!eNULL:!EXPORT:!DES:!RC4:!3DES:!MD5:!PSK&#39;</span><span class="tok-p">;</span>&#x000A;    <span class="tok-kn">ssl_session_cache</span> <span class="tok-s">shared:SSL:10m</span><span class="tok-p">;</span>&#x000A;    <span class="tok-kn">ssl_dhparam</span> <span class="tok-s">/etc/ssl/dhparam.pem</span><span class="tok-p">;</span>&#x000A;    <span class="tok-kn">ssl_stapling</span> <span class="tok-no">on</span><span class="tok-p">;</span>&#x000A;    <span class="tok-kn">ssl_stapling_verify</span> <span class="tok-no">on</span><span class="tok-p">;</span>&#x000A;&#x000A;<span class="tok-p">}</span></code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Before activating the HTTPS site, the configuration for the front-end and back-end have to be updated;
-change the scheme from <code>http</code> to <code>https</code>.</p>
+<p>Before activating the HTTPS site, the configuration for the frontend and the backend must be updated.
+Change the scheme from <code>http</code> to <code>https</code> throughout the configurations.</p>
 </div>
 <div class="listingblock">
-<div class="title">Update ~/taiga-back/settings/local.py</div>
+<div class="title">Update <code>~/taiga-back/settings/local.py</code></div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="python"><span></span><span class="tok-kn">from</span> <span class="tok-nn">.common</span> <span class="tok-kn">import</span> <span class="tok-o">*</span>&#x000A;&#x000A;<span class="tok-n">MEDIA_URL</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;https://example.com/media/&quot;</span>&#x000A;<span class="tok-n">STATIC_URL</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;https://example.com/static/&quot;</span>&#x000A;<span class="tok-n">SITES</span><span class="tok-p">[</span><span class="tok-s2">&quot;front&quot;</span><span class="tok-p">][</span><span class="tok-s2">&quot;scheme&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;https&quot;</span>&#x000A;<span class="tok-n">SITES</span><span class="tok-p">[</span><span class="tok-s2">&quot;front&quot;</span><span class="tok-p">][</span><span class="tok-s2">&quot;domain&quot;</span><span class="tok-p">]</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;example.com&quot;</span>&#x000A;&#x000A;<span class="tok-n">SECRET_KEY</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;theveryultratopsecretkey&quot;</span>&#x000A;&#x000A;<span class="tok-n">DEBUG</span> <span class="tok-o">=</span> <span class="tok-bp">False</span>&#x000A;<span class="tok-n">PUBLIC_REGISTER_ENABLED</span> <span class="tok-o">=</span> <span class="tok-bp">True</span>&#x000A;&#x000A;<span class="tok-n">DEFAULT_FROM_EMAIL</span> <span class="tok-o">=</span> <span class="tok-s2">&quot;no-reply@example.com&quot;</span>&#x000A;<span class="tok-n">SERVER_EMAIL</span> <span class="tok-o">=</span> <span class="tok-n">DEFAULT_FROM_EMAIL</span>&#x000A;&#x000A;<span class="tok-c1"># Uncomment and populate with proper connection parameters</span>&#x000A;<span class="tok-c1"># for enable email sending.</span>&#x000A;<span class="tok-c1">#EMAIL_BACKEND = &quot;django.core.mail.backends.smtp.EmailBackend&quot;</span>&#x000A;<span class="tok-c1">#EMAIL_USE_TLS = False</span>&#x000A;<span class="tok-c1">#EMAIL_HOST = &quot;localhost&quot;</span>&#x000A;<span class="tok-c1">#EMAIL_HOST_USER = &quot;&quot;</span>&#x000A;<span class="tok-c1">#EMAIL_HOST_PASSWORD = &quot;&quot;</span>&#x000A;<span class="tok-c1">#EMAIL_PORT = 25</span>&#x000A;&#x000A;<span class="tok-c1"># Uncomment and populate with proper connection parameters</span>&#x000A;<span class="tok-c1"># for enable github login/singin.</span>&#x000A;<span class="tok-c1">#GITHUB_API_CLIENT_ID = &quot;yourgithubclientid&quot;</span>&#x000A;<span class="tok-c1">#GITHUB_API_CLIENT_SECRET = &quot;yourgithubclientsecret&quot;</span></code></pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Restart circus after updating the configuration</div>
+<div class="title">Update <code>~/taiga-front-dist/dist/conf.json</code></div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>&#x000A;    <span class="tok-nt">&quot;api&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;https://example.com/api/v1/&quot;</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;eventsUrl&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;wss://example.com/events&quot;</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;debug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;true&quot;</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;publicRegisterEnabled&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;feedbackEnabled&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;privacyPolicyUrl&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;termsOfServiceUrl&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;maxUploadFileSize&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span>&#x000A;<span class="tok-p">}</span></code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Restart circus after updating the configuration:</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="bash"><span></span>sudo service circusd restart</code></pre>
 </div>
 </div>
 <div class="listingblock">
-<div class="title">Update ~/taiga-front-dist/dist/conf.json</div>
-<div class="content">
-<pre class="pygments highlight"><code data-lang="json"><span></span><span class="tok-p">{</span>&#x000A;    <span class="tok-nt">&quot;api&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;https://example.com/api/v1/&quot;</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;eventsUrl&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;wss://example.com/events&quot;</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;debug&quot;</span><span class="tok-p">:</span> <span class="tok-s2">&quot;true&quot;</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;publicRegisterEnabled&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;feedbackEnabled&quot;</span><span class="tok-p">:</span> <span class="tok-kc">true</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;privacyPolicyUrl&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;termsOfServiceUrl&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span><span class="tok-p">,</span>&#x000A;    <span class="tok-nt">&quot;maxUploadFileSize&quot;</span><span class="tok-p">:</span> <span class="tok-kc">null</span>&#x000A;<span class="tok-p">}</span></code></pre>
-</div>
-</div>
-<div class="paragraph">
-<p>And nginx:</p>
-</div>
-<div class="listingblock">
-<div class="title">Reload the nginx configuration</div>
+<div class="title">Reload the nginx configuration:</div>
 <div class="content">
 <pre class="pygments highlight"><code data-lang="bash"><span></span>sudo service nginx reload</code></pre>
 </div>
@@ -1122,11 +1192,53 @@ change the scheme from <code>http</code> to <code>https</code>.</p>
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_troubleshooting">9. Troubleshooting</h2>
+<div class="sectionbody">
+<div class="ulist">
+<div class="title">If you face any issue during or after installing Taiga, please collect the content of the following files:</div>
+<ul>
+<li>
+<p><code>/etc/nginx/conf.d/taiga.conf</code></p>
+</li>
+<li>
+<p><code>/etc/circus/conf.d/taiga.ini</code></p>
+</li>
+<li>
+<p><code>/etc/circus/conf.d/taiga-celery.ini</code></p>
+</li>
+<li>
+<p><code>/etc/circus/conf.d/taiga-events.ini</code></p>
+</li>
+<li>
+<p><code>/home/taiga/taiga-back/settings/local.py</code></p>
+</li>
+<li>
+<p><code>/home/taiga/taiga-front-dist/dist/conf.json</code></p>
+</li>
+<li>
+<p><code>/home/taiga/taiga-events/config.json</code></p>
+</li>
+<li>
+<p>All files in <code>/home/taiga/logs</code></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="title">Issue the following commands to check the status of services used by Taiga:</div>
+<div class="content">
+<pre class="pygments highlight"><code data-lang="bash"><span></span>sudo service nginx status&#x000A;sudo service circusd status&#x000A;sudo service rabbitmq-server status&#x000A;sudo service postgresql status</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Check If you see any error in the service statuses and make sure all service status is Active.</p>
+</div>
+</div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-28 10:35:40 CEST
+Last updated 2017-07-28 10:36:47 CEST
 </div>
 </div>
 </div>
