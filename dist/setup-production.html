@@ -619,9 +619,6 @@ and each one has its own dependencies both at compile time and runtime:</p>
 </ul>
 </div>
 <div class="paragraph">
-<p>Each component can be either run on one unique machine</p>
-</div>
-<div class="paragraph">
 <p>Each component can be run on one unique machine or all of them can be installed to a different machine aswell.
 In this tutorial we will setup everything on one single machine, installing all three Taiga components.
 This type of setup should suffice for small/medium production environments.</p>
@@ -695,7 +692,7 @@ The communication between the front- and backend is done using APIs.</p>
 </div>
 <div class="paragraph">
 <p>The backend is then publicly exposed by nginx which acts as a reverse-proxy for this case.
-The frontend is located in the <code>dist</code> folder and is exposed publcy by nginx which acts as a static webserver for this case.</p>
+The frontend is located in the <code>dist</code> folder and is exposed publicly by nginx which acts as a static webserver for this case.</p>
 </div>
 </div>
 </div>
@@ -723,7 +720,7 @@ In this section we will install all dependencies for all modules, including the 
 <div class="listingblock">
 <div class="title">Python (3.5) and virtualenvwrapper must be installed along with a few third-party libraries:</div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>sudo apt-get install -y python3 python3-pip python-dev python3-dev python-pip virtualenvwrapper&#x000A;sudo apt-get install -y libxml2-dev libxslt-dev</code></pre>
+<pre class="pygments highlight"><code data-lang="bash"><span></span>sudo apt-get install -y python3 python3-pip python-dev python3-dev python-pip virtualenvwrapper&#x000A;sudo apt-get install -y libxml2-dev libxslt-dev&#x000A;sudo apt-get install -y libssl-dev libffi-dev</code></pre>
 </div>
 </div>
 <div class="admonitionblock note">
@@ -770,7 +767,7 @@ The installation must be done with the <code>taiga</code> user.
 <div class="listingblock">
 <div class="title">Configure postgresql with the initial user and database:</div>
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>sudo -u postgres createuser taiga&#x000A;sudo -u postgres createdb taiga -O taiga</code></pre>
+<pre class="pygments highlight"><code data-lang="bash"><span></span>sudo -u postgres createuser taiga&#x000A;sudo -u postgres createdb taiga -O taiga --encoding<span class="tok-o">=</span><span class="tok-s1">&#39;utf-8&#39;</span> --locale<span class="tok-o">=</span>en_US.utf8 --template<span class="tok-o">=</span>template0</code></pre>
 </div>
 </div>
 <div class="listingblock">
@@ -1238,7 +1235,7 @@ Change the scheme from <code>http</code> to <code>https</code> throughout the co
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-07-28 10:36:47 CEST
+Last updated 2017-11-27 15:12:14 CET
 </div>
 </div>
 </div>
