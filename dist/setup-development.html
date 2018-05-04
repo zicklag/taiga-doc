@@ -10,7 +10,7 @@
 <meta content="IE=edge" http-equiv="X-UA-Compatible">
 <![endif]-->
 <meta content="width=device-width, initial-scale=1.0" name="viewport">
-<meta content="Asciidoctor 1.5.6.1" name="generator">
+<meta content="Asciidoctor 1.5.6.2" name="generator">
 <title>Taiga: Setup development environment</title>
 <style>/* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
 /* Remove comment around @import statement below when using as a custom stylesheet */
@@ -626,7 +626,7 @@ C compiler and development headers.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="pygments highlight"><code data-lang="bash"><span></span>sudo apt-get install -y build-essential binutils-doc autoconf flex bison libjpeg-dev&#x000A;sudo apt-get install -y libfreetype6-dev zlib1g-dev libzmq3-dev libgdbm-dev libncurses5-dev&#x000A;sudo apt-get install -y automake libtool libffi-dev curl git tmux gettext</code></pre>
+<pre class="pygments highlight"><code data-lang="bash"><span></span>sudo apt-get install -y build-essential binutils-doc autoconf flex bison libjpeg-dev&#x000A;sudo apt-get install -y libfreetype6-dev zlib1g-dev libzmq3-dev libgdbm-dev libncurses5-dev&#x000A;sudo apt-get install -y automake libtool libffi-dev libssl-dev curl git tmux gettext</code></pre>
 </div>
 </div>
 </div>
@@ -708,10 +708,12 @@ configuration file to overwrite any setting in <code>settings/common.py</code>.<
 </div>
 <div class="paragraph">
 <p>For a basic configuration that works with these instructions, simply copy
-settings/local.py.example to settings/local.py.</p>
+<code>settings/local.py.example</code> to <code>settings/local.py</code>
+(but remember to edit your postgresql password, to match what you picked for the
+<code>CREATE ROLE taiga LOGIN PASSWORD</code> command above).</p>
 </div>
 <div class="paragraph">
-<p>Otherwise, just put this in your own ~/taiga-back/settings/local.py</p>
+<p>Otherwise, just put this in your own <code>~/taiga-back/settings/local.py</code></p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1056,7 +1058,7 @@ dependencies again.
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2017-11-27 15:12:15 CET
+Last updated 2018-05-04 12:13:02 CEST
 </div>
 </div>
 </div>
