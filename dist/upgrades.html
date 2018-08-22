@@ -498,6 +498,10 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <a href="#_3_2_3_3_3_x">3.2.3 &gt; 3.3.x</a>
 
 </li>
+<li>
+<a href="#_3_3_0_3_4_x">3.3.0 &gt; 3.4.x</a>
+
+</li>
 </ul>
 </div>
 </div>
@@ -863,10 +867,29 @@ given by celery creators here:
 </div>
 </div>
 </div>
+<div class="sect1">
+<h2 id="_3_3_0_3_4_x">3.3.0 &gt; 3.4.x</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Follow the default process.</p>
+</div>
+<div class="paragraph">
+<p>The migration could take a long time if you have a large database.</p>
+</div>
+<div class="paragraph">
+<p>You should to reload the fixtures with:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>cd taiga-back&#x000A;workon taiga&#x000A;python manage.py loaddata initial_project_templates --traceback</pre>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2018-05-28 13:57:48 CEST
+Last updated 2018-08-22 15:53:03 CEST
 </div>
 </div>
 </div>
